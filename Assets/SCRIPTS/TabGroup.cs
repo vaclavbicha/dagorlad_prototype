@@ -5,7 +5,7 @@ using UnityEngine;
 public class TabGroup : MonoBehaviour
 {
     public List<TabButton> tabButtons;
-    
+
     public void Subscribe(TabButton button)
     {
         if(tabButtons == null)
@@ -15,7 +15,6 @@ public class TabGroup : MonoBehaviour
 
         tabButtons.Add(button);
     }
-
 
     public void OnTabEnter(TabButton button)
     {
@@ -31,5 +30,4 @@ public class TabGroup : MonoBehaviour
     {
 
     }
-
 }
