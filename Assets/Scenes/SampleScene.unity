@@ -348,7 +348,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 236915497}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 269567493}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: First
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &236915497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36d4e85299083a46a0092501914aa16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tabGroup: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &269567490
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 269567492}
   - component: {fileID: 269567491}
+  - component: {fileID: 269567493}
   m_Layer: 0
   m_Name: MAP_01_4096
   m_TagString: Untagged
@@ -483,6 +498,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &269567493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269567490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ed2f8fab6f254479f627442ae0d961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &284995314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,9 +1044,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7cc621d18ed2243b1e34fd9383b0d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f2fe5b6d51c915479e0fbb8565032ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
+  zoomStep: 0
+  minCamSize: 0
+  maxCamSize: 0
+  mapRenderer: {fileID: 269567491}
 --- !u!1 &524711877
 GameObject:
   m_ObjectHideFlags: 0
