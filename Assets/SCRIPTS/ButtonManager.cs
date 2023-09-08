@@ -39,6 +39,8 @@ public class ButtonManager : MonoBehaviour
         panel_attack.SetActive(false);
         panel_defence.SetActive(false);
         moveButton();
+        //https://cirdanshipbuilder631267.invisionapp.com/console/share/B736F4MJZK/830660512
+        //https://drive.google.com/drive/folders/1enfmH4Zeo32RitxtDQ-hJKEDcOxnDWtL
     }
 
     void moveButton()
