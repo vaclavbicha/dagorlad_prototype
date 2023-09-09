@@ -41,6 +41,7 @@ public class ButtonManager : MonoBehaviour
         moveButton();
         //https://cirdanshipbuilder631267.invisionapp.com/console/share/B736F4MJZK/830660512
         //https://drive.google.com/drive/folders/1enfmH4Zeo32RitxtDQ-hJKEDcOxnDWtL
+        //fix scroll snap vertical 
     }
 
     void moveButton()
