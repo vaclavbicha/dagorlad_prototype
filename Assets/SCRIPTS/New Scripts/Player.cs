@@ -4,33 +4,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
+
     public enum LocationType {  Defense, Attack, Resource }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public enum LocationStatus { NONE, Free, Selected, Building, Built }
+    public enum DefenseTypes { Tower0, Tower1, Tower2, Tower3 }
 
-    // Update is called once per frame
-    void Update()
+    public List<MapLocation> Locations = new List<MapLocation>();
+    private void Awake()
     {
-        
-    }
-    public void SpawnBuilding(string arg)
-    {
-
-    }
-    public struct Base
-    {
-        public List<Attribute> Attributes;
-    }
-    public struct Attribute
-    {
-        public List<Location> Locations;
-    }
-    public struct Location
-    {
-        public LocationType locationType;
-        public Vector3 position;
+        // If there is an instance, and it's not me, delete myself.
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 }
