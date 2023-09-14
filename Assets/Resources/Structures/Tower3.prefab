@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3378753580793070684}
   - component: {fileID: 3675905143698288316}
+  - component: {fileID: 2277071431090342595}
   m_Layer: 0
-  m_Name: Build2
+  m_Name: Tower3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 459d66e30c3a7b640970473b2c568fac, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.053014755, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,3 +85,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2277071431090342595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712121292194843664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290d22b87e62145d48bf489ed8eccbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingName: Build3
+  Icon: {fileID: 21300000, guid: 147bbf05397f09c4bbe1c0663c76fa77, type: 3}
+  locationType: 0
+  cost:
+  - type: 1
+    value: 5
+  - type: 3
+    value: 15

@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public MapLocation currentSelected;
 
     public GameObject dialogWindow;
+    public GameObject topPanel;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -23,12 +25,12 @@ public class UIManager : MonoBehaviour
             Instance = this;
         }
     }
-
     public void OnCloseBuildingWindow()
     {
         window.gameObject.SetActive(false);
         DeselectLocation();
     }
+
     public void OnSelectLocation(string arg)
     {
         Debug.Log("UI MANAGER " + arg);
@@ -37,10 +39,10 @@ public class UIManager : MonoBehaviour
         var location_type = toks[1];
 
         DeselectLocation();
-        currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.isVisisble && x.id == location_id && x.type == (Player.LocationType)System.Enum.Parse(typeof(Player.LocationType), location_type));
+        currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.isVisisble && x.id == location_id && x.type == (Utility.LocationType)System.Enum.Parse(typeof(Utility.LocationType), location_type));
         if (currentSelected)
         {
-            currentSelected.status = Player.LocationStatus.Selected;
+            currentSelected.selectionStatus = Utility.LocationSelectionStatus.Selected;
             window.ActivateWindow(location_id, location_type);
         }
         else DialogWindow("Selected Location not visible on screen");
@@ -48,7 +50,7 @@ public class UIManager : MonoBehaviour
 
     public void DeselectLocation()
     {
-        if(currentSelected) currentSelected.status = Player.LocationStatus.NONE;
+        if(currentSelected) currentSelected.status = Utility.LocationStatus.NONE;
         currentSelected = null;
     }
 
@@ -56,6 +58,7 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.SpawnBuilding(buildingName, currentSelected);
     }
+
     public void DialogWindow(string message)
     {
         dialogWindow.SetActive(true);

@@ -10,9 +10,10 @@ public class MapLocation : MonoBehaviour
     public int baseID;
     public bool isVisisble;
     public Player owner;
-    public Player.LocationType type;
-    public Player.LocationStatus status;
-    public GameObject building;
+    public Utility.LocationType type;
+    public Utility.LocationStatus status;
+    public Utility.LocationSelectionStatus selectionStatus;
+    public GameObject building = null;
 
     SpriteRenderer sprite;
     Color color;
@@ -26,7 +27,7 @@ public class MapLocation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        color = status == Player.LocationStatus.Selected ? Color.red : Color.white;
+        color = selectionStatus == Utility.LocationSelectionStatus.Selected ? Color.red : Color.white;
 
         var screenPosition = mainCamera.WorldToScreenPoint(transform.position);
         isVisisble = !(screenPosition.x <= 10 || screenPosition.x >= Screen.width || screenPosition.y <= 10 || screenPosition.y >= Screen.height);
@@ -38,7 +39,14 @@ public class MapLocation : MonoBehaviour
 
     public void SpawnBuilding(GameObject buildingPrefab)
     {
-        building = Instantiate(buildingPrefab, transform.position, Quaternion.identity);
-        status = Player.LocationStatus.Building;
+        if (building == null && selectionStatus == Utility.LocationSelectionStatus.Selected)
+        {
+            building = Instantiate(buildingPrefab, transform.position, Quaternion.identity);
+            status = Utility.LocationStatus.Building;
+        }
+        else
+        {
+            UIManager.Instance.DialogWindow("This location all ready has a building on it");
+        }
     }
 }

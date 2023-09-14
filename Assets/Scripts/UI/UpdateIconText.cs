@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpdateIconText : MonoBehaviour
 {
+    public Image Icon;
     public TextMeshProUGUI text;
-    public float Current_Value = 0f;
+    public int currentValue = 0;
 
-    public void UpdateCostValue(float value)
+    public void UpdateDisplay(int value, GameObject sender)
     {
-        Current_Value = value;
+        currentValue = value;
         text.text = value.ToString();
     }
 }
