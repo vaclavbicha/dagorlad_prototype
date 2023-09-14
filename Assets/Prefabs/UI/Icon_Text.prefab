@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1899472416773242086}
   - component: {fileID: 2307801791372658747}
   - component: {fileID: 8801024307222727572}
+  - component: {fileID: 528225121932490389}
   m_Layer: 5
-  m_Name: Cost
+  m_Name: Icon_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,6 +105,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &528225121932490389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186591540779793480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8373c207202284927b50aec9b56e6efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 8867734649685759827}
+  text: {fileID: 326539067238483707}
+  currentValue: 0
 --- !u!1 &3589981615457469300
 GameObject:
   m_ObjectHideFlags: 0
