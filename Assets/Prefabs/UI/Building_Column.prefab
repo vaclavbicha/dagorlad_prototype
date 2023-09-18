@@ -123,7 +123,7 @@ MonoBehaviour:
       - m_Target: {fileID: 8385326674061418618}
         m_TargetAssemblyTypeName: BuildingColumn, Assembly-CSharp
         m_MethodName: OnBuy
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   array: []
+  currentBuildingName: default
 --- !u!1 &3358469059256040806
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +658,30 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSize
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6380666476928294499, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_Name
       value: Cost_0
@@ -810,6 +835,30 @@ PrefabInstance:
     - target: {fileID: 5771302528218518899, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSize
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6380666476928294499, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_Name
@@ -965,6 +1014,30 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSize
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6380666476928294499, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_Name
       value: Cost_2
@@ -1118,6 +1191,30 @@ PrefabInstance:
     - target: {fileID: 5771302528218518899, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSize
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6380666476928294499, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_Name

@@ -102,6 +102,6 @@ MonoBehaviour:
   locationType: 0
   cost:
   - type: 2
-    value: 10
+    value: 1000
   - type: 3
     value: 15

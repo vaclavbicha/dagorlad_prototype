@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3378753580793070684}
   - component: {fileID: 3675905143698288316}
-  - component: {fileID: -3892773579170166141}
+  - component: {fileID: 7890590847526056274}
   m_Layer: 0
-  m_Name: Tower1
+  m_Name: Resource2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 21300000, guid: 459d66e30c3a7b640970473b2c568fac, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fc6c6b4b1207717479a64e53697bfb76, type: 3}
+  m_Color: {r: 0.034243345, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3892773579170166141
+--- !u!114 &7890590847526056274
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,13 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290d22b87e62145d48bf489ed8eccbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingName: Build1
-  Icon: {fileID: 21300000, guid: 4628fa98cd898ab488a6e20dc0b9e1b2, type: 3}
-  locationType: 0
+  buildingName: Resource2
+  Icon: {fileID: 21300000, guid: 5234bdae00fa1496dbdc05d619cb7992, type: 3}
+  locationType: 2
   cost:
   - type: 1
-    value: 10
-  - type: 2
-    value: 5
+    value: 1
   - type: 3
-    value: 10
+    value: 7

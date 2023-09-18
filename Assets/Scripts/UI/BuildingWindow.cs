@@ -27,6 +27,7 @@ public class BuildingWindow : MonoBehaviour
                 j++;
             }
             transform.GetChild(0).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetChild(0).GetComponent<Image>().sprite = obj.Icon;
+            transform.GetChild(0).GetChild(i).GetComponent<BuildingColumn>().currentBuildingName = obj.buildingName;
             i++;
         }
     }

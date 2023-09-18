@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
 
     public void DeselectLocation()
     {
-        if(currentSelected) currentSelected.status = Utility.LocationStatus.NONE;
+        if (currentSelected) currentSelected.selectionStatus = Utility.LocationSelectionStatus.Unselected;
         currentSelected = null;
     }
 

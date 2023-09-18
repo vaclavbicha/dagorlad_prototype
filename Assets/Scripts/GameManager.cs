@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     //public Dictionary<string, Structure> buildings = new Dictionary<string, Structure>();
 
     public List<Sprite> resourceSprites = new List<Sprite>();
-    public int[] startingAmounts = new[] { 50, 100, 150, 200 };
+    public int[] startingAmounts = new[] { 500, 1000, 1500, 2000 };
     
     private void Awake()
     {
@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     }
     public void SpawnBuilding(string building, MapLocation location)
     {
+        Debug.Log(building);
         var buildingPrefab = buildings.Find(x => x.buildingName == building);
         if (buildingPrefab)
         {

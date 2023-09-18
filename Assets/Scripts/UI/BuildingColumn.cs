@@ -5,8 +5,9 @@ using UnityEngine;
 public class BuildingColumn : MonoBehaviour
 {
     public UpdateIconText[] array;
-    public void OnBuy(string arg)
+    public string currentBuildingName = "default";
+    public void OnBuy()
     {
-        UIManager.Instance.OnBuyBuilding(arg);
+        UIManager.Instance.OnBuyBuilding(currentBuildingName);
     }
 }
