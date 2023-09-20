@@ -7,11 +7,16 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    public int currentBaseID = 1;
+
     public BuildingWindow window;
     public MapLocation currentSelected;
 
     public GameObject dialogWindow;
-    public GameObject topPanel;
+
+    public RectTransform bottomPanelContent;
+
+    public List<GameObject> bottomPanelButtons;
 
     private void Awake()
     {
@@ -31,15 +36,11 @@ public class UIManager : MonoBehaviour
         DeselectLocation();
     }
 
-    public void OnSelectLocation(string arg)
+    public void OnSelectLocation(int location_id, Utility.LocationType location_type)
     {
-        Debug.Log("UI MANAGER " + arg);
-        var toks = arg.Split(",");
-        var location_id = int.Parse(toks[0]);
-        var location_type = toks[1];
-
         DeselectLocation();
-        currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.isVisisble && x.id == location_id && x.type == (Utility.LocationType)System.Enum.Parse(typeof(Utility.LocationType), location_type));
+        Debug.Log(location_id);
+        currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.isVisisble && x.id == location_id && x.type == location_type);
         if (currentSelected)
         {
             currentSelected.selectionStatus = Utility.LocationSelectionStatus.Selected;
@@ -59,6 +60,12 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.SpawnBuilding(buildingName, currentSelected);
     }
 
+    public void InstantiateBottomMenu(MapLocation location)
+    {
+        var button = Instantiate(bottomPanelButtons.Find(x => x.GetComponent<ItemManager>().type == location.type), bottomPanelContent.Find(location.type.ToString()));
+        button.GetComponent<ItemManager>().locationID = location.id;
+        button.name = "Button_" + location.type.ToString() +  "_" + location.id.ToString();
+    }
     public void DialogWindow(string message)
     {
         dialogWindow.SetActive(true);

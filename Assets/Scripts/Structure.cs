@@ -8,4 +8,5 @@ public class Structure : MonoBehaviour
     public Sprite Icon;
     public Utility.LocationType locationType;
     public Amount[] cost;
+    public GameObject loadingBarPrefab;
 }

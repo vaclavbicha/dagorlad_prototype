@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
         //}
         buildings.AddRange(Resources.LoadAll<Structure>("Structures"));
         UpdatePlayerResources(Player.Instance, startingAmounts);
+
+        InstantiateBottomMenu();
     }
 
     private void UpdatePlayerResources(Player player, int[] newAmounts)
@@ -52,6 +54,13 @@ public class GameManager : MonoBehaviour
         for(int i = 0; i < newAmounts.Length; i++)
         {
             player.resources[i].AmountUpdate(newAmounts[i]);
+        }
+    }
+    public void InstantiateBottomMenu()
+    {
+        foreach(var x in ALL_Locations.FindAll(y => y.baseID == UIManager.Instance.currentBaseID))
+        {
+            UIManager.Instance.InstantiateBottomMenu(x);
         }
     }
     public void SpawnBuilding(string building, MapLocation location)
@@ -63,6 +72,7 @@ public class GameManager : MonoBehaviour
             if (Player.Instance.Buy(buildingPrefab.cost))
             {
                 location.SpawnBuilding(buildingPrefab.gameObject);
+                UIManager.Instance.OnCloseBuildingWindow();
             }
             else
             {

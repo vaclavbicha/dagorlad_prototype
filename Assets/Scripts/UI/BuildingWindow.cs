@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class BuildingWindow : MonoBehaviour
 {
-    public void ActivateWindow(int location_id, string location_type)
+    public void ActivateWindow(int location_id, Utility.LocationType location_type)
     {
         gameObject.SetActive(true);
         int i = 0;
         int j = 0;
-        foreach(var obj in GameManager.Instance.buildings.FindAll(x => x.locationType == (Utility.LocationType)System.Enum.Parse(typeof(Utility.LocationType), location_type)))
+        foreach(var obj in GameManager.Instance.buildings.FindAll(x => x.locationType == location_type))
         {
             j = 0;
             foreach(var cost in obj.cost)
