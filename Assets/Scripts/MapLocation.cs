@@ -58,7 +58,7 @@ public class MapLocation : MonoBehaviour
                 timer = gameObject.AddComponent<Timer>();
                 timer.AddTimer("Building", 15f, true);
                 loadingBar = Instantiate(buildingPrefab.GetComponent<Structure>().loadingBarPrefab,
-                    UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id).transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+                    UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type).transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
                 timer.On_PingAction += UpdateSlider;
                 timer.On_Duration_End += isDoneBuilding;
 
