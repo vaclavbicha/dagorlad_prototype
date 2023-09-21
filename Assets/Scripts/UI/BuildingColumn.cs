@@ -8,6 +8,6 @@ public class BuildingColumn : MonoBehaviour
     public string currentBuildingName = "default";
     public void OnBuy()
     {
-        UIManager.Instance.OnBuyBuilding(currentBuildingName);
+        UIManager.Instance.OnItemBuy(currentBuildingName);
     }
 }

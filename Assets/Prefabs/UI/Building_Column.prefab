@@ -129,7 +129,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Build1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2188283518653924812
@@ -664,7 +664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_fontSize
-      value: 170
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_fontSizeMax
@@ -842,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_fontSize
-      value: 170
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_fontSizeMax
@@ -1020,7 +1020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_fontSize
-      value: 170
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_fontSizeMax
@@ -1198,7 +1198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_fontSize
-      value: 170
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6156147497488324860, guid: 65e3a307951c04e1ab01104c48db59fd, type: 3}
       propertyPath: m_fontSizeMax

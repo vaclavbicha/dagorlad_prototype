@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public List<MapLocation> ALL_Locations = new List<MapLocation>();
 
     public List<Structure> buildings = new List<Structure>();
+    public List<Unit> units = new List<Unit>();
     //public Dictionary<string, Structure> buildings = new Dictionary<string, Structure>();
 
     public List<Sprite> resourceSprites = new List<Sprite>();
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
         //    buildings.Add(i.name, i.GetComponent<Structure>());
         //}
         buildings.AddRange(Resources.LoadAll<Structure>("Structures"));
+        units.AddRange(Resources.LoadAll<Unit>("Units"));
         UpdatePlayerResources(Player.Instance, startingAmounts);
 
         InstantiateBottomMenu();
@@ -63,10 +65,43 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.InstantiateBottomMenu(x);
         }
     }
-    public void SpawnBuilding(string building, MapLocation location)
+    public void ItemBuy(string itemName, MapLocation location)
     {
-        Debug.Log(building);
-        var buildingPrefab = buildings.Find(x => x.buildingName == building);
+        Debug.Log("Item bought with name:" + itemName);
+        if(buildings.Find(x => x.buildingName == itemName) != null)
+        {
+            var itemPrefab = buildings.Find(x => x.buildingName == itemName);
+            SpawnBuilding(itemName, location, itemPrefab);
+        }
+        else
+        {
+            if (units.Find(x => x.unitName == itemName) != null)
+            {
+                var itemPrefab = units.Find(x => x.unitName == itemName);
+                SpawnUnit(itemName, location, itemPrefab);
+            }
+        }
+    }
+    public void SpawnUnit(string unitName, MapLocation location, Unit unitPrefab)
+    {
+        if (unitPrefab)
+        {
+            if (Player.Instance.Buy(unitPrefab.cost))
+            {
+                location.SpawnUnit(unitPrefab.gameObject);
+                UIManager.Instance.OnCloseBuildingWindow();
+            }
+            else
+            {
+                UIManager.Instance.DialogWindow("Player cannot afford this UNIT");
+            }
+        }
+        else UIManager.Instance.DialogWindow("UNIT Prefab not found");
+    }
+    public void SpawnBuilding(string building, MapLocation location, Structure buildingPrefab)
+    {
+        //Debug.Log(building);
+        //var buildingPrefab = buildings.Find(x => x.buildingName == building);
         if (buildingPrefab)
         {
             if (Player.Instance.Buy(buildingPrefab.cost))

@@ -46,7 +46,10 @@ public class MapLocation : MonoBehaviour
 
         sprite.color = color;
     }
-
+    public void SpawnUnit(GameObject unitPrefab)
+    {
+        Instantiate(unitPrefab, building.GetComponent<Structure>().Rally_Point.transform.position, Quaternion.identity);
+    }
     public void SpawnBuilding(GameObject buildingPrefab)
     {
         if (building == null && selectionStatus == Utility.LocationSelectionStatus.Selected)

@@ -10,4 +10,6 @@ public class Structure : MonoBehaviour
     public Utility.LocationType locationType;
     public Amount[] cost;
     public GameObject loadingBarPrefab;
+    public GameObject Rally_Point;
+    public Utility.UnitTypes unitType;
 }

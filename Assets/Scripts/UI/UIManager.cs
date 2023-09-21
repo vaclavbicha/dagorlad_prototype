@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
         if (currentSelected)
         {
             currentSelected.selectionStatus = Utility.LocationSelectionStatus.Selected;
-            window.ActivateWindow(location_id, location_type);
+            window.ActivateWindow(location_id, location_type, currentSelected);
         }
         else DialogWindow("Selected Location not visible on screen");
     }
@@ -55,9 +55,10 @@ public class UIManager : MonoBehaviour
         currentSelected = null;
     }
 
-    public void OnBuyBuilding(string buildingName)
+    public void OnItemBuy(string itemName)
     {
-        GameManager.Instance.SpawnBuilding(buildingName, currentSelected);
+        //GameManager.Instance.SpawnBuilding(buildingName, currentSelected);
+        GameManager.Instance.ItemBuy(itemName, currentSelected);
     }
 
     public void InstantiateBottomMenu(MapLocation location)
