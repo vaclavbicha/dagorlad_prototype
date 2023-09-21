@@ -25,6 +25,8 @@ public class MapLocation : MonoBehaviour
     [SerializeField]
     public Slider loadingBar;
 
+    public ItemManager itemManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +58,10 @@ public class MapLocation : MonoBehaviour
             if (timer == null)
             {
                 timer = gameObject.AddComponent<Timer>();
-                timer.AddTimer("Building", 15f, true);
-                loadingBar = Instantiate(buildingPrefab.GetComponent<Structure>().loadingBarPrefab,
-                    UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type).transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+                timer.AddTimer("Building", 3f, true, 0.25f);
+
+                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+                loadingBar = Instantiate(buildingPrefab.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
                 timer.On_PingAction += UpdateSlider;
                 timer.On_Duration_End += isDoneBuilding;
 
@@ -81,5 +84,28 @@ public class MapLocation : MonoBehaviour
     {
         building.SetActive(true);
         status = Utility.LocationStatus.Built;
+
+        Destroy(timer);
+        Destroy(loadingBar.gameObject);
+
+        UpdateItemManager(true, building.GetComponent<Structure>());
+    }
+    public void UpdateItemManager(bool filling, Structure buttonIcon)
+    {
+        switch (buttonIcon.locationType)
+        {
+            case Utility.LocationType.Defense:
+                itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon.Icon;
+                itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
+                break;
+            case Utility.LocationType.Attack:
+                itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.Flag;
+                itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.Icon;
+                itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
+                break;
+            case Utility.LocationType.Resource:
+                break;
+        }
     }
 }

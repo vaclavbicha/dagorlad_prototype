@@ -9,6 +9,8 @@ public class ItemManager : MonoBehaviour
     public Utility.LocationType type;
 
     public GameObject top;
+    public GameObject mid;
+    public GameObject bottom;
 
     public void Start()
     {

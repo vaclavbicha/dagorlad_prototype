@@ -6,6 +6,7 @@ public class Structure : MonoBehaviour
 {
     public string buildingName;
     public Sprite Icon;
+    public Sprite Flag;
     public Utility.LocationType locationType;
     public Amount[] cost;
     public GameObject loadingBarPrefab;
