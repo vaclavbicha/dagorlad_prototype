@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2871883305320984312}
   - component: {fileID: 1103826770762345032}
+  - component: {fileID: -1969665871823211190}
   - component: {fileID: 2467180795165718603}
+  - component: {fileID: 8858834885921942295}
   m_Layer: 0
   m_Name: Basic_Unit 3
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.14413989, y: -1.8769741, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,6 +87,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1969665871823211190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6567885676609635861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5a41d521330420c892ccbd58362d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 1
+  TimeSpan: 0
+  Speed: 0.25
+  Lock: 0
+  Destination: {x: 0, y: 0, z: 0}
+  hasReach: 0
+  hasDestinations: 0
+  Destinations: []
+  TransformDestination: {fileID: 0}
+  StartTime: 0
+  StartPosition: {x: 0, y: 0, z: 0}
+  Distance: 0
+  CalculatedDistance: 0
+  TravelTime: 0
 --- !u!114 &2467180795165718603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,9 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3266c1c8f8184d5ab0e883fdcfcda6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: 1
-  Icon: {fileID: 21300000, guid: feb1daca5422f498a8ad69f91e0271ec, type: 3}
-  type: 3
+  unitName: 3
+  Icon: {fileID: 21300000, guid: f191b9cbca2014595b26737e1aa8ba15, type: 3}
+  type: 1
   cost:
   - type: 0
     value: 10
@@ -109,3 +137,33 @@ MonoBehaviour:
     value: 5
   - type: 0
     value: 5
+  moveTo: {fileID: 0}
+  rangeOrigin: {fileID: 0}
+  range: 0
+--- !u!50 &8858834885921942295
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6567885676609635861}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

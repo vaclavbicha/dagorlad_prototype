@@ -16,6 +16,7 @@ public class MapLocation : MonoBehaviour
     public Utility.LocationStatus status;
     public Utility.LocationSelectionStatus selectionStatus;
     public GameObject building = null;
+    public GameObject trainingUnit = null;
 
     SpriteRenderer sprite;
     Color color;
@@ -48,7 +49,34 @@ public class MapLocation : MonoBehaviour
     }
     public void SpawnUnit(GameObject unitPrefab)
     {
-        Instantiate(unitPrefab, building.GetComponent<Structure>().Rally_Point.transform.position, Quaternion.identity);
+        if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected)
+        {
+            trainingUnit = Instantiate(unitPrefab, building.GetComponent<Structure>().Rally_Point.transform.position, Quaternion.identity);
+            trainingUnit.GetComponent<Unit>().rangeOrigin = building.GetComponent<Structure>().Rally_Point.transform;
+            trainingUnit.GetComponent<Unit>().range = 0.2f; ;
+            trainingUnit.SetActive(false);
+            status = Utility.LocationStatus.Training;
+
+            if (timer == null)
+            {
+                timer = gameObject.AddComponent<Timer>();
+                timer.AddTimer("Training", 2f, true, 0.25f);
+
+                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+                loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+                timer.On_PingAction += UpdateSlider;
+                timer.On_Duration_End += isDoneTraining;
+
+            }
+            else
+            {
+                UIManager.Instance.DialogWindow("This location all ready is traning troops");
+            }
+        }
+        else
+        {
+            UIManager.Instance.DialogWindow("This location all ready has a building on it");
+        }
     }
     public void SpawnBuilding(GameObject buildingPrefab)
     {
@@ -82,6 +110,14 @@ public class MapLocation : MonoBehaviour
     public void UpdateSlider(Timer _timer)
     {
         loadingBar.value = Mathf.Abs((Time.time - _timer.timeStarted) / (_timer.timeStarted - _timer.timeFinish));
+    }
+    public void isDoneTraining(Timer _timer)
+    {
+        trainingUnit.SetActive(true);
+        status = Utility.LocationStatus.Built;
+
+        Destroy(timer);
+        Destroy(loadingBar.gameObject);
     }
     public void isDoneBuilding(Timer _timer)
     {
