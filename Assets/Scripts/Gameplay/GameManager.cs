@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
 
     public List<Sprite> resourceSprites = new List<Sprite>();
     public int[] startingAmounts = new[] { 500, 1000, 1500, 2000 };
-    
+
+    public GameObject flagPrefab;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.

@@ -51,9 +51,10 @@ public class MapLocation : MonoBehaviour
     {
         if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected)
         {
-            trainingUnit = Instantiate(unitPrefab, building.GetComponent<Structure>().Rally_Point.transform.position, Quaternion.identity);
-            trainingUnit.GetComponent<Unit>().rangeOrigin = building.GetComponent<Structure>().Rally_Point.transform;
-            trainingUnit.GetComponent<Unit>().range = 0.2f; ;
+            trainingUnit = Instantiate(unitPrefab, transform.position, Quaternion.identity);//building.GetComponent<Structure>().Rally_Point.transform.position, Quaternion.identity);
+            //trainingUnit.GetComponent<Unit>().rangeOrigin = building.GetComponent<Structure>().Rally_Point.transform;
+            //trainingUnit.GetComponent<Unit>().range = 0.2f;
+            trainingUnit.GetComponent<MoveTo>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
             trainingUnit.SetActive(false);
             status = Utility.LocationStatus.Training;
 
@@ -83,6 +84,8 @@ public class MapLocation : MonoBehaviour
         if (building == null && selectionStatus == Utility.LocationSelectionStatus.Selected)
         {
             building = Instantiate(buildingPrefab, transform.position, Quaternion.identity);
+            building.GetComponent<Structure>().Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f,0.5f,0f), Quaternion.identity);
+            building.GetComponent<Structure>().Rally_Point.GetComponent<MoveTo>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
             building.SetActive(false);
             status = Utility.LocationStatus.Building;
 
@@ -142,6 +145,11 @@ public class MapLocation : MonoBehaviour
                 itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                 itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.Icon;
                 itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
+                var x = itemManager.bottom.GetComponentsInChildren<DragDrop>();
+                Debug.Log(x.Length);
+                x[0].GetComponent<Image>().enabled = true;
+                x[1].GetComponent<Image>().enabled = true;
+                x[0].RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
                 break;
             case Utility.LocationType.Resource:
                 break;

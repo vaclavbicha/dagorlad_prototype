@@ -18,8 +18,8 @@ public class Unit : MonoBehaviour
     void Start()
     {
         moveTo = GetComponent<MoveTo>();
-        moveTo.On_FinalDestinationReach += RandomBetween;
-        moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
+        //moveTo.On_FinalDestinationReach += RandomBetween;
+        //moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
     }
 
     // Update is called once per frame
