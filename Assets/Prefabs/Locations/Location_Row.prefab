@@ -113,10 +113,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
+  baseID: 0
+  isVisisble: 0
   owner: {fileID: 0}
   type: 0
   status: 0
+  selectionStatus: 0
   building: {fileID: 0}
+  trainingUnit: {fileID: 0}
+  timer: {fileID: 0}
+  loadingBar: {fileID: 0}
+  itemManager: {fileID: 0}
 --- !u!4 &6932416860328918596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9178106604537606340, guid: 62d776542441c41cf999279fa4f1ceff, type: 3}
@@ -205,10 +212,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
+  baseID: 0
+  isVisisble: 0
   owner: {fileID: 0}
   type: 0
   status: 0
+  selectionStatus: 0
   building: {fileID: 0}
+  trainingUnit: {fileID: 0}
+  timer: {fileID: 0}
+  loadingBar: {fileID: 0}
+  itemManager: {fileID: 0}
 --- !u!1001 &3530698759655160098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,10 +306,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  baseID: 0
+  isVisisble: 0
   owner: {fileID: 0}
   type: 0
   status: 0
+  selectionStatus: 0
   building: {fileID: 0}
+  trainingUnit: {fileID: 0}
+  timer: {fileID: 0}
+  loadingBar: {fileID: 0}
+  itemManager: {fileID: 0}
 --- !u!1001 &7253720404536260189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -379,7 +400,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
+  baseID: 0
+  isVisisble: 0
   owner: {fileID: 0}
   type: 0
   status: 0
+  selectionStatus: 0
   building: {fileID: 0}
+  trainingUnit: {fileID: 0}
+  timer: {fileID: 0}
+  loadingBar: {fileID: 0}
+  itemManager: {fileID: 0}

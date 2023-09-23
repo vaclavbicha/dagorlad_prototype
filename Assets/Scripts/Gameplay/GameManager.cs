@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
             var locations = bases[i].GetComponentsInChildren<MapLocation>();
             foreach(var location in locations)
             {
-                location.baseID = i;
+                location.baseID = i + 1;
             }
             ALL_Locations.AddRange(locations);
         }
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
         units.AddRange(Resources.LoadAll<Unit>("Units"));
         UpdatePlayerResources(Player.Instance, startingAmounts);
 
+        UIManager.Instance.currentBaseID = 1;
         InstantiateBottomMenu();
     }
 
@@ -62,7 +64,15 @@ public class GameManager : MonoBehaviour
     }
     public void InstantiateBottomMenu()
     {
-        foreach(var x in ALL_Locations.FindAll(y => y.baseID == UIManager.Instance.currentBaseID))
+        for(int i = 0; i < UIManager.Instance.bottomPanelContent.childCount; i ++)
+        {
+            foreach(var child2 in UIManager.Instance.bottomPanelContent.GetChild(i).GetComponentsInChildren<ItemManager>())
+            {
+                DestroyImmediate(child2.gameObject);
+            }
+        }
+
+        foreach (var x in ALL_Locations.FindAll(y => y.baseID == UIManager.Instance.currentBaseID))
         {
             UIManager.Instance.InstantiateBottomMenu(x);
         }

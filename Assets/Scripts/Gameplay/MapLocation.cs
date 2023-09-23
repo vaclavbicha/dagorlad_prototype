@@ -84,8 +84,11 @@ public class MapLocation : MonoBehaviour
         if (building == null && selectionStatus == Utility.LocationSelectionStatus.Selected)
         {
             building = Instantiate(buildingPrefab, transform.position, Quaternion.identity);
-            building.GetComponent<Structure>().Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f,0.5f,0f), Quaternion.identity);
-            building.GetComponent<Structure>().Rally_Point.GetComponent<MoveTo>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
+            if (building.GetComponent<Structure>().locationType == Utility.LocationType.Attack)
+            {
+                building.GetComponent<Structure>().Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
+                building.GetComponent<Structure>().Rally_Point.GetComponent<MoveTo>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
+            }
             building.SetActive(false);
             status = Utility.LocationStatus.Building;
 
@@ -134,6 +137,12 @@ public class MapLocation : MonoBehaviour
     }
     public void UpdateItemManager(bool filling, Structure buttonIcon)
     {
+        if(timer != null)
+        {
+            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+            loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+            timer.On_PingAction += UpdateSlider;
+        }
         switch (buttonIcon.locationType)
         {
             case Utility.LocationType.Defense:
