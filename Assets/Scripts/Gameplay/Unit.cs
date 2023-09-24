@@ -8,6 +8,7 @@ public class Unit : MonoBehaviour
     public string unitName;
     public Sprite Icon;
     public Utility.UnitTypes type;
+    public Amount buildTime;
     public Amount[] cost;
     public MoveTo moveTo;
 

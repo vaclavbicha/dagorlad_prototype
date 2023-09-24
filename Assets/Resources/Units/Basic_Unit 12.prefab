@@ -128,6 +128,9 @@ MonoBehaviour:
   unitName: 12
   Icon: {fileID: 21300000, guid: ec3b48237ea3e42e9be992e197c4b39e, type: 3}
   type: 0
+  buildTime:
+    type: 4
+    value: 15
   cost:
   - type: 0
     value: 10
