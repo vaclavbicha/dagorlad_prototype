@@ -8,6 +8,7 @@ public class Structure : MonoBehaviour
     public Sprite Icon;
     public Sprite Flag;
     public Utility.LocationType locationType;
+    public Amount buildTime;
     public Amount[] cost;
     public GameObject loadingBarPrefab;
     public GameObject Rally_Point;

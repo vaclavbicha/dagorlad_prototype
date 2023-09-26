@@ -34,6 +34,7 @@ public class CameraController : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && !isMouseOverOverlayCanvas())
         {
+
             Difference = camera.ScreenToWorldPoint(Input.mousePosition) - camera.transform.position;
             if (!drag)
             {
@@ -63,6 +64,19 @@ public class CameraController : MonoBehaviour
             if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
         }
         return false;
+    }
+    private GameObject SearchRallyPoint()
+    {
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        pointerEventData.position = Input.mousePosition;
+
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+        foreach (var ev in raycastResults)
+        {
+            if (ev.gameObject.layer == 9) return ev.gameObject; //layer 9 is the RallyPoint layer
+        }
+        return null;
     }
     private Vector3 ClampCamera(Vector3 targetPosition)
     {
