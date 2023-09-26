@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -119,9 +119,442 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 235
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29239f2360f674b28a26a8918150ae3b
+      internalID: 1399226844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 235
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751b8fff1fb92482e9ea106a46d0e205
+      internalID: -2056700104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_2
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 235
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb40193f662146e8b6fcc901e6f69b6
+      internalID: -1301348844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 235
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a91501fce8b34d778eb39294f3d0c6e
+      internalID: 583582211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_4
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 235
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ab0a77258cc4ae0babeef16a96968b
+      internalID: -937712446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1646183675ac418588fbed0f3ff95eb
+      internalID: 589046946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_6
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 170
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06aa493c7e8f14bb2bce723898735046
+      internalID: 1508780380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_7
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 170
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8881ab204004358b7e5bc92bcc9443
+      internalID: -652024071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_8
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 170
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721d83034d7c146628b9bc3627b486e5
+      internalID: -937829985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_9
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 170
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43900be5096b48abb1275cbe525919b
+      internalID: -830756411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 105
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c92023484fdf4114b92f8c30471947a
+      internalID: 2123960984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_11
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 105
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da36c7de3efb6404389ad32bdda90e3f
+      internalID: 788762608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_12
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 105
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630c31ee89d604b43843b8029fd8ab00
+      internalID: 215982320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_13
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 105
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35389298b64c14a62b38057ea97416ec
+      internalID: 433983388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_14
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 105
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31cdc603b87994658ad49af1b8f71447
+      internalID: -1637754977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc83a2e87d444ccdaa6ca623c5a5718
+      internalID: -1524447493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_16
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 40
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0843105e591e42ababb70e85ea46bfe
+      internalID: -2048923953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_17
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 40
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313ea9eea8cd340e3a2c0808a9b61726
+      internalID: -882665944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_18
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 40
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcfd80e1542746b4b9ff251db14b347
+      internalID: 441662003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Warcraft 2 - Ballista (1)_19
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 40
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f899d47274ea74c9cb5d88c9f1c20f2c
+      internalID: -1854174857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +565,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PC Computer - Warcraft 2 - Ballista (1)_0: 1399226844
+      PC Computer - Warcraft 2 - Ballista (1)_1: -2056700104
+      PC Computer - Warcraft 2 - Ballista (1)_10: 2123960984
+      PC Computer - Warcraft 2 - Ballista (1)_11: 788762608
+      PC Computer - Warcraft 2 - Ballista (1)_12: 215982320
+      PC Computer - Warcraft 2 - Ballista (1)_13: 433983388
+      PC Computer - Warcraft 2 - Ballista (1)_14: -1637754977
+      PC Computer - Warcraft 2 - Ballista (1)_15: -1524447493
+      PC Computer - Warcraft 2 - Ballista (1)_16: -2048923953
+      PC Computer - Warcraft 2 - Ballista (1)_17: -882665944
+      PC Computer - Warcraft 2 - Ballista (1)_18: 441662003
+      PC Computer - Warcraft 2 - Ballista (1)_19: -1854174857
+      PC Computer - Warcraft 2 - Ballista (1)_2: -1301348844
+      PC Computer - Warcraft 2 - Ballista (1)_3: 583582211
+      PC Computer - Warcraft 2 - Ballista (1)_4: -937712446
+      PC Computer - Warcraft 2 - Ballista (1)_5: 589046946
+      PC Computer - Warcraft 2 - Ballista (1)_6: 1508780380
+      PC Computer - Warcraft 2 - Ballista (1)_7: -652024071
+      PC Computer - Warcraft 2 - Ballista (1)_8: -937829985
+      PC Computer - Warcraft 2 - Ballista (1)_9: -830756411
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

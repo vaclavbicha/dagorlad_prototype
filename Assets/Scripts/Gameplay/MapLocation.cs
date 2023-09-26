@@ -126,15 +126,15 @@ public class MapLocation : MonoBehaviour
         status = Utility.LocationStatus.Built;
 
         Destroy(timer);
-        Destroy(loadingBar.gameObject);
+        if (loadingBar != null) Destroy(loadingBar.gameObject);
     }
     public void isDoneBuilding(Timer _timer)
     {
         building.SetActive(true);
         status = Utility.LocationStatus.Built;
 
-        Destroy(timer);
-        Destroy(loadingBar.gameObject);
+        DestroyImmediate(timer);
+        if(loadingBar != null) Destroy(loadingBar.gameObject);
 
         UpdateItemManager(true, building.GetComponent<Structure>());
     }
@@ -146,7 +146,7 @@ public class MapLocation : MonoBehaviour
             loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
             timer.On_PingAction += UpdateSlider;
         }
-        if (status != Utility.LocationStatus.Building)
+        if (status != Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID)
         {
             switch (buttonIcon.locationType)
             {

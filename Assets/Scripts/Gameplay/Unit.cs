@@ -26,7 +26,7 @@ public class Unit : MonoBehaviour
     void Start()
     {
         moveTo = GetComponent<MoveTo>();
-        onTrigger = GetComponent<OnTrigger>();
+        //onTrigger = GetComponent<OnTrigger>();
         onCollision = GetComponent<OnCollision>();
         statsManager = GetComponent<StatsManager>();
         //onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
@@ -39,7 +39,7 @@ public class Unit : MonoBehaviour
     //    if (otherCollider.GetComponent<StatsManager>().owner != Player.Instance.name) Debug.Log("ATTACK");
     //}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<StatsManager>()) if (collision.gameObject.GetComponent<StatsManager>().owner != Player.Instance.name)
         {
@@ -51,18 +51,21 @@ public class Unit : MonoBehaviour
     }
     public void Attack(GameObject Enemy)
     {
-        Debug.Log("ATTACK " + Enemy.name);
-        if (Enemy.GetComponent<Unit>() != null)
+        if (attackTimer == null)
         {
-            status = Utility.UnitStatus.Attacking;
-            attackTimer = gameObject.AddComponent<Timer>();
-            foreach(var x in statsManager.stats)
+            Debug.Log("ATTACK " + Enemy.name);
+            if (Enemy.GetComponent<Unit>() != null)
             {
-                if(x.type == Utility.StatsTypes.AttackSpeed)
+                status = Utility.UnitStatus.Attacking;
+                attackTimer = gameObject.AddComponent<Timer>();
+                foreach (var x in statsManager.stats)
                 {
-                    currentTarget = Enemy.GetComponent<StatsManager>();
-                    attackTimer.AddTimer("Building", x.value, false);
-                    attackTimer.On_Duration_End += DealDamage;
+                    if (x.type == Utility.StatsTypes.AttackSpeed)
+                    {
+                        currentTarget = Enemy.GetComponent<StatsManager>();
+                        attackTimer.AddTimer("Attacking", x.value, false);
+                        attackTimer.On_Duration_End += DealDamage;
+                    }
                 }
             }
         }
