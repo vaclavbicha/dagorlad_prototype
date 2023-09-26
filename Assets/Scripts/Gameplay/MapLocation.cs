@@ -51,10 +51,12 @@ public class MapLocation : MonoBehaviour
     {
         if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected)
         {
-            trainingUnit = Instantiate(unitPrefab, transform.position, Quaternion.identity);//building.GetComponent<Structure>().Rally_Point.transform.position, Quaternion.identity);
+            trainingUnit = Instantiate(unitPrefab, new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);//building.GetComponent<Structure>().Rally_Point.transform.position, Quaternion.identity);
             //trainingUnit.GetComponent<Unit>().rangeOrigin = building.GetComponent<Structure>().Rally_Point.transform;
             //trainingUnit.GetComponent<Unit>().range = 0.2f;
             trainingUnit.GetComponent<MoveTo>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
+            trainingUnit.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
+            trainingUnit.GetComponent<Unit>().status = Utility.UnitStatus.LookingToAttack;
             trainingUnit.SetActive(false);
             status = Utility.LocationStatus.Training;
 
@@ -88,6 +90,7 @@ public class MapLocation : MonoBehaviour
             {
                 building.GetComponent<Structure>().Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
                 building.GetComponent<Structure>().Rally_Point.GetComponent<MoveTo>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
+                building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
             }
             building.SetActive(false);
             status = Utility.LocationStatus.Building;

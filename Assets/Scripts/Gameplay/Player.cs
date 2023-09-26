@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
+    public string PlayerName;
+
     public List<MapLocation> locations = new List<MapLocation>();
 
     public List<Resource> resources = new List<Resource>();

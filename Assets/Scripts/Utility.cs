@@ -13,7 +13,8 @@ public class Utility
 
     public enum ResourceTypes { Supply, Wood, Stone, Ore, Time }
     public enum UnitTypes { Baracks, Stables, Workshop, Airport }
-    public enum StatsTypes { Health, Armor, Attack, AttackSpeed }
+    public enum UnitStatus { LookingToAttack, Attacking, RallyPoint }
+    public enum StatsTypes { MoveSpeed, Health, Armor, Attack, AttackSpeed }
 
     public static IEnumerator ExecuteWithDelay(float delay, Action action)
     {

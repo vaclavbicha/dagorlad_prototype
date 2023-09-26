@@ -12,10 +12,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Structures
+  - Troops
+  - Fly
+  - RallyPoint
   - 
   - 
   - 
@@ -44,4 +44,7 @@ TagManager:
     locked: 0
   - name: Troops
     uniqueID: 339165651
+    locked: 0
+  - name: InGameUI
+    uniqueID: 1280812329
     locked: 0

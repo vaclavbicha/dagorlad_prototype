@@ -8,5 +8,5 @@ public class Stat
     [SerializeField]
     public Utility.StatsTypes type;
     [SerializeField]
-    public int value;
+    public float value;
 }
