@@ -830,6 +830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top_Panel_Item (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2621016954734322686, guid: 1dc41fa505f2f4d1f8e8ffc057864697, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6799622558651133654, guid: 1dc41fa505f2f4d1f8e8ffc057864697, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3187,11 +3191,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6586147310075933001, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.789
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 6586147310075933001, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.632
+      value: -1.731
       objectReference: {fileID: 0}
     - target: {fileID: 6586147310075933001, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}
       propertyPath: m_LocalRotation.w
