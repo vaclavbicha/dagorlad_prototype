@@ -24,6 +24,7 @@ public class Draggable : MonoBehaviour
             if (EnemiesInRange.Find(x => x.name == collider.name) != null)
             {
                 EnemiesInRange.Remove(collider.gameObject);
+                home.StopAttackEnemiesInRange(collider.gameObject);
             }
         });
     }

@@ -29,4 +29,16 @@ public class Structure : MonoBehaviour
             x.Attack(Rally_Point.GetComponent<Draggable>().EnemiesInRange[0]);
         }
     }
+    public void StopAttackEnemiesInRange(GameObject enemy)
+    {
+        //Disengage
+        var enemyStats = enemy.GetComponent<StatsManager>();
+        foreach (var x in currentArmy)
+        {
+            if(x.currentTarget == enemyStats)
+            {
+                x.StopAttack();
+            }
+        }
+    }
 }

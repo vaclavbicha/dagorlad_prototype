@@ -68,8 +68,20 @@ public class OurUnit : MonoBehaviour
     //            }
     //    }
     //}
+    public void StopAttack()
+    {
+        Debug.Log("STOP ATTACK " + currentTarget.name);
+        Destroy(attackTimer);
+        currentTarget = null;
+        status = Utility.UnitStatus.RallyPoint;
+        moveTo.TransformDestination = Rally_Point.transform;
+        moveTo.range = 0.5f;
+    }
     public void Attack(GameObject Enemy)
     {
+        //moveTo.method = MoveTo.Method.SpeedWithTarget;
+        moveTo.TransformDestination = Enemy.transform;
+        moveTo.range = 0.25f;
         if (attackTimer == null)
         {
             Debug.Log("ATTACK " + Enemy.name);
@@ -87,6 +99,10 @@ public class OurUnit : MonoBehaviour
                     }
                 }
             }
+        }
+        else
+        {
+            Debug.Log("The attack timer is not null");
         }
         //if (Enemy.GetComponent<Structure>())
         //{
@@ -106,9 +122,14 @@ public class OurUnit : MonoBehaviour
             }
             else
             {
-                Attack(currentTarget.gameObject);
+                StartCoroutine(AttackAgain(0));
             }
         }
         else { UIManager.Instance.DialogWindow("Tried to deal damage without owning attack"); }
+    }
+    IEnumerator AttackAgain(float t)
+    {
+        yield return new WaitForSeconds(t);
+        Attack(currentTarget.gameObject);
     }
 }
