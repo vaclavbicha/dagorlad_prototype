@@ -15,7 +15,7 @@ public class OurUnit : MonoBehaviour
     OnTrigger onTrigger;
     OnCollision onCollision;
 
-    public Transform rangeOrigin;
+    public Transform Rally_Point;
     public float range;
 
     public Timer attackTimer;
@@ -31,8 +31,9 @@ public class OurUnit : MonoBehaviour
         onCollision = GetComponent<OnCollision>();
         statsManager = GetComponent<StatsManager>();
 
-        onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
-        onTrigger.AddEvent("Exit", "Enemy", OnEnemyLeave);
+        //onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
+        //onTrigger.AddEvent("Exit", "Enemy", OnEnemyLeave);
+
         //moveTo.On_FinalDestinationReach += RandomBetween;
         //moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
     }
@@ -106,16 +107,5 @@ public class OurUnit : MonoBehaviour
             }
         }
         else { UIManager.Instance.DialogWindow("Tried to deal damage without owning attack"); }
-    }
-    // Update is called once per frame
-    public void RandomBetween(GameObject sender)
-    {
-        //Debug.Log("SET DESTINATION");
-        StartCoroutine(waiter(Random.Range(0,range*10)));
-    }
-    IEnumerator waiter(float t)
-    {
-        yield return new WaitForSeconds(t);
-        moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
     }
 }

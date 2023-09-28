@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MoveTo : MonoBehaviour
 {
-    public enum Method { Time, Speed, SpeedWithTarget, NoMovement }
+    public enum Method { Time, Speed, SpeedWithTarget, SpeedWithTargetAndRange, NoMovement }
     public Method method;
     public float TimeSpan;
     public float Speed;
@@ -49,6 +49,11 @@ public class MoveTo : MonoBehaviour
         }
         StartTime = Time.time;
         StartPosition = rb.position;
+
+        if(method == Method.SpeedWithTargetAndRange)
+        {
+
+        }
     }
     void Start()
     {
@@ -68,6 +73,11 @@ public class MoveTo : MonoBehaviour
                 break;
 
             case Method.SpeedWithTarget:
+                if (TransformDestination == null) Debug.LogError("why you dont put transform destination??");
+                else rb.MovePosition(Vector3.MoveTowards(rb.position, TransformDestination.position, Time.fixedDeltaTime * Speed));
+                break;
+
+            case Method.SpeedWithTargetAndRange:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??");
                 else rb.MovePosition(Vector3.MoveTowards(rb.position, TransformDestination.position, Time.fixedDeltaTime * Speed));
                 break;

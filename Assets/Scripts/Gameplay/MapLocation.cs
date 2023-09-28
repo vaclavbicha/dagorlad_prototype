@@ -46,14 +46,13 @@ public class MapLocation : MonoBehaviour
         color.a = isVisisble ? 0.2f : 1f;
 
         sprite.color = color;
+
     }
     public void SpawnUnit(GameObject unitPrefab)
     {
         if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected)
         {
-            trainingUnit = Instantiate(unitPrefab, new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);//building.GetComponent<Structure>().Rally_Point.transform.position, Quaternion.identity);
-            //trainingUnit.GetComponent<Unit>().rangeOrigin = building.GetComponent<Structure>().Rally_Point.transform;
-            //trainingUnit.GetComponent<Unit>().range = 0.2f;
+            trainingUnit = Instantiate(unitPrefab, new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);
             trainingUnit.GetComponent<MoveTo>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
             trainingUnit.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
             trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.LookingToAttack;
@@ -159,11 +158,13 @@ public class MapLocation : MonoBehaviour
                     itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                     itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.Icon;
                     itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
-                    var x = itemManager.bottom.GetComponentsInChildren<DragDrop>();
-                    Debug.Log(x.Length);
-                    x[0].GetComponent<Image>().enabled = true;
-                    x[1].GetComponent<Image>().enabled = true;
-                    x[0].RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
+                    var x = itemManager.bottom.GetComponentInChildren<DragDrop>();
+                    var y = itemManager.bottom.GetComponentInChildren<Toggle>();
+                    x.GetComponent<Image>().enabled = true;
+                    y.GetComponent<Image>().enabled = true;
+                    y.onValueChanged.RemoveAllListeners();
+                    y.onValueChanged.AddListener((isON) => { building.GetComponent<Structure>().isAttackPoint = isON; });
+                    x.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
                     break;
                 case Utility.LocationType.Resource:
                     break;

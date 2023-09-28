@@ -7,9 +7,23 @@ public class Draggable : MonoBehaviour
     Vector3 mousePositionOffset;
     MoveTo moveTo;
 
+    public List<GameObject> EnemiesInRange = new List<GameObject>();
+
     private void Start()
     {
         moveTo = GetComponent<MoveTo>();
+        GetComponentInChildren<OnTrigger>().AddEvent("Enter", "Enemy", (sender, collider) => {
+            if (EnemiesInRange.Find(x => x.name == collider.name) == null)
+            {
+                EnemiesInRange.Add(collider.gameObject);
+            }
+        });
+        GetComponentInChildren<OnTrigger>().AddEvent("Exit", "Enemy", (sender, collider) => {
+            if (EnemiesInRange.Find(x => x.name == collider.name) != null)
+            {
+                EnemiesInRange.Remove(collider.gameObject);
+            }
+        });
     }
     private Vector3 GetMouseWorldPosition()
     {

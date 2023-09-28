@@ -318,7 +318,7 @@ MonoBehaviour:
     value: 5
   - type: 0
     value: 5
-  rangeOrigin: {fileID: 0}
+  Rally_Point: {fileID: 0}
   range: 0
   attackTimer: {fileID: 0}
   statsManager: {fileID: 0}
@@ -365,7 +365,7 @@ MonoBehaviour:
   owner: 
   stats:
   - type: 0
-    value: 10
+    value: 2
   - type: 1
     value: 100
   - type: 3
