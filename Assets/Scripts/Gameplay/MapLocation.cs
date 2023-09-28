@@ -56,7 +56,7 @@ public class MapLocation : MonoBehaviour
             //trainingUnit.GetComponent<Unit>().range = 0.2f;
             trainingUnit.GetComponent<MoveTo>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
             trainingUnit.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
-            trainingUnit.GetComponent<Unit>().status = Utility.UnitStatus.LookingToAttack;
+            trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.LookingToAttack;
             trainingUnit.SetActive(false);
             status = Utility.LocationStatus.Training;
 

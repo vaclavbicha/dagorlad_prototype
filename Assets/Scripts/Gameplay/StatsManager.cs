@@ -21,7 +21,19 @@ public class StatsManager : MonoBehaviour
     public bool TakeRawDamage(float value)
     {
         var health = GetStat(Utility.StatsTypes.Health);
-        if (health != null) health.value -= value;
+        var armor = GetStat(Utility.StatsTypes.Armor);
+
+        if (health != null)
+        {
+            if(armor != null)
+            {
+                health.value -= Mathf.Abs(value - armor.value);
+            }
+            else
+            {
+                health.value -= value;
+            }
+        }
         else Debug.Log("Couldn't find health stat of : " + name + " of " + owner);
         return health.value > 0 ? false : true;
     }

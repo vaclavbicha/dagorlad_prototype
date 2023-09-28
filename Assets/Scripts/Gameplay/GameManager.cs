@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public List<MapLocation> ALL_Locations = new List<MapLocation>();
 
     public List<Structure> buildings = new List<Structure>();
-    public List<Unit> units = new List<Unit>();
+    public List<OurUnit> units = new List<OurUnit>();
     //public Dictionary<string, Structure> buildings = new Dictionary<string, Structure>();
 
     public List<Sprite> resourceSprites = new List<Sprite>();
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         //    buildings.Add(i.name, i.GetComponent<Structure>());
         //}
         buildings.AddRange(Resources.LoadAll<Structure>("Structures"));
-        units.AddRange(Resources.LoadAll<Unit>("Units"));
+        units.AddRange(Resources.LoadAll<OurUnit>("Units"));
         UpdatePlayerResources(Player.Instance, startingAmounts);
 
         UIManager.Instance.currentBaseID = 1;
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    public void SpawnUnit(string unitName, MapLocation location, Unit unitPrefab)
+    public void SpawnUnit(string unitName, MapLocation location, OurUnit unitPrefab)
     {
         if (unitPrefab)
         {

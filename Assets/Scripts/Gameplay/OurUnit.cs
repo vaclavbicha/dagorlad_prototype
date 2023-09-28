@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MoveTo))]
-public class Unit : MonoBehaviour
+public class OurUnit : MonoBehaviour
 {
     public string unitName;
     public Sprite Icon;
@@ -20,41 +20,56 @@ public class Unit : MonoBehaviour
 
     public Timer attackTimer;
     public StatsManager statsManager;
+
     public StatsManager currentTarget;
 
     // Start is called before the first frame update
     void Start()
     {
         moveTo = GetComponent<MoveTo>();
-        //onTrigger = GetComponent<OnTrigger>();
+        onTrigger = GetComponent<OnTrigger>();
         onCollision = GetComponent<OnCollision>();
         statsManager = GetComponent<StatsManager>();
-        //onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
+
+        onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
+        onTrigger.AddEvent("Exit", "Enemy", OnEnemyLeave);
         //moveTo.On_FinalDestinationReach += RandomBetween;
         //moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
     }
 
-    //private void OnEnemyEncounter(GameObject sender, Collider2D otherCollider)
-    //{
-    //    if (otherCollider.GetComponent<StatsManager>().owner != Player.Instance.name) Debug.Log("ATTACK");
-    //}
-
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnEnemyEncounter(GameObject sender, Collider2D otherCollider)
     {
-        if (collision.gameObject.GetComponent<StatsManager>()) if (collision.gameObject.GetComponent<StatsManager>().owner != Player.Instance.name)
+        if (otherCollider.GetComponent<StatsManager>().owner != Player.Instance.name)
         {
-            if(status == Utility.UnitStatus.LookingToAttack)
-                {
-                    Attack(collision.gameObject);
-                }
+            Debug.Log("Unit " + gameObject.name + " encounter " + otherCollider.name + " and is going to attack him");
+
         }
     }
+    private void OnEnemyLeave(GameObject sender, Collider2D otherCollider)
+    {
+        if (otherCollider.GetComponent<StatsManager>().owner != Player.Instance.name)
+        {
+            Debug.Log("Unit " + gameObject.name + " is leaving " + otherCollider.name + "-(LEFT THE ENCOUNTER RANGE) and is going back to the rally point");
+
+        }
+    }
+
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.GetComponent<StatsManager>()) if (collision.gameObject.GetComponent<StatsManager>().owner != Player.Instance.name)
+    //    {
+    //        if(status == Utility.UnitStatus.LookingToAttack)
+    //            {
+    //                Attack(collision.gameObject);
+    //            }
+    //    }
+    //}
     public void Attack(GameObject Enemy)
     {
         if (attackTimer == null)
         {
             Debug.Log("ATTACK " + Enemy.name);
-            if (Enemy.GetComponent<Unit>() != null)
+            if (Enemy.GetComponent<OurUnit>() != null)
             {
                 status = Utility.UnitStatus.Attacking;
                 attackTimer = gameObject.AddComponent<Timer>();
