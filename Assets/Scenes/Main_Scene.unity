@@ -2286,6 +2286,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -90.109245
       objectReference: {fileID: 0}
+    - target: {fileID: 7916033946119643156, guid: 4359a6e5601284835a174e8a7e2b740d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916033946119643156, guid: 4359a6e5601284835a174e8a7e2b740d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916033946119643156, guid: 4359a6e5601284835a174e8a7e2b740d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916033946119643156, guid: 4359a6e5601284835a174e8a7e2b740d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916033946119643156, guid: 4359a6e5601284835a174e8a7e2b740d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916033946119643156, guid: 4359a6e5601284835a174e8a7e2b740d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3535,6 +3559,8 @@ MonoBehaviour:
   Distance: 0
   CalculatedDistance: 0
   TravelTime: 0
+  range: 0
+  TimeRandomRange: 0
 --- !u!50 &519420035
 Rigidbody2D:
   serializedVersion: 4
@@ -4529,7 +4555,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -260074849501906633, guid: 31fc741ee64f84e6bbb103c4ceb4e543, type: 3}
       propertyPath: method
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2871883305320984312, guid: 31fc741ee64f84e6bbb103c4ceb4e543, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4573,7 +4599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6567885676609635861, guid: 31fc741ee64f84e6bbb103c4ceb4e543, type: 3}
       propertyPath: m_Name
-      value: Basic_Unit 1
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6567885676609635861, guid: 31fc741ee64f84e6bbb103c4ceb4e543, type: 3}
       propertyPath: m_TagString

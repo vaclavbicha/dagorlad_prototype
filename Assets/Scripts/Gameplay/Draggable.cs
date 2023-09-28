@@ -6,6 +6,7 @@ public class Draggable : MonoBehaviour
 {
     Vector3 mousePositionOffset;
     MoveTo moveTo;
+    public Structure home;
 
     public List<GameObject> EnemiesInRange = new List<GameObject>();
 
@@ -16,6 +17,7 @@ public class Draggable : MonoBehaviour
             if (EnemiesInRange.Find(x => x.name == collider.name) == null)
             {
                 EnemiesInRange.Add(collider.gameObject);
+                home.AttackEnemiesInRange();
             }
         });
         GetComponentInChildren<OnTrigger>().AddEvent("Exit", "Enemy", (sender, collider) => {

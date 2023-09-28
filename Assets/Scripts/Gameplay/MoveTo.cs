@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -34,6 +35,12 @@ public class MoveTo : MonoBehaviour
     public float CalculatedDistance;
     public float TravelTime;
 
+    public float range;
+    public float TimeRandomRange;
+    float timer;
+    Vector3 currentRandomTargetPosition;
+
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -49,18 +56,34 @@ public class MoveTo : MonoBehaviour
         }
         StartTime = Time.time;
         StartPosition = rb.position;
-
-        if(method == Method.SpeedWithTargetAndRange)
-        {
-
-        }
     }
     void Start()
     {
         //On_FinalDestinationReach += PrintValue;
+
+        //if (method == Method.SpeedWithTargetAndRange)
+        //{
+        //    StartCoroutine(NewLocation(TimeRandomRange));
+        //    timer = Time.time + TimeRandomRange;
+        //}
     }
     private void FixedUpdate()
     {
+        if(method == Method.SpeedWithTargetAndRange) {
+            if (Vector2.Distance(transform.position, TransformDestination.position) < range * 1.42f)
+            {
+                if(timer < Time.time)
+                {
+                    currentRandomTargetPosition = new Vector3(UnityEngine.Random.Range(TransformDestination.position.x - range, TransformDestination.position.x + range), UnityEngine.Random.Range(TransformDestination.position.y - range, TransformDestination.position.y + range), 0);
+                    timer = Time.time + TimeRandomRange;
+                }
+            }
+            else
+            {
+                currentRandomTargetPosition = TransformDestination.position;
+            }
+        }
+
         switch (method)
         {
             case Method.Time:
@@ -79,7 +102,7 @@ public class MoveTo : MonoBehaviour
 
             case Method.SpeedWithTargetAndRange:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??");
-                else rb.MovePosition(Vector3.MoveTowards(rb.position, TransformDestination.position, Time.fixedDeltaTime * Speed));
+                else rb.MovePosition(Vector3.MoveTowards(rb.position, currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
                 break;
 
             case Method.NoMovement:
@@ -159,5 +182,11 @@ public class MoveTo : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().color = Color.black;
         GetComponentInChildren<TextMeshPro>().text = (Time.time - StartTime).ToString("N2");
+    }
+    IEnumerator NewLocation(float t)
+    {
+        currentRandomTargetPosition = new Vector3(UnityEngine.Random.Range(TransformDestination.position.x - range, TransformDestination.position.x + range), UnityEngine.Random.Range(TransformDestination.position.y - range, TransformDestination.position.y + range), 0);
+        yield return new WaitForSeconds(t);
+        StartCoroutine(NewLocation(t));
     }
 }

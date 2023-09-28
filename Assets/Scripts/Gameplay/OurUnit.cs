@@ -15,8 +15,8 @@ public class OurUnit : MonoBehaviour
     OnTrigger onTrigger;
     OnCollision onCollision;
 
+    public Structure home;
     public Transform Rally_Point;
-    public float range;
 
     public Timer attackTimer;
     public StatsManager statsManager;
@@ -36,6 +36,9 @@ public class OurUnit : MonoBehaviour
 
         //moveTo.On_FinalDestinationReach += RandomBetween;
         //moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
+    }
+    private void Update()
+    {
     }
 
     private void OnEnemyEncounter(GameObject sender, Collider2D otherCollider)
