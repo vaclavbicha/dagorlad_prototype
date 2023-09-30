@@ -23,8 +23,9 @@ public class OurUnit : MonoBehaviour
 
     public StatsManager currentTarget;
 
+    int attackid = 0;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         moveTo = GetComponent<MoveTo>();
         onTrigger = GetComponent<OnTrigger>();
@@ -70,10 +71,11 @@ public class OurUnit : MonoBehaviour
     //}
     public void StopAttack()
     {
-        Debug.Log("STOP ATTACK " + currentTarget.name);
+        if (currentTarget) Debug.Log("STOP ATTACK " + currentTarget.name);
+        else Debug.Log("Stopped attacking nothing KEKW");
         Destroy(attackTimer);
         currentTarget = null;
-        status = Utility.UnitStatus.RallyPoint;
+        status = Utility.UnitStatus.GoingToFlag;
         moveTo.TransformDestination = Rally_Point.transform;
         moveTo.range = 0.5f;
     }
@@ -84,7 +86,7 @@ public class OurUnit : MonoBehaviour
         moveTo.range = 0.25f;
         if (attackTimer == null)
         {
-            Debug.Log("ATTACK " + Enemy.name);
+            //Debug.Log("ATTACK " + Enemy.name);
             if (Enemy.GetComponent<OurUnit>() != null)
             {
                 status = Utility.UnitStatus.Attacking;
@@ -94,7 +96,7 @@ public class OurUnit : MonoBehaviour
                     if (x.type == Utility.StatsTypes.AttackSpeed)
                     {
                         currentTarget = Enemy.GetComponent<StatsManager>();
-                        attackTimer.AddTimer("Attacking", x.value, false);
+                        attackTimer.AddTimer("Attacking" + attackid, x.value, false);
                         attackTimer.On_Duration_End += DealDamage;
                     }
                 }
@@ -102,12 +104,19 @@ public class OurUnit : MonoBehaviour
         }
         else
         {
-            Debug.Log("The attack timer is not null");
+            Debug.Log("The attack timer is not null " + attackTimer.name);
+            Destroy(attackTimer);
+            attackTimer = gameObject.AddComponent<Timer>();
+            foreach (var x in statsManager.stats)
+            {
+                if (x.type == Utility.StatsTypes.AttackSpeed)
+                {
+                    currentTarget = Enemy.GetComponent<StatsManager>();
+                    attackTimer.AddTimer("Attacking" + attackid, x.value, false);
+                    attackTimer.On_Duration_End += DealDamage;
+                }
+            }
         }
-        //if (Enemy.GetComponent<Structure>())
-        //{
-        //    status = Utility.UnitStatus.Attacking;
-        //}
     }
     public void DealDamage(Timer timer)
     {
@@ -130,6 +139,7 @@ public class OurUnit : MonoBehaviour
     IEnumerator AttackAgain(float t)
     {
         yield return new WaitForSeconds(t);
+        attackid++;
         Attack(currentTarget.gameObject);
     }
 }

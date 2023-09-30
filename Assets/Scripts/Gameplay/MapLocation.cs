@@ -55,7 +55,7 @@ public class MapLocation : MonoBehaviour
             trainingUnit = Instantiate(unitPrefab, new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);
             trainingUnit.GetComponent<MoveTo>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
             trainingUnit.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
-            trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.LookingToAttack;
+            trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.GoingToFlag;
             trainingUnit.GetComponent<OurUnit>().Rally_Point = building.GetComponent<Structure>().Rally_Point.transform;
             trainingUnit.GetComponent<OurUnit>().home = building.GetComponent<Structure>();
             trainingUnit.SetActive(false);
@@ -130,7 +130,7 @@ public class MapLocation : MonoBehaviour
         Destroy(timer);
         if (loadingBar != null) Destroy(loadingBar.gameObject);
 
-        building.GetComponent<Structure>().currentArmy.Add(trainingUnit.GetComponent<OurUnit>());
+        building.GetComponent<Structure>().Rally_Point.GetComponent<Draggable>().NewUnitSpawned(trainingUnit.GetComponent<OurUnit>());
     }
     public void isDoneBuilding(Timer _timer)
     {

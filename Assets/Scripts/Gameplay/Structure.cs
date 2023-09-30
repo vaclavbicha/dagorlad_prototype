@@ -15,30 +15,30 @@ public class Structure : MonoBehaviour
     public GameObject Rally_Point;
     public bool isAttackPoint = false;
 
-    public List<OurUnit> currentArmy = new List<OurUnit>();
+    //public List<OurUnit> currentArmy = new List<OurUnit>();
 
     public void Update()
     {
         if (Rally_Point) Rally_Point.GetComponentInChildren<SpriteRenderer>().color = isAttackPoint ? Color.red : Color.white;
     }
-    public void AttackEnemiesInRange()
-    {
-        //Sorting + Target selection
-        foreach(var x in currentArmy)
-        {
-            x.Attack(Rally_Point.GetComponent<Draggable>().EnemiesInRange[0]);
-        }
-    }
-    public void StopAttackEnemiesInRange(GameObject enemy)
-    {
-        //Disengage
-        var enemyStats = enemy.GetComponent<StatsManager>();
-        foreach (var x in currentArmy)
-        {
-            if(x.currentTarget == enemyStats)
-            {
-                x.StopAttack();
-            }
-        }
-    }
+    //public void AttackEnemiesInRange()
+    //{
+    //    //Sorting + Target selection
+    //    foreach(var x in currentArmy)
+    //    {
+    //        x.Attack(Rally_Point.GetComponent<Draggable>().EnemiesInRange[0]);
+    //    }
+    //}
+    //public void StopAttackEnemiesInRange(GameObject enemy)
+    //{
+    //    //Disengage
+    //    var enemyStats = enemy.GetComponent<StatsManager>();
+    //    foreach (var x in currentArmy)
+    //    {
+    //        if(x.currentTarget == enemyStats)
+    //        {
+    //            x.StopAttack();
+    //        }
+    //    }
+    //}
 }

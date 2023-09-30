@@ -14,9 +14,12 @@ public class CameraController : MonoBehaviour
     Vector3 Origin;
     Vector3 Difference;
 
-    bool drag = false;
+    public bool drag = false;
 
-    Draggable currentRallyPoint = null;
+    public bool isOverFlag = false;
+    public Draggable currentRallyPoint = null;
+    public bool dragFlag = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,25 +36,41 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetMouseButtonDown(0)) SearchRallyPoint();
+        //if(Input.GetMouseButtonDown(0)) SearchRallyPoint();
         if (Input.GetMouseButton(0) && !isMouseOverOverlayCanvas())
         {
-            if (cameraMove.Lock && currentRallyPoint) currentRallyPoint.HOLD(); 
-            Difference = camera.ScreenToWorldPoint(Input.mousePosition) - camera.transform.position;
-            if (!drag)
+            if (!drag && !dragFlag) isOverFlag = SearchRallyPoint();
+            //if(!drag && !currentRallyPoint) SearchRallyPoint();
+            //if (cameraMove.Lock && currentRallyPoint) currentRallyPoint.HOLD();
+            if (isOverFlag)
             {
-                drag = true;
-                Origin = camera.ScreenToWorldPoint(Input.mousePosition);
+                if (!dragFlag)
+                {
+                    dragFlag = true;
+                }
+            }
+            else
+            {
+                Difference = camera.ScreenToWorldPoint(Input.mousePosition) - camera.transform.position;
+                if (!drag)
+                {
+                    drag = true;
+                    Origin = camera.ScreenToWorldPoint(Input.mousePosition);
+                }
             }
         }
         else
         {
             drag = false;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            if(currentRallyPoint) currentRallyPoint.OFF();
+
+            dragFlag = false;
+            isOverFlag = false;
+            if (currentRallyPoint) currentRallyPoint.OFF();
             currentRallyPoint = null;
+        }
+        if (dragFlag)
+        {
+            currentRallyPoint.HOLD();
         }
         if (drag)
         {
@@ -72,22 +91,22 @@ public class CameraController : MonoBehaviour
         }
         return false;
     }
-    private void SearchRallyPoint()
+    private bool SearchRallyPoint()
     {
-        RaycastHit2D[] hit = Physics2D.RaycastAll(camera.ScreenToWorldPoint(Input.mousePosition), -Vector2.up);
-        bool found = false;
+        //Debug.Log("MOUSE BUTTON DOWN" + camera.ScreenToWorldPoint(Input.mousePosition));
+        RaycastHit2D[] hit = Physics2D.RaycastAll(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         foreach(var x in hit)
         {
-            if(x.transform.gameObject.layer == 9)
+            if(x.collider.gameObject.layer == 9 && x.collider.tag == "Rally_Point")
             {
                 //Debug.Log(x.transform.name);
                 currentRallyPoint = x.transform.GetComponent<Draggable>();
                 currentRallyPoint.ON();
-                found = true;
-                break;
+                return true;
             } 
         }
-        if (found == false) currentRallyPoint = null;
+        currentRallyPoint = null;
+        return false;
     }
     private Vector3 ClampCamera(Vector3 targetPosition)
     {

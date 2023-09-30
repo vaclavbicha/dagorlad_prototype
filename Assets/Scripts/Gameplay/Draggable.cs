@@ -10,6 +10,7 @@ public class Draggable : MonoBehaviour
     public OnTrigger onTrigger;
     public Structure home;
 
+    public List<OurUnit> currentArmy = new List<OurUnit>();
     public List<GameObject> EnemiesInRange = new List<GameObject>();
 
     private void Start()
@@ -19,23 +20,71 @@ public class Draggable : MonoBehaviour
             if (EnemiesInRange.Find(x => x.name == collider.name) == null)
             {
                 EnemiesInRange.Add(collider.gameObject);
-                home.AttackEnemiesInRange();
+                ManageTargets();
+                //home.AttackEnemiesInRange();
             }
         });
         GetComponentInChildren<OnTrigger>().AddEvent("Exit", "Enemy", (sender, collider) => {
             if (EnemiesInRange.Find(x => x.name == collider.name) != null)
             {
                 EnemiesInRange.Remove(collider.gameObject);
-                home.StopAttackEnemiesInRange(collider.gameObject);
+                ManageTargets();
+                //home.StopAttackEnemiesInRange(collider.gameObject);
             }
         });
     }
-    //public void Update()
+    public void NewUnitSpawned(OurUnit unit)
+    {
+        currentArmy.Add(unit);
+        ManageTargets();
+    }
+    public void ManageTargets()
+    {
+        Debug.Log("Enemies : " + EnemiesInRange.Count + "  Troops : " + currentArmy.Count);
+        //if(EnemiesInRange.Count < currentArmy.Count)
+        //{
+        //    Debug.Log("More Troops than Enemies");
+        //}
+        //else
+        //{
+        //    Debug.Log("More Enemies than Troops");
+        //}
+        var i = 0;
+        foreach (var x in currentArmy)
+        {
+            if (EnemiesInRange.Count > 0)
+            {
+                if (i >= EnemiesInRange.Count)
+                {
+                    i = 0;
+                }
+                x.Attack(EnemiesInRange[i]);
+                i++;
+            }
+            else
+            {
+                x.StopAttack();
+            }
+        }
+    }
+    //public void AttackEnemiesInRange()
     //{
-    //    if (Input.GetMouseButton(0))
+    //    //Sorting + Target selection
+    //    foreach (var x in currentArmy)
     //    {
-    //        Debug.Log("AAAAAAAAAAA");
-    //        //OnMouseClickDown();
+    //        //x.Attack(Rally_Point.GetComponent<Draggable>().EnemiesInRange[0]);
+    //    }
+    //}
+    //public void StopAttackEnemiesInRange(GameObject enemy)
+    //{
+    //    //Disengage
+    //    var enemyStats = enemy.GetComponent<StatsManager>();
+    //    foreach (var x in currentArmy)
+    //    {
+    //        if (x.currentTarget == enemyStats)
+    //        {
+    //            x.StopAttack();
+    //        }
     //    }
     //}
     public void ON()
