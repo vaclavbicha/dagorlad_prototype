@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class CameraController : MonoBehaviour
 {
     Camera camera;
-    MoveTo camera_move;
+    MoveTo cameraMove;
 
     public SpriteRenderer mapRenderer;
     float mapMinX, mapMaxX, mapMinY, mapMaxY;
@@ -16,11 +16,12 @@ public class CameraController : MonoBehaviour
 
     bool drag = false;
 
+    Draggable currentRallyPoint = null;
     // Start is called before the first frame update
     void Start()
     {
         camera = Camera.main;
-        camera_move = camera.GetComponent<MoveTo>();
+        cameraMove = camera.GetComponent<MoveTo>();
 
         mapMinX = mapRenderer.transform.position.x - mapRenderer.bounds.size.x / 2f;
         mapMaxX = mapRenderer.transform.position.x + mapRenderer.bounds.size.x / 2f;
@@ -32,9 +33,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(Input.GetMouseButtonDown(0)) SearchRallyPoint();
         if (Input.GetMouseButton(0) && !isMouseOverOverlayCanvas())
         {
-
+            if (cameraMove.Lock && currentRallyPoint) currentRallyPoint.HOLD(); 
             Difference = camera.ScreenToWorldPoint(Input.mousePosition) - camera.transform.position;
             if (!drag)
             {
@@ -46,10 +48,14 @@ public class CameraController : MonoBehaviour
         {
             drag = false;
         }
-
+        if (Input.GetMouseButtonUp(0))
+        {
+            if(currentRallyPoint) currentRallyPoint.OFF();
+            currentRallyPoint = null;
+        }
         if (drag)
         {
-            camera_move.SetDestination(ClampCamera(Origin - Difference));
+            cameraMove.SetDestination(ClampCamera(Origin - Difference));
         }
     }
     private bool isMouseOverOverlayCanvas()
@@ -61,22 +67,27 @@ public class CameraController : MonoBehaviour
         EventSystem.current.RaycastAll(pointerEventData, raycastResults);
         foreach(var ev in raycastResults)
         {
+            //if (ev.gameObject.layer == 9) ev.gameObject.GetComponent<Draggable>().ONNNN();
             if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
         }
         return false;
     }
-    private GameObject SearchRallyPoint()
+    private void SearchRallyPoint()
     {
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Input.mousePosition;
-
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-        foreach (var ev in raycastResults)
+        RaycastHit2D[] hit = Physics2D.RaycastAll(camera.ScreenToWorldPoint(Input.mousePosition), -Vector2.up);
+        bool found = false;
+        foreach(var x in hit)
         {
-            if (ev.gameObject.layer == 9) return ev.gameObject; //layer 9 is the RallyPoint layer
+            if(x.transform.gameObject.layer == 9)
+            {
+                //Debug.Log(x.transform.name);
+                currentRallyPoint = x.transform.GetComponent<Draggable>();
+                currentRallyPoint.ON();
+                found = true;
+                break;
+            } 
         }
-        return null;
+        if (found == false) currentRallyPoint = null;
     }
     private Vector3 ClampCamera(Vector3 targetPosition)
     {

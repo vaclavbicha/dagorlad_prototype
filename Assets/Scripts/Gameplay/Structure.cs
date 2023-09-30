@@ -19,7 +19,7 @@ public class Structure : MonoBehaviour
 
     public void Update()
     {
-        if (Rally_Point) Rally_Point.GetComponent<SpriteRenderer>().color = isAttackPoint ? Color.red : Color.white;
+        if (Rally_Point) Rally_Point.GetComponentInChildren<SpriteRenderer>().color = isAttackPoint ? Color.red : Color.white;
     }
     public void AttackEnemiesInRange()
     {

@@ -134,7 +134,1162 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: FOOTMAN_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1477
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7efdb714c3a54e3abbfd35fc372da7d
+      internalID: -1058986243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1477
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b05508e88720d427a819645662123f64
+      internalID: -785688661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1477
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e0fc5d8f21e744d5bc56514daa50185
+      internalID: 1733815963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_3
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1477
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf2d04f2e3834ac1b52616fcfbeb23e
+      internalID: -445884025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1477
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268017ff0fa234471a9a68b55b8e86d1
+      internalID: -1181678606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1342
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b345b839a674eca81c5de6dcf40304
+      internalID: -1402517237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_6
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1342
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6bcd34eb32814c62873324995c4df17
+      internalID: -653180388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_7
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1342
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8aee8842f2847f9b6b9a7c9211fd9a
+      internalID: 1337962322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_8
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1342
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ac36a564fc44d0eb5fdbec21346ca5
+      internalID: -1669339213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1342
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5183c7e242684a4f822f84daa2c1612
+      internalID: 130440852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1207
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6b030a29d4f248a9a61af16102d23c2
+      internalID: -880680925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_11
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1207
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cffd02bcad154c2d8878cc278a4e2c5
+      internalID: 1404239692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_12
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1207
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15299ad8920f94c96ae79c744b2ba1e7
+      internalID: 1238492974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_13
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1207
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 836dc034a1200462380425a742246336
+      internalID: -66556383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_14
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1207
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab1b73f4eecf430c8789cb666d68cfc
+      internalID: 13217066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1072
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6061acd62d23a46d9a81d2ecd0e0d663
+      internalID: 2079077132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_16
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1072
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d2e8d28153c4267a8325d9ec8cdd2d
+      internalID: 1659272973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_17
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1072
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb8a9c4a27f604a69924cf3d1f201ed5
+      internalID: 1227746945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_18
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1072
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020fc60698ef9468b9fd08dc12c07bb2
+      internalID: -293326185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_19
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1072
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc85e0ea897df47b481e789b1551b6f8
+      internalID: -1441213516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 937
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ee8cd013c574dd4b302feb2ecaa3a3
+      internalID: -1453461608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_21
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 937
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e584b3625d7de4169b5aef0dc683cc2b
+      internalID: 562423066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 937
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff508a742383408084a491cf4abe332
+      internalID: -1664384860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_23
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 937
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af47926efc7a4fc59c079fbd4740a1c
+      internalID: 285248930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_24
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 937
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 779372ba8e46248e7aeb5ba6586bd557
+      internalID: -801896667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 802
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a966e2d859b94e3ea6fb9a58fa94c65
+      internalID: -2014709562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_26
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 802
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125737f608a474358821a6c52a4196f1
+      internalID: -200044561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_27
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 802
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79f3aa9ff23bb477a8c64b1e292e1cca
+      internalID: -529501132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_28
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 802
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 505866874105f42708daa2604dfee15f
+      internalID: -664024887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_29
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 802
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9609bea69e1934086a1aa7af1b0d8675
+      internalID: 1907152915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 667
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baea4134b384b4595b81ab0e1023a36a
+      internalID: 778767996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_31
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 667
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8aba521c029d4338a7451cb9eb6df6b
+      internalID: 10708335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_32
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 667
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e83c0e9723584152ab3e6474786d726
+      internalID: 877324802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_33
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 667
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc6a874d0dde24c07a576cd477336ffc
+      internalID: 1576570919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_34
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 667
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c87db2a06a64247a78c0dfb5fd6adb
+      internalID: -154546809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 532
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764e8d744a9304f70bac9c3ec615f50d
+      internalID: -669235797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_36
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 532
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ff3ac894d0e4a2ca42cebf83d2240c
+      internalID: -1859071871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_37
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 532
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25babcf76f08d4ae5ad1b79afb137441
+      internalID: -342744118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 532
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245b4cb49c85a4ce4b9a303a94b5cecb
+      internalID: -1581370962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_39
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 532
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5d1d7787e7e43149ffa96ad4a59522
+      internalID: -1246076863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 397
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4218090f553a8452ba90b7f8ab547572
+      internalID: 419153620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_41
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 397
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6695ccf8162814a3ba92a9fc82c4f1a5
+      internalID: 1025456160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_42
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 397
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7ef3f5af160492d9fb2d4f6585d984
+      internalID: -1968752394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_43
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 397
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e63e0446f7154749960af4edd33975a
+      internalID: -384765690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_44
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 397
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034cbf82b28d0497e9277b799575e387
+      internalID: 500869716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 262
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb82852c7bb7a4fd1877ea6facee942f
+      internalID: 1861529574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_46
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 262
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c910499a7bd4eaaa7b04cc37d09a5c
+      internalID: -202756470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_47
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 262
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526d44bdc58a54016a9e4280f2b0cf51
+      internalID: 1910469276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_48
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 262
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2b766b280294f78bc607370e6f1fc9
+      internalID: 1396156366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_49
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 262
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2933776ec5d488fb0ccf3718489929
+      internalID: 984454829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 413a17857552d4c79ba50464c2e9bdc9
+      internalID: 798273690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_51
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 127
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389f7af4177d64643bcc38ce68c87827
+      internalID: -1535686897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_52
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 127
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4844098080cbe49c78a2a8a88669804f
+      internalID: -493484953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_53
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 127
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e04c098742f40f29422647c417eac7
+      internalID: 1344859602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FOOTMAN_54
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 127
+        width: 155
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b0ac52b04b34f38b4a67f210b057cc
+      internalID: 682708303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +1300,62 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FOOTMAN_0: -1058986243
+      FOOTMAN_1: -785688661
+      FOOTMAN_10: -880680925
+      FOOTMAN_11: 1404239692
+      FOOTMAN_12: 1238492974
+      FOOTMAN_13: -66556383
+      FOOTMAN_14: 13217066
+      FOOTMAN_15: 2079077132
+      FOOTMAN_16: 1659272973
+      FOOTMAN_17: 1227746945
+      FOOTMAN_18: -293326185
+      FOOTMAN_19: -1441213516
+      FOOTMAN_2: 1733815963
+      FOOTMAN_20: -1453461608
+      FOOTMAN_21: 562423066
+      FOOTMAN_22: -1664384860
+      FOOTMAN_23: 285248930
+      FOOTMAN_24: -801896667
+      FOOTMAN_25: -2014709562
+      FOOTMAN_26: -200044561
+      FOOTMAN_27: -529501132
+      FOOTMAN_28: -664024887
+      FOOTMAN_29: 1907152915
+      FOOTMAN_3: -445884025
+      FOOTMAN_30: 778767996
+      FOOTMAN_31: 10708335
+      FOOTMAN_32: 877324802
+      FOOTMAN_33: 1576570919
+      FOOTMAN_34: -154546809
+      FOOTMAN_35: -669235797
+      FOOTMAN_36: -1859071871
+      FOOTMAN_37: -342744118
+      FOOTMAN_38: -1581370962
+      FOOTMAN_39: -1246076863
+      FOOTMAN_4: -1181678606
+      FOOTMAN_40: 419153620
+      FOOTMAN_41: 1025456160
+      FOOTMAN_42: -1968752394
+      FOOTMAN_43: -384765690
+      FOOTMAN_44: 500869716
+      FOOTMAN_45: 1861529574
+      FOOTMAN_46: -202756470
+      FOOTMAN_47: 1910469276
+      FOOTMAN_48: 1396156366
+      FOOTMAN_49: 984454829
+      FOOTMAN_5: -1402517237
+      FOOTMAN_50: 798273690
+      FOOTMAN_51: -1535686897
+      FOOTMAN_52: -493484953
+      FOOTMAN_53: 1344859602
+      FOOTMAN_54: 682708303
+      FOOTMAN_6: -653180388
+      FOOTMAN_7: 1337962322
+      FOOTMAN_8: -1669339213
+      FOOTMAN_9: 130440852
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
