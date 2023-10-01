@@ -25,6 +25,9 @@ public class UIManager : MonoBehaviour
 
     float lastClicked;
 
+    bool lookForNextClick = false;
+    Transform selectedRallyPoint = null;
+
     private void Start()
     {
         if (toggleGroup != null && toggleGroup.transform.childCount != 0)
@@ -60,6 +63,18 @@ public class UIManager : MonoBehaviour
             Instance = this;
         }
     }
+    public void Update()
+    {
+        if (lookForNextClick)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                selectedRallyPoint.GetComponent<MoveTo>().SetDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                lookForNextClick = false;
+                selectedRallyPoint = null;
+            }
+        }
+    }
     public void OnCloseBuildingWindow()
     {
         window.gameObject.SetActive(false);
@@ -90,7 +105,11 @@ public class UIManager : MonoBehaviour
         //GameManager.Instance.SpawnBuilding(buildingName, currentSelected);
         GameManager.Instance.ItemBuy(itemName, currentSelected);
     }
-
+    public void LookToPlaceRallyPoint(Transform point)
+    {
+        lookForNextClick = true;
+        selectedRallyPoint = point;
+    }
     public void OnBaseSwitch(int id)
     {
         //map

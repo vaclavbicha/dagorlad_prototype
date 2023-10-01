@@ -12,6 +12,9 @@ public class ItemManager : MonoBehaviour
     public GameObject mid;
     public GameObject bottom;
 
+    public Transform RallyPoint;
+    public Structure building;
+
     public void Start()
     {
         top = transform.GetChild(1).GetChild(0).gameObject;
@@ -20,5 +23,10 @@ public class ItemManager : MonoBehaviour
     {
         UIManager.Instance.OnSelectLocation(locationID, type);
         //UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Button>().
+    }
+    public void OnFlagClick(bool isRed)
+    {
+        building.isAttackPoint = isRed;
+        UIManager.Instance.LookToPlaceRallyPoint(RallyPoint);
     }
 }

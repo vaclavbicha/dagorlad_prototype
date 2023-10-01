@@ -152,6 +152,7 @@ public class MapLocation : MonoBehaviour
         }
         if (status != Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID)
         {
+            itemManager.building = building.GetComponent<Structure>();
             switch (buttonIcon.locationType)
             {
                 case Utility.LocationType.Defense:
@@ -163,13 +164,19 @@ public class MapLocation : MonoBehaviour
                     itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                     itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.Icon;
                     itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
-                    var x = itemManager.bottom.GetComponentInChildren<DragDrop>();
-                    var y = itemManager.bottom.GetComponentInChildren<Toggle>();
-                    x.GetComponent<Image>().enabled = true;
-                    y.GetComponent<Image>().enabled = true;
-                    y.onValueChanged.RemoveAllListeners();
-                    y.onValueChanged.AddListener((isON) => { building.GetComponent<Structure>().isAttackPoint = isON; });
-                    x.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
+                    //EX DRAGDROP.cs
+                    //var x = itemManager.bottom.GetComponentInChildren<DragDrop>();
+                    //var y = itemManager.bottom.GetComponentInChildren<Toggle>();
+                    //x.GetComponent<Image>().enabled = true;
+                    //y.GetComponent<Image>().enabled = true;
+                    //y.onValueChanged.RemoveAllListeners();
+                    //y.onValueChanged.AddListener((isON) => { building.GetComponent<Structure>().isAttackPoint = isON; });
+                    //x.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
+                    foreach(var x in itemManager.bottom.GetComponentsInChildren<Button>())
+                    {
+                        x.GetComponent<Image>().enabled = true;
+                    }
+                    itemManager.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
                     break;
                 case Utility.LocationType.Resource:
                     break;
