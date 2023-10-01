@@ -77,7 +77,7 @@ public class CameraController : MonoBehaviour
             cameraMove.SetDestination(ClampCamera(Origin - Difference));
         }
     }
-    private bool isMouseOverOverlayCanvas()
+    public bool isMouseOverOverlayCanvas()
     {
         PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
         pointerEventData.position = Input.mousePosition;
