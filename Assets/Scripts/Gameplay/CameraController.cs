@@ -123,4 +123,8 @@ public class CameraController : MonoBehaviour
 
         return new Vector3(newX, newY, targetPosition.z);
     }
+    public void SetPositionWithClamp(Vector3 pos)
+    {
+        cameraMove.SetDestination(ClampCamera(pos));
+    }
 }
