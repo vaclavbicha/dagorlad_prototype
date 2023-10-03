@@ -42,5 +42,6 @@ public class MiniMapController : MonoBehaviour, IPointerClickHandler
             vec.y * miniMapCam.pixelHeight));
         //Debug.Log("RRARARARa" + vec + " ?? " + MapRay);
         GameManager.Instance.GetComponent<CameraController>().SetPositionWithClamp(MapRay);
+        transform.parent.gameObject.SetActive(false);
     }
 }

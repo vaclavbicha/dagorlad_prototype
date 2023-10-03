@@ -24,6 +24,12 @@ public class OurUnit : MonoBehaviour
     public StatsManager currentTarget;
 
     int attackid = 0;
+
+
+    Vector3 previousPosition;
+    Vector3 lastMoveDirection;
+
+    Animator animator;
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,15 +37,27 @@ public class OurUnit : MonoBehaviour
         onTrigger = GetComponent<OnTrigger>();
         onCollision = GetComponent<OnCollision>();
         statsManager = GetComponent<StatsManager>();
-
+        animator = GetComponent<Animator>();
         //onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
         //onTrigger.AddEvent("Exit", "Enemy", OnEnemyLeave);
 
         //moveTo.On_FinalDestinationReach += RandomBetween;
         //moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
     }
-    private void Update()
+    private void FixedUpdate()
     {
+        if (transform.position != previousPosition)
+        {
+            lastMoveDirection = (transform.position - previousPosition).normalized;
+            previousPosition = transform.position;
+            animator.SetBool("isWalking", true);
+            animator.SetFloat("x", lastMoveDirection.x);
+            animator.SetFloat("y", lastMoveDirection.y);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 
     private void OnEnemyEncounter(GameObject sender, Collider2D otherCollider)
