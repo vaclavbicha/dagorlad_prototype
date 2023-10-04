@@ -43,6 +43,7 @@ public class OurUnit : MonoBehaviour
 
         //moveTo.On_FinalDestinationReach += RandomBetween;
         //moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
+        animator.speed = 0.7f;
     }
     private void FixedUpdate()
     {
