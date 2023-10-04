@@ -376,7 +376,7 @@ MonoBehaviour:
   Distance: 0
   CalculatedDistance: 0
   TravelTime: 0
-  range: 0.5
+  range: 0.8
   TimeRandomRange: 2
 --- !u!114 &2467180795165718603
 MonoBehaviour:

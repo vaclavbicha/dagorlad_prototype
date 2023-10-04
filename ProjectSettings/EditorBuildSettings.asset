@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Battle Simulator/Assets/Scenes/Forest.unity
     guid: c938965860f2f124998f3e833d983752
-  - enabled: 1
+  - enabled: 0
     path: Assets/Battle Simulator/Assets/Scenes/Desert.unity
     guid: 3564680491e23bd4fa4c3d74e1ca73d4
   m_configObjects:
