@@ -52,8 +52,17 @@ public class OurUnit : MonoBehaviour
             lastMoveDirection = (transform.position - previousPosition).normalized;
             previousPosition = transform.position;
             animator.SetBool("isWalking", true);
-            animator.SetFloat("x", lastMoveDirection.x);
-            animator.SetFloat("y", lastMoveDirection.y);
+            if (currentTarget)
+            {
+                lastMoveDirection = (currentTarget.transform.position - transform.position).normalized;
+                animator.SetFloat("x", lastMoveDirection.x);
+                animator.SetFloat("y", lastMoveDirection.y);
+            }
+            else
+            {
+                animator.SetFloat("x", lastMoveDirection.x);
+                animator.SetFloat("y", lastMoveDirection.y);
+            }
         }
         else
         {
@@ -102,7 +111,7 @@ public class OurUnit : MonoBehaviour
     {
         //moveTo.method = MoveTo.Method.SpeedWithTarget;
         moveTo.TransformDestination = Enemy.transform;
-        moveTo.range = 0.25f;
+        moveTo.range = 0.20f;
         if (attackTimer == null)
         {
             //Debug.Log("ATTACK " + Enemy.name);
@@ -139,6 +148,7 @@ public class OurUnit : MonoBehaviour
     }
     public void DealDamage(Timer timer)
     {
+        animator.SetTrigger("isAttacking");
         Destroy(timer);
         if (statsManager.GetStat(Utility.StatsTypes.Attack) != null)
         {
