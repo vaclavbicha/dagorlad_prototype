@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     public List<Sprite> resourceSprites = new List<Sprite>();
     public int[] startingAmounts = new[] { 500, 1000, 1500, 2000 };
 
+    public int secondsToFullLeftPanel = 60;
+    public int secondsToFullRightPanel = 120;
+
     public GameObject flagPrefab;
 
     private void Awake()

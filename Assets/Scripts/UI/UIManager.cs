@@ -28,6 +28,16 @@ public class UIManager : MonoBehaviour
     bool lookForNextClick = false;
     Transform selectedRallyPoint = null;
 
+    [SerializeField]
+    public Timer leftTimer;
+    public Slider leftLoadingBar;
+    public int leftINDEX;
+
+    [SerializeField]
+    public Timer rightTimer;
+    public Slider rightLoadingBar;
+    public int rightINDEX;
+
     private void Start()
     {
         if (toggleGroup != null && toggleGroup.transform.childCount != 0)
@@ -50,6 +60,10 @@ public class UIManager : MonoBehaviour
                 });
             }
         }
+        leftTimer = gameObject.AddComponent<Timer>();
+        leftTimer.AddTimer("Building", GameManager.Instance.secondsToFullLeftPanel, true, 0.25f);
+
+        leftTimer.On_PingAction += UpdateSliderLeft;
     }
     private void Awake()
     {
@@ -155,5 +169,24 @@ public class UIManager : MonoBehaviour
     {
         dialogWindow.SetActive(true);
         dialogWindow.GetComponentInChildren<TextMeshProUGUI>().text = message;
+    }
+
+    public void UpdateSliderLeft(Timer _timer)
+    {
+        leftLoadingBar.value = Mathf.Abs((Time.time - _timer.timeStarted) / (_timer.timeStarted - _timer.timeFinish));
+        if (leftLoadingBar.value <= 0.25f) leftINDEX = 0;
+        if (leftLoadingBar.value >= 0.25f && leftLoadingBar.value < 0.5f) leftINDEX = 1;
+        if (leftLoadingBar.value >= 0.5f && leftLoadingBar.value < 0.75f) leftINDEX = 2;
+        if (leftLoadingBar.value >= 0.75f && leftLoadingBar.value < 1f) leftINDEX = 3;
+        if (leftLoadingBar.value == 1f) leftINDEX = 4;
+    }
+    public void UpdateSliderRight(Timer _timer)
+    {
+        rightLoadingBar.value = Mathf.Abs((Time.time - _timer.timeStarted) / (_timer.timeStarted - _timer.timeFinish));
+        if (rightLoadingBar.value <= 0.25f) leftINDEX = 0;
+        if (rightLoadingBar.value >= 0.25f && rightLoadingBar.value < 0.5f) leftINDEX = 1;
+        if (rightLoadingBar.value >= 0.5f && rightLoadingBar.value < 0.75f) leftINDEX = 2;
+        if (rightLoadingBar.value >= 0.75f && rightLoadingBar.value < 1f) leftINDEX = 3;
+        if (rightLoadingBar.value == 1f) leftINDEX = 4;
     }
 }
