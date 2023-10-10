@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 12
-  Icon: {fileID: 21300000, guid: ec3b48237ea3e42e9be992e197c4b39e, type: 3}
+  Icon: {fileID: 21300000, guid: 0d2e4a8e1f35b3e4dbb71e76defc7987, type: 3}
   type: 0
   status: 2
   buildTime:

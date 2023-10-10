@@ -229,6 +229,8 @@ MonoBehaviour:
   top: {fileID: 4966738025631458360}
   mid: {fileID: 6179816477310051148}
   bottom: {fileID: 2620558776549680287}
+  RallyPoint: {fileID: 0}
+  building: {fileID: 0}
 --- !u!1 &1768622175550786258
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,10 +341,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7916033946119643156}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 183.95535, y: -90.109245}
-  m_SizeDelta: {x: 0, y: 180.21849}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 183.95535, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8056706054161561048
 CanvasRenderer:

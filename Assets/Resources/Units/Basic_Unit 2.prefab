@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 2
-  Icon: {fileID: 21300000, guid: ce8f91bafd37f4202b3d0b9016dcced4, type: 3}
+  Icon: {fileID: 21300000, guid: 8952daac90201bd4d9d564006671428f, type: 3}
   type: 2
   status: 2
   buildTime:
@@ -369,7 +369,7 @@ MonoBehaviour:
   owner: 
   stats:
   - type: 0
-    value: 2
+    value: 0.6
   - type: 1
     value: 100
   - type: 3
@@ -481,9 +481,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6567885676609635861}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6617ec69ab484f4fbc85e489768217e, type: 2}
+  m_Controller: {fileID: 9100000, guid: d7ce363360454f746895c70c5ba4faa3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

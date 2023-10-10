@@ -1,0 +1,1020 @@
+fileFormatVersion: 2
+guid: 51959486e1e84044e8dffc43270f9590
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1009.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d879c5c4522cde444912d10db0f82d2d
+      internalID: 677653731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1009.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706d3f0886e20854cb112a97ae93fdfa
+      internalID: 896988485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1009.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e2491ae0e9c4a42a5ced637b5ffc4b
+      internalID: -878684720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_3
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1009.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a064080b7750c4181b0e704b040735
+      internalID: -1918093473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1009.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9889719237f9d364eaf929ab3409090f
+      internalID: -177537501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 865.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 545a3ef88217f0b438c7ddc88e354163
+      internalID: -943118858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_6
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 865.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f26ccfacecaeb945a893dea825931fb
+      internalID: -662358032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_7
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 865.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67260d81443cfbb41b9872a89cd03db6
+      internalID: 2019760558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_8
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 865.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f55872f641eeb4daf53493706ac07f
+      internalID: -1520136195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 865.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd68cd25403c5eb4d99907af8340d121
+      internalID: -978843678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 721.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeb7495e8a75dbb4b97254987ec427f6
+      internalID: 1572937854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_11
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 721.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7a2fc64d4b18547ab7a892b3755ec6
+      internalID: -1284591558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_12
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 721.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e69b1d6519864449f4552dedfc4da2
+      internalID: -1604179849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_13
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 721.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e7a8c73cfd44d4086f6b064a36202a
+      internalID: -1291124690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_14
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 721.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ad5df8635fbd04dba07e0bd215efca
+      internalID: 1629620102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 577.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97eb94a9f1078ed4b8a76d9d00095d3d
+      internalID: 1773456677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_16
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 577.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17247b26f6bd250408b072ba724fc467
+      internalID: 579745157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_17
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 577.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34bbd2992e51cdd47a687891af3506d8
+      internalID: 2111948244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_18
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 577.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948db006185e85f49b942bb1dc710761
+      internalID: -773836108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_19
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 577.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3a4a9427fb38541893bd76dc44032a
+      internalID: 1135130462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 433.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de26d166fa34b3147b5bee35f2a6afed
+      internalID: -214190806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_21
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 433.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d8d8fc8b3036441ab9b06b872f7967
+      internalID: -1703709136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 433.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2037fcd40b87aa94d9b6fac575ce8a51
+      internalID: 1139535844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_23
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 433.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32b66dad3c76e0408b84509bca32ce4
+      internalID: 490001816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_24
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 433.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95949b4de2d83f54f9fd53f5f67b704a
+      internalID: -2097449441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd8b28d2a0f6ea48ba625b57d312f5c
+      internalID: -820329023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_26
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 289.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2703aa794ec2fe54dbc62ed6e6797e20
+      internalID: 1169340417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_27
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 289.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc882cb02b6ad9345a3a7d37245de52d
+      internalID: -1623373042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_28
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 289.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2954185cb2e55d446b510c7be3338ddc
+      internalID: -694143615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_29
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 289.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e716d9dbbd99245954bfedce6a4c83
+      internalID: -652906241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 145.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08deb5a88aed5646959765b0b2a98f8
+      internalID: 1268147930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_31
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 145.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e373650f3e18f2c4a87122bc7d5da7d5
+      internalID: 1652510936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_32
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 145.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcafc0fc4af609d41bc660216fbbfd31
+      internalID: -1656875506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_33
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 145.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4fe0508b5dde443b05e54722e8bb7b
+      internalID: -441994077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_34
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 145.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd03b049c2d394e4aa9b25786f476314
+      internalID: 1131200521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6639fcf5828991f44a6c50d7d08d822e
+      internalID: -1077537041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_36
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24f46cc0c6b9634694bf3dec7c22120
+      internalID: 1765290491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_37
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32a7dfc4254ff64080a739eab08aeb6
+      internalID: -584684440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a5a2be0a2d1f304d8db471ed1200b9a
+      internalID: 1944482774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRYPH_ANIMATION_39
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1.75
+        width: 155.6
+        height: 144.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755ad93a0a55df94c8a04e1540196300
+      internalID: -223739037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GRYPH_ANIMATION_0: 677653731
+      GRYPH_ANIMATION_1: 896988485
+      GRYPH_ANIMATION_10: 1572937854
+      GRYPH_ANIMATION_11: -1284591558
+      GRYPH_ANIMATION_12: -1604179849
+      GRYPH_ANIMATION_13: -1291124690
+      GRYPH_ANIMATION_14: 1629620102
+      GRYPH_ANIMATION_15: 1773456677
+      GRYPH_ANIMATION_16: 579745157
+      GRYPH_ANIMATION_17: 2111948244
+      GRYPH_ANIMATION_18: -773836108
+      GRYPH_ANIMATION_19: 1135130462
+      GRYPH_ANIMATION_2: -878684720
+      GRYPH_ANIMATION_20: -214190806
+      GRYPH_ANIMATION_21: -1703709136
+      GRYPH_ANIMATION_22: 1139535844
+      GRYPH_ANIMATION_23: 490001816
+      GRYPH_ANIMATION_24: -2097449441
+      GRYPH_ANIMATION_25: -820329023
+      GRYPH_ANIMATION_26: 1169340417
+      GRYPH_ANIMATION_27: -1623373042
+      GRYPH_ANIMATION_28: -694143615
+      GRYPH_ANIMATION_29: -652906241
+      GRYPH_ANIMATION_3: -1918093473
+      GRYPH_ANIMATION_30: 1268147930
+      GRYPH_ANIMATION_31: 1652510936
+      GRYPH_ANIMATION_32: -1656875506
+      GRYPH_ANIMATION_33: -441994077
+      GRYPH_ANIMATION_34: 1131200521
+      GRYPH_ANIMATION_35: -1077537041
+      GRYPH_ANIMATION_36: 1765290491
+      GRYPH_ANIMATION_37: -584684440
+      GRYPH_ANIMATION_38: 1944482774
+      GRYPH_ANIMATION_39: -223739037
+      GRYPH_ANIMATION_4: -177537501
+      GRYPH_ANIMATION_5: -943118858
+      GRYPH_ANIMATION_6: -662358032
+      GRYPH_ANIMATION_7: 2019760558
+      GRYPH_ANIMATION_8: -1520136195
+      GRYPH_ANIMATION_9: -978843678
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -291,7 +291,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.14413989, y: -1.8769741, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4556502837819322225}
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 7
-  Icon: {fileID: 21300000, guid: 8b5fd27bade0945b690c23be89357dfb, type: 3}
+  Icon: {fileID: 21300000, guid: a27ab78ab3bec0e43b1b31517727a460, type: 3}
   type: 1
   status: 2
   buildTime:
@@ -453,7 +453,7 @@ MonoBehaviour:
   owner: 
   stats:
   - type: 0
-    value: 2
+    value: 1.5
   - type: 1
     value: 100
   - type: 3
@@ -565,9 +565,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6567885676609635861}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6617ec69ab484f4fbc85e489768217e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6caf6a32f28268c49bdaee684bfdc3d6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

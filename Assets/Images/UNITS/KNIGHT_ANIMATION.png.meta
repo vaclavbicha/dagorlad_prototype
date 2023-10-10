@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,1162 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31c8de03dbdfbbb4c92bb7edd33ab95b
+      internalID: -1317320581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c3c06633e79a54ea6b545f7491ec3a
+      internalID: -1038262182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a990248b789424c47a4d38da5083f3ee
+      internalID: -625718277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_3
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff9b09f377a35d64b9c4531a1762e4a9
+      internalID: 1421206802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5901328a50042524a91e543307bfd7be
+      internalID: -1804976266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1e8dc4fc12f244daad0f9decaaefe5
+      internalID: 1085369507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_6
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c1bcd421e85ef408befa1094c52caa
+      internalID: 846398868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_7
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86891cc9da00c249b6f9903a0fc7b09
+      internalID: -44467099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_8
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79001a867d810cd4c846c3395aa1220d
+      internalID: -1491952155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e383155478bf60b45bef793041c67acc
+      internalID: -659798228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c6a98dc95a6be64b97b31cb44f0ee3a
+      internalID: 893281417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_11
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006d94f847e0abc46b2ab82aa5c6f2b8
+      internalID: -382992272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_12
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ebbba0870e1d214abd70ed13840bd4d
+      internalID: 1234084603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_13
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f9d31ba41120c548b18456a57190166
+      internalID: -33166327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_14
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d899f3937e83254d968aa12a95af37c
+      internalID: 1125493967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03fdd28be1b64d84e96b9c09196bb286
+      internalID: 722871545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_16
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e9b3da171114d34392e3f63c27342dd
+      internalID: 1767753492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_17
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9e2e44fd652614bad91d509bded553
+      internalID: 783962342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_18
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452398908fa1aef43b45ee94b00e016a
+      internalID: 1601049272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_19
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97170d10b547a442a4b5931fc9ed297
+      internalID: 756873911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d89c4573a41053242934a71abd631ffe
+      internalID: 1784811210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_21
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5af92f5b3e1509343bfc6320319b4b66
+      internalID: -982688250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9566ec9bf33c93246bdee748a2d9bb05
+      internalID: -280901794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_23
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cddd2b7a2e9508e449462b8bffb76a91
+      internalID: -1815335035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_24
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee7cf1d181347046853486a8d565998
+      internalID: -245502153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5ccf096bffdcf409d8b84e4ae3e512
+      internalID: 124740324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_26
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0badfdac859184dbc0c66846b113dd
+      internalID: 1284071976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_27
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b70cc81a67b1e4cabb8098d8576067
+      internalID: 741303583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_28
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ffd4aa4a6eac541a84c59adbb9f84f
+      internalID: -283080157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_29
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10e32ecc6bbe6874c8ccedac1cc62723
+      internalID: 1007442710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f05155fbec5f746a83dc74a932eff2
+      internalID: 583667246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_31
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c122aa8b5b27e5445b749c9633976929
+      internalID: 1429811011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_32
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd6748133237704a8d8fc0635757176
+      internalID: 1847531295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_33
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a0d0a27c25a4843b796acf55e244b7
+      internalID: -1334340064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_34
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1401891aaf35d47a5d06976ef3da7d
+      internalID: -1342791826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2168ed1eee5ec47a2271237b238a7c
+      internalID: 513999485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_36
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe457e56e51fdcb47956f7cb1555a457
+      internalID: -548202457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_37
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20dfc1c9c10841c4e8bb5bf53b08aa56
+      internalID: 376954739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54b1c63832a65149a80b92181e59fed
+      internalID: 855900369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_39
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f4c77ef77691747bc8e826b7394066
+      internalID: 451733755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1dc28c5269e914c866f37525faead6
+      internalID: -1571909835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_41
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e8a9ba78277434aa0f58c2a61d5ac4
+      internalID: -1611895677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_42
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0ff7abc2e141a74ebad0628e04759f6
+      internalID: 1198746931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_43
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5385a042d27b848a6435fe1c63d7a2
+      internalID: 93009278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_44
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868d9206c0d04b948ac998580efac1ef
+      internalID: 2061516236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b9cde698afcce4ea04a45823ffd4c3
+      internalID: -139616483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_46
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ff9791b57366a34ab6a547fdfd8e649
+      internalID: -1140736417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_47
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c216335709aa5b74ca19f008ba0f77ee
+      internalID: 1203028091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_48
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4972c8a3060867f4f861e6c07fdaccff
+      internalID: 925251880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_49
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9fa5d5013dc83b4c99f6dd8a8627c3a
+      internalID: -278240760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010945bc6075f9942b22cc101a1707b1
+      internalID: -964713763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_51
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e03057b326d41ac4aa2e58da3bdd45ae
+      internalID: -1051183067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_52
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84faed8dd8f9cd543a3f96913b6aae46
+      internalID: 2136305513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_53
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd768f45c37daa349ba577a61c9341f5
+      internalID: -1223468121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KNIGHT_ANIMATION_54
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9707729343aa44281ea0755bb6078e
+      internalID: 1583187580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +1287,62 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      KNIGHT_ANIMATION_0: -1317320581
+      KNIGHT_ANIMATION_1: -1038262182
+      KNIGHT_ANIMATION_10: 893281417
+      KNIGHT_ANIMATION_11: -382992272
+      KNIGHT_ANIMATION_12: 1234084603
+      KNIGHT_ANIMATION_13: -33166327
+      KNIGHT_ANIMATION_14: 1125493967
+      KNIGHT_ANIMATION_15: 722871545
+      KNIGHT_ANIMATION_16: 1767753492
+      KNIGHT_ANIMATION_17: 783962342
+      KNIGHT_ANIMATION_18: 1601049272
+      KNIGHT_ANIMATION_19: 756873911
+      KNIGHT_ANIMATION_2: -625718277
+      KNIGHT_ANIMATION_20: 1784811210
+      KNIGHT_ANIMATION_21: -982688250
+      KNIGHT_ANIMATION_22: -280901794
+      KNIGHT_ANIMATION_23: -1815335035
+      KNIGHT_ANIMATION_24: -245502153
+      KNIGHT_ANIMATION_25: 124740324
+      KNIGHT_ANIMATION_26: 1284071976
+      KNIGHT_ANIMATION_27: 741303583
+      KNIGHT_ANIMATION_28: -283080157
+      KNIGHT_ANIMATION_29: 1007442710
+      KNIGHT_ANIMATION_3: 1421206802
+      KNIGHT_ANIMATION_30: 583667246
+      KNIGHT_ANIMATION_31: 1429811011
+      KNIGHT_ANIMATION_32: 1847531295
+      KNIGHT_ANIMATION_33: -1334340064
+      KNIGHT_ANIMATION_34: -1342791826
+      KNIGHT_ANIMATION_35: 513999485
+      KNIGHT_ANIMATION_36: -548202457
+      KNIGHT_ANIMATION_37: 376954739
+      KNIGHT_ANIMATION_38: 855900369
+      KNIGHT_ANIMATION_39: 451733755
+      KNIGHT_ANIMATION_4: -1804976266
+      KNIGHT_ANIMATION_40: -1571909835
+      KNIGHT_ANIMATION_41: -1611895677
+      KNIGHT_ANIMATION_42: 1198746931
+      KNIGHT_ANIMATION_43: 93009278
+      KNIGHT_ANIMATION_44: 2061516236
+      KNIGHT_ANIMATION_45: -139616483
+      KNIGHT_ANIMATION_46: -1140736417
+      KNIGHT_ANIMATION_47: 1203028091
+      KNIGHT_ANIMATION_48: 925251880
+      KNIGHT_ANIMATION_49: -278240760
+      KNIGHT_ANIMATION_5: 1085369507
+      KNIGHT_ANIMATION_50: -964713763
+      KNIGHT_ANIMATION_51: -1051183067
+      KNIGHT_ANIMATION_52: 2136305513
+      KNIGHT_ANIMATION_53: -1223468121
+      KNIGHT_ANIMATION_54: 1583187580
+      KNIGHT_ANIMATION_6: 846398868
+      KNIGHT_ANIMATION_7: -44467099
+      KNIGHT_ANIMATION_8: -1491952155
+      KNIGHT_ANIMATION_9: -659798228
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
