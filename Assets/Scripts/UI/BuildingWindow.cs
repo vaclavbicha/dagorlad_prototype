@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BuildingWindow : MonoBehaviour
 {
+    public GameObject infoPanel;
     public void ActivateWindow(int location_id, Utility.LocationType location_type, MapLocation mapLocation)
     {
         if (mapLocation.status == Utility.LocationStatus.Built)
@@ -22,7 +23,7 @@ public class BuildingWindow : MonoBehaviour
                         j = 0;
                         foreach (var cost in obj.cost)
                         {
-                            var text = transform.GetChild(0).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0);
+                            var text = transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0);
                             text.gameObject.SetActive(true);
                             text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
                             text.GetComponent<UpdateIconText>().UpdateDisplay(cost.value, gameObject);
@@ -30,11 +31,11 @@ public class BuildingWindow : MonoBehaviour
                         }
                         while (j <= 3)
                         {
-                            transform.GetChild(0).GetChild(i).transform.Find("Cost_" + j).GetChild(0).gameObject.SetActive(false);
+                            transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j).GetChild(0).gameObject.SetActive(false);
                             j++;
                         }
-                        transform.GetChild(0).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetChild(0).GetComponent<Image>().sprite = obj.Icon;
-                        transform.GetChild(0).GetChild(i).GetComponent<BuildingColumn>().currentBuildingName = obj.unitName;
+                        transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetChild(0).GetComponent<Image>().sprite = obj.Icon;
+                        transform.GetChild(2).GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.unitName;
                         i++;
                     }
                     break;
@@ -50,11 +51,11 @@ public class BuildingWindow : MonoBehaviour
             foreach (var obj in GameManager.Instance.buildings.FindAll(x => x.locationType == location_type))
             {
                 j = 0;
-            //Debug.Log("#" + transform.GetChild(0).GetChild(i).transform.name);
-            foreach (var cost in obj.cost)
+                //Debug.Log("#" + transform.GetChild(2).GetChild(i).transform.name);
+                foreach (var cost in obj.cost)
                 {
-                //Debug.Log("#" + transform.GetChild(0).GetChild(i).transform.Find("Cost_" + j.ToString()));
-                var text = transform.GetChild(0).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0);
+                    //Debug.Log("#" + transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j.ToString()));
+                    var text = transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0);
                     text.gameObject.SetActive(true);
                     text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
                     text.GetComponent<UpdateIconText>().UpdateDisplay(cost.value, gameObject);
@@ -62,11 +63,11 @@ public class BuildingWindow : MonoBehaviour
                 }
                 while (j <= 3)
                 {
-                    transform.GetChild(0).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0).gameObject.SetActive(false);
+                    transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0).gameObject.SetActive(false);
                     j++;
                 }
-                transform.GetChild(0).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetChild(0).GetComponent<Image>().sprite = obj.Icon;
-                transform.GetChild(0).GetChild(i).GetComponent<BuildingColumn>().currentBuildingName = obj.buildingName;
+                transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetChild(0).GetComponent<Image>().sprite = obj.Icon;
+                transform.GetChild(2).GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.buildingName;
                 i++;
             }
         }

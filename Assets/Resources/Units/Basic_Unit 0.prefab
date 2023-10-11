@@ -149,8 +149,6 @@ MonoBehaviour:
     value: 10
   - type: 3
     value: 5
-  - type: 0
-    value: 5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
   attackTimer: {fileID: 0}

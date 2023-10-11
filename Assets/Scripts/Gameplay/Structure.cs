@@ -7,6 +7,7 @@ public class Structure : MonoBehaviour
     public string buildingName;
     public Sprite Icon;
     public Sprite Flag;
+    public Sprite InfoSprite;
     public Utility.LocationType locationType;
     public Utility.UnitTypes unitType;
     public Amount buildTime;

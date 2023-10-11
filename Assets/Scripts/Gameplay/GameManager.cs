@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public List<OurUnit> units = new List<OurUnit>();
     //public Dictionary<string, Structure> buildings = new Dictionary<string, Structure>();
 
+    public List<Sprite> infoSprites = new List<Sprite>();
     public List<Sprite> resourceSprites = new List<Sprite>();
     public int[] startingAmounts = new[] { 500, 1000, 1500, 2000 };
 
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
             }
             ALL_Locations.AddRange(locations);
         }
+        infoSprites.AddRange(Resources.LoadAll<Sprite>("InfoSprites"));
         resourceSprites.AddRange(Resources.LoadAll<Sprite>("ResourceSprites"));
         //foreach (GameObject i in Resources.LoadAll<GameObject>("Structures"))
         //{

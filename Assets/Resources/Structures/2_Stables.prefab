@@ -372,8 +372,6 @@ MonoBehaviour:
     value: 150
   - type: 3
     value: 50
-  - type: 0
-    value: 12
   loadingBarPrefab: {fileID: 2750228692031925039, guid: f087198a0e57045b29dfcd2b2e859af4, type: 3}
   Rally_Point: {fileID: 0}
   isAttackPoint: 0

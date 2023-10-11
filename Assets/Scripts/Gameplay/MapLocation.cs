@@ -93,6 +93,7 @@ public class MapLocation : MonoBehaviour
                 building.GetComponent<Structure>().Rally_Point.GetComponent<MoveTo>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
                 building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
                 building.GetComponent<Structure>().Rally_Point.GetComponent<Draggable>().home = building.GetComponent<Structure>();
+                building.GetComponent<Structure>().Rally_Point.GetComponent<SpriteRenderer>().sprite = building.GetComponent<Structure>().Flag;
             }
             building.SetActive(false);
             status = Utility.LocationStatus.Building;

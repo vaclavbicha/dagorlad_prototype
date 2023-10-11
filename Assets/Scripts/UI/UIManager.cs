@@ -38,6 +38,9 @@ public class UIManager : MonoBehaviour
     public Slider rightLoadingBar;
     public int rightINDEX;
 
+    [System.NonSerialized]
+    public Toggle lastSelectedInfoToggle = null;
+
     private void Start()
     {
         if (toggleGroup != null && toggleGroup.transform.childCount != 0)
@@ -105,6 +108,11 @@ public class UIManager : MonoBehaviour
     }
     public void OnCloseBuildingWindow()
     {
+        if (lastSelectedInfoToggle)
+        {
+            lastSelectedInfoToggle.isOn = false;
+            lastSelectedInfoToggle = null;
+        }
         window.gameObject.SetActive(false);
         DeselectLocation();
     }

@@ -7,6 +7,7 @@ public class OurUnit : MonoBehaviour
 {
     public string unitName;
     public Sprite Icon;
+    public Sprite InfoSprite;
     public Utility.UnitTypes type;
     public Utility.UnitStatus status;
     public Amount buildTime;
