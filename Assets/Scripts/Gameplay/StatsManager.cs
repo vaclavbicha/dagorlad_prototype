@@ -59,4 +59,17 @@ public class StatsManager : MonoBehaviour
             }
         }
     }
+    public void UpdateStats(Stat[] inc, bool revert = false)
+    {
+        foreach(var x in inc)
+        {
+            foreach(var y in stats)
+            {
+                if(x.type == y.type)
+                {
+                    y.value += revert ? -x.value : x.value;
+                }
+            }
+        }
+    }
 }
