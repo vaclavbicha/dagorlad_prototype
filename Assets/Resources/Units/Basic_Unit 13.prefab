@@ -392,6 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: 13
   Icon: {fileID: 21300000, guid: 0d2e4a8e1f35b3e4dbb71e76defc7987, type: 3}
+  InfoSprite: {fileID: 0}
   type: 3
   status: 2
   buildTime:
@@ -403,9 +404,9 @@ MonoBehaviour:
   - type: 1
     value: 10
   - type: 3
-    value: 5
-  - type: 0
-    value: 5
+    value: 20
+  - type: 2
+    value: 10
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
   attackTimer: {fileID: 0}
