@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     public List<Resource> resources = new List<Resource>();
 
+    public List<ItemUpgrade> ownedUpgrades = new List<ItemUpgrade>();
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.

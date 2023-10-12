@@ -180,6 +180,8 @@ public class MapLocation : MonoBehaviour
                     itemManager.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
                     break;
                 case Utility.LocationType.Resource:
+                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon.Icon;
+                    itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     break;
             }
         }

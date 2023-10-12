@@ -10,6 +10,7 @@ public class Structure : MonoBehaviour
     public Sprite InfoSprite;
     public Utility.LocationType locationType;
     public Utility.UnitTypes unitType;
+    public Utility.UpgradeTypes upgradeType;
     public Amount buildTime;
     public Amount[] cost;
     public GameObject loadingBarPrefab;

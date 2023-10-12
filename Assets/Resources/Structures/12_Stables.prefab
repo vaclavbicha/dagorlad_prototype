@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &238314403964872222
+--- !u!1 &2069756231901707442
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4568679190419795833}
-  - component: {fileID: 8918768105353659046}
+  - component: {fileID: 4672424949023860044}
+  - component: {fileID: 1751916747739018196}
   m_Layer: 10
   m_Name: MAP_POINTER
   m_TagString: Untagged
@@ -17,28 +17,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4568679190419795833
+--- !u!4 &4672424949023860044
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238314403964872222}
+  m_GameObject: {fileID: 2069756231901707442}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -0.06, z: 0}
-  m_LocalScale: {x: 0.9161624, y: 0.9161624, z: 1.832325}
+  m_LocalPosition: {x: -0.026, y: -0.026, z: 0}
+  m_LocalScale: {x: 0.9161625, y: 0.9161625, z: 1.83233}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3378753580793070684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8918768105353659046
+--- !u!212 &1751916747739018196
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238314403964872222}
+  m_GameObject: {fileID: 2069756231901707442}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &3111008366690298968
+--- !u!1 &7740057817272634536
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,9 +92,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4305056208550265293}
-  - component: {fileID: 5725207619557360997}
-  - component: {fileID: 6047515397598298223}
+  - component: {fileID: 3440426105761440844}
+  - component: {fileID: 2240641755849532553}
+  - component: {fileID: 8069482182139056317}
   m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
@@ -102,13 +102,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4305056208550265293
+--- !u!224 &3440426105761440844
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3111008366690298968}
+  m_GameObject: {fileID: 7740057817272634536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -121,13 +121,13 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 1, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!23 &5725207619557360997
+--- !u!23 &2240641755849532553
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3111008366690298968}
+  m_GameObject: {fileID: 7740057817272634536}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -163,13 +163,13 @@ MeshRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6047515397598298223
+--- !u!114 &8069482182139056317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3111008366690298968}
+  m_GameObject: {fileID: 7740057817272634536}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
@@ -253,7 +253,7 @@ MonoBehaviour:
   _SortingLayerID: 0
   _SortingOrder: 0
   m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 5725207619557360997}
+  m_renderer: {fileID: 2240641755849532553}
   m_maskType: 0
 --- !u!1 &8712121292194843664
 GameObject:
@@ -265,14 +265,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3378753580793070684}
   - component: {fileID: 3675905143698288316}
-  - component: {fileID: -3892773579170166141}
-  - component: {fileID: -3827904590475416671}
-  - component: {fileID: 2273228232678967777}
-  - component: {fileID: 6717020266181179395}
-  - component: {fileID: 8948332708565591125}
-  - component: {fileID: 5362311795906051908}
+  - component: {fileID: 8550374456033369224}
+  - component: {fileID: -1556510943572095562}
+  - component: {fileID: 3637277972174311518}
+  - component: {fileID: 4783762738447478026}
+  - component: {fileID: 1826452851909718308}
+  - component: {fileID: 4980587450849967473}
   m_Layer: 6
-  m_Name: 1_Barracks
+  m_Name: 12_Stables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,12 +287,12 @@ Transform:
   m_GameObject: {fileID: 8712121292194843664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.436853, y: -2.1223817, z: 0}
+  m_LocalPosition: {x: -0.43, y: -1.88, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4305056208550265293}
-  - {fileID: 4568679190419795833}
+  - {fileID: 3440426105761440844}
+  - {fileID: 4672424949023860044}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3675905143698288316
@@ -336,7 +336,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 21300000, guid: 3d617d66dbd37244f807d794b0cdad41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 950cd0d52ae69f24fba46238f91b8ed4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -347,7 +347,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3892773579170166141
+--- !u!114 &8550374456033369224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,24 +359,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290d22b87e62145d48bf489ed8eccbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingName: Barracks
-  Icon: {fileID: 21300000, guid: a9f0b257b147b4e77a06bd917f65be8f, type: 3}
-  Flag: {fileID: 21300000, guid: a745bbb4e1089fa4680677530df935e1, type: 3}
+  buildingName: Stables
+  Icon: {fileID: 21300000, guid: dbb3413911b02426ebcdc264c6fc2989, type: 3}
+  Flag: {fileID: 21300000, guid: 97b1b8d43d0e9784ca65be8cfd714253, type: 3}
   InfoSprite: {fileID: 0}
   locationType: 1
-  unitType: 0
+  unitType: 1
   buildTime:
     type: 4
     value: 2
   cost:
   - type: 1
-    value: 50
+    value: 100
   - type: 2
-    value: 50
+    value: 100
   loadingBarPrefab: {fileID: 2750228692031925039, guid: f087198a0e57045b29dfcd2b2e859af4, type: 3}
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
---- !u!114 &-3827904590475416671
+--- !u!114 &-1556510943572095562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -395,7 +395,7 @@ MonoBehaviour:
   - type: 2
     value: 1
   DisplayHP: {fileID: 0}
---- !u!58 &2273228232678967777
+--- !u!58 &3637277972174311518
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -430,7 +430,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.64
---- !u!58 &6717020266181179395
+--- !u!58 &4783762738447478026
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -465,7 +465,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.1
---- !u!114 &8948332708565591125
+--- !u!114 &1826452851909718308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoggEvents: 1
---- !u!114 &5362311795906051908
+--- !u!114 &4980587450849967473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

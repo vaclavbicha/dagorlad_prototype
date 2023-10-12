@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public List<Structure> buildings = new List<Structure>();
     public List<OurUnit> units = new List<OurUnit>();
+    public List<ItemUpgrade> upgrades = new List<ItemUpgrade>();
     //public Dictionary<string, Structure> buildings = new Dictionary<string, Structure>();
 
     public List<Sprite> infoSprites = new List<Sprite>();
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
         //}
         buildings.AddRange(Resources.LoadAll<Structure>("Structures"));
         units.AddRange(Resources.LoadAll<OurUnit>("Units"));
+        upgrades.AddRange(Resources.LoadAll<ItemUpgrade>("Upgrades"));
         UpdatePlayerResources(Player.Instance, startingAmounts);
 
         UIManager.Instance.currentBaseID = 1;
@@ -97,7 +99,19 @@ public class GameManager : MonoBehaviour
                 var itemPrefab = units.Find(x => x.unitName == itemName);
                 SpawnUnit(itemName, location, itemPrefab);
             }
+            else
+            {
+                if (upgrades.Find(x => x.upgradeName == itemName) != null)
+                {
+                    var itemPrefab = upgrades.Find(x => x.upgradeName == itemName);
+                    //SpawnUnit(itemName, location, itemPrefab);
+                }
+            }
         }
+    }
+    public void BuyUpgrade(string upgradeName)
+    {
+
     }
     public void SpawnUnit(string unitName, MapLocation location, OurUnit unitPrefab)
     {

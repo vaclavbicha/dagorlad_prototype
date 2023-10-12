@@ -8113,6 +8113,7 @@ MonoBehaviour:
   ALL_Locations: []
   buildings: []
   units: []
+  upgrades: []
   infoSprites: []
   resourceSprites: []
   startingAmounts: 10270000102700001027000010270000
