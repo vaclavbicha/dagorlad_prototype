@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 27e02ea021f5ea04f87da40ac5a8bd32, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 029fb61922e21b74f8fe43d2423cf328, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: 20
-  Icon: {fileID: 21300000, guid: 27e02ea021f5ea04f87da40ac5a8bd32, type: 3}
+  Icon: {fileID: 21300000, guid: 029fb61922e21b74f8fe43d2423cf328, type: 3}
   InfoSprite: {fileID: 0}
-  type: 1
+  type: 2
   buildTime:
     type: 4
     value: 15
@@ -109,3 +109,4 @@ MonoBehaviour:
     value: 15
   - type: 2
     value: 15
+  maxOwned: 0
