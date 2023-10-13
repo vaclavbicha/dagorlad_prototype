@@ -36,6 +36,7 @@ public class MoveTo : MonoBehaviour
     public float TravelTime;
 
     public float range;
+    public float rangeMin;
     public float TimeRandomRange;
     float timer;
     Vector3 currentRandomTargetPosition;
@@ -74,7 +75,12 @@ public class MoveTo : MonoBehaviour
             {
                 if(timer < Time.time)
                 {
-                    currentRandomTargetPosition = new Vector3(UnityEngine.Random.Range(TransformDestination.position.x - range, TransformDestination.position.x + range), UnityEngine.Random.Range(TransformDestination.position.y - range, TransformDestination.position.y + range), 0);
+                    var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                    var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                    currentRandomTargetPosition = new Vector3(
+                        UnityEngine.Random.Range(TransformDestination.position.x + rangeMin * signX, TransformDestination.position.x + range * signX),
+                        UnityEngine.Random.Range(TransformDestination.position.y + rangeMin * signY, TransformDestination.position.y + range * signY),
+                        0);
                     timer = Time.time + TimeRandomRange;
                 }
             }

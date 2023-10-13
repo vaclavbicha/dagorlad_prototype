@@ -39,7 +39,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     {
         Debug.Log("OnEndDrag");
         spellInstance.GetComponent<Spell>().SpellStart();
-        spellInstance.GetComponent<Spell>().On_SpellEnd += (spell) => { Destroy(spell); };
+        spellInstance.GetComponent<Spell>().On_SpellEnd += (spell) => { Destroy(spell); };//Destroy(spell, spell.GetComponent<Spell>().duration); };
         spellInstance = null;
         Camera.main.GetComponent<MoveTo>().Lock = false;
     }

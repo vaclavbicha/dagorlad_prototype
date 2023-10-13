@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4739542926271918552}
   - component: {fileID: -4522799913090732651}
   m_Layer: 0
-  m_Name: Spell1
+  m_Name: Production
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.06987041, b: 0, a: 0.36078432}
+  m_Color: {r: 0, g: 0.16215563, b: 1, a: 0.36078432}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -204,10 +204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd21119b9996a4dc7b6d2fbdf6f05f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 0
   duration: 0
+  hasStarted: 0
   affectedStatsAllies: []
-  affectedStatsEnemies:
-  - type: 1
-    value: -50
+  affectedStatsEnemies: []
   unitsInRage: []
