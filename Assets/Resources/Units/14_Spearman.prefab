@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 4995404553531271491}
   - component: {fileID: -500042015376082502}
   m_Layer: 7
-  m_Name: 14_Spearman
+  m_Name: Basic_Unit 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,7 +340,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 22ec68640e7094e4896adb0e4db8cb9a, type: 3}
-  m_Color: {r: 1, g: 0.5061585, b: 0.2688679, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -390,8 +390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3266c1c8f8184d5ab0e883fdcfcda6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: 14_Spearman
-  Icon: {fileID: 21300000, guid: a27ab78ab3bec0e43b1b31517727a460, type: 3}
+  unitName: 12
+  Icon: {fileID: 21300000, guid: 0d2e4a8e1f35b3e4dbb71e76defc7987, type: 3}
   InfoSprite: {fileID: 0}
   type: 0
   status: 2
@@ -405,6 +405,7 @@ MonoBehaviour:
     value: 10
   - type: 3
     value: 10
+  attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
   attackTimer: {fileID: 0}
@@ -452,13 +453,17 @@ MonoBehaviour:
   owner: 
   stats:
   - type: 0
-    value: 1
+    value: 2
+    valueMAX: 0
   - type: 1
     value: 100
+    valueMAX: 0
   - type: 3
     value: 1
+    valueMAX: 0
   - type: 4
     value: 1
+    valueMAX: 0
   DisplayHP: {fileID: 0}
 --- !u!58 &-6844878022763904611
 CircleCollider2D:

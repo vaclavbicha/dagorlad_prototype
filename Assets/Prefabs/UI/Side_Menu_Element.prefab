@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5760094283875339827}
   - component: {fileID: 2008826888630636324}
   - component: {fileID: 5220649652895248985}
+  - component: {fileID: 2789087068546788290}
   m_Layer: 5
   m_Name: Ability_Button
   m_TagString: Untagged
@@ -90,6 +91,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 2
   m_AspectRatio: 0.22
+--- !u!114 &2789087068546788290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535298430237987551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5d0eec34f774071bd491c4e65d1a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPrefab: {fileID: 1564135401591964612, guid: 3c48de577a1fd4863873f89d80d9c232, type: 3}
 --- !u!1 &2566234336309292027
 GameObject:
   m_ObjectHideFlags: 0

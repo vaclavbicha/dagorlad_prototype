@@ -405,6 +405,7 @@ MonoBehaviour:
     value: 5
   - type: 3
     value: 10
+  attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
   attackTimer: {fileID: 0}
@@ -453,12 +454,16 @@ MonoBehaviour:
   stats:
   - type: 0
     value: 1.5
+    valueMAX: 0
   - type: 1
     value: 100
+    valueMAX: 0
   - type: 3
     value: 1
+    valueMAX: 0
   - type: 4
     value: 1
+    valueMAX: 0
   DisplayHP: {fileID: 0}
 --- !u!58 &-8361266351600190768
 CircleCollider2D:

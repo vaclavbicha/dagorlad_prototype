@@ -9,4 +9,11 @@ public class Stat
     public Utility.StatsTypes type;
     [SerializeField]
     public float value;
+    [SerializeField]
+    public float valueMAX;
+
+    public void SetMax()
+    {
+        valueMAX = value;
+    }
 }

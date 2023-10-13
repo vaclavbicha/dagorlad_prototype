@@ -53,6 +53,8 @@ public class MapLocation : MonoBehaviour
         if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected)
         {
             trainingUnit = Instantiate(unitPrefab, new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);
+            trainingUnit.tag = "Player";
+            trainingUnit.name += trainingUnit.GetInstanceID().ToString();
             trainingUnit.GetComponent<MoveTo>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
             trainingUnit.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
             trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.GoingToFlag;
