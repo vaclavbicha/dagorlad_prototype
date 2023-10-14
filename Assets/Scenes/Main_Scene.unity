@@ -3770,6 +3770,7 @@ MonoBehaviour:
   CalculatedDistance: 0
   TravelTime: 0
   range: 0
+  rangeMin: 0
   TimeRandomRange: 0
 --- !u!50 &519420035
 Rigidbody2D:
@@ -8259,6 +8260,7 @@ MonoBehaviour:
   drag: 0
   isOverFlag: 0
   currentRallyPoint: {fileID: 0}
+  clickedMapLocation: {fileID: 0}
   dragFlag: 0
 --- !u!4 &1331455526
 Transform:
@@ -8288,7 +8290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentBaseID: 0
-  toggleGroup: {fileID: 1011449345}
+  toggleGroupBases: {fileID: 1011449345}
+  toggleGroupStructureTypes: {fileID: 1745830694}
   window: {fileID: 1017889336}
   currentSelected: {fileID: 0}
   dialogWindow: {fileID: 1470736847}
@@ -11504,7 +11507,7 @@ GameObject:
   - component: {fileID: 1922885025}
   - component: {fileID: 1922885024}
   m_Layer: 5
-  m_Name: Resources
+  m_Name: Resource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

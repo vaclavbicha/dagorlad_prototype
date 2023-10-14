@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Rally_Point
   - Enemy
+  - MapLocation
+  - Structure
   layers:
   - Default
   - TransparentFX
@@ -13,12 +15,12 @@ TagManager:
   - 
   - Water
   - UI
-  - Structures
+  - Structure
   - Troops
   - Fly
   - RallyPoint
   - MiniMap
-  - 
+  - MapLocation
   - 
   - 
   - 

@@ -12,7 +12,8 @@ public class UIManager : MonoBehaviour
 
     public int currentBaseID = 1;
 
-    public ToggleGroup toggleGroup;
+    public ToggleGroup toggleGroupBases;
+    public ToggleGroup toggleGroupStructureTypes;
 
     public BuildingWindow window;
     public MapLocation currentSelected;
@@ -43,9 +44,9 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        if (toggleGroup != null && toggleGroup.transform.childCount != 0)
+        if (toggleGroupBases != null && toggleGroupBases.transform.childCount != 0)
         {
-            var Toggles = toggleGroup.GetComponentsInChildren<Toggle>();
+            var Toggles = toggleGroupBases.GetComponentsInChildren<Toggle>();
             //Toggles[0].SetIsOnWithoutNotify(true);
             Toggles[0].isOn = true;
             for (int i = 0; i < Toggles.Length; i++)

@@ -89,11 +89,16 @@ public class MapLocation : MonoBehaviour
         if (building == null && selectionStatus == Utility.LocationSelectionStatus.Selected)
         {
             building = Instantiate(buildingPrefab, transform.position, Quaternion.identity);
+            building.tag = "Structure";
+            building.name += building.GetInstanceID().ToString();
+            building.GetComponent<Structure>().mapLocation = this;
+
             if (building.GetComponent<Structure>().locationType == Utility.LocationType.Attack)
             {
                 building.GetComponent<Structure>().Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
                 building.GetComponent<Structure>().Rally_Point.GetComponent<MoveTo>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
                 building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
+                
                 building.GetComponent<Structure>().Rally_Point.GetComponent<Draggable>().home = building.GetComponent<Structure>();
                 building.GetComponent<Structure>().Rally_Point.GetComponent<SpriteRenderer>().sprite = building.GetComponent<Structure>().Flag;
             }
