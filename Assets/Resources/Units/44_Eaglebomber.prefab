@@ -390,8 +390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3266c1c8f8184d5ab0e883fdcfcda6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: 13
-  Icon: {fileID: 21300000, guid: 0d2e4a8e1f35b3e4dbb71e76defc7987, type: 3}
+  unitName: 44_Eaglebomber
+  Icon: {fileID: 21300000, guid: a27ab78ab3bec0e43b1b31517727a460, type: 3}
   InfoSprite: {fileID: 0}
   type: 3
   status: 2

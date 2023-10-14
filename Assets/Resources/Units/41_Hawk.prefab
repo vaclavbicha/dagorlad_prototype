@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3266c1c8f8184d5ab0e883fdcfcda6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: 1
+  unitName: 41_Hawk
   Icon: {fileID: 21300000, guid: 77afd8c0204cd434c80b731b0bb94898, type: 3}
   InfoSprite: {fileID: 0}
   type: 3

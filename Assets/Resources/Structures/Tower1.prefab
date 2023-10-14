@@ -359,12 +359,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290d22b87e62145d48bf489ed8eccbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingName: Build1
+  buildingName: Tower1
   Icon: {fileID: 21300000, guid: 4628fa98cd898ab488a6e20dc0b9e1b2, type: 3}
   Flag: {fileID: 0}
   InfoSprite: {fileID: 0}
   locationType: 0
   unitType: 0
+  upgradeType: 0
   buildTime:
     type: 4
     value: 2
