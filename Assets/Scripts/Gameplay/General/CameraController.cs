@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class CameraController : MonoBehaviour
 
     public bool isOverFlag = false;
     public Draggable currentRallyPoint = null;
+    public MapLocation clickedMapLocation = null;
     public bool dragFlag = false;
 
     // Start is called before the first frame update
@@ -32,7 +34,13 @@ public class CameraController : MonoBehaviour
         mapMinY = mapRenderer.transform.position.y - mapRenderer.bounds.size.y / 2f;
         mapMaxY = mapRenderer.transform.position.y + mapRenderer.bounds.size.y / 2f;
     }
-
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && !isMouseOverOverlayCanvas())
+        {
+            OnMapLocationClick();
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -72,7 +80,7 @@ public class CameraController : MonoBehaviour
         {
             currentRallyPoint.HOLD();
         }
-        if (drag)
+        if (drag && !UIManager.Instance.window.gameObject.activeInHierarchy)
         {
             cameraMove.SetDestination(ClampCamera(Origin - Difference));
         }
@@ -107,6 +115,47 @@ public class CameraController : MonoBehaviour
         }
         currentRallyPoint = null;
         return false;
+    }
+    private bool OnMapLocationClick()
+    {
+        //Debug.Log("MOUSE BUTTON DOWN" + camera.ScreenToWorldPoint(Input.mousePosition));
+        RaycastHit2D[] hit = Physics2D.RaycastAll(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        foreach (var x in hit)
+        {
+            if (x.collider.gameObject.layer == 11 && x.collider.tag == "MapLocation")
+            {
+                //Debug.Log(x.transform.name);
+                var clickedMapLocation = x.transform.GetComponent<MapLocation>();
+                SelectLocation(clickedMapLocation);
+                return true;
+            }
+            if (x.collider.gameObject.layer == 6 && x.collider.tag == "Structure")
+            {
+                var clickedMapLocation = x.transform.GetComponent<Structure>();
+                SelectLocation(clickedMapLocation.mapLocation);
+                return true;
+            }
+        }
+        clickedMapLocation = null;
+        return false;
+    }
+    private void SelectLocation(MapLocation location)
+    {
+        foreach (var z in UIManager.Instance.toggleGroupBases.GetComponentsInChildren<Toggle>())
+        {
+            if (z.name.Contains(location.baseID.ToString()))
+            {
+                z.isOn = true;
+            }
+        }
+        foreach (var z in UIManager.Instance.toggleGroupStructureTypes.GetComponentsInChildren<Toggle>())
+        {
+            if (z.name == location.type.ToString())
+            {
+                z.isOn = true;
+            }
+        }
+        UIManager.Instance.OnSelectLocation(location.id, location.type);
     }
     private Vector3 ClampCamera(Vector3 targetPosition)
     {

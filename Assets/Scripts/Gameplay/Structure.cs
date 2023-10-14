@@ -16,6 +16,7 @@ public class Structure : MonoBehaviour
     public GameObject loadingBarPrefab;
     public GameObject Rally_Point;
     public bool isAttackPoint = false;
+    public MapLocation mapLocation;
 
     //public List<OurUnit> currentArmy = new List<OurUnit>();
 

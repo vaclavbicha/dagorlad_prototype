@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 7637738791947399682}
   m_Layer: 6
   m_Name: 13_Workshop
-  m_TagString: Untagged
+  m_TagString: Structures
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -395,8 +395,10 @@ MonoBehaviour:
   stats:
   - type: 1
     value: 1000
+    valueMAX: 0
   - type: 2
     value: 1
+    valueMAX: 0
   DisplayHP: {fileID: 0}
 --- !u!58 &866714143527346075
 CircleCollider2D:
