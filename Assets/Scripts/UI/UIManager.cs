@@ -67,6 +67,11 @@ public class UIManager : MonoBehaviour
         leftTimer.AddTimer("Building", GameManager.Instance.secondsToFullLeftPanel, true, 0.25f);
 
         leftTimer.On_PingAction += UpdateSliderLeft;
+
+        rightTimer = gameObject.AddComponent<Timer>();
+        rightTimer.AddTimer("Building", GameManager.Instance.secondsToFullRightPanel, true, 0.25f);
+
+        rightTimer.On_PingAction += UpdateSliderRight;
     }
     private void Awake()
     {

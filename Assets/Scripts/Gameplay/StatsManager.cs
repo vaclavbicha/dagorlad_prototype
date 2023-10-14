@@ -41,6 +41,11 @@ public class StatsManager : MonoBehaviour
     {
         DisplayHP = GetComponentInChildren<TextMeshPro>();
         moveTo = GetComponent<MoveTo>();
+
+        foreach(var x in stats)
+        {
+            x.SetMax();
+        }
     }
     public void Update()
     {
@@ -59,6 +64,19 @@ public class StatsManager : MonoBehaviour
             }
         }
     }
+    public void Heal(float value)
+    {
+        foreach(var x in stats)
+        {
+            if(x.type == Utility.StatsTypes.Health)
+            {
+                if(x.value <= x.valueMAX - value)
+                {
+                    x.value += value;
+                }
+            }
+        }
+    }
     public void UpdateStats(Stat[] inc, bool revert = false)
     {
         foreach(var x in inc)
@@ -68,6 +86,7 @@ public class StatsManager : MonoBehaviour
                 if(x.type == y.type)
                 {
                     y.value += revert ? -x.value : x.value;
+                    Debug.Log("NEW VALUE " + x.value);
                 }
             }
         }

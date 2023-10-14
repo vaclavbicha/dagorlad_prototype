@@ -12,6 +12,7 @@ public class OurUnit : MonoBehaviour
     public Utility.UnitStatus status;
     public Amount buildTime;
     public Amount[] cost;
+    public float attackRange;
     MoveTo moveTo;
     OnTrigger onTrigger;
     OnCollision onCollision;
@@ -27,8 +28,8 @@ public class OurUnit : MonoBehaviour
     int attackid = 0;
 
 
-    Vector3 previousPosition;
-    Vector3 lastMoveDirection;
+    Vector2 previousPosition;
+    public Vector2 lastMoveDirection;
 
     Animator animator;
     // Start is called before the first frame update
@@ -48,14 +49,14 @@ public class OurUnit : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (transform.position != previousPosition)
+        if ((Vector2)transform.position != previousPosition)
         {
-            lastMoveDirection = (transform.position - previousPosition).normalized;
+            lastMoveDirection = ((Vector2)transform.position - previousPosition).normalized;
             previousPosition = transform.position;
             animator.SetBool("isWalking", true);
             if (currentTarget)
             {
-                lastMoveDirection = (currentTarget.transform.position - transform.position).normalized;
+                lastMoveDirection = ((Vector2)currentTarget.transform.position - (Vector2)transform.position).normalized;
                 animator.SetFloat("x", lastMoveDirection.x);
                 animator.SetFloat("y", lastMoveDirection.y);
             }
@@ -113,6 +114,7 @@ public class OurUnit : MonoBehaviour
         //moveTo.method = MoveTo.Method.SpeedWithTarget;
         moveTo.TransformDestination = Enemy.transform;
         moveTo.range = 0.20f;
+        moveTo.rangeMin = 0.05f;
         if (attackTimer == null)
         {
             //Debug.Log("ATTACK " + Enemy.name);
@@ -149,11 +151,15 @@ public class OurUnit : MonoBehaviour
     }
     public void DealDamage(Timer timer)
     {
-        animator.SetTrigger("isAttacking");
         Destroy(timer);
         if (statsManager.GetStat(Utility.StatsTypes.Attack) != null)
         {
-            var dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
+            var dead = false;
+            if (Mathf.Abs(Vector2.Distance(currentTarget.transform.position, transform.position)) < attackRange)
+            {
+                animator.SetTrigger("isAttacking");
+                dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
+            }
             if (dead)
             {
                 Debug.Log(gameObject.name + " - KILLED - " + currentTarget.name);

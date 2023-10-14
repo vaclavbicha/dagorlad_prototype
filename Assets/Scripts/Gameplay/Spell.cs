@@ -8,6 +8,9 @@ public class Spell : MonoBehaviour
     OnTrigger onTrigger;
     public uint delay = 1;
     public uint duration = 0;
+    public bool hasStarted = false;
+    public bool isBuff = false;
+
     public Stat[] affectedStatsAllies;
     public Stat[] affectedStatsEnemies;
 
@@ -35,14 +38,29 @@ public class Spell : MonoBehaviour
                 Effect(collider.gameObject, true);
             }
         });
+        onTrigger.AddEvent("Enter", "Player", (sender, collider) => {
+            if (unitsInRage.Find(x => x.name == collider.name) == null)
+            {
+                unitsInRage.Add(collider.gameObject);
+                Effect(collider.gameObject);
+            }
+        });
+        onTrigger.AddEvent("Exit", "Player", (sender, collider) => {
+            if (unitsInRage.Find(x => x.name == collider.name) != null)
+            {
+                unitsInRage.Remove(collider.gameObject);
+                Effect(collider.gameObject, true);
+            }
+        });
     }
     public void SpellStart()
     {
+        hasStarted = true;
         StartCoroutine(ApplyEffect());
     }
     public void Effect(GameObject unit, bool undo = false)
     {
-        if(duration != 0)
+        if(duration != 0 && hasStarted)
         {
             if (unit.tag == "Enemy")
             {
@@ -69,6 +87,44 @@ public class Spell : MonoBehaviour
                 x.GetComponent<StatsManager>().UpdateStats(affectedStatsAllies);
             }
         }
+        for(int i = 0; i < duration; i++)
+        {
+            yield return new WaitForSeconds(1);
+            foreach(var x in affectedStatsAllies)
+            {
+                if(x.type == Utility.StatsTypes.Health && x.value > 0)
+                {
+                    foreach(var y in unitsInRage)
+                    {
+                        if (y.tag == "Enemy")
+                        {
+                            //y.GetComponent<StatsManager>().UpdateStats(affectedStatsEnemies, true);
+                        }
+                        else
+                        {
+                            y.GetComponent<StatsManager>().Heal(x.value);
+                        }
+                    }
+                }
+            }
+        }
         On_SpellEnd?.Invoke(gameObject);
+    }
+    public void OnDestroy()
+    {
+        foreach (var x in unitsInRage)
+        {
+            if (duration != 0 && hasStarted && isBuff)
+            {
+                if (x.tag == "Enemy")
+                {
+                    x.GetComponent<StatsManager>().UpdateStats(affectedStatsEnemies, true);
+                }
+                else
+                {
+                    x.GetComponent<StatsManager>().UpdateStats(affectedStatsAllies, true);
+                }
+            }
+        }
     }
 }
