@@ -8,6 +8,7 @@ public class Structure : MonoBehaviour
     public Sprite Icon;
     public Sprite Flag;
     public Sprite InfoSprite;
+    public Sprite buildingSprite;
     public Utility.LocationType locationType;
     public Utility.UnitTypes unitType;
     public Utility.UpgradeTypes upgradeType;

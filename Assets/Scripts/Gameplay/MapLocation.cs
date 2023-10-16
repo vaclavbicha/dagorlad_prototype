@@ -33,17 +33,18 @@ public class MapLocation : MonoBehaviour
     {
         mainCamera = Camera.main;
         sprite = GetComponent<SpriteRenderer>();
+        status = Utility.LocationStatus.Free;
     }
 
     // Update is called once per frame
     void Update()
     {
-        color = selectionStatus == Utility.LocationSelectionStatus.Selected ? Color.red : Color.white;
+        color.a = selectionStatus == Utility.LocationSelectionStatus.Selected ? 1f : 0.3f;
         color = status == Utility.LocationStatus.Building ? Color.green : color;
         var screenPosition = mainCamera.WorldToScreenPoint(transform.position);
         isVisisble = !(screenPosition.x <= 10 || screenPosition.x >= Screen.width || screenPosition.y <= 10 || screenPosition.y >= Screen.height);
 
-        color.a = isVisisble ? 0.2f : 1f;
+        //color.a = isVisisble ? 1f : 1f;
 
         sprite.color = color;
 
@@ -91,18 +92,23 @@ public class MapLocation : MonoBehaviour
             building = Instantiate(buildingPrefab, transform.position, Quaternion.identity);
             building.tag = "Structure";
             building.name += building.GetInstanceID().ToString();
-            building.GetComponent<Structure>().mapLocation = this;
+            var buildingStructure = building.GetComponent<Structure>();
+            buildingStructure.mapLocation = this;
 
-            if (building.GetComponent<Structure>().locationType == Utility.LocationType.Attack)
+            if (buildingStructure.locationType == Utility.LocationType.Attack)
             {
-                building.GetComponent<Structure>().Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
-                building.GetComponent<Structure>().Rally_Point.GetComponent<MoveTo>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
+                buildingStructure.Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
+                buildingStructure.Rally_Point.GetComponent<MoveTo>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
                 building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
-                
-                building.GetComponent<Structure>().Rally_Point.GetComponent<Draggable>().home = building.GetComponent<Structure>();
-                building.GetComponent<Structure>().Rally_Point.GetComponent<SpriteRenderer>().sprite = building.GetComponent<Structure>().Flag;
+
+                buildingStructure.Rally_Point.GetComponent<Draggable>().home = buildingStructure;
+                buildingStructure.Rally_Point.GetComponent<SpriteRenderer>().sprite = buildingStructure.Flag;
             }
-            building.SetActive(false);
+            //building.SetActive(false);
+            var aux = buildingStructure.buildingSprite;
+            buildingStructure.buildingSprite = building.GetComponent<SpriteRenderer>().sprite;
+            building.GetComponent<SpriteRenderer>().sprite = aux;
+
             status = Utility.LocationStatus.Building;
 
             if (timer == null)
@@ -142,7 +148,11 @@ public class MapLocation : MonoBehaviour
     }
     public void isDoneBuilding(Timer _timer)
     {
-        building.SetActive(true);
+        //building.SetActive(true);
+        var aux = building.GetComponent<SpriteRenderer>().sprite;
+        building.GetComponent<SpriteRenderer>().sprite = building.GetComponent<Structure>().buildingSprite;
+        building.GetComponent<Structure>().buildingSprite = aux;
+
         status = Utility.LocationStatus.Built;
 
         DestroyImmediate(timer);

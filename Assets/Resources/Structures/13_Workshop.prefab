@@ -363,6 +363,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: a346687efe8e0284896745f6b19cab39, type: 3}
   Flag: {fileID: 21300000, guid: ea957db94bc75904b8e0cd3eeb0b8230, type: 3}
   InfoSprite: {fileID: 0}
+  buildingSprite: {fileID: 21300000, guid: 0be6f32ed7abc58408a0e43ec201817c, type: 3}
   locationType: 1
   unitType: 2
   upgradeType: 0
@@ -379,6 +380,7 @@ MonoBehaviour:
   loadingBarPrefab: {fileID: 2750228692031925039, guid: f087198a0e57045b29dfcd2b2e859af4, type: 3}
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
+  mapLocation: {fileID: 0}
 --- !u!114 &-8158935630553139024
 MonoBehaviour:
   m_ObjectHideFlags: 0

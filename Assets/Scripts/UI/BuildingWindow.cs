@@ -65,7 +65,7 @@ public class BuildingWindow : MonoBehaviour
                     break;
             }
         }
-        else
+        if (mapLocation.status == Utility.LocationStatus.Free)
         {
             gameObject.SetActive(true);
             int i = 0;

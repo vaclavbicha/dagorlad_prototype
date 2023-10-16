@@ -26,8 +26,10 @@ public class UIManager : MonoBehaviour
 
     float lastClicked;
 
-    bool lookForNextClick = false;
+    [System.NonSerialized]
+    public bool lookForNextClick = false;
     Transform selectedRallyPoint = null;
+    public Image selectedRallyPointButton = null;
 
     [SerializeField]
     public Timer leftTimer;
@@ -95,6 +97,7 @@ public class UIManager : MonoBehaviour
                 selectedRallyPoint.GetComponent<MoveTo>().SetDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 lookForNextClick = false;
                 selectedRallyPoint = null;
+                selectedRallyPointButton.color = Color.white;
             }
         }
     }
@@ -147,10 +150,12 @@ public class UIManager : MonoBehaviour
         //GameManager.Instance.SpawnBuilding(buildingName, currentSelected);
         GameManager.Instance.ItemBuy(itemName, currentSelected);
     }
-    public void LookToPlaceRallyPoint(Transform point)
+    public void LookToPlaceRallyPoint(Transform point, Image image)
     {
         lookForNextClick = true;
         selectedRallyPoint = point;
+        selectedRallyPointButton = image;
+        image.color = Color.blue;
     }
     public void OnBaseSwitch(int id)
     {

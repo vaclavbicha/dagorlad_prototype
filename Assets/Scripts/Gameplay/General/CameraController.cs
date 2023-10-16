@@ -22,6 +22,9 @@ public class CameraController : MonoBehaviour
     public MapLocation clickedMapLocation = null;
     public bool dragFlag = false;
 
+    public float holdTimerClickedMapLocation = 0f;
+    float lastclickedTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +39,18 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isMouseOverOverlayCanvas())
+        if (Input.GetMouseButtonDown(0) && !isMouseOverOverlayCanvas() && !UIManager.Instance.lookForNextClick)
         {
-            OnMapLocationClick();
+            clickedMapLocation = OnMapLocationClick();
+            if (clickedMapLocation != null) lastclickedTimer = Time.time + holdTimerClickedMapLocation;
+        }
+        if (Input.GetMouseButtonUp(0) && !isMouseOverOverlayCanvas() && clickedMapLocation != null && lastclickedTimer < Time.time)
+        {
+            if(clickedMapLocation == OnMapLocationClick())
+            {
+                Debug.Log("DASDADASDA");
+                SelectLocation(clickedMapLocation);
+            }
         }
     }
     // Update is called once per frame
@@ -94,6 +106,7 @@ public class CameraController : MonoBehaviour
         EventSystem.current.RaycastAll(pointerEventData, raycastResults);
         foreach(var ev in raycastResults)
         {
+            Debug.Log(ev.gameObject.name);
             //if (ev.gameObject.layer == 9) ev.gameObject.GetComponent<Draggable>().ONNNN();
             if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
         }
@@ -116,7 +129,7 @@ public class CameraController : MonoBehaviour
         currentRallyPoint = null;
         return false;
     }
-    private bool OnMapLocationClick()
+    private MapLocation OnMapLocationClick()
     {
         //Debug.Log("MOUSE BUTTON DOWN" + camera.ScreenToWorldPoint(Input.mousePosition));
         RaycastHit2D[] hit = Physics2D.RaycastAll(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -125,19 +138,19 @@ public class CameraController : MonoBehaviour
             if (x.collider.gameObject.layer == 11 && x.collider.tag == "MapLocation")
             {
                 //Debug.Log(x.transform.name);
-                var clickedMapLocation = x.transform.GetComponent<MapLocation>();
-                SelectLocation(clickedMapLocation);
-                return true;
+                //var clickedMapLocation = x.transform.GetComponent<MapLocation>();
+                //SelectLocation(clickedMapLocation);
+                return x.transform.GetComponent<MapLocation>();
             }
             if (x.collider.gameObject.layer == 6 && x.collider.tag == "Structure")
             {
-                var clickedMapLocation = x.transform.GetComponent<Structure>();
-                SelectLocation(clickedMapLocation.mapLocation);
-                return true;
+                //var clickedMapLocation = x.transform.GetComponent<Structure>();
+                //SelectLocation(clickedMapLocation.mapLocation);
+                return x.transform.GetComponent<Structure>().mapLocation;
             }
         }
-        clickedMapLocation = null;
-        return false;
+        //clickedMapLocation = null;
+        return null;
     }
     private void SelectLocation(MapLocation location)
     {
@@ -156,6 +169,7 @@ public class CameraController : MonoBehaviour
             }
         }
         UIManager.Instance.OnSelectLocation(location.id, location.type);
+        clickedMapLocation = null;
     }
     private Vector3 ClampCamera(Vector3 targetPosition)
     {
