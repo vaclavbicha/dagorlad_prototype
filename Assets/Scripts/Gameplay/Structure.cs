@@ -6,7 +6,8 @@ public class Structure : MonoBehaviour
 {
     public string buildingName;
     public Sprite Icon;
-    public Sprite Flag;
+    public Sprite Flag1;
+    public Sprite Flag3;
     public Sprite InfoSprite;
     public Sprite buildingSprite;
     public Utility.LocationType locationType;

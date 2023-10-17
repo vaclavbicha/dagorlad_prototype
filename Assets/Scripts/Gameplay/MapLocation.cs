@@ -102,7 +102,7 @@ public class MapLocation : MonoBehaviour
                 building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
 
                 buildingStructure.Rally_Point.GetComponent<Draggable>().home = buildingStructure;
-                buildingStructure.Rally_Point.GetComponent<SpriteRenderer>().sprite = buildingStructure.Flag;
+                buildingStructure.Rally_Point.GetComponent<SpriteRenderer>().sprite = UIManager.Instance.currentBaseID == 3 ? buildingStructure.Flag3 : buildingStructure.Flag1;
             }
             //building.SetActive(false);
             var aux = buildingStructure.buildingSprite;
@@ -178,7 +178,7 @@ public class MapLocation : MonoBehaviour
                     itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     break;
                 case Utility.LocationType.Attack:
-                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.Flag;
+                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = UIManager.Instance.currentBaseID == 3 ? buttonIcon?.Flag3 : buttonIcon?.Flag1;
                     itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                     itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.Icon;
                     itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
@@ -190,10 +190,12 @@ public class MapLocation : MonoBehaviour
                     //y.onValueChanged.RemoveAllListeners();
                     //y.onValueChanged.AddListener((isON) => { building.GetComponent<Structure>().isAttackPoint = isON; });
                     //x.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
-                    foreach(var x in itemManager.bottom.GetComponentsInChildren<Button>())
-                    {
-                        x.GetComponent<Image>().enabled = true;
-                    }
+
+                    //OLD FLAGS
+                    //foreach(var x in itemManager.bottom.GetComponentsInChildren<Button>())
+                    //{
+                    //    x.GetComponent<Image>().enabled = true;
+                    //}
                     itemManager.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
                     break;
                 case Utility.LocationType.Resource:

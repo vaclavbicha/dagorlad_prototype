@@ -155,7 +155,7 @@ public class UIManager : MonoBehaviour
         lookForNextClick = true;
         selectedRallyPoint = point;
         selectedRallyPointButton = image;
-        image.color = Color.blue;
+        image.color = new Color(255,255,255,0.5f);
     }
     public void OnBaseSwitch(int id)
     {

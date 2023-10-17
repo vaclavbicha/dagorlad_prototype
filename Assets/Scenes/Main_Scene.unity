@@ -8263,7 +8263,9 @@ MonoBehaviour:
   currentRallyPoint: {fileID: 0}
   clickedMapLocation: {fileID: 0}
   dragFlag: 0
-  holdTimerClickedMapLocation: 0.2
+  holdTimerClickedMapLocation: 0.5
+  lastclickedTimer: 0
+  timesClicked: 0
 --- !u!4 &1331455526
 Transform:
   m_ObjectHideFlags: 0

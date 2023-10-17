@@ -23,7 +23,8 @@ public class CameraController : MonoBehaviour
     public bool dragFlag = false;
 
     public float holdTimerClickedMapLocation = 0f;
-    float lastclickedTimer;
+    public float lastclickedTimer;
+    public int timesClicked;
 
     // Start is called before the first frame update
     void Start()
@@ -39,19 +40,48 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isMouseOverOverlayCanvas() && !UIManager.Instance.lookForNextClick)
+
+        if (Input.GetMouseButtonDown(0) && !isMouseOverOverlayCanvas() && !UIManager.Instance.lookForNextClick && clickedMapLocation == null)
         {
             clickedMapLocation = OnMapLocationClick();
-            if (clickedMapLocation != null) lastclickedTimer = Time.time + holdTimerClickedMapLocation;
+            if (clickedMapLocation != null)
+            {
+                lastclickedTimer = Time.time + holdTimerClickedMapLocation;
+            }
         }
-        if (Input.GetMouseButtonUp(0) && !isMouseOverOverlayCanvas() && clickedMapLocation != null && lastclickedTimer < Time.time)
+        if (Input.GetMouseButtonUp(0) && !isMouseOverOverlayCanvas() && clickedMapLocation != null)
         {
             if(clickedMapLocation == OnMapLocationClick())
             {
                 Debug.Log("DASDADASDA");
-                SelectLocation(clickedMapLocation);
+                //SelectLocation(clickedMapLocation);
+                if (lastclickedTimer > Time.time)
+                {
+                    if (timesClicked == 1)
+                    {
+                        SelectLocation(clickedMapLocation);
+                    }
+                    else
+                    {
+                        if (timesClicked == 0)
+                        {
+                            timesClicked++;
+                        }
+                    }
+                }
+                else
+                {
+                    timesClicked = 0;
+                    clickedMapLocation = null;
+                }
             }
         }
+        if (lastclickedTimer < Time.time)
+        {
+            timesClicked = 0;
+            clickedMapLocation = null;
+        }
+
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -170,6 +200,7 @@ public class CameraController : MonoBehaviour
         }
         UIManager.Instance.OnSelectLocation(location.id, location.type);
         clickedMapLocation = null;
+        timesClicked = 0;
     }
     private Vector3 ClampCamera(Vector3 targetPosition)
     {
