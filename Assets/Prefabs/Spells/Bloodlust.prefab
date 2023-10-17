@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8776158774217895984}
   - component: {fileID: 4739542926271918552}
   - component: {fileID: -4522799913090732651}
+  - component: {fileID: 2197835475303025456}
   m_Layer: 0
   m_Name: Bloodlust
   m_TagString: Untagged
@@ -215,3 +216,24 @@ MonoBehaviour:
     valueMAX: 0
   affectedStatsEnemies: []
   unitsInRage: []
+--- !u!95 &2197835475303025456
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564135401591964612}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cbb4b67ceaba41378b2d4801bd62c4b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

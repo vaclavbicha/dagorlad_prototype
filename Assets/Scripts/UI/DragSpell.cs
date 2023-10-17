@@ -7,6 +7,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 {
     private RectTransform rectTransform;
     public GameObject spellPrefab;
+    public GameObject deathPrefab;
     MoveTo spellInstance;
     //private CanvasGroup canvasGroup;
 
@@ -28,7 +29,11 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         var position = Camera.main.ScreenToWorldPoint(eventData.position);
         if (!isMouseOverOverlayCanvas())
         {
-            if(spellInstance == null) spellInstance = Instantiate(spellPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity).GetComponent<MoveTo>();
+            if (spellInstance == null)
+            {
+                spellInstance = Instantiate(spellPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity).GetComponent<MoveTo>();
+                spellInstance.GetComponent<Animator>().SetTrigger("EFFECT");
+            }
             else
             {
                 spellInstance.SetDestination(new Vector3(position.x, position.y, 0));
@@ -39,9 +44,23 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     {
         Debug.Log("OnEndDrag");
         spellInstance.GetComponent<Spell>().SpellStart();
-        spellInstance.GetComponent<Spell>().On_SpellEnd += (spell) => { Destroy(spell); };//Destroy(spell, spell.GetComponent<Spell>().duration); };
+        spellInstance.GetComponent<Spell>().On_SpellEnd += (spell) => { StartCoroutine(SpawnDeath(spell.transform.position)); Destroy(spell); };//Destroy(spell, spell.GetComponent<Spell>().duration); };
         spellInstance = null;
         Camera.main.GetComponent<MoveTo>().Lock = false;
+
+        Debug.Log(transform.parent.parent.parent.parent.parent.name);
+        if (transform.parent.parent.parent.parent.parent.name.Contains("Left"))
+        {
+
+            UIManager.Instance.leftLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().SetTrigger("IN");
+
+        }
+        else
+        {
+            UIManager.Instance.rightLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().SetTrigger("IN");
+        }
+        //UIManager.Instance.leftLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().ResetTrigger("IN");
+        //UIManager.Instance.rightLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().ResetTrigger("IN");
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -66,5 +85,14 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
             if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
         }
         return false;
+    }
+    IEnumerator SpawnDeath(Vector3 pos)
+    {
+        yield return new WaitForSeconds(0);
+        if (deathPrefab)
+        {
+            var x = Instantiate(deathPrefab, pos, Quaternion.identity);
+            Destroy(x, 2f);
+        }
     }
 }
