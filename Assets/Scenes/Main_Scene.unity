@@ -3758,7 +3758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   method: 1
   TimeSpan: 0
-  Speed: 200
+  Speed: 70
   Lock: 0
   Destination: {x: 0, y: 0.7, z: 0}
   hasReach: 0
@@ -8263,7 +8263,7 @@ MonoBehaviour:
   currentRallyPoint: {fileID: 0}
   clickedMapLocation: {fileID: 0}
   dragFlag: 0
-  holdTimerClickedMapLocation: 0
+  holdTimerClickedMapLocation: 0.2
 --- !u!4 &1331455526
 Transform:
   m_ObjectHideFlags: 0
@@ -11855,8 +11855,8 @@ Transform:
   m_GameObject: {fileID: 1952345426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.01, y: 0.39, z: 10}
+  m_LocalScale: {x: 0.81651306, y: 0.81651306, z: 0.81651306}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 519420032}
@@ -11902,7 +11902,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ba5bf5db19ee6324a9911d77c8a66ce1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46e3141f3b2972e4da6e1c732a8357f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

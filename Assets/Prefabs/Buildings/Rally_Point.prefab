@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   method: 1
   TimeSpan: 0
-  Speed: 50
+  Speed: 500
   Lock: 0
   Destination: {x: 0, y: 0, z: 0}
   hasReach: 0
