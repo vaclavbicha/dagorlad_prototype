@@ -102,6 +102,7 @@ public class MapLocation : MonoBehaviour
                 building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
 
                 buildingStructure.Rally_Point.GetComponent<Draggable>().home = buildingStructure;
+                buildingStructure.Rally_Point.GetComponent<Draggable>().owner = Player.Instance.PlayerName;
                 buildingStructure.Rally_Point.GetComponent<SpriteRenderer>().sprite = UIManager.Instance.currentBaseID == 3 ? buildingStructure.Flag3 : buildingStructure.Flag1;
             }
             //building.SetActive(false);

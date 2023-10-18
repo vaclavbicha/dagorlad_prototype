@@ -10,6 +10,9 @@ public class StatsManager : MonoBehaviour
     public TextMeshPro DisplayHP;
     MoveTo moveTo;
 
+    public delegate void TargetEventDelegate(GameObject sender);
+    public event TargetEventDelegate On_Death;
+
     public Stat GetStat(Utility.StatsTypes type)
     {
         foreach (var x in stats)
@@ -53,7 +56,12 @@ public class StatsManager : MonoBehaviour
         {
             if (x.type == Utility.StatsTypes.Health)
             {
-                DisplayHP.text = x.value.ToString();
+                if (x.value >= 0) DisplayHP.text = x.value.ToString();
+                else
+                {
+                    DisplayHP.text = 0.ToString();
+                    On_Death?.Invoke(gameObject);
+                }
             }
             if(moveTo != null)
             {
