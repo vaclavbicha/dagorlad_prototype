@@ -32,6 +32,7 @@ public class OurUnit : MonoBehaviour
     public Vector2 lastMoveDirection;
 
     Animator animator;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,12 +41,23 @@ public class OurUnit : MonoBehaviour
         onCollision = GetComponent<OnCollision>();
         statsManager = GetComponent<StatsManager>();
         animator = GetComponent<Animator>();
+        statsManager.On_Death += (sender) =>
+        {
+            moveTo.method = MoveTo.Method.NoMovement;
+            status = Utility.UnitStatus.Dead;
+            animator.SetBool("isDead", true);
+            GetComponent<SpriteRenderer>().color = Color.black;
+            foreach(var i in GetComponents<CircleCollider2D>())
+            {
+                i.enabled = false;
+            }
+        };
         //onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
         //onTrigger.AddEvent("Exit", "Enemy", OnEnemyLeave);
 
         //moveTo.On_FinalDestinationReach += RandomBetween;
         //moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
-        animator.speed = 0.7f;
+        //animator.speed = 0.7f;
     }
     private void FixedUpdate()
     {
@@ -113,8 +125,8 @@ public class OurUnit : MonoBehaviour
     {
         //moveTo.method = MoveTo.Method.SpeedWithTarget;
         moveTo.TransformDestination = Enemy.transform;
-        moveTo.range = 0.20f;
-        moveTo.rangeMin = 0.05f;
+        moveTo.range = 0.2f;
+        moveTo.rangeMin = 0.075f;
         if (attackTimer == null)
         {
             //Debug.Log("ATTACK " + Enemy.name);

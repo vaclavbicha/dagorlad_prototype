@@ -14,7 +14,7 @@ public class Utility
     public enum ResourceTypes { Supply, Wood, Stone, Ore, Time }
     public enum UpgradeTypes { NONE, Farm, Mill, Blacksmith, Quary }
     public enum UnitTypes { NONE, Baracks, Stables, Workshop, Airport }
-    public enum UnitStatus { GoingToFlag, AttackGoingToFlag, IdleFlag, Attacking }
+    public enum UnitStatus { GoingToFlag, AttackGoingToFlag, IdleFlag, Attacking, Dead }
     public enum StatsTypes { MoveSpeed, Health, Armor, Attack, AttackSpeed }
 
     public static IEnumerator ExecuteWithDelay(float delay, Action action)

@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour
 {
+    public string owner;
     Vector3 mousePositionOffset;
     MoveTo moveTo;
     public OnTrigger onTrigger;
@@ -16,7 +17,7 @@ public class Draggable : MonoBehaviour
     private void Start()
     {
         moveTo = GetComponent<MoveTo>();
-        GetComponentInChildren<OnTrigger>().AddEvent("Enter", "Enemy", (sender, collider) => {
+        GetComponentInChildren<OnTrigger>().AddEvent("Enter", owner == "Player" ? "Enemy" : "Player", (sender, collider) => {
             if (EnemiesInRange.Find(x => x.name == collider.name) == null)
             {
                 EnemiesInRange.Add(collider.gameObject);
@@ -24,7 +25,7 @@ public class Draggable : MonoBehaviour
                 //home.AttackEnemiesInRange();
             }
         });
-        GetComponentInChildren<OnTrigger>().AddEvent("Exit", "Enemy", (sender, collider) => {
+        GetComponentInChildren<OnTrigger>().AddEvent("Exit", owner == "Player" ? "Enemy" : "Player", (sender, collider) => {
             if (EnemiesInRange.Find(x => x.name == collider.name) != null)
             {
                 EnemiesInRange.Remove(collider.gameObject);
@@ -58,7 +59,7 @@ public class Draggable : MonoBehaviour
                 {
                     i = 0;
                 }
-                x.Attack(EnemiesInRange[i]);
+                if(x.status != Utility.UnitStatus.Dead) x.Attack(EnemiesInRange[i]);
                 i++;
             }
             else

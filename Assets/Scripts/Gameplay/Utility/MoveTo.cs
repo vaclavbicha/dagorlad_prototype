@@ -86,7 +86,7 @@ public class MoveTo : MonoBehaviour
             }
             else
             {
-                currentRandomTargetPosition = TransformDestination.position;
+                currentRandomTargetPosition = new Vector3(TransformDestination.position.x, TransformDestination.position.y, 0);
             }
         }
 
