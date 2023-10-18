@@ -13830,6 +13830,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5466959051328673316, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
+      propertyPath: deathPrefab
+      value: 
+      objectReference: {fileID: 1388954332340721229, guid: ca7399bca77634005befe4eb12d3b07b, type: 3}
     - target: {fileID: 5563634080947525764, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
