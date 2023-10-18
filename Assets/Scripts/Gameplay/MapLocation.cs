@@ -206,4 +206,11 @@ public class MapLocation : MonoBehaviour
             }
         }
     }
+    public void DestroyBuilding()
+    {
+        DestroyImmediate(building);
+        status = Utility.LocationStatus.Free;
+        GameManager.Instance.InstantiateBottomMenu();
+
+    }
 }

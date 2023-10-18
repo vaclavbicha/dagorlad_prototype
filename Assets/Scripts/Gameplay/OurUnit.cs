@@ -46,11 +46,12 @@ public class OurUnit : MonoBehaviour
             moveTo.method = MoveTo.Method.NoMovement;
             status = Utility.UnitStatus.Dead;
             animator.SetBool("isDead", true);
-            GetComponent<SpriteRenderer>().color = Color.black;
             foreach(var i in GetComponents<CircleCollider2D>())
             {
                 i.enabled = false;
             }
+            if(Rally_Point) Rally_Point.GetComponent<Draggable>().currentArmy.Remove(this);
+            Destroy(sender, 3f);
         };
         //onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
         //onTrigger.AddEvent("Exit", "Enemy", OnEnemyLeave);

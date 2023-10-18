@@ -34,6 +34,13 @@ public class Draggable : MonoBehaviour
             }
         });
     }
+    private void Update()
+    {
+        if(home == null && currentArmy.Count == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     public void NewUnitSpawned(OurUnit unit)
     {
         currentArmy.Add(unit);

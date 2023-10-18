@@ -53,7 +53,7 @@ public class CameraController : MonoBehaviour
         {
             if(clickedMapLocation == OnMapLocationClick())
             {
-                Debug.Log("DASDADASDA");
+                //Debug.Log("DASDADASDA");
                 //SelectLocation(clickedMapLocation);
                 if (lastclickedTimer > Time.time)
                 {
@@ -136,7 +136,7 @@ public class CameraController : MonoBehaviour
         EventSystem.current.RaycastAll(pointerEventData, raycastResults);
         foreach(var ev in raycastResults)
         {
-            Debug.Log(ev.gameObject.name);
+            //Debug.Log(ev.gameObject.name);
             //if (ev.gameObject.layer == 9) ev.gameObject.GetComponent<Draggable>().ONNNN();
             if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
         }
