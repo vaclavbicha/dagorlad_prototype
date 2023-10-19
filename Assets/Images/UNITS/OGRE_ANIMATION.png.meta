@@ -1,0 +1,1350 @@
+fileFormatVersion: 2
+guid: 8cc22e989460d914d844a03ca8bfc667
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69f36133dd247464a82699123b61702f
+      internalID: 1419889082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6063e52444a1c74419017f7afba09aea
+      internalID: 904273864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41377a923161e5f4f835c8d8ecaa6e38
+      internalID: -1287983846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_3
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067533f7c1b57cb4fa45fa38cd6b58c2
+      internalID: -2139686565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aedc795cfcc35024ba2db26a84896563
+      internalID: -2132569678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f9b49dad8a173047994c8c4b101a2c0
+      internalID: -1242711334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_6
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697c60eb683002842a7119f6901170a3
+      internalID: -460854821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_7
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba578d86fb4874344a80095a6547f90d
+      internalID: -631433422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_8
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a4d700595be2f43b36441959aebd7e
+      internalID: 530113177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6036a0b33f688dd4f8479f0a248e99c9
+      internalID: -1506485284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 895e0e447f7ac6f4e915fd3cb61bb0bc
+      internalID: 1383953810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_11
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8911b5b008e86448b5dacb0b19d2e41
+      internalID: -417766456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_12
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed96a94cec9fbbc4b98ffa8e341e19e8
+      internalID: 951429396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_13
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63ea949504974948832f1fa55204cb9
+      internalID: -1707655557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_14
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a353ccf9033f9314b95480cc6742e05a
+      internalID: -897135429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60799bd2d86ffbc4da749a09f0e39977
+      internalID: 1419739725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_16
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b33096250585934bb427c0f320c60d6
+      internalID: 1086371517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_17
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c4ee624bac10148af21efdbdb76554
+      internalID: -420661483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_18
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547ec1fbbb29c084392468e091117882
+      internalID: 1823030260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_19
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7885339c55c8c1144a2b64874cd871a6
+      internalID: -731815378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41311c1c8b79c574fa0841ae553eab7f
+      internalID: -1296808686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_21
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 276b1038776752542b9880630b24e0b6
+      internalID: -407433313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a65f071aae7669c44af5b3da39469ea2
+      internalID: -630441905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_23
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 862f339469e8a6e4c884c7a8dcd78b53
+      internalID: 1120193423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_24
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f409ad6baad436d4398c319b5a7862fe
+      internalID: 1889645803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f499c8af58727094ea253ac4be45d78f
+      internalID: 1518470795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_26
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dafce0177d768ec45ba09a2ae401bb9e
+      internalID: 1615753433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_27
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7965fb8bb877f6142a6899cb6be1370d
+      internalID: 1639484460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_28
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a516e442f71d241a595ee817c76f52
+      internalID: 187467426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_29
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0402bb3b3be6184698e3d2b63ca7887
+      internalID: -1253342843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d5d04be9ac67b743887f40da4cfb905
+      internalID: -458126671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_31
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b553f661fd35543801a2d58d5529de
+      internalID: -994813030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_32
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd9475e8fd83504b8a7736e64abe017
+      internalID: 1084666295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_33
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05227a13ad3f477408eb42b1930cf87c
+      internalID: 137273571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_34
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 384dfc5c4a6cb6d4ab8faa0543b791c5
+      internalID: 1971712077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e48fb50eb2f43de4e9bf64a1ab3254cf
+      internalID: -930265663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_36
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3edf989bb8051ec488feef6373ac5958
+      internalID: -1798899533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_37
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b1a92826ba867f4e96515a9d45d321b
+      internalID: 1518131365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03923690421f1c2499ad5e2cca175a64
+      internalID: 1396310293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_39
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b02c9fae7fde294984bf83fba4fc407
+      internalID: 913238800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d4ced5aa0a00c042be5accb1c9e7473
+      internalID: -1538860993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_41
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abdf0c42e05100341a559883dc101fe8
+      internalID: -1927723708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_42
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21908ec564593044c987895b42304b22
+      internalID: 1712540548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_43
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed0d8df0df88fe4cbedeac45a9051ae
+      internalID: -1571380701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_44
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f95573a4fe71c342afcf1c06e55ea1c
+      internalID: -714884960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc597214156a0745adaea1fbc257e60
+      internalID: 2083357107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_46
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c32daea309a7f4c4e81ebb5b8df5d4ff
+      internalID: 421271842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_47
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0ec1d86773f5042827c893ce14de04
+      internalID: -197045423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_48
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ae2f8a24227d24286dabff3db3071b
+      internalID: -714522836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_49
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 051d93eafcccc7e4f83195de3130446c
+      internalID: -1235226433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a5d26737656404eb7e5751b3274026
+      internalID: -300021749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_51
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba913ea0cf7dff04abad8fa8076359fb
+      internalID: 904957657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_52
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e9c5759fd2adc84995cf4a6f300f138
+      internalID: 1026793255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_53
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24c9dec99e6263418ceec0c147a01f9
+      internalID: 905234588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OGRE_ANIMATION_54
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccf47472dd86aab42be41a74defeaa33
+      internalID: 1789456094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      OGRE_ANIMATION_0: 1419889082
+      OGRE_ANIMATION_1: 904273864
+      OGRE_ANIMATION_10: 1383953810
+      OGRE_ANIMATION_11: -417766456
+      OGRE_ANIMATION_12: 951429396
+      OGRE_ANIMATION_13: -1707655557
+      OGRE_ANIMATION_14: -897135429
+      OGRE_ANIMATION_15: 1419739725
+      OGRE_ANIMATION_16: 1086371517
+      OGRE_ANIMATION_17: -420661483
+      OGRE_ANIMATION_18: 1823030260
+      OGRE_ANIMATION_19: -731815378
+      OGRE_ANIMATION_2: -1287983846
+      OGRE_ANIMATION_20: -1296808686
+      OGRE_ANIMATION_21: -407433313
+      OGRE_ANIMATION_22: -630441905
+      OGRE_ANIMATION_23: 1120193423
+      OGRE_ANIMATION_24: 1889645803
+      OGRE_ANIMATION_25: 1518470795
+      OGRE_ANIMATION_26: 1615753433
+      OGRE_ANIMATION_27: 1639484460
+      OGRE_ANIMATION_28: 187467426
+      OGRE_ANIMATION_29: -1253342843
+      OGRE_ANIMATION_3: -2139686565
+      OGRE_ANIMATION_30: -458126671
+      OGRE_ANIMATION_31: -994813030
+      OGRE_ANIMATION_32: 1084666295
+      OGRE_ANIMATION_33: 137273571
+      OGRE_ANIMATION_34: 1971712077
+      OGRE_ANIMATION_35: -930265663
+      OGRE_ANIMATION_36: -1798899533
+      OGRE_ANIMATION_37: 1518131365
+      OGRE_ANIMATION_38: 1396310293
+      OGRE_ANIMATION_39: 913238800
+      OGRE_ANIMATION_4: -2132569678
+      OGRE_ANIMATION_40: -1538860993
+      OGRE_ANIMATION_41: -1927723708
+      OGRE_ANIMATION_42: 1712540548
+      OGRE_ANIMATION_43: -1571380701
+      OGRE_ANIMATION_44: -714884960
+      OGRE_ANIMATION_45: 2083357107
+      OGRE_ANIMATION_46: 421271842
+      OGRE_ANIMATION_47: -197045423
+      OGRE_ANIMATION_48: -714522836
+      OGRE_ANIMATION_49: -1235226433
+      OGRE_ANIMATION_5: -1242711334
+      OGRE_ANIMATION_50: -300021749
+      OGRE_ANIMATION_51: 904957657
+      OGRE_ANIMATION_52: 1026793255
+      OGRE_ANIMATION_53: 905234588
+      OGRE_ANIMATION_54: 1789456094
+      OGRE_ANIMATION_6: -460854821
+      OGRE_ANIMATION_7: -631433422
+      OGRE_ANIMATION_8: 530113177
+      OGRE_ANIMATION_9: -1506485284
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

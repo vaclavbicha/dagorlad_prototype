@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 4995404553531271491}
   - component: {fileID: -500042015376082502}
   m_Layer: 7
-  m_Name: Basic_Unit 12
+  m_Name: 14_Spearman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,6 +377,7 @@ MonoBehaviour:
   CalculatedDistance: 0
   TravelTime: 0
   range: 0.8
+  rangeMin: 0
   TimeRandomRange: 2
 --- !u!114 &2467180795165718603
 MonoBehaviour:
@@ -411,6 +412,7 @@ MonoBehaviour:
   attackTimer: {fileID: 0}
   statsManager: {fileID: 0}
   currentTarget: {fileID: 0}
+  lastMoveDirection: {x: 0, y: 0}
 --- !u!50 &6874481277324275176
 Rigidbody2D:
   serializedVersion: 4
@@ -456,13 +458,13 @@ MonoBehaviour:
     value: 2
     valueMAX: 0
   - type: 1
-    value: 100
+    value: 80
     valueMAX: 0
   - type: 3
-    value: 1
+    value: 20
     valueMAX: 0
   - type: 4
-    value: 1
+    value: 2
     valueMAX: 0
   DisplayHP: {fileID: 0}
 --- !u!58 &-6844878022763904611

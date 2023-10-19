@@ -206,6 +206,7 @@ MonoBehaviour:
   CalculatedDistance: 0
   TravelTime: 0
   range: 0.8
+  rangeMin: 0
   TimeRandomRange: 2
 --- !u!114 &2467180795165718603
 MonoBehaviour:
@@ -242,6 +243,7 @@ MonoBehaviour:
   attackTimer: {fileID: 0}
   statsManager: {fileID: 0}
   currentTarget: {fileID: 0}
+  lastMoveDirection: {x: 0, y: 0}
 --- !u!50 &-7250466688880974889
 Rigidbody2D:
   serializedVersion: 4
@@ -287,10 +289,10 @@ MonoBehaviour:
     value: 0.6
     valueMAX: 0
   - type: 1
-    value: 100
+    value: 50
     valueMAX: 0
   - type: 3
-    value: 1
+    value: 300
     valueMAX: 0
   - type: 4
     value: 1

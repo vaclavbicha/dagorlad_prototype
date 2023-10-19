@@ -201,13 +201,13 @@ MonoBehaviour:
     value: 1
     valueMAX: 0
   - type: 1
-    value: 100
+    value: 30
     valueMAX: 0
   - type: 3
-    value: 1
+    value: 5
     valueMAX: 0
   - type: 4
-    value: 1
+    value: 1.5
     valueMAX: 0
   DisplayHP: {fileID: 0}
 --- !u!58 &4459797693511288770
