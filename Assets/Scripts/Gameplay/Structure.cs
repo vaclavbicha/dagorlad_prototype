@@ -15,6 +15,7 @@ public class Structure : MonoBehaviour
     public Utility.UpgradeTypes upgradeType;
     public Amount buildTime;
     public Amount[] cost;
+    public Amount production;
     public GameObject loadingBarPrefab;
     public GameObject Rally_Point;
     public bool isAttackPoint = false;

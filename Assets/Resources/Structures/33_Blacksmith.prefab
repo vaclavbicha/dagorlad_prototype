@@ -361,7 +361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: R_Blacksmith
   Icon: {fileID: 21300000, guid: 67a967bee5dac2445bebb3c6e533724d, type: 3}
-  Flag: {fileID: 0}
+  Flag1: {fileID: 0}
+  Flag3: {fileID: 0}
   InfoSprite: {fileID: 0}
   buildingSprite: {fileID: 21300000, guid: 523edae3b3c89304594bde99012b0933, type: 3}
   locationType: 2
@@ -377,6 +378,9 @@ MonoBehaviour:
     value: 20
   - type: 3
     value: 10
+  production:
+    type: 2
+    value: 7
   loadingBarPrefab: {fileID: 2750228692031925039, guid: f087198a0e57045b29dfcd2b2e859af4, type: 3}
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
