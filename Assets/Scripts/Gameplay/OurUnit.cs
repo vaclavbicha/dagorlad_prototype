@@ -43,6 +43,17 @@ public class OurUnit : MonoBehaviour
         animator = GetComponent<Animator>();
         statsManager.On_Death += (sender) =>
         {
+            if(moveTo.method != MoveTo.Method.NoMovement && statsManager.owner == "Player")
+            {
+                foreach (var x in cost)
+                {
+                    if (x.type == Utility.ResourceTypes.Supply)
+                    {
+                        Player.Instance.currentSupply -= x.value;
+                        Player.Instance.resources.Find(y => y.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(0);
+                    }
+                }
+            }
             moveTo.method = MoveTo.Method.NoMovement;
             status = Utility.UnitStatus.Dead;
             animator.SetBool("isDead", true);

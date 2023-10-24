@@ -400,9 +400,9 @@ MonoBehaviour:
     type: 4
     value: 7
   cost:
-  - type: 0
-    value: 1
   - type: 1
+    value: 1
+  - type: 2
     value: 20
   attackRange: 0.5
   home: {fileID: 0}

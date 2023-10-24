@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     {
         for(int i = 0; i < newAmounts.Length; i++)
         {
-            player.resources[i].AmountUpdate(newAmounts[i]);
+            player.resources[i].AmountUpdateWithText(newAmounts[i]);
         }
     }
     public void InstantiateBottomMenu()

@@ -400,9 +400,9 @@ MonoBehaviour:
     type: 4
     value: 5
   cost:
-  - type: 0
-    value: 2
   - type: 1
+    value: 2
+  - type: 2
     value: 10
   - type: 2
     value: 10

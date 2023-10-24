@@ -372,12 +372,12 @@ MonoBehaviour:
     type: 4
     value: 20
   cost:
-  - type: 1
+  - type: 4
     value: 40
   - type: 2
     value: 40
   production:
-    type: 3
+    type: 4
     value: 1
   loadingBarPrefab: {fileID: 2750228692031925039, guid: f087198a0e57045b29dfcd2b2e859af4, type: 3}
   Rally_Point: {fileID: 0}

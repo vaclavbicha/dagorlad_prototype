@@ -160,6 +160,15 @@ public class MapLocation : MonoBehaviour
         if(loadingBar != null) Destroy(loadingBar.gameObject);
 
         UpdateItemManager(true, building.GetComponent<Structure>());
+
+        if(building.GetComponent<Structure>().production.type == Utility.ResourceTypes.Supply)
+        {
+            Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(building.GetComponent<Structure>().production.value);
+        }
+        else if(type == Utility.LocationType.Resource)
+        {
+            Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction += building.GetComponent<Structure>().production.value;
+        }
     }
     public void UpdateItemManager(bool filling, Structure buttonIcon)
     {
@@ -212,5 +221,13 @@ public class MapLocation : MonoBehaviour
         status = Utility.LocationStatus.Free;
         GameManager.Instance.InstantiateBottomMenu();
 
+        if (building.GetComponent<Structure>().production.type == Utility.ResourceTypes.Supply)
+        {
+            Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(-building.GetComponent<Structure>().production.value);
+        }
+        else if (type == Utility.LocationType.Resource)
+        {
+            Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction -= building.GetComponent<Structure>().production.value;
+        }
     }
 }

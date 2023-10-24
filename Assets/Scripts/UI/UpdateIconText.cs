@@ -15,4 +15,8 @@ public class UpdateIconText : MonoBehaviour
         currentValue = value;
         text.text = value.ToString();
     }
+    public void UpdateText(string _text, GameObject sender)
+    {
+        text.text = _text;
+    }
 }

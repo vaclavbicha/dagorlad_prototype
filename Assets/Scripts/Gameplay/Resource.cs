@@ -6,6 +6,7 @@ public class Resource : MonoBehaviour
 {
     public Amount amount;
     public Sprite icon;
+    public int currentProduction;
 
     public UpdateIconText display;
 
@@ -25,5 +26,17 @@ public class Resource : MonoBehaviour
         amount.value += value;
         On_AmountUpdate?.Invoke(amount.value, gameObject);
     }
-
+    public void AmountUpdateWithText(int value)
+    {
+        if(amount.type != Utility.ResourceTypes.Supply)
+        {
+            amount.value += value;
+            display.UpdateText(amount.value.ToString() + "<color=#C7D3EF>" + "+" + currentProduction.ToString() + "</color>", gameObject);
+        }
+        else
+        {
+            amount.value += value;
+            display.UpdateText(Player.Instance.currentSupply.ToString() + "/" + amount.value, gameObject);
+        }
+    }
 }

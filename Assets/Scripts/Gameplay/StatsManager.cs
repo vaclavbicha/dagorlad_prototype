@@ -56,7 +56,7 @@ public class StatsManager : MonoBehaviour
         {
             if (x.type == Utility.StatsTypes.Health)
             {
-                if (x.value >= 0) DisplayHP.text = x.value.ToString();
+                if (x.value > 0) DisplayHP.text = x.value.ToString();
                 else
                 {
                     DisplayHP.text = 0.ToString();

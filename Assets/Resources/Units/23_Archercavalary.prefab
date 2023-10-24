@@ -229,9 +229,9 @@ MonoBehaviour:
     type: 4
     value: 15
   cost:
-  - type: 0
-    value: 2
   - type: 1
+    value: 2
+  - type: 2
     value: 20
   - type: 3
     value: 20

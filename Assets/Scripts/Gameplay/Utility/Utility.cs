@@ -11,7 +11,7 @@ public class Utility
     public enum LocationSelectionStatus { Unselected, Selected, Unavailable }
     public enum DefenseTypes { Tower1, Tower2, Tower3, Tower4 }
 
-    public enum ResourceTypes { Supply, Wood, Stone, Ore, Time }
+    public enum ResourceTypes { NONE, Supply, Wood, Stone, Ore, Time }
     public enum UpgradeTypes { NONE, Farm, Mill, Blacksmith, Quary }
     public enum UnitTypes { NONE, Baracks, Stables, Workshop, Airport }
     public enum UnitStatus { GoingToFlag, AttackGoingToFlag, IdleFlag, Attacking, Dead }

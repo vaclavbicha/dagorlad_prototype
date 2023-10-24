@@ -372,7 +372,7 @@ MonoBehaviour:
     type: 4
     value: 25
   cost:
-  - type: 1
+  - type: 4
     value: 10
   - type: 2
     value: 50
