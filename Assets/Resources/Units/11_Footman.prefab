@@ -137,13 +137,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 11_Footman
-  Icon: {fileID: 21300000, guid: 77afd8c0204cd434c80b731b0bb94898, type: 3}
+  Icon: {fileID: 21300000, guid: 47a4b1eac0fe92c4e95d78aed76bcfb7, type: 3}
   InfoSprite: {fileID: 0}
   type: 0
   status: 2
   buildTime:
     type: 4
-    value: 2
+    value: 5
   cost:
   - type: 0
     value: 1

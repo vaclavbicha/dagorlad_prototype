@@ -340,7 +340,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 24c63b15e20be214bb479d293ae84008, type: 3}
-  m_Color: {r: 0.5747152, g: 0.64655024, b: 0.990566, a: 1}
+  m_Color: {r: 0.24056602, g: 0.66206586, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -392,20 +392,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 22_Heavy
-  Icon: {fileID: 21300000, guid: 0d2e4a8e1f35b3e4dbb71e76defc7987, type: 3}
+  Icon: {fileID: 21300000, guid: 3dd06e074102b1c41bbe217ff30d2a39, type: 3}
   InfoSprite: {fileID: 0}
   type: 1
   status: 2
   buildTime:
     type: 4
-    value: 2
+    value: 10
   cost:
   - type: 0
     value: 3
   - type: 1
-    value: 15
-  - type: 3
     value: 10
+  - type: 2
+    value: 20
+  - type: 3
+    value: 20
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}

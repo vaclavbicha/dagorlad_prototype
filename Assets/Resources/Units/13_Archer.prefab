@@ -340,7 +340,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 22ec68640e7094e4896adb0e4db8cb9a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.99075234, b: 0.3160377, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -392,20 +392,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 8
-  Icon: {fileID: 21300000, guid: a27ab78ab3bec0e43b1b31517727a460, type: 3}
+  Icon: {fileID: 21300000, guid: 574198f2a3dd4824d9bbc4f8e3180bb6, type: 3}
   InfoSprite: {fileID: 0}
   type: 0
   status: 2
   buildTime:
     type: 4
-    value: 2
+    value: 7
   cost:
   - type: 0
     value: 1
   - type: 1
-    value: 15
-  - type: 3
-    value: 5
+    value: 20
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
