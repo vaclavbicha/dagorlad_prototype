@@ -105,8 +105,18 @@ MonoBehaviour:
     type: 4
     value: 15
   cost:
-  - type: 0
+  - type: 3
     value: 15
   - type: 2
     value: 15
-  maxOwned: 0
+  effect:
+    type: 2
+    resourceAmount:
+      type: 0
+      value: 0
+    stat:
+      type: 0
+      value: 5
+      valueMAX: 0
+    isPercent: 1
+    maxOwned: 3

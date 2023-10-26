@@ -188,8 +188,13 @@ public class UIManager : MonoBehaviour
     {
         dialogWindow.SetActive(true);
         dialogWindow.GetComponentInChildren<TextMeshProUGUI>().text = message;
+        StartCoroutine(CloseDialogWindow(2f));
     }
-
+    IEnumerator CloseDialogWindow(float t)
+    {
+        yield return new WaitForSeconds(t);
+        dialogWindow.SetActive(false);
+    }
     public void UpdateSliderLeft(Timer _timer)
     {
         leftLoadingBar.value = Mathf.Abs((Time.time - _timer.timeStarted) / (_timer.timeStarted - _timer.timeFinish));

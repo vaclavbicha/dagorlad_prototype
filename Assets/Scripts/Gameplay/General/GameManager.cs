@@ -104,14 +104,33 @@ public class GameManager : MonoBehaviour
                 if (upgrades.Find(x => x.upgradeName == itemName) != null)
                 {
                     var itemPrefab = upgrades.Find(x => x.upgradeName == itemName);
-                    //SpawnUnit(itemName, location, itemPrefab);
+                    SpawnUpgrade(itemName, location, itemPrefab);
                 }
             }
         }
     }
-    public void BuyUpgrade(string upgradeName)
+    public void SpawnUpgrade(string itemName, MapLocation location, ItemUpgrade upgradePrefab)
     {
-
+        if (upgradePrefab)
+        {
+            if (Player.Instance.Buy(upgradePrefab.cost))
+            {
+                if(Player.Instance.ownedUpgrades.FindAll(x => x.upgradeName == upgradePrefab.upgradeName).Count < upgradePrefab.effect.maxOwned)
+                {
+                    location.SpawnUpgrade(upgradePrefab);
+                    UIManager.Instance.OnCloseBuildingWindow();
+                }
+                else
+                {
+                    UIManager.Instance.DialogWindow("Player ownes the maximum amount of this upgrade");
+                }
+            }
+            else
+            {
+                UIManager.Instance.DialogWindow("Player cannot afford this UPGRADE");
+            }
+        }
+        else UIManager.Instance.DialogWindow("UNIT Prefab not found");
     }
     public void SpawnUnit(string unitName, MapLocation location, OurUnit unitPrefab)
     {

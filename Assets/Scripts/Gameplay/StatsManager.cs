@@ -99,4 +99,15 @@ public class StatsManager : MonoBehaviour
             }
         }
     }
+    public void UpgradeStat(Stat inc, bool percent)
+    {
+        foreach (var y in stats)
+        {
+            if (y.type == inc.type)
+            {
+                y.value = percent ? (y.value * inc.value)/100 + y.value : y.value + inc.value;
+                y.SetMax();
+            }
+        }
+    }
 }

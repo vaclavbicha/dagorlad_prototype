@@ -17,6 +17,7 @@ public class MapLocation : MonoBehaviour
     public Utility.LocationSelectionStatus selectionStatus;
     public GameObject building = null;
     public GameObject trainingUnit = null;
+    public GameObject upgradeItem = null;
 
     SpriteRenderer sprite;
     Color color;
@@ -49,6 +50,38 @@ public class MapLocation : MonoBehaviour
         sprite.color = color;
 
     }
+    public void SpawnUpgrade(ItemUpgrade upgradePrefab)
+    {
+        if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected)
+        {
+            upgradeItem = Instantiate(upgradePrefab.gameObject, new Vector3(-5, -10, 0), Quaternion.identity);
+
+            upgradeItem.tag = "Player";
+            upgradeItem.name += upgradeItem.GetInstanceID().ToString();
+
+            status = Utility.LocationStatus.Training;
+
+            if (timer == null)
+            {
+                timer = gameObject.AddComponent<Timer>();
+                timer.AddTimer("BuildingUpgrade", building.GetComponent<Structure>().buildTime.value, true, 0.25f);
+
+                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+                loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+                timer.On_PingAction += UpdateSlider;
+                timer.On_Duration_End += isDoneUpgrading;
+
+            }
+            else
+            {
+                UIManager.Instance.DialogWindow("This location all ready is building upgrade");
+            }
+        }
+        else
+        {
+            UIManager.Instance.DialogWindow("wierd error");
+        }
+    }
     public void SpawnUnit(GameObject unitPrefab)
     {
         if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected)
@@ -61,6 +94,14 @@ public class MapLocation : MonoBehaviour
             trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.GoingToFlag;
             trainingUnit.GetComponent<OurUnit>().Rally_Point = building.GetComponent<Structure>().Rally_Point.transform;
             trainingUnit.GetComponent<OurUnit>().home = building.GetComponent<Structure>();
+            var upgradez = Player.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
+            if(upgradez.Count > 0)
+            {
+                foreach(var up in upgradez)
+                {
+                    trainingUnit.GetComponent<StatsManager>().UpgradeStat(up.effect.stat, up.effect.isPercent);
+                }
+            }
             trainingUnit.SetActive(false);
             status = Utility.LocationStatus.Training;
 
@@ -169,6 +210,37 @@ public class MapLocation : MonoBehaviour
         {
             Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction += building.GetComponent<Structure>().production.value;
         }
+    }
+    public void isDoneUpgrading(Timer _timer)
+    {
+        status = Utility.LocationStatus.Built;
+        var reff = upgradeItem.GetComponent<ItemUpgrade>();
+        Player.Instance.ownedUpgrades.Add(reff);
+        if (reff.effect.type == Utility.UpgradeEffectTypes.Resource)
+        {
+            if (reff.effect.resourceAmount.type == Utility.ResourceTypes.Supply)
+            {
+                Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).AmountUpdateWithText(reff.effect.resourceAmount.value);
+            }
+            else
+            {
+                Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).currentProduction += reff.effect.resourceAmount.value;
+            }
+        }
+        if(reff.effect.type == Utility.UpgradeEffectTypes.Troops)
+        {
+            var statsManagers = FindObjectsOfType<StatsManager>();
+            foreach(var z in statsManagers)
+            {
+                if(z.gameObject.layer != 6)
+                {
+                    z.UpgradeStat(reff.effect.stat, reff.effect.isPercent);
+                }
+            }
+        }
+
+        Destroy(timer);
+        if (loadingBar != null) Destroy(loadingBar.gameObject);
     }
     public void UpdateItemManager(bool filling, Structure buttonIcon)
     {

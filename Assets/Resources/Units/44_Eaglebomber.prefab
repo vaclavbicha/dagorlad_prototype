@@ -468,6 +468,9 @@ MonoBehaviour:
   - type: 4
     value: 1
     valueMAX: 0
+  - type: 2
+    value: 0
+    valueMAX: 0
   DisplayHP: {fileID: 0}
 --- !u!58 &7497710575320706980
 CircleCollider2D:

@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c76165f3e22842a791554c4430a8f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeName: 20
+  upgradeName: 206
   Icon: {fileID: 21300000, guid: 39e915b623e70084fa1c58d57e1eb304, type: 3}
   InfoSprite: {fileID: 0}
   type: 2
@@ -105,8 +105,18 @@ MonoBehaviour:
     type: 4
     value: 15
   cost:
-  - type: 0
+  - type: 3
     value: 15
   - type: 2
     value: 15
-  maxOwned: 0
+  effect:
+    type: 0
+    resourceAmount:
+      type: 0
+      value: 0
+    stat:
+      type: 0
+      value: 0
+      valueMAX: 0
+    isPercent: 0
+    maxOwned: 3

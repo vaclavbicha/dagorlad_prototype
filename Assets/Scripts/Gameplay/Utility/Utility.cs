@@ -13,6 +13,7 @@ public class Utility
 
     public enum ResourceTypes { NONE, Supply, Wood, Stone, Ore, Time }
     public enum UpgradeTypes { NONE, Farm, Mill, Blacksmith, Quary }
+    public enum UpgradeEffectTypes { NONE, Resource, Troops, Building, Spell }
     public enum UnitTypes { NONE, Baracks, Stables, Workshop, Airport }
     public enum UnitStatus { GoingToFlag, AttackGoingToFlag, IdleFlag, Attacking, Dead }
     public enum StatsTypes { MoveSpeed, Health, Armor, Attack, AttackSpeed }

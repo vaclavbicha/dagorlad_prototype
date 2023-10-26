@@ -68,11 +68,18 @@ public class Player : MonoBehaviour
         }
         return true;
     }
+
+    [System.Obsolete]
     public void DistributeResources(Timer timer)
     {
         foreach (var x in GameManager.Instance.ALL_Locations.FindAll(y => y.type == Utility.LocationType.Resource && y.owner == this && y.status == Utility.LocationStatus.Built))
         {
-            if (x.building.GetComponent<Structure>().production.type != Utility.ResourceTypes.Supply) resources.Find(y => y.amount.type == x.building.GetComponent<Structure>().production.type).AmountUpdateWithText(x.building.GetComponent<Structure>().production.value);
+            if (x.building.GetComponent<Structure>().production.type != Utility.ResourceTypes.Supply)
+            {
+                var aux = ownedUpgrades.FindAll(z => z.effect.resourceAmount.type == x.building.GetComponent<Structure>().production.type && z.gameObject.active == true);
+                var totalValueGained = aux.Count == 0 ? x.building.GetComponent<Structure>().production.value : x.building.GetComponent<Structure>().production.value + aux.Count * aux[0].effect.resourceAmount.value;
+                resources.Find(y => y.amount.type == x.building.GetComponent<Structure>().production.type).AmountUpdateWithText(totalValueGained);
+            }
         }
         Destroy(productionTimer);
         StartCoroutine(NewTimer());

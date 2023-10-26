@@ -155,6 +155,19 @@ public class OurUnit : MonoBehaviour
                         attackTimer.On_Duration_End += DealDamage;
                     }
                 }
+            }else if (Enemy.GetComponent<Structure>() != null)
+            {
+                status = Utility.UnitStatus.Attacking;
+                attackTimer = gameObject.AddComponent<Timer>();
+                foreach (var x in statsManager.stats)
+                {
+                    if (x.type == Utility.StatsTypes.AttackSpeed)
+                    {
+                        currentTarget = Enemy.GetComponent<StatsManager>();
+                        attackTimer.AddTimer("Attacking" + attackid, x.value, false);
+                        attackTimer.On_Duration_End += DealDamage;
+                    }
+                }
             }
         }
         else

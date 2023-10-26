@@ -11,5 +11,5 @@ public class ItemUpgrade : MonoBehaviour
     public Amount buildTime;
     public Amount[] cost;
 
-    public int maxOwned;
+    public Effect effect;
 }
