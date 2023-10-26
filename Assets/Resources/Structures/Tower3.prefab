@@ -369,15 +369,15 @@ MonoBehaviour:
   unitType: 0
   upgradeType: 0
   buildTime:
-    type: 4
+    type: 5
     value: 20
   cost:
-  - type: 4
-    value: 10
   - type: 2
-    value: 40
+    value: 100
   - type: 3
-    value: 10
+    value: 50
+  - type: 4
+    value: 20
   production:
     type: 0
     value: 0

@@ -142,13 +142,13 @@ MonoBehaviour:
   type: 0
   status: 2
   buildTime:
-    type: 4
+    type: 5
     value: 5
   cost:
   - type: 1
     value: 1
   - type: 2
-    value: 10
+    value: 100
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}

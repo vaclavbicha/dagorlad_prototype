@@ -285,13 +285,13 @@ MonoBehaviour:
   unitType: 0
   upgradeType: 0
   buildTime:
-    type: 4
-    value: 15
+    type: 5
+    value: 10
   cost:
-  - type: 4
-    value: 30
   - type: 2
-    value: 30
+    value: 100
+  - type: 3
+    value: 50
   production:
     type: 0
     value: 0

@@ -313,15 +313,15 @@ MonoBehaviour:
   type: 2
   status: 2
   buildTime:
-    type: 4
+    type: 5
     value: 10
   cost:
   - type: 1
     value: 5
   - type: 2
-    value: 20
+    value: 100
   - type: 3
-    value: 20
+    value: 50
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
@@ -377,7 +377,7 @@ MonoBehaviour:
     value: 100
     valueMAX: 0
   - type: 3
-    value: 100
+    value: 50
     valueMAX: 0
   - type: 4
     value: 0.2

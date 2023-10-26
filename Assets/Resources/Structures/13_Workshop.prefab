@@ -288,7 +288,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.43, y: -1.88, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8015527484485260966}
@@ -369,15 +369,15 @@ MonoBehaviour:
   unitType: 2
   upgradeType: 0
   buildTime:
-    type: 4
+    type: 5
     value: 20
   cost:
-  - type: 4
-    value: 20
   - type: 2
-    value: 60
+    value: 100
   - type: 3
-    value: 30
+    value: 200
+  - type: 4
+    value: 50
   production:
     type: 0
     value: 0

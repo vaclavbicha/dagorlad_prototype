@@ -364,21 +364,19 @@ MonoBehaviour:
   Flag1: {fileID: 0}
   Flag3: {fileID: 0}
   InfoSprite: {fileID: 0}
-  buildingSprite: {fileID: 21300000, guid: 666e0a04840557641ba6b3df542460f4, type: 3}
+  buildingSprite: {fileID: 21300000, guid: 013da77644cf0574f9eb75bf9c477ef6, type: 3}
   locationType: 2
   unitType: 0
   upgradeType: 4
   buildTime:
-    type: 4
+    type: 5
     value: 15
   cost:
-  - type: 4
-    value: 30
   - type: 2
-    value: 30
+    value: 100
   production:
     type: 3
-    value: 2
+    value: 5
   loadingBarPrefab: {fileID: 2750228692031925039, guid: f087198a0e57045b29dfcd2b2e859af4, type: 3}
   Rally_Point: {fileID: 0}
   isAttackPoint: 0

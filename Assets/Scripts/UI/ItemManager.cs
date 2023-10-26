@@ -18,7 +18,7 @@ public class ItemManager : MonoBehaviour
 
     bool pressed = false;
     float endTimer;
-    float pressTime = 2f;
+    float pressTime = 0.7f;
 
 
     public void Start()

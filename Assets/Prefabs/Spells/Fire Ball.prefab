@@ -212,6 +212,6 @@ MonoBehaviour:
   affectedStatsAllies: []
   affectedStatsEnemies:
   - type: 1
-    value: -105
+    value: -20
     valueMAX: 0
   unitsInRage: []
