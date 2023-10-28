@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6352802915078559387}
   - component: {fileID: 5170214600221023268}
   m_Layer: 0
-  m_Name: Upgrade4 1
+  m_Name: U_Mill_WOOD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 38e659f22266b2742802e8646a27d3be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ecf6b0912d2166408877443e08ab105, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,10 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c76165f3e22842a791554c4430a8f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeName: 2078
-  Icon: {fileID: 21300000, guid: 38e659f22266b2742802e8646a27d3be, type: 3}
+  upgradeName: U_Mill_WOOD
+  Icon: {fileID: 21300000, guid: 8ecf6b0912d2166408877443e08ab105, type: 3}
   InfoSprite: {fileID: 0}
-  type: 4
+  type: 2
   buildTime:
     type: 4
     value: 15
@@ -112,8 +112,8 @@ MonoBehaviour:
   effect:
     type: 1
     resourceAmount:
-      type: 3
-      value: 5
+      type: 2
+      value: 10
     stat:
       type: 0
       value: 0

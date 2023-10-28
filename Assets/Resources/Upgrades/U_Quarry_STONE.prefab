@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6352802915078559387}
   - component: {fileID: 5170214600221023268}
   m_Layer: 0
-  m_Name: Upgrade1 1
+  m_Name: U_Quarry_STONE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a666bfc5057048c419124c6f386f6ca7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a35bf9de11b0484b87898cd18a594d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,10 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c76165f3e22842a791554c4430a8f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeName: 201
-  Icon: {fileID: 21300000, guid: a666bfc5057048c419124c6f386f6ca7, type: 3}
+  upgradeName: U_Quarry_STONE
+  Icon: {fileID: 21300000, guid: 6a35bf9de11b0484b87898cd18a594d7, type: 3}
   InfoSprite: {fileID: 0}
-  type: 1
+  type: 4
   buildTime:
     type: 4
     value: 15
@@ -112,8 +112,8 @@ MonoBehaviour:
   effect:
     type: 1
     resourceAmount:
-      type: 1
-      value: 20
+      type: 3
+      value: 5
     stat:
       type: 0
       value: 0
