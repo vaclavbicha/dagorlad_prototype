@@ -38,6 +38,7 @@ public class StatsManager : MonoBehaviour
             }
         }
         else Debug.Log("Couldn't find health stat of : " + name + " of " + owner);
+        if (GetComponent<OurUnit>()) GetComponent<OurUnit>().Bleed();
         return health.value > 0 ? false : true;
     }
     private void Start()
