@@ -156,6 +156,7 @@ MonoBehaviour:
   statsManager: {fileID: 0}
   currentTarget: {fileID: 0}
   lastMoveDirection: {x: 0, y: 0}
+  bloodParticle: {fileID: 2463999080777082214, guid: ddfc8583a681e4fb2a010e2d57c26943, type: 3}
 --- !u!50 &-5802423454540219199
 Rigidbody2D:
   serializedVersion: 4

@@ -33,6 +33,8 @@ public class OurUnit : MonoBehaviour
 
     Animator animator;
 
+    public GameObject bloodParticle;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -208,6 +210,11 @@ public class OurUnit : MonoBehaviour
             }
         }
         else { UIManager.Instance.DialogWindow("Tried to deal damage without owning attack"); }
+    }
+    public void Bleed()
+    {
+        var blood = Instantiate(bloodParticle, transform.position, Quaternion.identity);
+        Destroy(blood, blood.GetComponent<ParticleSystem>().main.duration);
     }
     IEnumerator AttackAgain(float t)
     {
