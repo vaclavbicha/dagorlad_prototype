@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 326539067238483707, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}
       propertyPath: m_fontSize
-      value: 172.65
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 609548980590361952, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}
       propertyPath: m_AnchorMax.y

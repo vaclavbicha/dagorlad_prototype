@@ -381,7 +381,7 @@ MonoBehaviour:
   production:
     type: 0
     value: 0
-  loadingBarPrefab: {fileID: 2750228692031925039, guid: f087198a0e57045b29dfcd2b2e859af4, type: 3}
+  loadingBarPrefab: {fileID: 2750228692031925039, guid: 129b96465ceff462ca61cae7cead7bda, type: 3}
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
   mapLocation: {fileID: 0}

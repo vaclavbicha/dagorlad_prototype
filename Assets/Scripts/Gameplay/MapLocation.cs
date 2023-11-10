@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,10 @@ public class MapLocation : MonoBehaviour
     public Slider loadingBar;
 
     public ItemManager itemManager;
+
+    // Production Queue
+    public List<GameObject> productionList = new List<GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -82,11 +87,54 @@ public class MapLocation : MonoBehaviour
             UIManager.Instance.DialogWindow("wierd error");
         }
     }
-    public void SpawnUnit(GameObject unitPrefab)
+    public void SpawnUnitQueue()
     {
-        if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected)
+            trainingUnit = Instantiate(productionList[0], new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);
+            trainingUnit.tag = "Player";
+            trainingUnit.name += trainingUnit.GetInstanceID().ToString();
+            trainingUnit.GetComponent<MoveTo>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
+            trainingUnit.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
+            trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.GoingToFlag;
+            trainingUnit.GetComponent<OurUnit>().Rally_Point = building.GetComponent<Structure>().Rally_Point.transform;
+            trainingUnit.GetComponent<OurUnit>().home = building.GetComponent<Structure>();
+            var upgradez = Player.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
+            if (upgradez.Count > 0)
+            {
+                foreach (var up in upgradez)
+                {
+                    trainingUnit.GetComponent<StatsManager>().UpgradeStat(up.effect.stat, up.effect.isPercent);
+                }
+            }
+            trainingUnit.SetActive(false);
+            status = Utility.LocationStatus.Training;
+
+            if (timer == null)
+            {
+                timer = gameObject.AddComponent<Timer>();
+                timer.AddTimer("Training", trainingUnit.GetComponent<OurUnit>().buildTime.value, true, 0.25f);
+
+                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+                loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+                loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
+                timer.On_PingAction += UpdateSlider;
+                timer.On_Duration_End += isDoneTraining;
+
+            }
+            else
+            {
+                //UIManager.Instance.DialogWindow("This location all ready is traning troops");
+            }
+    }
+    public void UpdateSliderMultiplier()
+    {
+        loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
+    }
+    public void SpawnUnit()
+    {
+        if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected && productionList.Count == 1)
         {
-            trainingUnit = Instantiate(unitPrefab, new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);
+            Debug.Log("Started spawning ...");
+            trainingUnit = Instantiate(productionList[0], new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);
             trainingUnit.tag = "Player";
             trainingUnit.name += trainingUnit.GetInstanceID().ToString();
             trainingUnit.GetComponent<MoveTo>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
@@ -108,22 +156,23 @@ public class MapLocation : MonoBehaviour
             if (timer == null)
             {
                 timer = gameObject.AddComponent<Timer>();
-                timer.AddTimer("Training", building.GetComponent<Structure>().buildTime.value, true, 0.25f);
+                timer.AddTimer("Training", trainingUnit.GetComponent<OurUnit>().buildTime.value, true, 0.25f);
 
                 itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
                 loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+                loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
                 timer.On_PingAction += UpdateSlider;
                 timer.On_Duration_End += isDoneTraining;
 
             }
             else
             {
-                UIManager.Instance.DialogWindow("This location all ready is traning troops");
+                //UIManager.Instance.DialogWindow("This location all ready is traning troops");
             }
         }
         else
         {
-            UIManager.Instance.DialogWindow("This location all ready has a building on it");
+            //UIManager.Instance.DialogWindow("This location all ready has a building on it");
         }
     }
     public void SpawnBuilding(GameObject buildingPrefab)
@@ -183,10 +232,17 @@ public class MapLocation : MonoBehaviour
         trainingUnit.SetActive(true);
         status = Utility.LocationStatus.Built;
 
-        Destroy(timer);
+        DestroyImmediate(timer);
         if (loadingBar != null) Destroy(loadingBar.gameObject);
 
         building.GetComponent<Structure>().Rally_Point.GetComponent<Draggable>().NewUnitSpawned(trainingUnit.GetComponent<OurUnit>());
+
+        productionList.RemoveAt(0);
+
+        if (productionList.Count != 0)
+        {
+            SpawnUnitQueue();
+        }
     }
     public void isDoneBuilding(Timer _timer)
     {

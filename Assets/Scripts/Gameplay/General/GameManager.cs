@@ -138,7 +138,9 @@ public class GameManager : MonoBehaviour
         {
             if (Player.Instance.Buy(unitPrefab.cost))
             {
-                location.SpawnUnit(unitPrefab.gameObject);
+                location.productionList.Add(unitPrefab.gameObject);
+                location.SpawnUnit();
+                location.UpdateSliderMultiplier();
                 UIManager.Instance.OnCloseBuildingWindow();
             }
             else
