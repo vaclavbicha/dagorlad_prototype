@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                UIManager.Instance.DialogWindow("Player cannot afford this UNIT");
+                UIManager.Instance.DialogWindow("Not enough resources");
             }
         }
         else UIManager.Instance.DialogWindow("UNIT Prefab not found");
