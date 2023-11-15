@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -58,5 +59,26 @@ public class ItemManager : MonoBehaviour
     public void OnBuildingDestroy()
     {
         building.mapLocation.DestroyBuilding();
+    }
+    public void OnBuildingUpgradeWindow()
+    {
+        var location = GameManager.Instance.ALL_Locations.Find(x => x.id == locationID && x.type == type && x.baseID == UIManager.Instance.currentBaseID);
+        if (location)
+        {
+            var cost = location.building.GetComponent<Structure>().ReturnCostOfLevel();
+            UIManager.Instance.DialogWindowYesNo("Do you want to upgrade this building ?", cost,
+                () => {
+                    Debug.Log("PLAYER SAID YES");
+                    if (Player.Instance.Buy(cost))
+                    {
+                        location.building.GetComponent<Structure>().level++;
+                        Debug.Log("PLAYER CAN AFFORD");
+                    }
+                    else UIManager.Instance.DialogWindow("Player cannot afford");
+                },
+                () => { Debug.Log("PLAYER SAID NO"); });
+            delete.SetActive(false);
+        }
+        else UIManager.Instance.DialogWindow("Selected Location was not found!");
     }
 }

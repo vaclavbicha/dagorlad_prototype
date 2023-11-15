@@ -383,6 +383,14 @@ MonoBehaviour:
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
   mapLocation: {fileID: 0}
+  level: 0
+  costUpgrade0:
+  - type: 2
+    value: 100
+  - type: 3
+    value: 10
+  costUpgrade1: []
+  maxLevel: 2
 --- !u!114 &6983162763151982436
 MonoBehaviour:
   m_ObjectHideFlags: 0

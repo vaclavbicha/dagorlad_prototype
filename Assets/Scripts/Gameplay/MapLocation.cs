@@ -309,17 +309,21 @@ public class MapLocation : MonoBehaviour
         if (status != Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID)
         {
             itemManager.building = building.GetComponent<Structure>();
+
+            itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
+            ColorUtility.TryParseHtmlString("#646D6F", out Color myColor);
+            itemManager.mid.transform.GetChild(0).GetComponent<Image>().color = myColor;
+
             switch (buttonIcon.locationType)
             {
                 case Utility.LocationType.Defense:
                     itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon.Icon;
-                    itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     break;
                 case Utility.LocationType.Attack:
                     itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = UIManager.Instance.currentBaseID == 3 ? buttonIcon?.Flag3 : buttonIcon?.Flag1;
                     itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                     itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.Icon;
-                    itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
+                    //itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     //EX DRAGDROP.cs
                     //var x = itemManager.bottom.GetComponentInChildren<DragDrop>();
                     //var y = itemManager.bottom.GetComponentInChildren<Toggle>();
@@ -338,16 +342,13 @@ public class MapLocation : MonoBehaviour
                     break;
                 case Utility.LocationType.Resource:
                     itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon.Icon;
-                    itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
+                    //itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     break;
             }
         }
     }
     public void DestroyBuilding()
     {
-        DestroyImmediate(building);
-        status = Utility.LocationStatus.Free;
-        GameManager.Instance.InstantiateBottomMenu();
 
         if (building.GetComponent<Structure>().production.type == Utility.ResourceTypes.Supply)
         {
@@ -357,5 +358,9 @@ public class MapLocation : MonoBehaviour
         {
             Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction -= building.GetComponent<Structure>().production.value;
         }
+
+        DestroyImmediate(building);
+        status = Utility.LocationStatus.Free;
+        GameManager.Instance.InstantiateBottomMenu();
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DanielLochner.Assets;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
     public MapLocation currentSelected;
 
     public GameObject dialogWindow;
+    public GameObject dialogWindowYesNo;
 
     public RectTransform bottomPanelContent;
 
@@ -194,6 +196,28 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         dialogWindow.SetActive(false);
+    }
+    public void DialogWindowYesNo(string message, Amount[] cost, UnityAction yesEvent, UnityAction noEvent)
+    {
+        foreach(var x in cost)
+        {
+            Debug.Log("Cost " + x.type + " " + x.value);
+        }
+
+        dialogWindowYesNo.SetActive(true);
+        dialogWindowYesNo.GetComponentInChildren<TextMeshProUGUI>().text = message;
+        var buttons = dialogWindowYesNo.GetComponentsInChildren<Button>();
+        foreach(var x in buttons)
+        {
+            if (x.gameObject.name.Contains("YES"))
+            {
+                x.onClick.AddListenerOnce(yesEvent);
+            }
+            if (x.gameObject.name.Contains("NO"))
+            {
+                x.onClick.AddListenerOnce(noEvent);
+            }
+        }
     }
     public void UpdateSliderLeft(Timer _timer)
     {

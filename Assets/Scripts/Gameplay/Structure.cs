@@ -21,11 +21,29 @@ public class Structure : MonoBehaviour
     public bool isAttackPoint = false;
     public MapLocation mapLocation;
 
+    public int level;
+    public Amount[] costUpgrade0;
+    public Amount[] costUpgrade1;
+    public int maxLevel = 2;
+
     //public List<OurUnit> currentArmy = new List<OurUnit>();
 
     public void Update()
     {
         if (Rally_Point) Rally_Point.GetComponentInChildren<SpriteRenderer>().color = isAttackPoint ? Color.red : Color.white;
+    }
+    public Amount[] ReturnCostOfLevel()
+    {
+        switch (level)
+        {
+            case 0:
+                return costUpgrade0;
+            case 1:
+                return costUpgrade1;
+            case 2:
+                break;
+        }
+        return null;
     }
     //public void AttackEnemiesInRange()
     //{
