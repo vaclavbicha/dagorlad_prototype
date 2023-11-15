@@ -109,6 +109,7 @@ public class Draggable : MonoBehaviour
     public void OFF()
     {
         Camera.main.GetComponent<MoveTo>().Lock = false;
+        GetComponentInChildren<Animator>().SetTrigger("OFF");
     }
     private void OnMouseClickDown()
     {
