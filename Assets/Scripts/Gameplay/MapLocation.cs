@@ -311,8 +311,20 @@ public class MapLocation : MonoBehaviour
             itemManager.building = building.GetComponent<Structure>();
 
             itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
-            ColorUtility.TryParseHtmlString("#646D6F", out Color myColor);
-            itemManager.mid.transform.GetChild(0).GetComponent<Image>().color = myColor;
+            Color fillingColor = new Color(0, 0, 0);
+            switch (itemManager.building.level)
+            {
+                case 0:
+                    ColorUtility.TryParseHtmlString("#646D6F", out fillingColor);
+                    break;
+                case 1:
+                    ColorUtility.TryParseHtmlString("#FF0000", out fillingColor);
+                    break;
+                case 2:
+                    ColorUtility.TryParseHtmlString("#00FF00", out fillingColor);
+                    break;
+            }
+            itemManager.mid.transform.GetChild(0).GetComponent<Image>().color = fillingColor;
 
             switch (buttonIcon.locationType)
             {

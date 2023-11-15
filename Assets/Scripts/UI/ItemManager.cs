@@ -66,17 +66,22 @@ public class ItemManager : MonoBehaviour
         if (location)
         {
             var cost = location.building.GetComponent<Structure>().ReturnCostOfLevel();
-            UIManager.Instance.DialogWindowYesNo("Do you want to upgrade this building ?", cost,
-                () => {
-                    Debug.Log("PLAYER SAID YES");
-                    if (Player.Instance.Buy(cost))
+            if (cost != null)
+            {
+                UIManager.Instance.DialogWindowYesNo("Do you want to upgrade this building ?", cost,
+                    () =>
                     {
-                        location.building.GetComponent<Structure>().level++;
-                        Debug.Log("PLAYER CAN AFFORD");
-                    }
-                    else UIManager.Instance.DialogWindow("Player cannot afford");
-                },
-                () => { Debug.Log("PLAYER SAID NO"); });
+                        Debug.Log("PLAYER SAID YES");
+                        if (Player.Instance.Buy(cost))
+                        {
+                            location.building.GetComponent<Structure>().level++;
+                            Debug.Log("PLAYER CAN AFFORD");
+                            GameManager.Instance.InstantiateBottomMenu();
+                        }
+                        else UIManager.Instance.DialogWindow("Player cannot afford");
+                    },
+                    () => { Debug.Log("PLAYER SAID NO"); });
+            }else UIManager.Instance.DialogWindow("Building is MAX level");
             delete.SetActive(false);
         }
         else UIManager.Instance.DialogWindow("Selected Location was not found!");
