@@ -45,7 +45,7 @@ public class MapLocation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        color.a = selectionStatus == Utility.LocationSelectionStatus.Selected ? 1f : 0.3f;
+        color.a = selectionStatus == Utility.LocationSelectionStatus.Selected ? 1f : 0.78f;
         color = status == Utility.LocationStatus.Building ? Color.green : color;
         var screenPosition = mainCamera.WorldToScreenPoint(transform.position);
         isVisisble = !(screenPosition.x <= 10 || screenPosition.x >= Screen.width || screenPosition.y <= 10 || screenPosition.y >= Screen.height);
