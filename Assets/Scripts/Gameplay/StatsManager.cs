@@ -10,6 +10,11 @@ public class StatsManager : MonoBehaviour
     public TextMeshPro DisplayHP;
     MoveTo moveTo;
 
+    public GameObject healthBar;
+    SpriteRenderer healthbarSprite;
+    float fullBarScale;
+    public Gradient healthBarGradient;
+
     public delegate void TargetEventDelegate(GameObject sender);
     public event TargetEventDelegate On_Death;
 
@@ -45,6 +50,11 @@ public class StatsManager : MonoBehaviour
     {
         DisplayHP = GetComponentInChildren<TextMeshPro>();
         moveTo = GetComponent<MoveTo>();
+        if (healthBar != null)
+        {
+            fullBarScale = healthBar.transform.localScale.x;
+            healthbarSprite = healthBar.GetComponent<SpriteRenderer>();
+        }
 
         foreach(var x in stats)
         {
@@ -57,10 +67,25 @@ public class StatsManager : MonoBehaviour
         {
             if (x.type == Utility.StatsTypes.Health)
             {
-                if (x.value > 0) DisplayHP.text = x.value.ToString();
+                if (x.value > 0)
+                {
+                    DisplayHP.text = x.value.ToString();
+                    if(healthBar != null)
+                    {
+                        healthBar.transform.localPosition = new Vector3(((x.value / x.valueMAX) * fullBarScale) / 2 - fullBarScale / 2, healthBar.transform.localPosition.y, healthBar.transform.localPosition.z);
+                        healthBar.transform.localScale = new Vector3((x.value / x.valueMAX) * fullBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+                        healthbarSprite.color = healthBarGradient.Evaluate(x.value / x.valueMAX);
+                    }
+                }
                 else
                 {
                     DisplayHP.text = 0.ToString();
+                    if (healthBar != null)
+                    {
+                        healthBar.transform.localPosition = new Vector3(((x.value / x.valueMAX) * fullBarScale) / 2 - fullBarScale / 2, healthBar.transform.localPosition.y, healthBar.transform.localPosition.z);
+                        healthBar.transform.localScale = new Vector3((x.value / x.valueMAX) * fullBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+                        healthbarSprite.color = healthBarGradient.Evaluate(x.value / x.valueMAX);
+                    }
                     On_Death?.Invoke(gameObject);
                 }
             }

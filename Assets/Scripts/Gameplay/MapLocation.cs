@@ -21,7 +21,7 @@ public class MapLocation : MonoBehaviour
     public GameObject upgradeItem = null;
 
     SpriteRenderer sprite;
-    Color color;
+    Color color = Color.white;
 
     [SerializeField]
     public Timer timer;
@@ -45,6 +45,7 @@ public class MapLocation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        color = selectionStatus == Utility.LocationSelectionStatus.Selected ? Color.black : Color.white;
         color.a = selectionStatus == Utility.LocationSelectionStatus.Selected ? 1f : 0.78f;
         color = status == Utility.LocationStatus.Building ? Color.green : color;
         var screenPosition = mainCamera.WorldToScreenPoint(transform.position);
