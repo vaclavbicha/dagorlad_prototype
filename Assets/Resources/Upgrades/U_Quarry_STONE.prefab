@@ -105,10 +105,8 @@ MonoBehaviour:
     type: 4
     value: 15
   cost:
-  - type: 3
-    value: 15
   - type: 2
-    value: 15
+    value: 100
   effect:
     type: 1
     resourceAmount:

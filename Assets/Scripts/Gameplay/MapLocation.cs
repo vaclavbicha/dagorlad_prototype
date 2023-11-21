@@ -319,10 +319,10 @@ public class MapLocation : MonoBehaviour
                     ColorUtility.TryParseHtmlString("#646D6F", out fillingColor);
                     break;
                 case 1:
-                    ColorUtility.TryParseHtmlString("#FF0000", out fillingColor);
+                    ColorUtility.TryParseHtmlString("#7ECFEC", out fillingColor);
                     break;
                 case 2:
-                    ColorUtility.TryParseHtmlString("#00FF00", out fillingColor);
+                    ColorUtility.TryParseHtmlString("#ECB136", out fillingColor);
                     break;
             }
             itemManager.mid.transform.GetChild(0).GetComponent<Image>().color = fillingColor;

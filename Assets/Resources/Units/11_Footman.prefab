@@ -287,10 +287,10 @@ MonoBehaviour:
     value: 1
     valueMAX: 0
   - type: 1
-    value: 30
+    value: 100
     valueMAX: 0
   - type: 3
-    value: 5
+    value: 10
     valueMAX: 0
   - type: 4
     value: 1.5
@@ -302,9 +302,9 @@ MonoBehaviour:
   healthBar: {fileID: 4395371910486526350}
   healthBarGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.107794285, g: 0, b: 1, a: 1}
-    key2: {r: 0, g: 1, b: 0.2929263, a: 0}
+    key0: {r: 1, g: 0.019607844, b: 0, a: 1}
+    key1: {r: 1, g: 0.9490196, b: 0, a: 1}
+    key2: {r: 0.05882353, g: 1, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -639,8 +639,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -728,8 +728,8 @@ Transform:
   m_GameObject: {fileID: 9170720871953264681}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.542, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.1, z: 1}
+  m_LocalPosition: {x: -0.005, y: 0.613, z: 0}
+  m_LocalScale: {x: 0.15999438, y: 0.15544038, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 559377267714520026}
