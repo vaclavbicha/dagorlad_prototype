@@ -49,12 +49,12 @@ TagManager:
   - name: Troops
     uniqueID: 339165651
     locked: 0
+  - name: FogOfWar
+    uniqueID: 2595109247
+    locked: 0
   - name: InGameUI
     uniqueID: 1280812329
     locked: 0
   - name: MainCanvas
     uniqueID: 3817598797
-    locked: 0
-  - name: FogOfWar
-    uniqueID: 2595109247
     locked: 0
