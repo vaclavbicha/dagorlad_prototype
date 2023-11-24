@@ -272,6 +272,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 200
@@ -288,6 +296,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1846122108}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -767,6 +779,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7648119772857791676, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: TransformDestination
       value: 
@@ -775,6 +795,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1824147087}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1407,6 +1431,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -1427,6 +1459,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1633861759}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1499,6 +1535,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -1519,6 +1563,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 534126548}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2433,7 +2481,7 @@ Transform:
   m_GameObject: {fileID: 227439220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -2.87, z: 0}
+  m_LocalPosition: {x: -0.06, y: -6.73, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2538,6 +2586,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -2558,6 +2614,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 321101315}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2947,6 +3007,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7648119772857791676, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: TransformDestination
       value: 
@@ -2955,6 +3023,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1022769536}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4339,6 +4411,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -4359,6 +4439,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 534126548}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4666,6 +4750,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -4686,6 +4778,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 368338465}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5099,6 +5195,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7648119772857791676, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: TransformDestination
       value: 
@@ -5107,6 +5211,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1824147087}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5167,6 +5275,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7648119772857791676, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: TransformDestination
       value: 
@@ -5175,6 +5291,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1022769536}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5431,6 +5551,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 200
@@ -5447,6 +5575,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1846122108}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5519,6 +5651,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -5539,6 +5679,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 321101315}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5761,6 +5905,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -5781,6 +5933,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1633861759}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6328,6 +6484,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 200
@@ -6344,6 +6508,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1846122108}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6756,6 +6924,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -6776,6 +6952,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1776860231}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6848,6 +7028,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -6868,6 +7056,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 368338465}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7156,6 +7348,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -7176,6 +7376,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1633861759}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7449,7 +7653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: f0661ee482dac40fc9e56211692e8aa9, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.49803922}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.23921569}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7551,6 +7755,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -7571,6 +7783,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 534126548}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7631,6 +7847,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7648119772857791676, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: TransformDestination
       value: 
@@ -7639,6 +7863,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1022769536}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8791,6 +9019,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -8811,6 +9047,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 368338465}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8961,6 +9201,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -8981,6 +9229,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1776860231}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10599,6 +10851,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -10619,6 +10879,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1633861759}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11378,7 +11642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 485.57498, y: -105.35}
+  m_AnchoredPosition: {x: 485.575, y: -105.35}
   m_SizeDelta: {x: 84.65, y: 210.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1225475811
@@ -11976,7 +12240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 312.27505, y: -105.35}
+  m_AnchoredPosition: {x: 312.2751, y: -105.35}
   m_SizeDelta: {x: 92.65, y: 210.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319156195
@@ -12116,7 +12380,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 227439222}
@@ -12162,7 +12426,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3764cfebb3c6b4253934e7f8b95cc7c1, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -12364,6 +12628,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -12384,6 +12656,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1776860231}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12532,6 +12808,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -12552,6 +12836,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 321101315}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13107,6 +13395,134 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3228515655158514512, guid: e43e5da9ce2c44d9b8280f87448645d4, type: 3}
   m_PrefabInstance: {fileID: 4961177906112987514}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1460098555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1460098557}
+  - component: {fileID: 1460098556}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1460098556
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460098555}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b809fbdd177b6994091b69b62603216c, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.088
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1.2318543
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1460098557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460098555}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7157604, y: -2.1817775, z: -3.9530096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1470216865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5841863077411007637, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
@@ -13264,6 +13680,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -13284,6 +13708,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1776860231}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13944,6 +14372,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7648119772857791676, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: TransformDestination
       value: 
@@ -13952,6 +14388,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1824147087}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14024,6 +14464,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -14044,6 +14492,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 321101315}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16048,6 +16500,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -16068,6 +16528,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 368338465}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16400,6 +16864,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 100
@@ -16420,6 +16892,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 534126548}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17692,6 +18168,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7648119772857791676, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: TransformDestination
       value: 
@@ -17700,6 +18184,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1824147087}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17907,6 +18395,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7648119772857791676, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: TransformDestination
       value: 
@@ -17915,6 +18411,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1022769536}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17999,6 +18499,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6976304803291985887, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226021974785540827, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
       value: 200
@@ -18015,6 +18523,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1846122108}
+    - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19037,6 +19549,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6583010261181356295, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571877114510027174, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -20764,3 +21280,4 @@ SceneRoots:
   - {fileID: 2015105177}
   - {fileID: 874993057}
   - {fileID: 1440635673}
+  - {fileID: 1460098557}
