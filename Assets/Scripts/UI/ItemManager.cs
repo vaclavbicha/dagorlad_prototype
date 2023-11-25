@@ -74,7 +74,8 @@ public class ItemManager : MonoBehaviour
                         Debug.Log("PLAYER SAID YES");
                         if (Player.Instance.Buy(cost))
                         {
-                            location.building.GetComponent<Structure>().level++;
+                            //location.building.GetComponent<Structure>().level++;
+                            location.building.GetComponent<Structure>().UpgradeStructure();
                             Debug.Log("PLAYER CAN AFFORD");
                             GameManager.Instance.InstantiateBottomMenu();
                         }

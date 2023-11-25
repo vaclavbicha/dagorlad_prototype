@@ -6,6 +6,7 @@ public class Structure : MonoBehaviour
 {
     public string buildingName;
     public Sprite Icon;
+    public Sprite scrollIcon;
     public Sprite Flag1;
     public Sprite Flag3;
     public Sprite InfoSprite;
@@ -24,7 +25,7 @@ public class Structure : MonoBehaviour
     public int level;
     public Amount[] costUpgrade0;
     public Amount[] costUpgrade1;
-    public int maxLevel = 2;
+    private int maxLevel = 3;
 
     //public List<OurUnit> currentArmy = new List<OurUnit>();
 
@@ -44,6 +45,20 @@ public class Structure : MonoBehaviour
                 break;
         }
         return null;
+    }
+    public bool UpgradeStructure()
+    {
+        if (level + 1 < maxLevel)
+        {
+            level++;
+            ChangeSprite();
+            return true;
+        }
+        else return false;
+    }
+    public void ChangeSprite()
+    {
+        GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("StructuresSprites/" + buildingName + "_" + level.ToString());
     }
     //public void AttackEnemiesInRange()
     //{

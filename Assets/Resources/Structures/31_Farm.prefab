@@ -615,6 +615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: R_Farm
   Icon: {fileID: 21300000, guid: ca62f3c0cf5edbd40bf530b39866b724, type: 3}
+  scrollIcon: {fileID: 21300000, guid: fc469045ad9921942bdea9f8dd4c6b8c, type: 3}
   Flag1: {fileID: 0}
   Flag3: {fileID: 0}
   InfoSprite: {fileID: 0}
@@ -624,7 +625,7 @@ MonoBehaviour:
   upgradeType: 1
   buildTime:
     type: 5
-    value: 5
+    value: 1
   cost:
   - type: 2
     value: 100
@@ -637,18 +638,19 @@ MonoBehaviour:
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
   mapLocation: {fileID: 0}
-  level: 0
+  level: -2
   costUpgrade0:
   - type: 2
     value: 100
   - type: 3
+    value: 100
+  - type: 4
     value: 100
   costUpgrade1:
   - type: 2
     value: 200
   - type: 3
     value: 100
-  maxLevel: 2
 --- !u!114 &6983162763151982436
 MonoBehaviour:
   m_ObjectHideFlags: 0

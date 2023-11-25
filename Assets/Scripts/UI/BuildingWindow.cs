@@ -35,7 +35,7 @@ public class BuildingWindow : MonoBehaviour
                             transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j).GetChild(0).gameObject.SetActive(false);
                             j++;
                         }
-                        transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetChild(0).GetComponent<Image>().sprite = obj.Icon;
+                        transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = obj.Icon;
                         transform.GetChild(2).GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.unitName;
                         i++;
                     }
@@ -58,7 +58,7 @@ public class BuildingWindow : MonoBehaviour
                             transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j).GetChild(0).gameObject.SetActive(false);
                             j++;
                         }
-                        transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetChild(0).GetComponent<Image>().sprite = obj.Icon;
+                        transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = obj.Icon;
                         transform.GetChild(2).GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.upgradeName;
                         i++;
                     }
@@ -88,7 +88,7 @@ public class BuildingWindow : MonoBehaviour
                     transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0).gameObject.SetActive(false);
                     j++;
                 }
-                transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetChild(0).GetComponent<Image>().sprite = obj.Icon;
+                transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = obj.Icon;
                 transform.GetChild(2).GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.buildingName;
                 i++;
             }

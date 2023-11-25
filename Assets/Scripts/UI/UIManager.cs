@@ -197,11 +197,30 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(t);
         dialogWindow.SetActive(false);
     }
-    public void DialogWindowYesNo(string message, Amount[] cost, UnityAction yesEvent, UnityAction noEvent)
+    public void DialogWindowYesNo(string message, Amount[] _cost, UnityAction yesEvent, UnityAction noEvent)
     {
-        foreach(var x in cost)
+        if(_cost != null)
         {
-            Debug.Log("Cost " + x.type + " " + x.value);
+            var column = dialogWindowYesNo.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(1).GetChild(0);
+            column.gameObject.SetActive(true);
+            var j = 0;
+            foreach (var cost in _cost)
+            {
+                var text = column.transform.Find("Cost_" + j.ToString()).GetChild(0);
+                text.gameObject.SetActive(true);
+                text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
+                text.GetComponent<UpdateIconText>().UpdateDisplay(cost.value, gameObject);
+                j++;
+            }
+            while (j <= 2)
+            {
+                column.transform.Find("Cost_" + j).GetChild(0).gameObject.SetActive(false);
+                j++;
+            }
+        }
+        else
+        {
+            dialogWindowYesNo.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(1).GetChild(0).gameObject.SetActive(false);
         }
 
         dialogWindowYesNo.SetActive(true);

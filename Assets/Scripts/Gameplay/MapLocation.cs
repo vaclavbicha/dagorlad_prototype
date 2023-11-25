@@ -197,9 +197,11 @@ public class MapLocation : MonoBehaviour
                 buildingStructure.Rally_Point.GetComponent<SpriteRenderer>().sprite = UIManager.Instance.currentBaseID == 3 ? buildingStructure.Flag3 : buildingStructure.Flag1;
             }
             //building.SetActive(false);
-            var aux = buildingStructure.buildingSprite;
-            buildingStructure.buildingSprite = building.GetComponent<SpriteRenderer>().sprite;
-            building.GetComponent<SpriteRenderer>().sprite = aux;
+            //var aux = buildingStructure.buildingSprite;
+            //buildingStructure.buildingSprite = building.GetComponent<SpriteRenderer>().sprite;
+            //building.GetComponent<SpriteRenderer>().sprite = aux;
+            building.GetComponent<Structure>().ChangeSprite();
+            StartCoroutine(UpdateBuildingSprite(building.GetComponent<Structure>().buildTime.value / 2));
 
             status = Utility.LocationStatus.Building;
 
@@ -247,10 +249,11 @@ public class MapLocation : MonoBehaviour
     }
     public void isDoneBuilding(Timer _timer)
     {
+        building.GetComponent<Structure>().UpgradeStructure();
         //building.SetActive(true);
-        var aux = building.GetComponent<SpriteRenderer>().sprite;
-        building.GetComponent<SpriteRenderer>().sprite = building.GetComponent<Structure>().buildingSprite;
-        building.GetComponent<Structure>().buildingSprite = aux;
+        //var aux = building.GetComponent<SpriteRenderer>().sprite;
+        //building.GetComponent<SpriteRenderer>().sprite = building.GetComponent<Structure>().buildingSprite;
+        //building.GetComponent<Structure>().buildingSprite = aux;
 
         status = Utility.LocationStatus.Built;
 
@@ -299,6 +302,11 @@ public class MapLocation : MonoBehaviour
         Destroy(timer);
         if (loadingBar != null) Destroy(loadingBar.gameObject);
     }
+    IEnumerator UpdateBuildingSprite(float t)
+    {
+        yield return new WaitForSeconds(t);
+        building.GetComponent<Structure>().UpgradeStructure();
+    }
     public void UpdateItemManager(bool filling, Structure buttonIcon)
     {
         if(timer != null)
@@ -330,12 +338,12 @@ public class MapLocation : MonoBehaviour
             switch (buttonIcon.locationType)
             {
                 case Utility.LocationType.Defense:
-                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon.Icon;
+                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.scrollIcon;
                     break;
                 case Utility.LocationType.Attack:
                     itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = UIManager.Instance.currentBaseID == 3 ? buttonIcon?.Flag3 : buttonIcon?.Flag1;
                     itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-                    itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.Icon;
+                    itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.scrollIcon;
                     //itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     //EX DRAGDROP.cs
                     //var x = itemManager.bottom.GetComponentInChildren<DragDrop>();
@@ -354,7 +362,7 @@ public class MapLocation : MonoBehaviour
                     itemManager.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
                     break;
                 case Utility.LocationType.Resource:
-                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon.Icon;
+                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.scrollIcon;
                     //itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     break;
             }

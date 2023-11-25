@@ -614,7 +614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: Tower4
-  Icon: {fileID: 21300000, guid: fb1f8ed186636e94b915a3bd3cbf42f9, type: 3}
+  Icon: {fileID: -60202271, guid: fb1f8ed186636e94b915a3bd3cbf42f9, type: 3}
+  scrollIcon: {fileID: 0}
   Flag1: {fileID: 0}
   Flag3: {fileID: 0}
   InfoSprite: {fileID: 0}
@@ -639,10 +640,9 @@ MonoBehaviour:
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
   mapLocation: {fileID: 0}
-  level: 0
+  level: -2
   costUpgrade0: []
   costUpgrade1: []
-  maxLevel: 2
 --- !u!114 &-1168061539268920374
 MonoBehaviour:
   m_ObjectHideFlags: 0
