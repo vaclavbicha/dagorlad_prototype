@@ -62,10 +62,10 @@ public class ItemManager : MonoBehaviour
     }
     public void OnBuildingUpgradeWindow()
     {
-        var location = GameManager.Instance.ALL_Locations.Find(x => x.id == locationID && x.type == type && x.baseID == UIManager.Instance.currentBaseID);
-        if (location)
+        //var location = GameManager.Instance.ALL_Locations.Find(x => x.id == locationID && x.type == type && x.baseID == UIManager.Instance.currentBaseID);
+        if (building.mapLocation)
         {
-            var cost = location.building.GetComponent<Structure>().ReturnCostOfLevel();
+            var cost = building.ReturnCostOfLevel();
             if (cost != null)
             {
                 UIManager.Instance.DialogWindowYesNo("Do you want to upgrade this building ?", cost,
@@ -74,8 +74,11 @@ public class ItemManager : MonoBehaviour
                         Debug.Log("PLAYER SAID YES");
                         if (Player.Instance.Buy(cost))
                         {
-                            //location.building.GetComponent<Structure>().level++;
-                            location.building.GetComponent<Structure>().UpgradeStructure();
+                            foreach(var x in cost)
+                            {
+                                if (x.type == Utility.ResourceTypes.Time) building.mapLocation.UpgradeStructure(x.value);
+                            }
+                            //location.building.GetComponent<Structure>().UpgradeStructure();
                             Debug.Log("PLAYER CAN AFFORD");
                             GameManager.Instance.InstantiateBottomMenu();
                         }

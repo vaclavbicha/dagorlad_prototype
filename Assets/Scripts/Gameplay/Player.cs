@@ -42,6 +42,12 @@ public class Player : MonoBehaviour
     }
     public bool Buy(Amount[] price)
     {
+        var priceaux = new List<Amount>();
+        foreach(var x in price)
+        {
+            if (x.type != Utility.ResourceTypes.Time) priceaux.Add(x);
+        }
+        price = priceaux.ToArray();
         foreach(var y in price)
         {
             if (y.type != Utility.ResourceTypes.Supply)

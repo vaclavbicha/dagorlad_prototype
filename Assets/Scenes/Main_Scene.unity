@@ -13790,7 +13790,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1383456608}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1331455527
@@ -13864,11 +13865,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
   sounds:
-  - name: Footman_attack
-    clip: {fileID: 0}
-    OutputMixer: {fileID: 0}
+  - name: ThemeSong
+    clip: {fileID: 8300000, guid: b809fbdd177b6994091b69b62603216c, type: 3}
+    OutputMixer: {fileID: -8809142662827895261, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
     volume: 0
-    pitch: 0
+    pitch: 1
+    loop: 1
+  - name: 11_Grunt_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
     loop: 0
 --- !u!4 &1336592366 stripped
 Transform:
@@ -14066,6 +14073,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381914231}
   m_CullTransparentMesh: 0
+--- !u!1 &1383456607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1383456608}
+  m_Layer: 0
+  m_Name: AudioSources
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1383456608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383456607}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1331455526}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1384910608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14709,7 +14747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1460098556
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18288,6 +18326,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8433495259003061504}
     - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: unitName
+      value: 11_Grunt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 8433495259003061504}
@@ -19093,6 +19135,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8433495259003061504}
     - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: unitName
+      value: 11_Grunt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 8433495259003061504}
@@ -19362,6 +19408,10 @@ PrefabInstance:
       propertyPath: TransformDestination
       value: 
       objectReference: {fileID: 8433495259003061504}
+    - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: unitName
+      value: 11_Grunt
+      objectReference: {fileID: 0}
     - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: Rally_Point
       value: 
@@ -20993,6 +21043,10 @@ PrefabInstance:
       propertyPath: TransformDestination
       value: 
       objectReference: {fileID: 8433495259003061504}
+    - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: unitName
+      value: 11_Grunt
+      objectReference: {fileID: 0}
     - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: Rally_Point
       value: 

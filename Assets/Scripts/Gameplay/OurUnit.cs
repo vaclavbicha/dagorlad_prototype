@@ -197,6 +197,7 @@ public class OurUnit : MonoBehaviour
             if (Mathf.Abs(Vector2.Distance(currentTarget.transform.position, transform.position)) < attackRange)
             {
                 animator.SetTrigger("isAttacking");
+                GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
                 dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
             }
             if (dead)

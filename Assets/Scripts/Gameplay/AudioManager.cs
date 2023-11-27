@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (Sound s in sounds)
         {
-            s.source = transform.GetChild(1).gameObject.AddComponent<AudioSource>();
+            s.source = transform.GetChild(0).gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.outputAudioMixerGroup = s.OutputMixer;
             s.source.volume = s.volume;

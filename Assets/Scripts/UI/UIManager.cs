@@ -230,10 +230,12 @@ public class UIManager : MonoBehaviour
         {
             if (x.gameObject.name.Contains("YES"))
             {
+                x.onClick.RemoveAllListeners();
                 x.onClick.AddListenerOnce(yesEvent);
             }
             if (x.gameObject.name.Contains("NO"))
             {
+                x.onClick.RemoveAllListeners();
                 x.onClick.AddListenerOnce(noEvent);
             }
         }

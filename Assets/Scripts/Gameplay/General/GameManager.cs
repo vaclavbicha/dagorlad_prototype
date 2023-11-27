@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        GetComponent<AudioManager>().Play("ThemeSong");
+
         for(int i = 0; i < bases.Count; i ++)
         {
             var locations = bases[i].GetComponentsInChildren<MapLocation>();

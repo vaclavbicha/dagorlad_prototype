@@ -226,6 +226,37 @@ public class MapLocation : MonoBehaviour
             UIManager.Instance.DialogWindow("This location all ready has a building on it");
         }
     }
+    public void UpgradeStructure(float time)
+    {
+        status = Utility.LocationStatus.Building;
+
+        if (timer == null)
+        {
+            timer = gameObject.AddComponent<Timer>();
+            timer.AddTimer("Upgrade", time, true, 0.25f);
+
+            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+            loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+            timer.On_PingAction += UpdateSlider;
+            timer.On_Duration_End += isDoneUpgradingBuilding;
+
+        }
+        else
+        {
+            UIManager.Instance.DialogWindow("This location all ready has a timer");
+        }
+    }
+    public void isDoneUpgradingBuilding(Timer _timer)
+    {
+        status = Utility.LocationStatus.Built;
+
+        DestroyImmediate(timer);
+        if (loadingBar != null) Destroy(loadingBar.gameObject);
+
+        building.GetComponent<Structure>().UpgradeStructure();
+
+        UpdateItemManager(true, building.GetComponent<Structure>());
+    }
     public void UpdateSlider(Timer _timer)
     {
         loadingBar.value = Mathf.Abs((Time.time - _timer.timeStarted) / (_timer.timeStarted - _timer.timeFinish));
