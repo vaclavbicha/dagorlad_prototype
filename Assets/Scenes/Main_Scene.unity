@@ -13749,6 +13749,7 @@ GameObject:
   - component: {fileID: 1331455525}
   - component: {fileID: 1331455527}
   - component: {fileID: 1331455528}
+  - component: {fileID: 1331455529}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -13849,6 +13850,26 @@ MonoBehaviour:
   secondsToFullLeftPanel: 210
   secondsToFullRightPanel: 210
   flagPrefab: {fileID: 3460786186202539531, guid: ddc0c51ec190a442c97aa2b57bf5d43a, type: 3}
+--- !u!114 &1331455529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331455524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e358732a51964750a61768b9fe471db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+  sounds:
+  - name: Footman_attack
+    clip: {fileID: 0}
+    OutputMixer: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
 --- !u!4 &1336592366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5841863077411007637, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
