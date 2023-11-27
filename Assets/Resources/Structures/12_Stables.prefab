@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290d22b87e62145d48bf489ed8eccbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingName: A_Stables
+  buildingName: 12_Stables
   Icon: {fileID: 21300000, guid: c5df709435b2d1447a304e4f6afd9a99, type: 3}
   scrollIcon: {fileID: 21300000, guid: 0e3a8a40993cee74cbe47ecc1a1b4113, type: 3}
   Flag1: {fileID: 21300000, guid: 97b1b8d43d0e9784ca65be8cfd714253, type: 3}

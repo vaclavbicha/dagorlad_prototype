@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290d22b87e62145d48bf489ed8eccbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingName: R_Blacksmith
+  buildingName: 34_Blacksmith
   Icon: {fileID: 21300000, guid: 18836add0f350c84c96eea901b989aed, type: 3}
   scrollIcon: {fileID: 0}
   Flag1: {fileID: 0}
