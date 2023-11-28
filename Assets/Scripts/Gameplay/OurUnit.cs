@@ -140,8 +140,8 @@ public class OurUnit : MonoBehaviour
     {
         //moveTo.method = MoveTo.Method.SpeedWithTarget;
         moveTo.TransformDestination = Enemy.transform;
-        moveTo.range = 0.3f;
-        moveTo.rangeMin = 0.1f;
+        moveTo.range = 0.2f;
+        moveTo.rangeMin = 0.075f;
         if (attackTimer == null)
         {
             //Debug.Log("ATTACK " + Enemy.name);
@@ -223,7 +223,7 @@ public class OurUnit : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         attackid++;
-        Attack(currentTarget.gameObject);
+        if(currentTarget) Attack(currentTarget.gameObject);
     }
     IEnumerator CanMove(float t)
     {
