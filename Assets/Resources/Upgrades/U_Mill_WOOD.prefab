@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: U_Mill_WOOD
-  Icon: {fileID: 21300000, guid: 8ecf6b0912d2166408877443e08ab105, type: 3}
+  Icon: {fileID: -2027375538, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 2
   buildTime:

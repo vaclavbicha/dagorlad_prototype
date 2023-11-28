@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 41_Hawk
-  Icon: {fileID: 21300000, guid: 1c51bf1215113a4429afec01fce5e2d7, type: 3}
+  Icon: {fileID: -393773901, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 3
   status: 2

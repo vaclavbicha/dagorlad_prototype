@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: U_Blacksmith_ORE
-  Icon: {fileID: 21300000, guid: 38e659f22266b2742802e8646a27d3be, type: 3}
+  Icon: {fileID: 874075375, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 3
   buildTime:

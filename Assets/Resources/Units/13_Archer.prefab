@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 13_Archer
-  Icon: {fileID: 1225228499, guid: 574198f2a3dd4824d9bbc4f8e3180bb6, type: 3}
+  Icon: {fileID: 1596312423, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 0
   status: 2

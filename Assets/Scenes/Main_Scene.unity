@@ -13847,7 +13847,7 @@ MonoBehaviour:
   upgrades: []
   infoSprites: []
   resourceSprites: []
-  startingAmounts: 0a000000b80b0000d007000010270000
+  startingAmounts: 0a00000030750000204e000010270000
   secondsToFullLeftPanel: 210
   secondsToFullRightPanel: 210
   flagPrefab: {fileID: 3460786186202539531, guid: ddc0c51ec190a442c97aa2b57bf5d43a, type: 3}
@@ -13868,10 +13868,22 @@ MonoBehaviour:
   - name: ThemeSong
     clip: {fileID: 8300000, guid: b809fbdd177b6994091b69b62603216c, type: 3}
     OutputMixer: {fileID: -8809142662827895261, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 0
+    volume: 1
     pitch: 1
     loop: 1
   - name: 11_Grunt_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 11_Footman_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 21_Wolfhound_attack
     clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
     OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
     volume: 1

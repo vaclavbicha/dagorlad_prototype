@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: 202
-  Icon: {fileID: 21300000, guid: e0c6bcf781168c842bf1cf67ca6b3dee, type: 3}
+  Icon: {fileID: -1421318728, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 1
   buildTime:

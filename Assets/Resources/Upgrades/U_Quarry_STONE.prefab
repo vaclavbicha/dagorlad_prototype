@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: U_Quarry_STONE
-  Icon: {fileID: 21300000, guid: 6a35bf9de11b0484b87898cd18a594d7, type: 3}
+  Icon: {fileID: -1867614717, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 4
   buildTime:

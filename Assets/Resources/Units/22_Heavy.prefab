@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 22_Heavy
-  Icon: {fileID: 21300000, guid: 3dd06e074102b1c41bbe217ff30d2a39, type: 3}
+  Icon: {fileID: -1315185800, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 1
   status: 2

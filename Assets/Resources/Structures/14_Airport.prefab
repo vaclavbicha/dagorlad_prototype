@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 14_Airport
-  Icon: {fileID: 21300000, guid: 9b1f577fbb5f15b41ac7e0105b9cebb6, type: 3}
+  Icon: {fileID: -329363341, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   scrollIcon: {fileID: 21300000, guid: 60b6c4304b392984cbe929be92854b83, type: 3}
   Flag1: {fileID: 21300000, guid: cb59a39c0fb84a24abd60a382eb3a8d6, type: 3}
   Flag3: {fileID: 21300000, guid: dedf4099b047f3449bc4564fa25aac86, type: 3}
@@ -641,8 +641,24 @@ MonoBehaviour:
   isAttackPoint: 0
   mapLocation: {fileID: 0}
   level: -2
-  costUpgrade0: []
-  costUpgrade1: []
+  costUpgrade0:
+  - type: 2
+    value: 200
+  - type: 3
+    value: 200
+  - type: 4
+    value: 100
+  - type: 5
+    value: 5
+  costUpgrade1:
+  - type: 2
+    value: 200
+  - type: 3
+    value: 400
+  - type: 4
+    value: 200
+  - type: 5
+    value: 10
 --- !u!114 &6672898860085841791
 MonoBehaviour:
   m_ObjectHideFlags: 0

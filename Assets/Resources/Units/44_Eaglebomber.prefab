@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 44_Eaglebomber
-  Icon: {fileID: 21300000, guid: 86fa8f4362962a8459e7a0349d9d5868, type: 3}
+  Icon: {fileID: 1178120234, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 3
   status: 2

@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 31_Ram
-  Icon: {fileID: 21300000, guid: 3b159f624d69d3749a3c64266112ac29, type: 3}
+  Icon: {fileID: -1652303849, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 2
   status: 2

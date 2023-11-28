@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: 2010
-  Icon: {fileID: 21300000, guid: 77afd8c0204cd434c80b731b0bb94898, type: 3}
+  Icon: {fileID: 1690747403, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 3
   buildTime:

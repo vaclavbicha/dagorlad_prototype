@@ -530,8 +530,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 34_Blacksmith
-  Icon: {fileID: 21300000, guid: 18836add0f350c84c96eea901b989aed, type: 3}
-  scrollIcon: {fileID: 0}
+  Icon: {fileID: -410895451, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
+  scrollIcon: {fileID: -410895451, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   Flag1: {fileID: 0}
   Flag3: {fileID: 0}
   InfoSprite: {fileID: 0}
@@ -555,8 +555,20 @@ MonoBehaviour:
   isAttackPoint: 0
   mapLocation: {fileID: 0}
   level: -2
-  costUpgrade0: []
-  costUpgrade1: []
+  costUpgrade0:
+  - type: 2
+    value: 100
+  - type: 3
+    value: 100
+  - type: 5
+    value: 5
+  costUpgrade1:
+  - type: 2
+    value: 100
+  - type: 3
+    value: 200
+  - type: 5
+    value: 10
 --- !u!114 &-9051998465728156053
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -614,8 +614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 31_Farm
-  Icon: {fileID: 21300000, guid: ca62f3c0cf5edbd40bf530b39866b724, type: 3}
-  scrollIcon: {fileID: 21300000, guid: fc469045ad9921942bdea9f8dd4c6b8c, type: 3}
+  Icon: {fileID: -1001635048, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
+  scrollIcon: {fileID: -1001635048, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   Flag1: {fileID: 0}
   Flag3: {fileID: 0}
   InfoSprite: {fileID: 0}
@@ -644,13 +644,15 @@ MonoBehaviour:
     value: 100
   - type: 3
     value: 100
-  - type: 4
-    value: 100
+  - type: 5
+    value: 1
   costUpgrade1:
   - type: 2
     value: 200
   - type: 3
     value: 100
+  - type: 5
+    value: 5
 --- !u!114 &6983162763151982436
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 42_Eagle
-  Icon: {fileID: 21300000, guid: 7f090439f1a168343944a3ccca8dcd69, type: 3}
+  Icon: {fileID: -1679861012, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 3
   status: 2

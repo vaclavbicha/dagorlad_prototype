@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 12_Stables
-  Icon: {fileID: 21300000, guid: c5df709435b2d1447a304e4f6afd9a99, type: 3}
+  Icon: {fileID: 34894526, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   scrollIcon: {fileID: 21300000, guid: 0e3a8a40993cee74cbe47ecc1a1b4113, type: 3}
   Flag1: {fileID: 21300000, guid: 97b1b8d43d0e9784ca65be8cfd714253, type: 3}
   Flag3: {fileID: 21300000, guid: 7aa435fab366c3248ba988166b096f42, type: 3}
@@ -555,8 +555,20 @@ MonoBehaviour:
   isAttackPoint: 0
   mapLocation: {fileID: 0}
   level: -2
-  costUpgrade0: []
-  costUpgrade1: []
+  costUpgrade0:
+  - type: 2
+    value: 200
+  - type: 3
+    value: 200
+  - type: 5
+    value: 5
+  costUpgrade1:
+  - type: 2
+    value: 100
+  - type: 3
+    value: 300
+  - type: 5
+    value: 20
 --- !u!114 &-1556510943572095562
 MonoBehaviour:
   m_ObjectHideFlags: 0

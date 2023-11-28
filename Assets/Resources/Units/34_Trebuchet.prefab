@@ -816,7 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 34_Trebuchet
-  Icon: {fileID: 21300000, guid: 3681cf1c579ab2c488a01721ac8d8100, type: 3}
+  Icon: {fileID: -72822931, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 2
   status: 2
