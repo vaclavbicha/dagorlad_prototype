@@ -45,37 +45,50 @@ public class OurUnit : MonoBehaviour
 
     Vector3[] attackerPositions = new Vector3[]
     {
-        new Vector3(0.00f, 0.90f, 0.00f),
-        new Vector3(0.00f, -0.90f, 0.00f),
         new Vector3(-0.78f, 0.45f, 0.0f),
         new Vector3(0.78f, -0.45f, 0.00f),
+        new Vector3(0.00f, 0.90f, 0.00f),
+        new Vector3(0.00f, -0.90f, 0.00f),
         new Vector3(-0.78f, -0.45f, 0.00f),
         new Vector3(0.78f, 0.45f, 0.00f)
     };
-
+    public static void Shuffle<T>(System.Random rng, T[] array)
+    {
+        int n = array.Length;
+        while (n > 1)
+        {
+            int k = rng.Next(n--);
+            T temp = array[n];
+            array[n] = array[k];
+            array[k] = temp;
+        }
+    }
     public void Start()
     {
-        foreach(var x in attackerPositions)
+        var rng = new System.Random();
+        Shuffle(rng, attackerPositions);
+        foreach (var x in attackerPositions)
         {
             var attk_pos = new GameObject();
             attk_pos.transform.parent = transform;
             attk_pos.transform.localPosition = x;
             attk_pos.name = "attk_pos";
             attackersSlots.Add(new Attacker { position = attk_pos.transform, attacker = null });
+            //attackersSlots.Add(new Attacker { position = x, attacker = null });
         }
     }
     public Transform AvailableAttackerPosition(Transform _attacker)
     {
-        if (_attacker == null) return attackersSlots.Find(x => x.attacker == null).position;
+        if (_attacker == null) return attackersSlots.Find(x => x.attacker == null).position; //transform.TransformPoint(attackersSlots.Find(x => x.attacker == null).position);
         else
         {
             var isAlreadyAttackedBy = attackersSlots.Find(x => x.attacker == _attacker);
-            if (isAlreadyAttackedBy != null) return isAlreadyAttackedBy.position;
+            if (isAlreadyAttackedBy != null) return isAlreadyAttackedBy.position; //transform.TransformPoint(isAlreadyAttackedBy.position);
             else
             {
                 isAlreadyAttackedBy = attackersSlots.Find(x => x.attacker == null);
                 isAlreadyAttackedBy.attacker = _attacker;
-                return isAlreadyAttackedBy.position;
+                return isAlreadyAttackedBy.position;//transform.TransformPoint(isAlreadyAttackedBy.position);
             }
         }
     }
@@ -170,17 +183,6 @@ public class OurUnit : MonoBehaviour
 
         }
     }
-
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.GetComponent<StatsManager>()) if (collision.gameObject.GetComponent<StatsManager>().owner != Player.Instance.name)
-    //    {
-    //        if(status == Utility.UnitStatus.LookingToAttack)
-    //            {
-    //                Attack(collision.gameObject);
-    //            }
-    //    }
-    //}
     public void StopAttack()
     {
         if (currentTarget)
@@ -198,7 +200,8 @@ public class OurUnit : MonoBehaviour
         currentTarget = null;
         status = Utility.UnitStatus.GoingToFlag;
         moveTo.TransformDestination = Rally_Point.transform;
-        //moveTo.range = 0.5f;
+        moveTo.range = 0.5f;
+        moveTo.Lock = false;
     }
     public void Attack(GameObject Enemy)
     {
@@ -206,8 +209,10 @@ public class OurUnit : MonoBehaviour
         //moveTo.TransformDestination = Enemy.transform;
         //moveTo.range = 0.2f;
         //moveTo.rangeMin = 0.075f;
-        if(GetComponent<StatsManager>().owner == "Player") moveTo.method = MoveTo.Method.Attacking;
+        //if(GetComponent<StatsManager>().owner == "Player")
+        moveTo.method = MoveTo.Method.Attacking;
         moveTo.TransformDestination = Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform);
+        //moveTo.SetDestination(Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform));
         if (attackTimer == null)
         {
             //Debug.Log("ATTACK " + Enemy.name);
@@ -241,7 +246,7 @@ public class OurUnit : MonoBehaviour
         }
         else
         {
-            Debug.Log("The attack timer is not null " + attackTimer.name);
+            Debug.Log("The attack timer of " + gameObject.name + " is not null " + attackTimer.name);
             Destroy(attackTimer);
             attackTimer = gameObject.AddComponent<Timer>();
             foreach (var x in statsManager.stats)
@@ -265,6 +270,7 @@ public class OurUnit : MonoBehaviour
             {
                 animator.SetTrigger("isAttacking");
                 //GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
+                moveTo.Lock = true;
                 dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
             }
             if (dead)

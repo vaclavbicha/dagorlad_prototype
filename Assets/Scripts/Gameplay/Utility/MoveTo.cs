@@ -113,7 +113,7 @@ public class MoveTo : MonoBehaviour
 
             case Method.Attacking:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                else if(Mathf.Abs(Vector2.Distance(transform.position, TransformDestination.position)) > 0.01f) rb.MovePosition(Vector3.MoveTowards(rb.position, TransformDestination.position, Time.fixedDeltaTime * Speed));
+                else if(!Lock) rb.MovePosition(Vector3.MoveTowards(rb.position, TransformDestination.position, Time.fixedDeltaTime * Speed));
                 break;
 
             case Method.NoMovement:
