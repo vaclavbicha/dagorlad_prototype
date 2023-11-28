@@ -35,6 +35,62 @@ public class OurUnit : MonoBehaviour
 
     public GameObject bloodParticle;
 
+    [System.Serializable]
+    public class Attacker
+    {
+        public Transform position;
+        public Transform attacker;
+    }
+    public List<Attacker> attackersSlots = new List<Attacker>();
+
+    Vector3[] attackerPositions = new Vector3[]
+    {
+        new Vector3(0.00f, 0.90f, 0.00f),
+        new Vector3(0.00f, -0.90f, 0.00f),
+        new Vector3(-0.78f, 0.45f, 0.0f),
+        new Vector3(0.78f, -0.45f, 0.00f),
+        new Vector3(-0.78f, -0.45f, 0.00f),
+        new Vector3(0.78f, 0.45f, 0.00f)
+    };
+
+    public void Start()
+    {
+        foreach(var x in attackerPositions)
+        {
+            var attk_pos = new GameObject();
+            attk_pos.transform.parent = transform;
+            attk_pos.transform.localPosition = x;
+            attk_pos.name = "attk_pos";
+            attackersSlots.Add(new Attacker { position = attk_pos.transform, attacker = null });
+        }
+    }
+    public Transform AvailableAttackerPosition(Transform _attacker)
+    {
+        if (_attacker == null) return attackersSlots.Find(x => x.attacker == null).position;
+        else
+        {
+            var isAlreadyAttackedBy = attackersSlots.Find(x => x.attacker == _attacker);
+            if (isAlreadyAttackedBy != null) return isAlreadyAttackedBy.position;
+            else
+            {
+                isAlreadyAttackedBy = attackersSlots.Find(x => x.attacker == null);
+                isAlreadyAttackedBy.attacker = _attacker;
+                return isAlreadyAttackedBy.position;
+            }
+        }
+    }
+    public void RemoveAttacker(Transform _attacker)
+    {
+        var isAlreadyAttackedBy = attackersSlots.Find(x => x.attacker == _attacker);
+        if(isAlreadyAttackedBy != null)
+        {
+            isAlreadyAttackedBy.attacker = null;
+        }
+        else
+        {
+            Debug.Log("TRIED TO REMOVE A NULL ATTACKER");
+        }
+    }
     // Start is called before the first frame update
     void Awake()
     {
@@ -127,20 +183,31 @@ public class OurUnit : MonoBehaviour
     //}
     public void StopAttack()
     {
-        if (currentTarget) Debug.Log("STOP ATTACK " + currentTarget.name);
+        if (currentTarget)
+        {
+            Debug.Log("STOP ATTACK " + currentTarget.name);
+            //new
+            currentTarget.GetComponent<OurUnit>().RemoveAttacker(transform);
+            //
+        }
         else Debug.Log("Stopped attacking nothing KEKW");
         Destroy(attackTimer);
+        //new
+        moveTo.method = MoveTo.Method.SpeedWithTargetAndRange;
+        //
         currentTarget = null;
         status = Utility.UnitStatus.GoingToFlag;
         moveTo.TransformDestination = Rally_Point.transform;
-        moveTo.range = 0.5f;
+        //moveTo.range = 0.5f;
     }
     public void Attack(GameObject Enemy)
     {
-        //moveTo.method = MoveTo.Method.SpeedWithTarget;
-        moveTo.TransformDestination = Enemy.transform;
-        moveTo.range = 0.2f;
-        moveTo.rangeMin = 0.075f;
+        //->older-> moveTo.method = MoveTo.Method.SpeedWithTarget;
+        //moveTo.TransformDestination = Enemy.transform;
+        //moveTo.range = 0.2f;
+        //moveTo.rangeMin = 0.075f;
+        if(GetComponent<StatsManager>().owner == "Player") moveTo.method = MoveTo.Method.Attacking;
+        moveTo.TransformDestination = Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform);
         if (attackTimer == null)
         {
             //Debug.Log("ATTACK " + Enemy.name);
@@ -197,7 +264,7 @@ public class OurUnit : MonoBehaviour
             if (Mathf.Abs(Vector2.Distance(currentTarget.transform.position, transform.position)) < attackRange)
             {
                 animator.SetTrigger("isAttacking");
-                GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
+                //GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
                 dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
             }
             if (dead)

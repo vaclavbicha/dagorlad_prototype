@@ -66,7 +66,7 @@ public class Draggable : MonoBehaviour
                 {
                     i = 0;
                 }
-                if(x.status != Utility.UnitStatus.Dead) x.Attack(EnemiesInRange[i]);
+                if(x.status != Utility.UnitStatus.Dead && EnemiesInRange[i].GetComponent<OurUnit>().AvailableAttackerPosition(null) != null) x.Attack(EnemiesInRange[i]);
                 i++;
             }
             else
