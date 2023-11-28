@@ -108,7 +108,7 @@ public class MoveTo : MonoBehaviour
 
             case Method.SpeedWithTargetAndRange:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??");
-                else rb.MovePosition(Vector3.MoveTowards(rb.position, currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
+                else if(!Lock) rb.MovePosition(Vector3.MoveTowards(rb.position, currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
                 break;
 
             case Method.NoMovement:

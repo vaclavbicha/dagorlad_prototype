@@ -248,6 +248,7 @@ public class MapLocation : MonoBehaviour
     }
     public void isDoneUpgradingBuilding(Timer _timer)
     {
+        Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         status = Utility.LocationStatus.Built;
 
         DestroyImmediate(timer);
@@ -280,6 +281,7 @@ public class MapLocation : MonoBehaviour
     }
     public void isDoneBuilding(Timer _timer)
     {
+        Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         building.GetComponent<Structure>().UpgradeStructure();
         //building.SetActive(true);
         //var aux = building.GetComponent<SpriteRenderer>().sprite;

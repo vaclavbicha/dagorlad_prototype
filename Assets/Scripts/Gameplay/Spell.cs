@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Spell : MonoBehaviour
 {
@@ -52,6 +53,11 @@ public class Spell : MonoBehaviour
                 Effect(collider.gameObject, true);
             }
         });
+
+        if (gameObject.name.Contains("Reveal"))
+        {
+            On_SpellStart += (spell) => { spell.transform.GetChild(0).gameObject.SetActive(true); };
+        }
     }
     public void SpellStart()
     {
@@ -76,6 +82,7 @@ public class Spell : MonoBehaviour
     {
         On_SpellStart?.Invoke(gameObject);
         yield return new WaitForSeconds(delay);
+        Camera.main.GetComponent<Animator>().SetTrigger("BigShake");
         foreach (var x in unitsInRage)
         {
             if(x.tag == "Enemy")
