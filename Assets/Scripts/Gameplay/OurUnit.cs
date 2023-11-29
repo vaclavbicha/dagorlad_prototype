@@ -43,14 +43,16 @@ public class OurUnit : MonoBehaviour
     }
     public List<Attacker> attackersSlots = new List<Attacker>();
 
+    public Sprite circle;
+
     Vector3[] attackerPositions = new Vector3[]
     {
-        new Vector3(-0.78f, 0.45f, 0.0f),
-        new Vector3(0.78f, -0.45f, 0.00f),
-        new Vector3(0.00f, 0.90f, 0.00f),
-        new Vector3(0.00f, -0.90f, 0.00f),
-        new Vector3(-0.78f, -0.45f, 0.00f),
-        new Vector3(0.78f, 0.45f, 0.00f)
+        new Vector3(-0.78f, 0.45f, 0.0f) * 0.8f,
+        new Vector3(0.78f, -0.45f, 0.00f)* 0.8f,
+        new Vector3(0.00f, 0.90f, 0.00f)* 0.8f,
+        new Vector3(0.00f, -0.90f, 0.00f)* 0.8f,
+        new Vector3(-0.78f, -0.45f, 0.00f)* 0.8f,
+        new Vector3(0.78f, 0.45f, 0.00f)* 0.8f
     };
     public static void Shuffle<T>(System.Random rng, T[] array)
     {
@@ -70,10 +72,18 @@ public class OurUnit : MonoBehaviour
         foreach (var x in attackerPositions)
         {
             var attk_pos = new GameObject();
+
+            //attk_pos.AddComponent<SpriteRenderer>().sprite = circle;
+            //var colr = Color.white;
+            //colr.a = 0.25f;
+            //attk_pos.GetComponent<SpriteRenderer>().color = colr;
+            //attk_pos.transform.localScale *= 0.5f;
+
             attk_pos.transform.parent = transform;
             attk_pos.transform.localPosition = x;
             attk_pos.name = "attk_pos";
             attackersSlots.Add(new Attacker { position = attk_pos.transform, attacker = null });
+            Debug.Log(x.magnitude);
             //attackersSlots.Add(new Attacker { position = x, attacker = null });
         }
     }
@@ -101,7 +111,7 @@ public class OurUnit : MonoBehaviour
         }
         else
         {
-            Debug.Log("TRIED TO REMOVE A NULL ATTACKER");
+            //Debug.Log("TRIED TO REMOVE A NULL ATTACKER");
         }
     }
     // Start is called before the first frame update
@@ -188,9 +198,6 @@ public class OurUnit : MonoBehaviour
         if (currentTarget)
         {
             Debug.Log("STOP ATTACK " + currentTarget.name);
-            //new
-            currentTarget.GetComponent<OurUnit>().RemoveAttacker(transform);
-            //
         }
         else Debug.Log("Stopped attacking nothing KEKW");
         Destroy(attackTimer);
@@ -268,10 +275,18 @@ public class OurUnit : MonoBehaviour
             var dead = false;
             if (Mathf.Abs(Vector2.Distance(currentTarget.transform.position, transform.position)) < attackRange)
             {
+                lastMoveDirection = ((Vector2)currentTarget.transform.position - (Vector2)transform.position).normalized;
+                animator.SetFloat("x", lastMoveDirection.x);
+                animator.SetFloat("y", lastMoveDirection.y);
+
                 animator.SetTrigger("isAttacking");
                 //GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
                 moveTo.Lock = true;
                 dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
+            }
+            else
+            {
+                moveTo.Lock = false;
             }
             if (dead)
             {
@@ -294,6 +309,6 @@ public class OurUnit : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         attackid++;
-        Attack(currentTarget.gameObject);
+        if(currentTarget != null) Attack(currentTarget.gameObject);
     }
 }

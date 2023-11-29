@@ -18337,7 +18337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
-      value: 1200
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[2].value
@@ -19186,7 +19186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
-      value: 1200
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[2].value
@@ -19496,7 +19496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
-      value: 1200
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[2].value
@@ -21167,7 +21167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[1].value
-      value: 1200
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7567074131314036124, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: stats.Array.data[2].value
