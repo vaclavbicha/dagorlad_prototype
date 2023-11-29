@@ -14,6 +14,10 @@ public class UIManager : MonoBehaviour
     public int currentBaseID = 1;
 
     public ToggleGroup toggleGroupBases;
+    public GameObject baseBorder;
+    [SerializeField]
+    public Color32[] borderColors;
+
     public ToggleGroup toggleGroupStructureTypes;
 
     public BuildingWindow window;
@@ -50,6 +54,10 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        foreach (var x in baseBorder.GetComponentsInChildren<Image>())
+        {
+            x.color = borderColors[currentBaseID];
+        }
         if (toggleGroupBases != null && toggleGroupBases.transform.childCount != 0)
         {
             var Toggles = toggleGroupBases.GetComponentsInChildren<Toggle>();
@@ -66,6 +74,11 @@ public class UIManager : MonoBehaviour
                         lastClicked = Time.time;
                         currentBaseID = panelNumber;
                         GameManager.Instance.InstantiateBottomMenu();
+                        foreach(var x in baseBorder.GetComponentsInChildren<Image>())
+                        {
+                            x.color = borderColors[currentBaseID-1];
+                            Debug.Log("AAAA");
+                        }
                     }
                 });
             }

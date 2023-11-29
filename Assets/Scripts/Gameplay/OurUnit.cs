@@ -77,13 +77,12 @@ public class OurUnit : MonoBehaviour
             //var colr = Color.white;
             //colr.a = 0.25f;
             //attk_pos.GetComponent<SpriteRenderer>().color = colr;
-            //attk_pos.transform.localScale *= 0.5f;
+            //attk_pos.transform.localScale *= 0.5f;             Debug.Log(x.magnitude);
 
             attk_pos.transform.parent = transform;
             attk_pos.transform.localPosition = x;
             attk_pos.name = "attk_pos";
             attackersSlots.Add(new Attacker { position = attk_pos.transform, attacker = null });
-            Debug.Log(x.magnitude);
             //attackersSlots.Add(new Attacker { position = x, attacker = null });
         }
     }
@@ -198,6 +197,7 @@ public class OurUnit : MonoBehaviour
         if (currentTarget)
         {
             Debug.Log("STOP ATTACK " + currentTarget.name);
+            RemoveAttacker(currentTarget.transform);
         }
         else Debug.Log("Stopped attacking nothing KEKW");
         Destroy(attackTimer);
