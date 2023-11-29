@@ -3577,6 +3577,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.7784195, y: 40.96}
   m_EdgeRadius: 0
+--- !u!1 &272154847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2052940526216612563, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
+  m_PrefabInstance: {fileID: 8973648033011215103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &272154852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272154847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5d0eec34f774071bd491c4e65d1a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPrefab: {fileID: 1564135401591964612, guid: 7f069db20d9ff428e871c4f2508b4760, type: 3}
+  deathPrefab: {fileID: 0}
 --- !u!1001 &283468204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5840,6 +5859,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420035}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5978,6 +5998,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &519420036
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed4480febfa7a46f6809676ff799bf29, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &534126548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6583010261181356295, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
@@ -21949,7 +21990,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2052940526216612563, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 272154852}
   m_SourcePrefab: {fileID: 100100000, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
 --- !u!1001 &9141632537382569566
 PrefabInstance:

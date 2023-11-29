@@ -104,12 +104,14 @@ public class Draggable : MonoBehaviour
     }
     public void HOLD()
     {
+        GetComponentInChildren<Animator>().SetBool("HOLD", true);
         moveTo.SetDestination(GetMouseWorldPosition() + mousePositionOffset);
     }
     public void OFF()
     {
         Camera.main.GetComponent<MoveTo>().Lock = false;
-        GetComponentInChildren<Animator>().SetTrigger("OFF");
+        GetComponentInChildren<Animator>().SetBool("HOLD", false);
+        Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
     }
     private void OnMouseClickDown()
     {

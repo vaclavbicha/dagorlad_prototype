@@ -134,6 +134,7 @@ public class OurUnit : MonoBehaviour
         status = Utility.UnitStatus.GoingToFlag;
         moveTo.TransformDestination = Rally_Point.transform;
         moveTo.range = 0.5f;
+        moveTo.Lock = false;
     }
     public void Attack(GameObject Enemy)
     {
@@ -197,6 +198,7 @@ public class OurUnit : MonoBehaviour
             if (Mathf.Abs(Vector2.Distance(currentTarget.transform.position, transform.position)) < attackRange)
             {
                 animator.SetTrigger("isAttacking");
+                moveTo.Lock = true;
                 GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
                 dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
             }
@@ -221,6 +223,11 @@ public class OurUnit : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         attackid++;
-        Attack(currentTarget.gameObject);
+        if(currentTarget) Attack(currentTarget.gameObject);
+    }
+    IEnumerator CanMove(float t)
+    {
+        yield return new WaitForSeconds(t);
+        moveTo.Lock = false;
     }
 }
