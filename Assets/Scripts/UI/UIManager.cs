@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject dialogWindow;
     public GameObject dialogWindowYesNo;
+    public GameObject MiniMap;
+    public Camera MiniMapCamera;
 
     public RectTransform bottomPanelContent;
 
@@ -159,6 +161,11 @@ public class UIManager : MonoBehaviour
         selectedRallyPoint = point;
         selectedRallyPointButton = image;
         image.color = new Color(255,255,255,0.5f);
+    }
+    public void TurnOnOffMiniMap(bool state)
+    {
+        MiniMap.SetActive(state);
+        MiniMapCamera.gameObject.SetActive(state);
     }
     public void OnBaseSwitch(int id)
     {

@@ -28,6 +28,10 @@ public class Draggable : MonoBehaviour
         GetComponentInChildren<OnTrigger>().AddEvent("Exit", owner == "Player" ? "Enemy" : "Player", (sender, collider) => {
             if (EnemiesInRange.Find(x => x.name == collider.name) != null)
             {
+                foreach (var x in currentArmy)
+                {
+                    x.RemoveAttacker(collider.transform);
+                }
                 EnemiesInRange.Remove(collider.gameObject);
                 ManageTargets();
                 //home.StopAttackEnemiesInRange(collider.gameObject);
@@ -66,7 +70,8 @@ public class Draggable : MonoBehaviour
                 {
                     i = 0;
                 }
-                if(x.status != Utility.UnitStatus.Dead) x.Attack(EnemiesInRange[i]);
+                if (x.status != Utility.UnitStatus.Dead && EnemiesInRange[i].GetComponent<OurUnit>().AvailableAttackerPosition(null) != null) x.Attack(EnemiesInRange[i]);
+                else Debug.LogError("COULDNT ATTACKKK");
                 i++;
             }
             else

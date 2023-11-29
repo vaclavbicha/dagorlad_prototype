@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6141245341082246709
 Transform:
   m_ObjectHideFlags: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
     value: 1
   - type: 2
     value: 100
-  attackRange: 0.5
+  attackRange: 0.4
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
   attackTimer: {fileID: 0}
@@ -412,6 +412,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   lastMoveDirection: {x: 0, y: 0}
   bloodParticle: {fileID: 2463999080777082214, guid: ddfc8583a681e4fb2a010e2d57c26943, type: 3}
+  attackersSlots: []
+  circle: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
 --- !u!50 &-5802423454540219199
 Rigidbody2D:
   serializedVersion: 4
@@ -457,10 +459,10 @@ MonoBehaviour:
     value: 1
     valueMAX: 0
   - type: 1
-    value: 100
+    value: 10
     valueMAX: 0
   - type: 3
-    value: 10
+    value: 1
     valueMAX: 0
   - type: 4
     value: 1.5
@@ -497,7 +499,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 1
-    m_ColorSpace: 0
+    m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
 --- !u!58 &4459797693511288770
@@ -888,7 +890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2737979855880980468
 Transform:
   m_ObjectHideFlags: 0
