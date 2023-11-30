@@ -14,7 +14,6 @@ public class Structure : MonoBehaviour
     public Utility.LocationType locationType;
     public Utility.UnitTypes unitType;
     public Utility.UpgradeTypes upgradeType;
-    public Amount buildTime;
     public Amount[] cost;
     public Amount production;
     public GameObject loadingBarPrefab;

@@ -22,12 +22,26 @@ public class BuildingWindow : MonoBehaviour
                     foreach (var obj in GameManager.Instance.units.FindAll(x => x.type == mapLocation.building.GetComponent<Structure>().unitType))
                     {
                         //j = 0;
+                        Color fillingColor = new Color(0, 0, 0);
+                        switch (obj.minimumBuildingTier)
+                        {
+                            case 0:
+                                ColorUtility.TryParseHtmlString("#6D7779", out fillingColor);
+                                break;
+                            case 1:
+                                ColorUtility.TryParseHtmlString("#7ECFEC", out fillingColor);
+                                break;
+                            case 2:
+                                ColorUtility.TryParseHtmlString("#ECB136", out fillingColor);
+                                break;
+                        }
                         foreach (var cost in obj.cost)
                         {
                             var text = transform.GetChild(2).GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
                             text.gameObject.SetActive(true);
                             text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
-                            text.GetComponent<UpdateIconText>().UpdateDisplay(cost.value, gameObject);
+                            text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
+                            transform.GetChild(2).GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0).GetComponent<Image>().color = fillingColor;
                             //j++;
                         }
                         //while (j <= 3)
@@ -44,21 +58,20 @@ public class BuildingWindow : MonoBehaviour
                             }
                             if (!found) transform.GetChild(2).GetChild(i).transform.Find("Cost_" + resource.name).GetChild(0).gameObject.SetActive(false);
                         }
-                        if (obj.minimumBuildingTier > mapLocation.building.GetComponent<Structure>().level)
+                        //Debug.Log(mapLocation.baseID + " MAP : " + mapLocation.name + mapLocation.building.GetComponent<Structure>().level);
+                        for (int ii = 0; ii < transform.GetChild(2).GetChild(i).childCount; ii++)
                         {
-                            for (int ii = 0; ii < transform.GetChild(2).GetChild(i).childCount; ii++)
+                            if (transform.GetChild(2).GetChild(i).GetChild(ii).name.Contains("Cost") ||
+                                transform.GetChild(2).GetChild(i).GetChild(ii).name.Contains("Button_Wrap"))
                             {
-                                Debug.Log(transform.GetChild(2).GetChild(i).GetChild(ii).name);
-                                if (transform.GetChild(2).GetChild(i).GetChild(ii).name.Contains("Cost") ||
-                                   transform.GetChild(2).GetChild(i).GetChild(ii).name.Contains("Button_Wrap"))
+                                foreach (var x in transform.GetChild(2).GetChild(i).GetChild(ii).GetComponentsInChildren<Button>())
                                 {
-                                    foreach (var x in transform.GetChild(2).GetChild(i).GetChild(ii).GetComponentsInChildren<Button>())
-                                    {
-                                        x.interactable = false;
-                                    }
+                                    x.interactable = obj.minimumBuildingTier > mapLocation.building.GetComponent<Structure>().level ? false : true;
                                 }
                             }
+                            if (transform.GetChild(2).GetChild(i).GetChild(ii).name.Contains("Button_Wrap")) transform.GetChild(2).GetChild(i).GetChild(ii).GetComponent<Button>().interactable = obj.minimumBuildingTier > mapLocation.building.GetComponent<Structure>().level ? false : true;
                         }
+                        transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetComponent<Image>().color = fillingColor;
                         transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = obj.Icon;
                         transform.GetChild(2).GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.unitName;
                         i++;
@@ -104,7 +117,7 @@ public class BuildingWindow : MonoBehaviour
                     var text = transform.GetChild(2).GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
                     text.gameObject.SetActive(true);
                     text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
-                    text.GetComponent<UpdateIconText>().UpdateDisplay(cost.value, gameObject);
+                    text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
                     //j++;
                 }
                 //while (j <= 3)

@@ -8,7 +8,6 @@ public class ItemUpgrade : MonoBehaviour
     public Sprite Icon;
     public Sprite InfoSprite;
     public Utility.UpgradeTypes type;
-    public Amount buildTime;
     public Amount[] cost;
 
     public Effect effect;

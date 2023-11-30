@@ -11,7 +11,6 @@ public class OurUnit : MonoBehaviour
     public Utility.UnitTypes type;
     public Utility.UnitStatus status;
     public int minimumBuildingTier;
-    public Amount buildTime;
     public Amount[] cost;
     public float attackRange;
     MoveTo moveTo;
@@ -281,7 +280,7 @@ public class OurUnit : MonoBehaviour
                 animator.SetFloat("y", lastMoveDirection.y);
 
                 animator.SetTrigger("isAttacking");
-                //GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
+                GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
                 moveTo.Lock = true;
                 dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
             }

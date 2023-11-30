@@ -642,16 +642,16 @@ MonoBehaviour:
   mapLocation: {fileID: 0}
   level: -2
   costUpgrade0:
-  - type: 5
-    value: 10
+  - type: 4
+    value: 5
   - type: 2
     value: 150
   costUpgrade1:
   - type: 3
     value: 200
   - type: 4
-    value: 100
-  - type: 5
+    value: 5
+  - type: 3
     value: 15
 --- !u!114 &-3827904590475416671
 MonoBehaviour:

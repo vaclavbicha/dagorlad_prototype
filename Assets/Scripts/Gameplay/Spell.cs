@@ -11,6 +11,7 @@ public class Spell : MonoBehaviour
     public uint duration = 0;
     public bool hasStarted = false;
     public bool isBuff = false;
+    public string AnimationTrigger;
 
     public Stat[] affectedStatsAllies;
     public Stat[] affectedStatsEnemies;
@@ -53,7 +54,7 @@ public class Spell : MonoBehaviour
                 Effect(collider.gameObject, true);
             }
         });
-
+        On_SpellStart += (spell) => { GameManager.Instance.GetComponent<AudioManager>().Play(spell.name.Replace("(Clone)","") + "_On_SpellStart"); };
         if (gameObject.name.Contains("Reveal"))
         {
             On_SpellStart += (spell) => { spell.transform.GetChild(0).gameObject.SetActive(true); };
@@ -82,7 +83,7 @@ public class Spell : MonoBehaviour
     {
         On_SpellStart?.Invoke(gameObject);
         yield return new WaitForSeconds(delay);
-        Camera.main.GetComponent<Animator>().SetTrigger("BigShake");
+        Camera.main.GetComponent<Animator>().SetTrigger(AnimationTrigger);
         foreach (var x in unitsInRage)
         {
             if(x.tag == "Enemy")

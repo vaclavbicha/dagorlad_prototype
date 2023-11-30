@@ -230,7 +230,7 @@ public class UIManager : MonoBehaviour
                 var text = column.transform.Find("Cost_" + j.ToString()).GetChild(0);
                 text.gameObject.SetActive(true);
                 text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
-                text.GetComponent<UpdateIconText>().UpdateDisplay(cost.value, gameObject);
+                text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
                 j++;
             }
             while (j <= 2)

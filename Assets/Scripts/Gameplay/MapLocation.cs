@@ -67,10 +67,16 @@ public class MapLocation : MonoBehaviour
 
             status = Utility.LocationStatus.Training;
 
+            var buildTime = 0f;
+            foreach (var x in upgradePrefab.cost)
+            {
+                if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
+            }
+
             if (timer == null)
             {
                 timer = gameObject.AddComponent<Timer>();
-                timer.AddTimer("BuildingUpgrade", building.GetComponent<Structure>().buildTime.value, true, 0.25f);
+                timer.AddTimer("BuildingUpgrade", buildTime, true, 0.25f);
 
                 itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
                 loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
@@ -109,10 +115,15 @@ public class MapLocation : MonoBehaviour
             trainingUnit.SetActive(false);
             status = Utility.LocationStatus.Training;
 
+            var buildTime = 0f;
+            foreach (var x in trainingUnit.GetComponent<OurUnit>().cost)
+            {
+                if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
+            }
             if (timer == null)
             {
                 timer = gameObject.AddComponent<Timer>();
-                timer.AddTimer("Training", trainingUnit.GetComponent<OurUnit>().buildTime.value, true, 0.25f);
+                timer.AddTimer("Training", buildTime, true, 0.25f);
 
                 itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
                 loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
@@ -154,10 +165,15 @@ public class MapLocation : MonoBehaviour
             trainingUnit.SetActive(false);
             status = Utility.LocationStatus.Training;
 
+            var buildTime = 0f;
+            foreach (var x in trainingUnit.GetComponent<OurUnit>().cost)
+            {
+                if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
+            }
             if (timer == null)
             {
                 timer = gameObject.AddComponent<Timer>();
-                timer.AddTimer("Training", trainingUnit.GetComponent<OurUnit>().buildTime.value, true, 0.25f);
+                timer.AddTimer("Training", buildTime, true, 0.25f);
 
                 itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
                 loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
@@ -201,14 +217,19 @@ public class MapLocation : MonoBehaviour
             //buildingStructure.buildingSprite = building.GetComponent<SpriteRenderer>().sprite;
             //building.GetComponent<SpriteRenderer>().sprite = aux;
             building.GetComponent<Structure>().ChangeSprite();
-            StartCoroutine(UpdateBuildingSprite(building.GetComponent<Structure>().buildTime.value / 2));
+            var buildTime = 0f;
+            foreach(var x in building.GetComponent<Structure>().cost)
+            {
+                if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
+            }
+            StartCoroutine(UpdateBuildingSprite(buildTime / 2));
 
             status = Utility.LocationStatus.Building;
 
             if (timer == null)
             {
                 timer = gameObject.AddComponent<Timer>();
-                timer.AddTimer("Building", building.GetComponent<Structure>().buildTime.value, true, 0.25f);
+                timer.AddTimer("Building", buildTime, true, 0.25f);
 
                 itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
                 loadingBar = Instantiate(buildingPrefab.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
@@ -248,7 +269,7 @@ public class MapLocation : MonoBehaviour
     }
     public void isDoneUpgradingBuilding(Timer _timer)
     {
-        Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
+        //Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         status = Utility.LocationStatus.Built;
 
         DestroyImmediate(timer);
@@ -281,7 +302,7 @@ public class MapLocation : MonoBehaviour
     }
     public void isDoneBuilding(Timer _timer)
     {
-        Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
+        //Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         building.GetComponent<Structure>().UpgradeStructure();
         //building.SetActive(true);
         //var aux = building.GetComponent<SpriteRenderer>().sprite;

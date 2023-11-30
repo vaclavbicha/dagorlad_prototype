@@ -397,16 +397,14 @@ MonoBehaviour:
   InfoSprite: {fileID: 0}
   type: 0
   status: 2
-  buildTime:
-    type: 5
-    value: 1
+  minimumBuildingTier: 0
   cost:
   - type: 1
     value: 1
   - type: 2
     value: 100
   - type: 4
-    value: 100
+    value: 1
   attackRange: 0.4
   home: {fileID: 0}
   Rally_Point: {fileID: 0}

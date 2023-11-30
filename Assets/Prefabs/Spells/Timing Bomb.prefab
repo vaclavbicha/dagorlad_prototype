@@ -209,6 +209,7 @@ MonoBehaviour:
   duration: 0
   hasStarted: 0
   isBuff: 0
+  AnimationTrigger: BigShake
   affectedStatsAllies: []
   affectedStatsEnemies:
   - type: 1

@@ -1961,6 +1961,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 804593753616301900, guid: 1dc41fa505f2f4d1f8e8ffc057864697, type: 3}
   m_PrefabInstance: {fileID: 165672273}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &165672275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 88045496734275575, guid: 1dc41fa505f2f4d1f8e8ffc057864697, type: 3}
+  m_PrefabInstance: {fileID: 165672273}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8373c207202284927b50aec9b56e6efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &188330496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,7 +2007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 290}
+  m_AnchoredPosition: {x: 0, y: 91}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &188330498
@@ -8617,6 +8628,7 @@ GameObject:
   - component: {fileID: 638655606}
   - component: {fileID: 638655603}
   - component: {fileID: 638655605}
+  - component: {fileID: 638655607}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -8711,6 +8723,24 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7274ba455af104d7c93ea9cf1a47a4cc, type: 3}
   currentProduction: 0
   display: {fileID: 9141632537382569567}
+--- !u!114 &638655607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638655600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f59432cd7ebc4c1b9e8423efd191206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount:
+    type: 4
+    value: 0
+  icon: {fileID: 21300000, guid: 43077ff4f4fa545d89b2057098e7e940, type: 3}
+  currentProduction: 0
+  display: {fileID: 165672275}
 --- !u!1001 &654728431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17283,6 +17313,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - name: Bloodlust_On_SpellStart
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
 --- !u!4 &1336592366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5841863077411007637, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
@@ -18009,7 +18045,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 475}
+  m_AnchoredPosition: {x: 0, y: 513}
   m_SizeDelta: {x: -204.8, y: 345.12}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1422094264
