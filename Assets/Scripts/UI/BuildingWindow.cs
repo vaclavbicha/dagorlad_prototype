@@ -21,19 +21,43 @@ public class BuildingWindow : MonoBehaviour
 
                     foreach (var obj in GameManager.Instance.units.FindAll(x => x.type == mapLocation.building.GetComponent<Structure>().unitType))
                     {
-                        j = 0;
+                        //j = 0;
                         foreach (var cost in obj.cost)
                         {
-                            var text = transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0);
+                            var text = transform.GetChild(2).GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
                             text.gameObject.SetActive(true);
                             text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
                             text.GetComponent<UpdateIconText>().UpdateDisplay(cost.value, gameObject);
-                            j++;
+                            //j++;
                         }
-                        while (j <= 3)
+                        //while (j <= 3)
+                        //{
+                        //    transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j).GetChild(0).gameObject.SetActive(false);
+                        //    j++;
+                        //}
+                        foreach (var resource in GameManager.Instance.resourceSprites)
                         {
-                            transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j).GetChild(0).gameObject.SetActive(false);
-                            j++;
+                            bool found = false;
+                            foreach (var cost in obj.cost)
+                            {
+                                if (cost.type.ToString() == resource.name) found = true;
+                            }
+                            if (!found) transform.GetChild(2).GetChild(i).transform.Find("Cost_" + resource.name).GetChild(0).gameObject.SetActive(false);
+                        }
+                        if (obj.minimumBuildingTier > mapLocation.building.GetComponent<Structure>().level)
+                        {
+                            for (int ii = 0; ii < transform.GetChild(2).GetChild(i).childCount; ii++)
+                            {
+                                Debug.Log(transform.GetChild(2).GetChild(i).GetChild(ii).name);
+                                if (transform.GetChild(2).GetChild(i).GetChild(ii).name.Contains("Cost") ||
+                                   transform.GetChild(2).GetChild(i).GetChild(ii).name.Contains("Button_Wrap"))
+                                {
+                                    foreach (var x in transform.GetChild(2).GetChild(i).GetChild(ii).GetComponentsInChildren<Button>())
+                                    {
+                                        x.interactable = false;
+                                    }
+                                }
+                            }
                         }
                         transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = obj.Icon;
                         transform.GetChild(2).GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.unitName;
@@ -72,21 +96,30 @@ public class BuildingWindow : MonoBehaviour
             int j = 0;
             foreach (var obj in GameManager.Instance.buildings.FindAll(x => x.locationType == location_type))
             {
-                j = 0;
+                //j = 0;
                 //Debug.Log("#" + transform.GetChild(2).GetChild(i).transform.name);
                 foreach (var cost in obj.cost)
                 {
                     //Debug.Log("#" + transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j.ToString()));
-                    var text = transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0);
+                    var text = transform.GetChild(2).GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
                     text.gameObject.SetActive(true);
                     text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
                     text.GetComponent<UpdateIconText>().UpdateDisplay(cost.value, gameObject);
-                    j++;
+                    //j++;
                 }
-                while (j <= 3)
+                //while (j <= 3)
+                //{
+                //    transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0).gameObject.SetActive(false);
+                //    j++;
+                //}
+                foreach (var resource in GameManager.Instance.resourceSprites)
                 {
-                    transform.GetChild(2).GetChild(i).transform.Find("Cost_" + j.ToString()).GetChild(0).gameObject.SetActive(false);
-                    j++;
+                    bool found = false;
+                    foreach (var cost in obj.cost)
+                    {
+                        if (cost.type.ToString() == resource.name) found = true;
+                    }
+                    if(!found) transform.GetChild(2).GetChild(i).transform.Find("Cost_" + resource.name).GetChild(0).gameObject.SetActive(false);
                 }
                 transform.GetChild(2).GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = obj.Icon;
                 transform.GetChild(2).GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.buildingName;

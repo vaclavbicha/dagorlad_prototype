@@ -10,6 +10,7 @@ public class OurUnit : MonoBehaviour
     public Sprite InfoSprite;
     public Utility.UnitTypes type;
     public Utility.UnitStatus status;
+    public int minimumBuildingTier;
     public Amount buildTime;
     public Amount[] cost;
     public float attackRange;

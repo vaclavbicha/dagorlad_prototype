@@ -627,10 +627,12 @@ MonoBehaviour:
     type: 5
     value: 1
   cost:
+  - type: 4
+    value: 5
   - type: 2
-    value: 100
-  - type: 3
     value: 50
+  - type: 3
+    value: 15
   production:
     type: 0
     value: 0
@@ -640,12 +642,10 @@ MonoBehaviour:
   mapLocation: {fileID: 0}
   level: -2
   costUpgrade0:
-  - type: 2
-    value: 200
-  - type: 3
-    value: 100
   - type: 5
-    value: 5
+    value: 10
+  - type: 2
+    value: 150
   costUpgrade1:
   - type: 3
     value: 200

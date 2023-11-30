@@ -543,25 +543,25 @@ MonoBehaviour:
     type: 5
     value: 20
   cost:
-  - type: 2
-    value: 200
-  - type: 3
-    value: 200
-  production:
-    type: 4
+  - type: 4
     value: 5
+  - type: 2
+    value: 50
+  - type: 3
+    value: 15
+  production:
+    type: 0
+    value: 0
   loadingBarPrefab: {fileID: 2750228692031925039, guid: 129b96465ceff462ca61cae7cead7bda, type: 3}
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
   mapLocation: {fileID: 0}
   level: -2
   costUpgrade0:
-  - type: 2
-    value: 100
-  - type: 3
-    value: 100
   - type: 5
-    value: 5
+    value: 10
+  - type: 2
+    value: 150
   costUpgrade1:
   - type: 2
     value: 100
