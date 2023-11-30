@@ -88,7 +88,11 @@ public class OurUnit : MonoBehaviour
     }
     public Transform AvailableAttackerPosition(Transform _attacker)
     {
-        if (_attacker == null) return attackersSlots.Find(x => x.attacker == null).position; //transform.TransformPoint(attackersSlots.Find(x => x.attacker == null).position);
+        if (_attacker == null)
+        {
+            var result = attackersSlots.Find(x => x.attacker == null);
+            return result == null ? null : result.position;//transform.TransformPoint(attackersSlots.Find(x => x.attacker == null).position);
+        }
         else
         {
             var isAlreadyAttackedBy = attackersSlots.Find(x => x.attacker == _attacker);
@@ -141,7 +145,11 @@ public class OurUnit : MonoBehaviour
             {
                 i.enabled = false;
             }
-            if(Rally_Point) Rally_Point.GetComponent<Draggable>().currentArmy.Remove(this);
+            if (Rally_Point)
+            {
+                Rally_Point.GetComponent<Draggable>().currentArmy.Remove(this);
+                Rally_Point.GetComponent<Draggable>().ManageTargets();
+            }
             Destroy(sender, 3f);
         };
         //onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
@@ -202,12 +210,21 @@ public class OurUnit : MonoBehaviour
         else Debug.Log("Stopped attacking nothing KEKW");
         Destroy(attackTimer);
         //new
-        moveTo.method = MoveTo.Method.SpeedWithTargetAndRange;
+        if (GetComponent<StatsManager>().owner == "Enemy")
+        {
+            moveTo.method = MoveTo.Method.SpeedWithTargetAndRange;
+            moveTo.range = 0.5f;
+        }
+        else
+        {
+            moveTo.method = MoveTo.Method.SpeedWithFormation;
+            moveTo.range = 0.1f;
+        }
         //
         currentTarget = null;
         status = Utility.UnitStatus.GoingToFlag;
         moveTo.TransformDestination = Rally_Point.transform;
-        moveTo.range = 0.5f;
+        //moveTo.range = 0.5f;
         moveTo.Lock = false;
     }
     public void Attack(GameObject Enemy)

@@ -14,8 +14,38 @@ public class Draggable : MonoBehaviour
     public List<OurUnit> currentArmy = new List<OurUnit>();
     public List<GameObject> EnemiesInRange = new List<GameObject>();
 
+    public int MAX_UNITS = 30;
+    public List<Vector3> targetPositionlist = new List<Vector3>();
+
+    //public class FormationPosition
+    //{
+    //    public Vector3 
+    //}
+
     private void Start()
     {
+        //Debug.Log(transform.parent.TransformPoint(transform.localPosition));
+        // for enemies targetPositionlist = GetPositionListAround2(transform.parent.TransformPoint(transform.localPosition), new float[] { 0.3f, 0.6f, 0.9f }, new int[] { 5, 10, 15 });
+        //targetPositionlist = GetPositionListAround2(transform.position - new Vector3(0, 0.25f, 0), new float[] { 0.5f, 0.8f, 1.1f }, new int[] { 5, 10, 15 });
+        //targetPositionlist.RemoveAt(0);
+
+        //var cicle = transform.GetChild(1).GetComponent<SpriteRenderer>().sprite;
+        //foreach(var x in targetPositionlist)
+        //{
+        //    var attk_pos = new GameObject();
+
+        //    attk_pos.AddComponent<SpriteRenderer>().sprite = cicle;
+        //    var colr = Color.white;
+        //    colr.a = 0.25f;
+        //    attk_pos.GetComponent<SpriteRenderer>().color = colr;
+        //    attk_pos.transform.localScale *= 0.5f;// Debug.Log(x.magnitude);
+
+        //    attk_pos.transform.position = x;
+
+        //    attk_pos.transform.parent = transform;
+        //    attk_pos.name = "attk_pos";
+        //}
+
         moveTo = GetComponent<MoveTo>();
         GetComponentInChildren<OnTrigger>().AddEvent("Enter", owner == "Player" ? "Enemy" : "Player", (sender, collider) => {
             if (EnemiesInRange.Find(x => x.name == collider.name) == null)
@@ -37,10 +67,11 @@ public class Draggable : MonoBehaviour
                 //home.StopAttackEnemiesInRange(collider.gameObject);
             }
         });
+        ManageTargets();
     }
     private void Update()
     {
-        if(home == null && currentArmy.Count == 0)
+        if (home == null && currentArmy.Count == 0)
         {
             Destroy(gameObject);
         }
@@ -53,15 +84,8 @@ public class Draggable : MonoBehaviour
     public void ManageTargets()
     {
         Debug.Log("Enemies : " + EnemiesInRange.Count + "  Troops : " + currentArmy.Count);
-        //if(EnemiesInRange.Count < currentArmy.Count)
-        //{
-        //    Debug.Log("More Troops than Enemies");
-        //}
-        //else
-        //{
-        //    Debug.Log("More Enemies than Troops");
-        //}
         var i = 0;
+        var j = 0;
         foreach (var x in currentArmy)
         {
             if (EnemiesInRange.Count > 0)
@@ -71,41 +95,27 @@ public class Draggable : MonoBehaviour
                     i = 0;
                 }
                 if (x.status != Utility.UnitStatus.Dead && EnemiesInRange[i].GetComponent<OurUnit>().AvailableAttackerPosition(null) != null) x.Attack(EnemiesInRange[i]);
-                else Debug.LogError("COULDNT ATTACKKK");
+                //else
+                //{
+                //    x.StopAttack();
+                //    x.GetComponent<MoveTo>().offsetRallyPoint = targetPositionlist[j];//- transform.position;
+                //}
                 i++;
             }
             else
             {
                 x.StopAttack();
+                x.GetComponent<MoveTo>().offsetRallyPoint = targetPositionlist[j];//- transform.position;
             }
+            j++;
         }
     }
-    //public void AttackEnemiesInRange()
-    //{
-    //    //Sorting + Target selection
-    //    foreach (var x in currentArmy)
-    //    {
-    //        //x.Attack(Rally_Point.GetComponent<Draggable>().EnemiesInRange[0]);
-    //    }
-    //}
-    //public void StopAttackEnemiesInRange(GameObject enemy)
-    //{
-    //    //Disengage
-    //    var enemyStats = enemy.GetComponent<StatsManager>();
-    //    foreach (var x in currentArmy)
-    //    {
-    //        if (x.currentTarget == enemyStats)
-    //        {
-    //            x.StopAttack();
-    //        }
-    //    }
-    //}
     public void ON()
     {
         Debug.Log("AAAAABB");
         Camera.main.GetComponent<MoveTo>().Lock = true;
         mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
-        
+
     }
     public void HOLD()
     {
@@ -138,17 +148,32 @@ public class Draggable : MonoBehaviour
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
-    //private void OnMouseDown()
-    //{
-    //    Camera.main.GetComponent<MoveTo>().Lock = true;
-    //    mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
-    //}
-    //private void OnMouseDrag()
-    //{
-    //    moveTo.SetDestination(GetMouseWorldPosition() + mousePositionOffset);
-    //}
-    //private void OnMouseUp()
-    //{
-    //    Camera.main.GetComponent<MoveTo>().Lock = false;
-    //}
+
+    private List<Vector3> GetPositionListAround2(Vector3 startPosition, float[] ringDistanceArray, int[] ringpositioncountArray)
+    {
+        Debug.Log("!!" + startPosition);
+        List<Vector3> positionlist = new List<Vector3>();
+        positionlist.Add(startPosition);
+        for (int i = 0; i < ringDistanceArray.Length; i++) {
+            positionlist.AddRange(GetPositionlistAround(startPosition, ringDistanceArray[i], ringpositioncountArray[i]));
+        }
+        return positionlist;
+    }
+    private List<Vector3> GetPositionlistAround(Vector3 startPosition, float distance, int positionCount)
+    {
+        List<Vector3> positionlist = new List<Vector3>();
+        for (int i = 0; i < positionCount; i++)
+        {
+            float angle = i * (360f / positionCount);
+            Vector3 dir = ApplyRotationToVector(new Vector3(1, 0), angle);
+            Vector3 position = startPosition + dir * distance;
+            positionlist.Add(position);
+        }
+        
+        return positionlist;
+    }
+    private Vector3 ApplyRotationToVector(Vector3 vec, float angle)
+    { 
+        return Quaternion.Euler(0, 0, angle) * vec;
+    }
 }

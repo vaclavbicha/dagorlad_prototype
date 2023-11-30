@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MoveTo : MonoBehaviour
 {
-    public enum Method { Time, Speed, SpeedWithTarget, SpeedWithTargetAndRange, Attacking, NoMovement }
+    public enum Method { Time, Speed, SpeedWithTarget, SpeedWithTargetAndRange, Attacking, NoMovement, SpeedWithFormation }
     public Method method;
     public float TimeSpan;
     public float Speed;
@@ -40,7 +40,8 @@ public class MoveTo : MonoBehaviour
     public float TimeRandomRange;
     float timer;
     Vector3 currentRandomTargetPosition;
-
+    public Vector3 offsetRallyPoint;
+    public Vector3 offsetedTransformDestination;
 
     // Start is called before the first frame update
     private void Awake()
@@ -70,6 +71,8 @@ public class MoveTo : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (transform.position.z == 10) Debug.LogError("WTF");
+
         if(method == Method.SpeedWithTargetAndRange) {
             if (Vector2.Distance(transform.position, TransformDestination.position) < range * 1.42f)
             {
@@ -90,6 +93,28 @@ public class MoveTo : MonoBehaviour
             }
         }
 
+        if (method == Method.SpeedWithFormation)
+        {
+            offsetedTransformDestination = TransformDestination.position + offsetRallyPoint;
+
+            if (Vector2.Distance(transform.position, offsetedTransformDestination) < range * 1.42f)
+            {
+                if (timer < Time.time)
+                {
+                    var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                    var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                    currentRandomTargetPosition = new Vector3(
+                        UnityEngine.Random.Range(offsetedTransformDestination.x + rangeMin * signX, offsetedTransformDestination.x + range * signX),
+                        UnityEngine.Random.Range(offsetedTransformDestination.y + rangeMin * signY, offsetedTransformDestination.y + range * signY),
+                        0);
+                    timer = Time.time + TimeRandomRange;
+                }
+            }
+            else
+            {
+                currentRandomTargetPosition = new Vector3(offsetedTransformDestination.x, offsetedTransformDestination.y, 0);
+            }
+        }
         switch (method)
         {
             case Method.Time:
@@ -103,20 +128,25 @@ public class MoveTo : MonoBehaviour
 
             case Method.SpeedWithTarget:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                else rb.MovePosition(Vector3.MoveTowards(rb.position, TransformDestination.position, Time.fixedDeltaTime * Speed));
+                else rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)TransformDestination.position, Time.fixedDeltaTime * Speed));
                 break;
 
             case Method.SpeedWithTargetAndRange:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                else rb.MovePosition(Vector3.MoveTowards(rb.position, currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
+                else rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
                 break;
 
             case Method.Attacking:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                else if(!Lock) rb.MovePosition(Vector3.MoveTowards(rb.position, TransformDestination.position, Time.fixedDeltaTime * Speed));
+                else if(!Lock) rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)TransformDestination.position, Time.fixedDeltaTime * Speed));
                 break;
 
             case Method.NoMovement:
+                break;
+
+            case Method.SpeedWithFormation:
+                if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
+                else rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
                 break;
 
         }
