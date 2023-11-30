@@ -840,6 +840,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   lastMoveDirection: {x: 0, y: 0}
   bloodParticle: {fileID: 2463999080777082214, guid: ddfc8583a681e4fb2a010e2d57c26943, type: 3}
+  attackersSlots: []
+  circle: {fileID: 0}
 --- !u!50 &4072544625588182334
 Rigidbody2D:
   serializedVersion: 4
@@ -891,7 +893,7 @@ MonoBehaviour:
     value: 50
     valueMAX: 0
   - type: 4
-    value: 0.5
+    value: 4.1
     valueMAX: 0
   - type: 2
     value: 0
