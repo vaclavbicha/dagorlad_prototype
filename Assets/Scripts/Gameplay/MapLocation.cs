@@ -90,7 +90,7 @@ public class MapLocation : MonoBehaviour
     }
     public void SpawnUnitQueue()
     {
-            trainingUnit = Instantiate(productionList[0], new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);
+            trainingUnit = Instantiate(productionList[0], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
             trainingUnit.tag = "Player";
             trainingUnit.name += trainingUnit.GetInstanceID().ToString();
             trainingUnit.GetComponent<MoveTo>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
