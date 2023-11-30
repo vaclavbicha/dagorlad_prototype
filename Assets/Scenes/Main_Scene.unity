@@ -7002,6 +7002,8 @@ MonoBehaviour:
   range: 0
   rangeMin: 0
   TimeRandomRange: 0
+  offsetRallyPoint: {x: 0, y: 0, z: 0}
+  offsetedTransformDestination: {x: 0, y: 0, z: 0}
 --- !u!50 &519420035
 Rigidbody2D:
   serializedVersion: 4
@@ -8833,6 +8835,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1776860231}
+    - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: attackRange
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
@@ -12654,6 +12660,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1776860231}
+    - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: attackRange
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
@@ -17427,6 +17437,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1776860231}
+    - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: attackRange
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
@@ -18461,6 +18475,10 @@ PrefabInstance:
       propertyPath: Rally_Point
       value: 
       objectReference: {fileID: 1776860231}
+    - target: {fileID: 8999157081742936288, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: attackRange
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9060855564595062947, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: m_MaskInteraction
       value: 1

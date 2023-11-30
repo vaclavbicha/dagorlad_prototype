@@ -134,6 +134,7 @@ public class OurUnit : MonoBehaviour
                     if (x.type == Utility.ResourceTypes.Supply)
                     {
                         Player.Instance.currentSupply -= x.value;
+                        if (Player.Instance.currentSupply < 0) Player.Instance.currentSupply = 0;
                         Player.Instance.resources.Find(y => y.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(0);
                     }
                 }
@@ -151,6 +152,7 @@ public class OurUnit : MonoBehaviour
                 Rally_Point.GetComponent<Draggable>().ManageTargets();
             }
             Destroy(sender, 3f);
+            GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_death");
         };
         //onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
         //onTrigger.AddEvent("Exit", "Enemy", OnEnemyLeave);

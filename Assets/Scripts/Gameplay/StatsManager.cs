@@ -82,9 +82,9 @@ public class StatsManager : MonoBehaviour
                     DisplayHP.text = 0.ToString();
                     if (healthBar != null)
                     {
-                        healthBar.transform.localPosition = new Vector3(((x.value / x.valueMAX) * fullBarScale) / 2 - fullBarScale / 2, healthBar.transform.localPosition.y, healthBar.transform.localPosition.z);
-                        healthBar.transform.localScale = new Vector3((x.value / x.valueMAX) * fullBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
-                        healthbarSprite.color = healthBarGradient.Evaluate(x.value / x.valueMAX);
+                        healthBar.transform.localPosition = new Vector3(((0.1f / x.valueMAX) * fullBarScale) / 2 - fullBarScale / 2, healthBar.transform.localPosition.y, healthBar.transform.localPosition.z);
+                        healthBar.transform.localScale = new Vector3((0.1f / x.valueMAX) * fullBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+                        healthbarSprite.color = healthBarGradient.Evaluate(0.1f / x.valueMAX);
                     }
                     On_Death?.Invoke(gameObject);
                 }
