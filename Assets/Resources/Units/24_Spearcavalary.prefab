@@ -634,6 +634,8 @@ MonoBehaviour:
   range: 0.8
   rangeMin: 0
   TimeRandomRange: 2
+  offsetRallyPoint: {x: 0, y: 0, z: 0}
+  offsetedTransformDestination: {x: 0, y: 0, z: 0}
 --- !u!114 &2467180795165718603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,18 +653,16 @@ MonoBehaviour:
   InfoSprite: {fileID: 0}
   type: 1
   status: 2
-  buildTime:
-    type: 5
-    value: 15
+  minimumBuildingTier: 2
   cost:
   - type: 1
-    value: 5
+    value: 3
   - type: 2
-    value: 50
+    value: 100
   - type: 3
     value: 100
   - type: 4
-    value: 50
+    value: 30
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}

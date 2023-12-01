@@ -101,14 +101,13 @@ MonoBehaviour:
   Icon: {fileID: 160985183, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 1
-  buildTime:
-    type: 4
-    value: 15
   cost:
   - type: 2
     value: 100
   - type: 3
     value: 100
+  - type: 4
+    value: 30
   effect:
     type: 1
     resourceAmount:

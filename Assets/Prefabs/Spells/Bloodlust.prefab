@@ -146,6 +146,8 @@ MonoBehaviour:
   range: 0
   rangeMin: 0
   TimeRandomRange: 0
+  offsetRallyPoint: {x: 0, y: 0, z: 0}
+  offsetedTransformDestination: {x: 0, y: 0, z: 0}
 --- !u!58 &8776158774217895984
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -210,6 +212,7 @@ MonoBehaviour:
   duration: 20
   hasStarted: 0
   isBuff: 1
+  AnimationTrigger: SmallShake
   affectedStatsAllies:
   - type: 3
     value: 1

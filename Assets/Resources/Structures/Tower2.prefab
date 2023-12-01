@@ -539,16 +539,13 @@ MonoBehaviour:
   locationType: 0
   unitType: 0
   upgradeType: 0
-  buildTime:
-    type: 5
-    value: 10
   cost:
   - type: 4
-    value: 5
+    value: 40
   - type: 2
-    value: 50
+    value: 150
   - type: 3
-    value: 15
+    value: 150
   production:
     type: 0
     value: 0
@@ -558,17 +555,19 @@ MonoBehaviour:
   mapLocation: {fileID: 0}
   level: -2
   costUpgrade0:
-  - type: 5
-    value: 10
-  - type: 2
-    value: 150
-  costUpgrade1:
   - type: 2
     value: 100
   - type: 3
+    value: 100
+  - type: 4
+    value: 30
+  costUpgrade1:
+  - type: 2
     value: 200
-  - type: 5
-    value: 10
+  - type: 3
+    value: 200
+  - type: 4
+    value: 60
 --- !u!114 &4287881081027130642
 MonoBehaviour:
   m_ObjectHideFlags: 0

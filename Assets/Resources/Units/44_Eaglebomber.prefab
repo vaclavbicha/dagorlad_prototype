@@ -635,6 +635,8 @@ MonoBehaviour:
   range: 0.8
   rangeMin: 0
   TimeRandomRange: 2
+  offsetRallyPoint: {x: 0, y: 0, z: 0}
+  offsetedTransformDestination: {x: 0, y: 0, z: 0}
 --- !u!114 &2467180795165718603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,18 +654,16 @@ MonoBehaviour:
   InfoSprite: {fileID: 0}
   type: 3
   status: 2
-  buildTime:
-    type: 5
-    value: 40
+  minimumBuildingTier: 2
   cost:
   - type: 1
     value: 10
   - type: 2
-    value: 50
-  - type: 3
-    value: 200
-  - type: 4
     value: 100
+  - type: 3
+    value: 100
+  - type: 4
+    value: 30
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
@@ -672,6 +672,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   lastMoveDirection: {x: 0, y: 0}
   bloodParticle: {fileID: 2463999080777082214, guid: ddfc8583a681e4fb2a010e2d57c26943, type: 3}
+  attackersSlots: []
+  circle: {fileID: 0}
 --- !u!50 &1183933494967930486
 Rigidbody2D:
   serializedVersion: 4
