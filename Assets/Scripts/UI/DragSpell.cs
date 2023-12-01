@@ -32,7 +32,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
             if (spellInstance == null)
             {
                 spellInstance = Instantiate(spellPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity).GetComponent<MoveTo>();
-                spellInstance.GetComponent<Animator>().SetTrigger("EFFECT");
+                if(spellInstance.GetComponent<Animator>()) spellInstance.GetComponent<Animator>().SetTrigger("EFFECT");
             }
             else
             {

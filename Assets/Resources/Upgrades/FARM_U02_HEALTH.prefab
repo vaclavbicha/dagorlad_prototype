@@ -101,6 +101,7 @@ MonoBehaviour:
   Icon: {fileID: -1421318728, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   InfoSprite: {fileID: 0}
   type: 1
+  minimumBuildingTier: 1
   cost:
   - type: 2
     value: 100
