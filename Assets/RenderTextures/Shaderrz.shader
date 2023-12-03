@@ -47,7 +47,7 @@ Shader "Hidden/Shaderrz"
             {
                 fixed4 col = tex2D(_MainTex, i.uv) + tex2D(_SecTex, i.uv);
                 //col.a = 0.7f - col.r * 0.2f - col.b * 0.5f;
-                col.a = 0.7f - col.r * 0.5f - col.b * 0.2f;
+                col.a = 0.8f - col.r * 0.4f - col.b * 0.4f;
                 return float4(0,0,0,col.a);
             }
             ENDCG
