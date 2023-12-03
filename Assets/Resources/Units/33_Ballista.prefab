@@ -659,9 +659,9 @@ MonoBehaviour:
   - type: 1
     value: 5
   - type: 2
-    value: 100
+    value: 300
   - type: 3
-    value: 100
+    value: 200
   - type: 4
     value: 30
   attackRange: 0.5
@@ -725,7 +725,7 @@ MonoBehaviour:
     value: 50
     valueMAX: 0
   - type: 4
-    value: 2.3
+    value: 1.4
     valueMAX: 0
   - type: 2
     value: 0

@@ -541,7 +541,7 @@ MonoBehaviour:
   upgradeType: 2
   cost:
   - type: 4
-    value: 30
+    value: 20
   - type: 3
     value: 100
   production:
@@ -558,7 +558,7 @@ MonoBehaviour:
   - type: 3
     value: 100
   - type: 4
-    value: 30
+    value: 40
   costUpgrade1:
   - type: 2
     value: 200

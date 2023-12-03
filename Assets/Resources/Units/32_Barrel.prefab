@@ -573,11 +573,11 @@ MonoBehaviour:
   - type: 1
     value: 2
   - type: 2
-    value: 100
+    value: 300
   - type: 3
     value: 100
   - type: 4
-    value: 30
+    value: 50
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
@@ -630,7 +630,7 @@ MonoBehaviour:
   owner: 
   stats:
   - type: 0
-    value: 0.6
+    value: 1.2
     valueMAX: 0
   - type: 1
     value: 200

@@ -46,7 +46,8 @@ Shader "Hidden/Shaderrz"
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv) + tex2D(_SecTex, i.uv);
-                col.a = 0.7f - col.r * 0.2f - col.b * 0.5f;
+                //col.a = 0.7f - col.r * 0.2f - col.b * 0.5f;
+                col.a = 0.7f - col.r * 0.5f - col.b * 0.2f;
                 return float4(0,0,0,col.a);
             }
             ENDCG

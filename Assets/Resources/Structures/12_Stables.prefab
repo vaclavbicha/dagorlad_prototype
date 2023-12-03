@@ -556,9 +556,9 @@ MonoBehaviour:
   level: -2
   costUpgrade0:
   - type: 2
-    value: 100
+    value: 150
   - type: 3
-    value: 100
+    value: 150
   - type: 4
     value: 30
   costUpgrade1:

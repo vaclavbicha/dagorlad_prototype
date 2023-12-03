@@ -200,7 +200,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0999, y: 2.2672064, z: 0}
-  m_LocalScale: {x: 1.6567199, y: 1.6567199, z: 1.2744}
+  m_LocalScale: {x: 3, y: 3, z: 1.2744}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1852044691875717977}
@@ -314,6 +314,8 @@ MonoBehaviour:
   range: 0
   rangeMin: 0
   TimeRandomRange: 0
+  offsetRallyPoint: {x: 0, y: 0, z: 0}
+  offsetedTransformDestination: {x: 0, y: 0, z: 0}
 --- !u!58 &8776158774217895984
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -378,6 +380,7 @@ MonoBehaviour:
   duration: 20
   hasStarted: 0
   isBuff: 0
+  AnimationTrigger: 
   affectedStatsAllies: []
   affectedStatsEnemies: []
   unitsInRage: []

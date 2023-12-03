@@ -625,11 +625,11 @@ MonoBehaviour:
   upgradeType: 0
   cost:
   - type: 4
-    value: 90
+    value: 60
   - type: 2
-    value: 100
+    value: 300
   - type: 3
-    value: 100
+    value: 300
   production:
     type: 0
     value: 0
@@ -640,20 +640,18 @@ MonoBehaviour:
   level: -2
   costUpgrade0:
   - type: 2
-    value: 100
+    value: 300
   - type: 3
-    value: 100
-  - type: 4
-    value: 30
-  costUpgrade1:
-  - type: 2
-    value: 200
-  - type: 3
-    value: 200
+    value: 300
   - type: 4
     value: 60
-  - type: 5
-    value: 10
+  costUpgrade1:
+  - type: 2
+    value: 400
+  - type: 3
+    value: 400
+  - type: 4
+    value: 90
 --- !u!114 &6672898860085841791
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -541,7 +541,7 @@ MonoBehaviour:
   upgradeType: 3
   cost:
   - type: 4
-    value: 90
+    value: 50
   - type: 2
     value: 200
   - type: 3
@@ -560,14 +560,14 @@ MonoBehaviour:
   - type: 3
     value: 100
   - type: 4
-    value: 30
+    value: 60
   costUpgrade1:
   - type: 2
     value: 200
   - type: 3
     value: 200
   - type: 4
-    value: 60
+    value: 70
 --- !u!114 &-9051998465728156053
 MonoBehaviour:
   m_ObjectHideFlags: 0
