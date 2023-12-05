@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/FOGOFWAR1MINUTE/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
     path: Assets/Battle Simulator/Assets/Scenes/Forest.unity
@@ -14,6 +14,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Battle Simulator/Assets/Scenes/Desert.unity
     guid: 3564680491e23bd4fa4c3d74e1ca73d4
+  - enabled: 1
+    path: Assets/Scenes/MAIN_MENU.unity
+    guid: e7cdf677065d3904e97c6c6aa01c8ae3
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 5f1e6cf5bb9cb4947accc9986b7e72b4
+  - enabled: 1
+    path: Assets/Scenes/Main_Scene.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 6db0975054f51a94b921ff6318415513, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 3e1af02adc883ba4ab917f77066db718, type: 2}

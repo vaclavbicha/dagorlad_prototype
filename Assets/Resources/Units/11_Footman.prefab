@@ -403,8 +403,6 @@ MonoBehaviour:
   cost:
   - type: 1
     value: 1
-  - type: 2
-    value: 100
   - type: 3
     value: 100
   - type: 4

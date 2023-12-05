@@ -17758,7 +17758,7 @@ MonoBehaviour:
   upgrades: []
   infoSprites: []
   resourceSprites: []
-  startingAmounts: 0a0000008813000088130000
+  startingAmounts: 0a0000002c0100002c010000
   secondsToFullLeftPanel: 210
   secondsToFullRightPanel: 210
   flagPrefab: {fileID: 3460786186202539531, guid: ddc0c51ec190a442c97aa2b57bf5d43a, type: 3}
