@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,1162 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80390e9171fc264e87d995a5eca0a21
+      internalID: -2108488770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a94b9763096f6f64c8dddd9bd7a690e6
+      internalID: -279991133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ae13733d4e54e4188befff0b2111cd
+      internalID: -1566083278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_3
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38913fd592b71549bfae76279745abb
+      internalID: 1732240987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e38bed03a39184fa9193fcfdfef3c2
+      internalID: 1233810532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cdb40285bb300940a9cc53b80ca49af
+      internalID: -1703026943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_6
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da57e000652cf3e4683967a492f20655
+      internalID: -873842632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_7
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 314384d31ae2c1e4ba5c6bbb8b773246
+      internalID: -1327295543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_8
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417dfed743227cf44a94aa13ff13dc27
+      internalID: -1293969861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3005345467156da4fb1c2843123c5c88
+      internalID: -1281004517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1cd35345b6e58c4087f548ca6530b73
+      internalID: 189666113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_11
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06bc1ef4bb6c55449a954ff5b32345c0
+      internalID: 508253957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_12
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17924b34b53dce74faa6acbfc08c1924
+      internalID: 1336166145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_13
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9261594663ebd2b4e90a2cd23f45f19c
+      internalID: 222365174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_14
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2916cb15abd069743877334044dee375
+      internalID: 472211763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd4e02f5a88b5547b04fc57479c37c4
+      internalID: -748068188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_16
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca85446d412cfdf49a1edee3173ac7e9
+      internalID: -559171748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_17
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c345979953a882d4982ee4fbbdf65d62
+      internalID: 895082791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_18
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80fabba19062a4c4592023ff5c394830
+      internalID: 1210099293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_19
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c160f7ea526510e4b845dd461bfc4a1f
+      internalID: 1028712727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6e857ad251a1574495df79d206c77ec
+      internalID: -1696584937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_21
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcb99608cf3882a47abd58024fd47529
+      internalID: -812100022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ed6128a05128a0428d485d6aa0cb163
+      internalID: -401509131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_23
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0143e80d17cc8364e84f5fe2af884721
+      internalID: -1488328771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_24
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab665bd5949b7e1449ac079751abd17f
+      internalID: 350458490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2f0852604afa64b962e27a2507687c
+      internalID: -1725425913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_26
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea24cd385d7e0994db7ca4f1a54cd74d
+      internalID: 94292744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_27
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6f8677813b7ad049bd87e612bf36e0a
+      internalID: -401830433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_28
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9d1f272017f164aa04e44dd547aa99
+      internalID: -1790321949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_29
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9199905ee43d74ab87e055607cdb58
+      internalID: -255690427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1905aa3a1def63e47943eac8db1abfa5
+      internalID: -387547982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_31
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64985dfd148bb374fbc86dc4f9010ce2
+      internalID: 1662350611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_32
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3b5856c58847f4c8e5605b591fb440
+      internalID: -2043459165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_33
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f0abacdcfe56541a960ae51eac341b
+      internalID: 1823484878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_34
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c18c432f3526224897d2bc7e9f07542
+      internalID: -983727755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c868179d1bb594b8b2b212893c5b6d
+      internalID: -824964291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_36
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c49d39fb1112d8428b52d496e5c199c
+      internalID: -1886147695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_37
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 193e0984a3118674f86d9c7babc2e4fe
+      internalID: 1406111134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b80f8f74337624d954f4b521269714
+      internalID: 197212842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_39
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8ea962dc317d149b85ad706ab9e49c
+      internalID: 1728166529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6ec10051c7f814bb9d44027c50c79c
+      internalID: -1108442728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_41
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e78b8f80a7bd64588fa83e414b2184
+      internalID: -1316832713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_42
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6838dd95fdb8cb439474d09db73c7e2
+      internalID: 2019308517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_43
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ac706d8cb8f45e49882dceac97f0c29
+      internalID: -99363294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_44
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99d1a93b4091d6419506cf24abc0a65
+      internalID: 737124038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e108528d99a1dbc4cb11849cacaf18ad
+      internalID: 1016654505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_46
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d102bb5b59f362c47828eeecfbaab2a9
+      internalID: 1325857664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_47
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5e38f64fd70b784b9feb7d72d70cb9a
+      internalID: 1739400841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_48
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a6144d076145dd42b71f82cb39b22b0
+      internalID: -711369903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_49
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2957e08164ae40f469b033f199820ee7
+      internalID: -1936070341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ceb1cf7c4fd34244a31b5aecf79574f
+      internalID: -772261364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_51
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1217b01cdbee6cc42a50bf34fae17902
+      internalID: 206424549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_52
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c6090ea63485c469399536f8f34fce
+      internalID: -5788295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_53
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e55d07bdf7d12149a69745f23b09530
+      internalID: 1705548414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEON_01_ANIMATION_54
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7f8449cc3d62c41b40b20c842d5ee6
+      internalID: 59697978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +1287,62 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PEON_01_ANIMATION_0: -2108488770
+      PEON_01_ANIMATION_1: -279991133
+      PEON_01_ANIMATION_10: 189666113
+      PEON_01_ANIMATION_11: 508253957
+      PEON_01_ANIMATION_12: 1336166145
+      PEON_01_ANIMATION_13: 222365174
+      PEON_01_ANIMATION_14: 472211763
+      PEON_01_ANIMATION_15: -748068188
+      PEON_01_ANIMATION_16: -559171748
+      PEON_01_ANIMATION_17: 895082791
+      PEON_01_ANIMATION_18: 1210099293
+      PEON_01_ANIMATION_19: 1028712727
+      PEON_01_ANIMATION_2: -1566083278
+      PEON_01_ANIMATION_20: -1696584937
+      PEON_01_ANIMATION_21: -812100022
+      PEON_01_ANIMATION_22: -401509131
+      PEON_01_ANIMATION_23: -1488328771
+      PEON_01_ANIMATION_24: 350458490
+      PEON_01_ANIMATION_25: -1725425913
+      PEON_01_ANIMATION_26: 94292744
+      PEON_01_ANIMATION_27: -401830433
+      PEON_01_ANIMATION_28: -1790321949
+      PEON_01_ANIMATION_29: -255690427
+      PEON_01_ANIMATION_3: 1732240987
+      PEON_01_ANIMATION_30: -387547982
+      PEON_01_ANIMATION_31: 1662350611
+      PEON_01_ANIMATION_32: -2043459165
+      PEON_01_ANIMATION_33: 1823484878
+      PEON_01_ANIMATION_34: -983727755
+      PEON_01_ANIMATION_35: -824964291
+      PEON_01_ANIMATION_36: -1886147695
+      PEON_01_ANIMATION_37: 1406111134
+      PEON_01_ANIMATION_38: 197212842
+      PEON_01_ANIMATION_39: 1728166529
+      PEON_01_ANIMATION_4: 1233810532
+      PEON_01_ANIMATION_40: -1108442728
+      PEON_01_ANIMATION_41: -1316832713
+      PEON_01_ANIMATION_42: 2019308517
+      PEON_01_ANIMATION_43: -99363294
+      PEON_01_ANIMATION_44: 737124038
+      PEON_01_ANIMATION_45: 1016654505
+      PEON_01_ANIMATION_46: 1325857664
+      PEON_01_ANIMATION_47: 1739400841
+      PEON_01_ANIMATION_48: -711369903
+      PEON_01_ANIMATION_49: -1936070341
+      PEON_01_ANIMATION_5: -1703026943
+      PEON_01_ANIMATION_50: -772261364
+      PEON_01_ANIMATION_51: 206424549
+      PEON_01_ANIMATION_52: -5788295
+      PEON_01_ANIMATION_53: 1705548414
+      PEON_01_ANIMATION_54: 59697978
+      PEON_01_ANIMATION_6: -873842632
+      PEON_01_ANIMATION_7: -1327295543
+      PEON_01_ANIMATION_8: -1293969861
+      PEON_01_ANIMATION_9: -1281004517
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -543,9 +543,9 @@ MonoBehaviour:
   - type: 4
     value: 25
   - type: 2
-    value: 100
-  - type: 3
     value: 200
+  - type: 3
+    value: 100
   production:
     type: 0
     value: 0
@@ -556,14 +556,14 @@ MonoBehaviour:
   level: -2
   costUpgrade0:
   - type: 2
-    value: 150
+    value: 300
   - type: 3
-    value: 150
+    value: 100
   - type: 4
     value: 30
   costUpgrade1:
   - type: 2
-    value: 200
+    value: 400
   - type: 3
     value: 200
   - type: 4

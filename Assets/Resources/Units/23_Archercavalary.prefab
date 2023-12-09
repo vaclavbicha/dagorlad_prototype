@@ -490,7 +490,7 @@ MonoBehaviour:
   - type: 2
     value: 200
   - type: 3
-    value: 200
+    value: 100
   - type: 4
     value: 30
   attackRange: 0.5

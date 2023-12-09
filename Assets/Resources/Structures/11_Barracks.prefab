@@ -640,16 +640,16 @@ MonoBehaviour:
   level: -2
   costUpgrade0:
   - type: 2
-    value: 150
+    value: 200
   - type: 3
-    value: 150
+    value: 100
   - type: 4
     value: 30
   costUpgrade1:
   - type: 2
     value: 300
   - type: 3
-    value: 300
+    value: 200
   - type: 4
     value: 60
 --- !u!114 &-3827904590475416671

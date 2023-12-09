@@ -627,9 +627,9 @@ MonoBehaviour:
   - type: 4
     value: 60
   - type: 2
-    value: 300
+    value: 400
   - type: 3
-    value: 300
+    value: 200
   production:
     type: 0
     value: 0

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,1162 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 884e18921759c214e8424e751b710fd3
+      internalID: 1088458110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8bb2476e1ccf7840a86f1e2e251b39e
+      internalID: -377222677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80810ce59e8ec94f847afd5fe53c56d
+      internalID: -690231459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_3
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57597de3aa4183c4eae83d30d7147cc7
+      internalID: 1505158016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1441.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1990f67aab41f4049b862e026a791cd5
+      internalID: -605937476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a324ae1df06e7214489ae71d0e71e30e
+      internalID: -580021927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_6
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 795d9349c7182b945ae36fb268984248
+      internalID: -2136273040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_7
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ac6d9eba6b746c4b8cd31ae95e27954
+      internalID: -1658492820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_8
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ceff8b8834b0a544b43ab700a0c5558
+      internalID: 2095950625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1297.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef340f37b4777d545ba2983130d2da47
+      internalID: 344605391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d63d6ee483c6b145ba73406c0e9b901
+      internalID: 1743986685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_11
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa3c75379dd6684695474c982df81f2
+      internalID: 1462646844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_12
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb2ac1038f9b3af49972e358ec94577c
+      internalID: 1526817940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_13
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a266fff7bddb474a9a275cd6d090bd1
+      internalID: 1056043695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_14
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1153.8181
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f05b13b2d070ab04bb94281b5dee71a4
+      internalID: 1311502268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9543534083950934990e29300b5e45f4
+      internalID: 522784944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_16
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ee5060da0db5d4cbe1e3180bb175d5
+      internalID: -1204508241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_17
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4216ce4cdd99a7a419821e2921c78cac
+      internalID: 1707060486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_18
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e666b527dcce4084ea7580cd68a8e453
+      internalID: 1133234939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_19
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1009.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116fd8aae46ad1b4f8ef75fc3035549c
+      internalID: 1917569691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a5b14fb79e87744987cf4fe9a035f16
+      internalID: 1728614422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_21
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8673ead3819f3034c90f836e48ac3d42
+      internalID: -1690961768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5659417ae614d544804f11bcf00ead9
+      internalID: 269441937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_23
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090811a570428b042b8a5abe8a9cbfbd
+      internalID: -1126311251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_24
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 865.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a9899b8bfd0114e99163d604c504f7
+      internalID: 617574614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1283d1833341c39469eeb036c0cb4930
+      internalID: 1738459100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_26
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce3c84de8b39dd41965d6ea9acd844e
+      internalID: 1659918295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_27
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa46b0cbd21c9e4a898c3b8b7294fa9
+      internalID: 445750617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_28
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f158673e20a0a43a6f492dc8e7a5bf
+      internalID: -1774454416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_29
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 721.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb9db5753ab3f349af491f69daf78bb
+      internalID: -160872759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d44d21d1284fb479398de45b8f7b30
+      internalID: -1506558432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_31
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6351c01950eac4ea06e3835509143d
+      internalID: -413882123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_32
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f22e3500f276a41bd4880845c18117
+      internalID: 1364508153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_33
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4836aae26600b8041b0de8aa774611dd
+      internalID: 1208943016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_34
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 577.8182
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ec3555ea4972d489a7079515c82977
+      internalID: -1122424643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e81456aaf5fd84799a025ccdab3179
+      internalID: -1367056466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_36
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1da3359bd76d5488a8e5ea0b17ce4b
+      internalID: -324273756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_37
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa0166d1e69b3964f8ff94ee9176eb4d
+      internalID: -141854930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25fcec0a87454494c9d80b4994a4f22d
+      internalID: -1776951177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_39
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 433.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff84a317bc9bda4cb68cccb846f65c4
+      internalID: 1915836359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b09a9baedf2f2e74d93499e932dc9db4
+      internalID: -487544760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_41
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb4feb1d4596ec4d9eede4b81bdc804
+      internalID: -1146098906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_42
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0492b05df2722e488e347eba1d6c14e
+      internalID: -1347279424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_43
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b126d986b31964ea7db6eb25b1cf2d
+      internalID: 833198234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_44
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 289.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abdfbec0b68050644acf2da9b11ce5d6
+      internalID: -1671960458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b767b6e0b9002148853976322091a37
+      internalID: -1406521468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_46
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37851f703b0c8f74682f4f1f45cae75a
+      internalID: -1782696770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_47
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3e4d5f7a778b64180054f6358479d0
+      internalID: 1047586553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_48
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdec10dbd491aed4ebc6bafac7e92dbd
+      internalID: 509778552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_49
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 145.81818
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d29a06feabdbe945b4957b1510d1562
+      internalID: 1118369051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d493fad112da22b45bfafcb976b2658a
+      internalID: 1993734302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_51
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b50149c54679ac48b1560bc58526759
+      internalID: -353759494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_52
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3ef052954e7be74193103e09a7fa3d2
+      internalID: 2133958320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_53
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92a6dde3a5c51264e9dc211c5349e966
+      internalID: 616319564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARMAN_ANIMATIONS_54
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1.8181763
+        width: 155.6
+        height: 144.18182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17f2301f9453b844a891d06ad282f7c
+      internalID: 2054009730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +1287,62 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SPEARMAN_ANIMATIONS_0: 1088458110
+      SPEARMAN_ANIMATIONS_1: -377222677
+      SPEARMAN_ANIMATIONS_10: 1743986685
+      SPEARMAN_ANIMATIONS_11: 1462646844
+      SPEARMAN_ANIMATIONS_12: 1526817940
+      SPEARMAN_ANIMATIONS_13: 1056043695
+      SPEARMAN_ANIMATIONS_14: 1311502268
+      SPEARMAN_ANIMATIONS_15: 522784944
+      SPEARMAN_ANIMATIONS_16: -1204508241
+      SPEARMAN_ANIMATIONS_17: 1707060486
+      SPEARMAN_ANIMATIONS_18: 1133234939
+      SPEARMAN_ANIMATIONS_19: 1917569691
+      SPEARMAN_ANIMATIONS_2: -690231459
+      SPEARMAN_ANIMATIONS_20: 1728614422
+      SPEARMAN_ANIMATIONS_21: -1690961768
+      SPEARMAN_ANIMATIONS_22: 269441937
+      SPEARMAN_ANIMATIONS_23: -1126311251
+      SPEARMAN_ANIMATIONS_24: 617574614
+      SPEARMAN_ANIMATIONS_25: 1738459100
+      SPEARMAN_ANIMATIONS_26: 1659918295
+      SPEARMAN_ANIMATIONS_27: 445750617
+      SPEARMAN_ANIMATIONS_28: -1774454416
+      SPEARMAN_ANIMATIONS_29: -160872759
+      SPEARMAN_ANIMATIONS_3: 1505158016
+      SPEARMAN_ANIMATIONS_30: -1506558432
+      SPEARMAN_ANIMATIONS_31: -413882123
+      SPEARMAN_ANIMATIONS_32: 1364508153
+      SPEARMAN_ANIMATIONS_33: 1208943016
+      SPEARMAN_ANIMATIONS_34: -1122424643
+      SPEARMAN_ANIMATIONS_35: -1367056466
+      SPEARMAN_ANIMATIONS_36: -324273756
+      SPEARMAN_ANIMATIONS_37: -141854930
+      SPEARMAN_ANIMATIONS_38: -1776951177
+      SPEARMAN_ANIMATIONS_39: 1915836359
+      SPEARMAN_ANIMATIONS_4: -605937476
+      SPEARMAN_ANIMATIONS_40: -487544760
+      SPEARMAN_ANIMATIONS_41: -1146098906
+      SPEARMAN_ANIMATIONS_42: -1347279424
+      SPEARMAN_ANIMATIONS_43: 833198234
+      SPEARMAN_ANIMATIONS_44: -1671960458
+      SPEARMAN_ANIMATIONS_45: -1406521468
+      SPEARMAN_ANIMATIONS_46: -1782696770
+      SPEARMAN_ANIMATIONS_47: 1047586553
+      SPEARMAN_ANIMATIONS_48: 509778552
+      SPEARMAN_ANIMATIONS_49: 1118369051
+      SPEARMAN_ANIMATIONS_5: -580021927
+      SPEARMAN_ANIMATIONS_50: 1993734302
+      SPEARMAN_ANIMATIONS_51: -353759494
+      SPEARMAN_ANIMATIONS_52: 2133958320
+      SPEARMAN_ANIMATIONS_53: 616319564
+      SPEARMAN_ANIMATIONS_54: 2054009730
+      SPEARMAN_ANIMATIONS_6: -2136273040
+      SPEARMAN_ANIMATIONS_7: -1658492820
+      SPEARMAN_ANIMATIONS_8: 2095950625
+      SPEARMAN_ANIMATIONS_9: 344605391
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
