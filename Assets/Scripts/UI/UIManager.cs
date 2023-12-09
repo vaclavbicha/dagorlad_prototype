@@ -93,6 +93,25 @@ public class UIManager : MonoBehaviour
 
         rightTimer.On_PingAction += UpdateSliderRight;
     }
+    public void SetTimer(bool Right, int level)
+    {
+        if (Right)
+        {
+            var percent = 1f - ((rightINDEX - level) / 4f);
+            rightTimer.timeStarted = Time.time - GameManager.Instance.secondsToFullRightPanel * ((rightINDEX - level) / 4f);
+            rightTimer.timeFinish = Time.time + GameManager.Instance.secondsToFullRightPanel * percent;
+            UpdateSliderRight(rightTimer);
+            rightTimer.On_PingAction += UpdateSliderRight;
+        }
+        else
+        {
+            var percent = 1f - ((leftINDEX - level) / 4f);
+            leftTimer.timeStarted = Time.time - GameManager.Instance.secondsToFullLeftPanel * ((leftINDEX - level) / 4f);
+            leftTimer.timeFinish = Time.time + GameManager.Instance.secondsToFullLeftPanel * percent;
+            UpdateSliderLeft(leftTimer);
+            leftTimer.On_PingAction += UpdateSliderLeft;
+        }
+    }
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -273,10 +292,10 @@ public class UIManager : MonoBehaviour
     public void UpdateSliderRight(Timer _timer)
     {
         rightLoadingBar.value = Mathf.Abs((Time.time - _timer.timeStarted) / (_timer.timeStarted - _timer.timeFinish));
-        if (rightLoadingBar.value <= 0.25f) leftINDEX = 0;
-        if (rightLoadingBar.value >= 0.25f && rightLoadingBar.value < 0.5f) leftINDEX = 1;
-        if (rightLoadingBar.value >= 0.5f && rightLoadingBar.value < 0.75f) leftINDEX = 2;
-        if (rightLoadingBar.value >= 0.75f && rightLoadingBar.value < 1f) leftINDEX = 3;
-        if (rightLoadingBar.value == 1f) leftINDEX = 4;
+        if (rightLoadingBar.value <= 0.25f) rightINDEX = 0;
+        if (rightLoadingBar.value >= 0.25f && rightLoadingBar.value < 0.5f) rightINDEX = 1;
+        if (rightLoadingBar.value >= 0.5f && rightLoadingBar.value < 0.75f) rightINDEX = 2;
+        if (rightLoadingBar.value >= 0.75f && rightLoadingBar.value < 1f) rightINDEX = 3;
+        if (rightLoadingBar.value == 1f) rightINDEX = 4;
     }
 }
