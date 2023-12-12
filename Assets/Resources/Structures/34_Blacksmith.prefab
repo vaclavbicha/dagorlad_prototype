@@ -541,7 +541,7 @@ MonoBehaviour:
   upgradeType: 3
   cost:
   - type: 4
-    value: 50
+    value: 40
   - type: 2
     value: 200
   - type: 3
