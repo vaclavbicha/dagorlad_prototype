@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 6904688016169406966}
   - component: {fileID: 6044358905186423645}
   - component: {fileID: -8915760075453215423}
-  - component: {fileID: 8257445871322716971}
+  - component: {fileID: 1400941118007059499}
   m_Layer: 9
-  m_Name: Rally_Point
+  m_Name: Rally_Point 1
   m_TagString: Rally_Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 3460786186202539531}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.472, y: 0.64, z: 0}
-  m_LocalScale: {x: 0.36295, y: 0.36295, z: 0.7259}
+  m_LocalPosition: {x: 0.472, y: 0.48300004, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6087060866861291316}
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 1280812329
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 462767868, guid: c59131a52dd458a43b2b7f8ef020586f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a745bbb4e1089fa4680677530df935e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -236,7 +236,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 2.56}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -245,7 +245,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!95 &8257445871322716971
+--- !u!95 &1400941118007059499
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ Transform:
   m_GameObject: {fileID: 4041743670492702338}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.964, z: 0}
+  m_LocalPosition: {x: 0.029, y: -0.435, z: 0}
   m_LocalScale: {x: 0.091631494, y: 0.091631494, z: 0.036683217}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -445,7 +445,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4041743670492702338}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0997e218b55356f4aa100515318b26c3, type: 2}
   m_CullingMode: 0
