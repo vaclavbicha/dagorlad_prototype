@@ -445,7 +445,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4041743670492702338}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0997e218b55356f4aa100515318b26c3, type: 2}
   m_CullingMode: 0
@@ -579,7 +579,6 @@ GameObject:
   - component: {fileID: 2520129979088890752}
   - component: {fileID: 7827795869797149926}
   - component: {fileID: 2247799376332207792}
-  - component: {fileID: 9168837683848310503}
   m_Layer: 7
   m_Name: Point_Range
   m_TagString: Untagged
@@ -702,27 +701,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoggEvents: 1
---- !u!95 &9168837683848310503
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5868248805562318994}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8324062359600705655
 GameObject:
   m_ObjectHideFlags: 0

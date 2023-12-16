@@ -208,7 +208,7 @@ public class MapLocation : MonoBehaviour
                 buildingStructure.Rally_Point.GetComponent<MoveTo>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
                 building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
 
-                buildingStructure.Rally_Point.GetComponent<Draggable>().home = buildingStructure;
+                buildingStructure.Rally_Point.GetComponent<Draggable>().home = buildingStructure.gameObject;
                 buildingStructure.Rally_Point.GetComponent<Draggable>().owner = Player.Instance.PlayerName;
                 buildingStructure.Rally_Point.GetComponent<SpriteRenderer>().sprite = UIManager.Instance.currentBaseID == 3 ? buildingStructure.Flag3 : buildingStructure.Flag1;
             }

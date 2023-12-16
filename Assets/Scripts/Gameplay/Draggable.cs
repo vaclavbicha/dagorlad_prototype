@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Draggable : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Draggable : MonoBehaviour
     Vector3 mousePositionOffset;
     MoveTo moveTo;
     public OnTrigger onTrigger;
-    public Structure home;
+    public GameObject home;
 
     public List<OurUnit> currentArmy = new List<OurUnit>();
     public List<GameObject> EnemiesInRange = new List<GameObject>();
@@ -71,8 +72,9 @@ public class Draggable : MonoBehaviour
     }
     private void Update()
     {
-        if (home == null && currentArmy.Count == 0)
+        if (owner == "Enemy" && currentArmy.Count == 0)
         {
+            if(home != null) home.GetComponent<Base>().owner = "";
             Destroy(gameObject);
         }
     }
@@ -119,13 +121,19 @@ public class Draggable : MonoBehaviour
     }
     public void HOLD()
     {
-        GetComponentInChildren<Animator>().SetBool("HOLD", true);
+        foreach (var x in GetComponentsInChildren<Animator>())
+        {
+            x.SetBool("HOLD", true);
+        }
         moveTo.SetDestination(GetMouseWorldPosition() + mousePositionOffset);
     }
     public void OFF()
     {
         Camera.main.GetComponent<MoveTo>().Lock = false;
-        GetComponentInChildren<Animator>().SetBool("HOLD", false);
+        foreach (var x in GetComponentsInChildren<Animator>())
+        {
+            x.SetBool("HOLD", false);
+        }
         Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
     }
     private void OnMouseClickDown()

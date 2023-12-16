@@ -81,6 +81,7 @@ public class UIManager : MonoBehaviour
                         }
                     }
                 });
+                if(i > 0) Toggles[i].transform.GetChild(0).gameObject.SetActive(false);
             }
         }
         leftTimer = gameObject.AddComponent<Timer>();
@@ -92,6 +93,14 @@ public class UIManager : MonoBehaviour
         rightTimer.AddTimer("Building", GameManager.Instance.secondsToFullRightPanel, true, 0.25f);
 
         rightTimer.On_PingAction += UpdateSliderRight;
+    }
+    public void UnlockBase(string name)
+    {
+        var Toggles = toggleGroupBases.GetComponentsInChildren<Toggle>();
+        for (int i = 0; i < Toggles.Length; i++)
+        {
+            if (Toggles[i].name == name) Toggles[i].transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
     public void SetTimer(bool Right, int level)
     {
