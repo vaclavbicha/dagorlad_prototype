@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Structure : MonoBehaviour
@@ -9,6 +10,8 @@ public class Structure : MonoBehaviour
     public Sprite scrollIcon;
     public Sprite Flag1;
     public Sprite Flag3;
+    public RuntimeAnimatorController FlagController1;
+    public RuntimeAnimatorController FlagController3;
     public Sprite InfoSprite;
     public Sprite buildingSprite;
     public Utility.LocationType locationType;

@@ -43,9 +43,16 @@ public class ItemManager : MonoBehaviour
     }
     public void OnFlagClick(bool isRed)
     {
-        var img = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
-        building.isAttackPoint = isRed;
-        UIManager.Instance.LookToPlaceRallyPoint(RallyPoint, img);
+        if(UIManager.Instance.selectedRallyPoint == null)
+        {
+            var img = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
+            foreach (var x in RallyPoint.GetComponentsInChildren<Animator>())
+            {
+                x.SetBool("HOLD", true);
+            }
+            building.isAttackPoint = isRed;
+            UIManager.Instance.LookToPlaceRallyPoint(RallyPoint, img);
+        }
     }
     public void OnHold()
     {

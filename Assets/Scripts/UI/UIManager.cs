@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
 
     [System.NonSerialized]
     public bool lookForNextClick = false;
-    Transform selectedRallyPoint = null;
+    public Transform selectedRallyPoint = null;
     public Image selectedRallyPointButton = null;
 
     [SerializeField]

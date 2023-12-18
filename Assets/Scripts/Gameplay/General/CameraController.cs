@@ -155,6 +155,7 @@ public class CameraController : MonoBehaviour
                 // 18 DEC 23 currentRallyPoint = x.transform.GetComponent<Draggable>();
                 // 18 DEC 23 currentRallyPoint.ON();
                 currentRallyPoint = x.transform.GetComponent<Draggable>();
+
                 return true;
             } 
         }

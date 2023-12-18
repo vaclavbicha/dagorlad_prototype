@@ -8948,7 +8948,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00024414062, y: 67.399994}
+  m_AnchoredPosition: {x: 0.00024414062, y: 67.400024}
   m_SizeDelta: {x: -382.5, y: -3121.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414617847
@@ -24215,7 +24215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00024414062, y: 67.399994}
+  m_AnchoredPosition: {x: 0.00024414062, y: 67.400024}
   m_SizeDelta: {x: -382.5, y: -3121.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208884355
@@ -26128,6 +26128,7 @@ MonoBehaviour:
   - {fileID: 1691037733427416153, guid: 1abf92187dd39416e92bdf3c942e332a, type: 3}
   - {fileID: 1691037733427416153, guid: 34dfa21646003402ebd167c3821bcbec, type: 3}
   - {fileID: 1691037733427416153, guid: e5c11c313163841ffa8d5d5e56d5dc87, type: 3}
+  selectedRallyPoint: {fileID: 0}
   selectedRallyPointButton: {fileID: 0}
   leftTimer: {fileID: 0}
   leftLoadingBar: {fileID: 7454949713393745740}
@@ -26157,7 +26158,7 @@ MonoBehaviour:
   upgrades: []
   infoSprites: []
   resourceSprites: []
-  startingAmounts: 0a0000002c0100002c010000
+  startingAmounts: 0a000000b80b0000b80b0000
   secondsToFullLeftPanel: 180
   secondsToFullRightPanel: 120
   flagPrefab: {fileID: 3460786186202539531, guid: ddc0c51ec190a442c97aa2b57bf5d43a, type: 3}
@@ -28920,7 +28921,7 @@ MonoBehaviour:
   locations: []
   baseFlag: {fileID: 1593967651}
   flagEnter: 0
-  stayPeriodToUnlock: 15
+  stayPeriodToUnlock: 5
   isLocked: 1
 --- !u!1 &1530500864
 GameObject:
@@ -30837,7 +30838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &1594852220
 PlayableDirector:
   m_ObjectHideFlags: 0

@@ -210,7 +210,10 @@ public class MapLocation : MonoBehaviour
 
                 buildingStructure.Rally_Point.GetComponent<Draggable>().home = buildingStructure.gameObject;
                 buildingStructure.Rally_Point.GetComponent<Draggable>().owner = Player.Instance.PlayerName;
+                buildingStructure.Rally_Point.GetComponent<Animator>().enabled = false;
                 buildingStructure.Rally_Point.GetComponent<SpriteRenderer>().sprite = UIManager.Instance.currentBaseID == 3 ? buildingStructure.Flag3 : buildingStructure.Flag1;
+                buildingStructure.Rally_Point.GetComponent<Animator>().enabled = true;
+                buildingStructure.Rally_Point.GetComponent<Animator>().runtimeAnimatorController = UIManager.Instance.currentBaseID == 3 ? buildingStructure.FlagController3 : buildingStructure.FlagController1;
             }
             //building.SetActive(false);
             //var aux = buildingStructure.buildingSprite;

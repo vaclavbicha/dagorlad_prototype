@@ -11,7 +11,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -2630445036117339836}
-    m_Position: {x: 350, y: 90, z: 0}
+    m_Position: {x: 340, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3318275613313466269}
     m_Position: {x: 350, y: 190, z: 0}
@@ -61,7 +61,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FLAG_normal_MOVE
+  m_Name: FLAG_normal_MOVEee
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
