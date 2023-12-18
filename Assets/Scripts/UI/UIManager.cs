@@ -140,7 +140,11 @@ public class UIManager : MonoBehaviour
             if (Input.GetMouseButton(0) && !isMouseOverOverlayCanvas())
             {
                 selectedRallyPoint.GetComponent<MoveTo>().SetDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                selectedRallyPoint.GetComponentInChildren<Animator>().SetTrigger("OFF");
+                //selectedRallyPoint.GetComponentInChildren<Animator>().SetTrigger("OFF");
+                foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>())
+                {
+                    x.SetBool("HOLD", false);
+                }
                 lookForNextClick = false;
                 selectedRallyPoint = null;
                 selectedRallyPointButton.color = Color.white;
