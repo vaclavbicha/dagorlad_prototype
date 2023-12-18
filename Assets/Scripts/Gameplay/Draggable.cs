@@ -152,6 +152,18 @@ public class Draggable : MonoBehaviour
             }
         }
     }
+    public void TapAndTap()
+    {
+        Debug.Log("PLACEEE");
+        foreach (var x in GetComponentsInChildren<Animator>())
+        {
+            x.SetBool("HOLD", true);
+        }
+        foreach (var child2 in UIManager.Instance.bottomPanelContent.GetChild(1).GetComponentsInChildren<ItemManager>())
+        {
+            if (child2.RallyPoint == gameObject.transform) UIManager.Instance.LookToPlaceRallyPoint(transform, child2.mid.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>());
+        }
+    }
     private Vector3 GetMouseWorldPosition()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);

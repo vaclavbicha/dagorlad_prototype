@@ -115,12 +115,13 @@ public class CameraController : MonoBehaviour
 
             dragFlag = false;
             isOverFlag = false;
-            if (currentRallyPoint) currentRallyPoint.OFF();
+            // 18 DEC 23 if (currentRallyPoint) currentRallyPoint.OFF();
+            if (currentRallyPoint) currentRallyPoint.TapAndTap();
             currentRallyPoint = null;
         }
         if (dragFlag)
         {
-            currentRallyPoint.HOLD();
+            // 18 DEC 23 currentRallyPoint.HOLD();
         }
         if (drag && !UIManager.Instance.window.gameObject.activeInHierarchy)
         {
@@ -151,8 +152,9 @@ public class CameraController : MonoBehaviour
             if(x.collider.gameObject.layer == 9 && x.collider.tag == "Rally_Point")
             {
                 //Debug.Log(x.transform.name);
+                // 18 DEC 23 currentRallyPoint = x.transform.GetComponent<Draggable>();
+                // 18 DEC 23 currentRallyPoint.ON();
                 currentRallyPoint = x.transform.GetComponent<Draggable>();
-                currentRallyPoint.ON();
                 return true;
             } 
         }
