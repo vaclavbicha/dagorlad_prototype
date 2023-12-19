@@ -723,6 +723,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3228515655158514512}
     m_Modifications:
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.34117648
+      objectReference: {fileID: 0}
     - target: {fileID: 2598352188822609004, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_Name
       value: Cost_Gold
@@ -750,6 +762,10 @@ PrefabInstance:
     - target: {fileID: 2670931732221174120, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_fontSize
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3212285635254278012, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -877,6 +893,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3228515655158514512}
     m_Modifications:
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.33962262
+      objectReference: {fileID: 0}
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.33962262
+      objectReference: {fileID: 0}
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.33962262
+      objectReference: {fileID: 0}
     - target: {fileID: 2598352188822609004, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_Name
       value: Cost_Supply
@@ -904,6 +932,10 @@ PrefabInstance:
     - target: {fileID: 2670931732221174120, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_fontSize
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3212285635254278012, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1031,6 +1063,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3228515655158514512}
     m_Modifications:
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.34117648
+      objectReference: {fileID: 0}
     - target: {fileID: 2598352188822609004, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_Name
       value: Cost_Wood
@@ -1058,6 +1102,10 @@ PrefabInstance:
     - target: {fileID: 2670931732221174120, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_fontSize
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3212285635254278012, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1185,6 +1233,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3228515655158514512}
     m_Modifications:
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.34117648
+      objectReference: {fileID: 0}
     - target: {fileID: 2598352188822609004, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_Name
       value: Cost_Time
@@ -1212,6 +1272,10 @@ PrefabInstance:
     - target: {fileID: 2670931732221174120, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_fontSize
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3212285635254278012, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_SizeDelta.y

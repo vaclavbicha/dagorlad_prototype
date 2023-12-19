@@ -616,8 +616,10 @@ MonoBehaviour:
   buildingName: 14_Airport
   Icon: {fileID: -329363341, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   scrollIcon: {fileID: 21300000, guid: 60b6c4304b392984cbe929be92854b83, type: 3}
-  Flag1: {fileID: 21300000, guid: cb59a39c0fb84a24abd60a382eb3a8d6, type: 3}
-  Flag3: {fileID: 21300000, guid: dedf4099b047f3449bc4564fa25aac86, type: 3}
+  Flag1: {fileID: -518286283, guid: c59131a52dd458a43b2b7f8ef020586f, type: 3}
+  Flag3: {fileID: -500740524, guid: f04681e4001bd7842b7ffd9530342899, type: 3}
+  FlagController1: {fileID: 0}
+  FlagController3: {fileID: 0}
   InfoSprite: {fileID: 0}
   buildingSprite: {fileID: 21300000, guid: 3aaa22fb1434abb499245f87ba96372d, type: 3}
   locationType: 1

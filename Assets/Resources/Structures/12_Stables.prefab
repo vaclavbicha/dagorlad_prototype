@@ -532,8 +532,8 @@ MonoBehaviour:
   buildingName: 12_Stables
   Icon: {fileID: 34894526, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   scrollIcon: {fileID: 21300000, guid: 0e3a8a40993cee74cbe47ecc1a1b4113, type: 3}
-  Flag1: {fileID: 21300000, guid: 97b1b8d43d0e9784ca65be8cfd714253, type: 3}
-  Flag3: {fileID: 21300000, guid: 7aa435fab366c3248ba988166b096f42, type: 3}
+  Flag1: {fileID: -1357984101, guid: c59131a52dd458a43b2b7f8ef020586f, type: 3}
+  Flag3: {fileID: 888709179, guid: f04681e4001bd7842b7ffd9530342899, type: 3}
   FlagController1: {fileID: 9100000, guid: 381ee5e66992aea4296eb98de948d992, type: 2}
   FlagController3: {fileID: 9100000, guid: 4a118571709b41d438ce4dd5f664ace2, type: 2}
   InfoSprite: {fileID: 0}
@@ -543,7 +543,7 @@ MonoBehaviour:
   upgradeType: 0
   cost:
   - type: 4
-    value: 1
+    value: 10
   - type: 2
     value: 200
   - type: 3

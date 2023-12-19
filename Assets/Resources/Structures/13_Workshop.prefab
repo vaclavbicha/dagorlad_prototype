@@ -616,8 +616,10 @@ MonoBehaviour:
   buildingName: 13_Workshop
   Icon: {fileID: -2046064319, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   scrollIcon: {fileID: 21300000, guid: d26570e5ff106e2499d16cf236bc0696, type: 3}
-  Flag1: {fileID: 21300000, guid: ea957db94bc75904b8e0cd3eeb0b8230, type: 3}
-  Flag3: {fileID: 21300000, guid: 38da1d15cbe640a42ac9b60217643a91, type: 3}
+  Flag1: {fileID: 1320893472, guid: c59131a52dd458a43b2b7f8ef020586f, type: 3}
+  Flag3: {fileID: 1102948299, guid: f04681e4001bd7842b7ffd9530342899, type: 3}
+  FlagController1: {fileID: 0}
+  FlagController3: {fileID: 0}
   InfoSprite: {fileID: 0}
   buildingSprite: {fileID: 21300000, guid: 0be6f32ed7abc58408a0e43ec201817c, type: 3}
   locationType: 1
