@@ -534,6 +534,8 @@ MonoBehaviour:
   scrollIcon: {fileID: -410895451, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   Flag1: {fileID: 0}
   Flag3: {fileID: 0}
+  FlagController1: {fileID: 0}
+  FlagController3: {fileID: 0}
   InfoSprite: {fileID: 0}
   buildingSprite: {fileID: 21300000, guid: 523edae3b3c89304594bde99012b0933, type: 3}
   locationType: 2
@@ -549,7 +551,7 @@ MonoBehaviour:
   production:
     type: 0
     value: 0
-  loadingBarPrefab: {fileID: 2750228692031925039, guid: 129b96465ceff462ca61cae7cead7bda, type: 3}
+  loadingBarPrefab: {fileID: 2750228692031925039, guid: ef597b0e6f61d4ae8b63e8fa545633a1, type: 3}
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
   mapLocation: {fileID: 0}

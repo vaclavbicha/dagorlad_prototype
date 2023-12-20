@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
@@ -53,6 +54,11 @@ public class ItemManager : MonoBehaviour
             building.isAttackPoint = isRed;
             UIManager.Instance.LookToPlaceRallyPoint(RallyPoint, img);
         }
+    }
+    public void OnFlagDoubleClick()
+    {
+        //PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        //Debug.Log(pointerEventData.clickCount);
     }
     public void OnHold()
     {

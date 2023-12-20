@@ -12,13 +12,13 @@ public class SceneLoading : MonoBehaviour
     void Start()
     {
         //start async operation
-        StartCoroutine(LoadAsyncOperation());
+        StartCoroutine(LoadAsyncOperation(3));
     }
 
-    IEnumerator LoadAsyncOperation()
+    IEnumerator LoadAsyncOperation(int index)
     {
         //create an async operation
-        AsyncOperation gameLevel = SceneManager.LoadSceneAsync(3);
+        AsyncOperation gameLevel = SceneManager.LoadSceneAsync(index);
         
         while (gameLevel.progress < 1)
         {

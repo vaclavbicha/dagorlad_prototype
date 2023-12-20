@@ -40,6 +40,28 @@ public class Player : MonoBehaviour
         productionTimer.AddTimer("Produce", resourceCicleTime, true);
         productionTimer.On_Duration_End += DistributeResources;
     }
+    public bool Refund(Amount[] price)
+    {
+        var priceaux = new List<Amount>();
+        foreach (var x in price)
+        {
+            if (x.type != Utility.ResourceTypes.Time) priceaux.Add(x);
+        }
+        price = priceaux.ToArray();
+        foreach (var y in price)
+        {
+            if (y.type != Utility.ResourceTypes.Supply)
+            {
+                resources.Find(x => x.amount.type == y.type).AmountUpdateWithText(y.value);
+            }
+            else
+            {
+                currentSupply -= y.value;
+                resources.Find(x => x.amount.type == y.type).AmountUpdateWithText(0);
+            }
+        }
+        return true;
+    }
     public bool Buy(Amount[] price)
     {
         var priceaux = new List<Amount>();

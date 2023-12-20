@@ -832,7 +832,7 @@ MonoBehaviour:
   - type: 3
     value: 50
   - type: 4
-    value: 15
+    value: 1
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
@@ -900,7 +900,7 @@ MonoBehaviour:
     value: 0
     valueMAX: 0
   DisplayHP: {fileID: 0}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 4686961401653349669}
   healthBarGradient:
     serializedVersion: 2
     key0: {r: 1, g: 0.019607844, b: 0, a: 1}

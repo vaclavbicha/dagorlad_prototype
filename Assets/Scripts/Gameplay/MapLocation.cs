@@ -82,6 +82,7 @@ public class MapLocation : MonoBehaviour
                 loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
                 timer.On_PingAction += UpdateSlider;
                 timer.On_Duration_End += isDoneUpgrading;
+                loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
             }
             else
@@ -130,6 +131,7 @@ public class MapLocation : MonoBehaviour
                 loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
                 timer.On_PingAction += UpdateSlider;
                 timer.On_Duration_End += isDoneTraining;
+                loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
             }
             else
@@ -180,6 +182,7 @@ public class MapLocation : MonoBehaviour
                 loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
                 timer.On_PingAction += UpdateSlider;
                 timer.On_Duration_End += isDoneTraining;
+                loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
             }
             else
@@ -238,6 +241,7 @@ public class MapLocation : MonoBehaviour
                 loadingBar = Instantiate(buildingPrefab.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
                 timer.On_PingAction += UpdateSlider;
                 timer.On_Duration_End += isDoneBuilding;
+                loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
             }
             else
@@ -263,6 +267,7 @@ public class MapLocation : MonoBehaviour
             loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
             timer.On_PingAction += UpdateSlider;
             timer.On_Duration_End += isDoneUpgradingBuilding;
+            loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
         }
         else
@@ -359,10 +364,53 @@ public class MapLocation : MonoBehaviour
         Destroy(timer);
         if (loadingBar != null) Destroy(loadingBar.gameObject);
     }
+    public void CancelLoading()
+    {
+        Debug.Log("Cancel loading bar");
+        DestroyImmediate(timer);
+        if (loadingBar != null) Destroy(loadingBar.gameObject);
+
+        switch (status)
+        {
+            case Utility.LocationStatus.Building:
+                if(building.GetComponent<Structure>().level < 0)
+                {
+                    Player.Instance.Refund(building.GetComponent<Structure>().cost);
+                    if (type == Utility.LocationType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);
+                    Destroy(building);
+                    status = Utility.LocationStatus.Free;
+                    selectionStatus = Utility.LocationSelectionStatus.Unselected;
+                }
+                else
+                {
+                    status = Utility.LocationStatus.Built;
+                    selectionStatus = Utility.LocationSelectionStatus.Unselected;
+                    UpdateItemManager(true, building.GetComponent<Structure>());
+                }
+                break;
+
+            case Utility.LocationStatus.Training:
+                if(type == Utility.LocationType.Attack)
+                {
+                    foreach (var unit in productionList)
+                    {
+                        Player.Instance.Refund(unit.GetComponent<OurUnit>().cost);
+                    }
+                    Destroy(trainingUnit);
+                    productionList.RemoveAll(x => x);
+                }
+                if(type == Utility.LocationType.Resource)
+                {
+                    Player.Instance.Refund(upgradeItem.GetComponent<ItemUpgrade>().cost);
+                    Destroy(upgradeItem);
+                }
+                break;
+        }
+    }
     IEnumerator UpdateBuildingSprite(float t)
     {
         yield return new WaitForSeconds(t);
-        building.GetComponent<Structure>().UpgradeStructure();
+        if(building) building.GetComponent<Structure>().UpgradeStructure();
     }
     public void UpdateItemManager(bool filling, Structure buttonIcon)
     {
@@ -371,6 +419,7 @@ public class MapLocation : MonoBehaviour
             itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
             loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
             timer.On_PingAction += UpdateSlider;
+            loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
         }
         if (status != Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID)
         {

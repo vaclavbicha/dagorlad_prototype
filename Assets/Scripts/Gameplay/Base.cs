@@ -14,24 +14,27 @@ public class Base : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        baseFlag.GetComponent<OnTrigger>().AddEvent("Stay", "Player", (sender, collider) => {
-            if(owner == "" && isLocked == true)
-            {
-                isLocked = false;
-                flagEnter = Time.time;
-            }
-        if (Time.time - flagEnter > stayPeriodToUnlock && isLocked == false)
-            {
-                owner = "Player";
-                UIManager.Instance.UnlockBase(gameObject.name);
-                sender.GetComponent<Animator>().SetTrigger("RISE");
-                sender.transform.GetChild(0).gameObject.SetActive(true);
-                isLocked = true;
-            }
-        });
-        baseFlag.GetComponent<OnTrigger>().AddEvent("Exit", "Player", (sender, collider) => {
-            if (owner == "") flagEnter = Time.time;
-        });
+        if (baseFlag)
+        {
+            baseFlag.GetComponent<OnTrigger>().AddEvent("Stay", "Player", (sender, collider) => {
+                if (owner == "" && isLocked == true)
+                {
+                    isLocked = false;
+                    flagEnter = Time.time;
+                }
+                if (Time.time - flagEnter > stayPeriodToUnlock && isLocked == false)
+                {
+                    owner = "Player";
+                    UIManager.Instance.UnlockBase(gameObject.name);
+                    sender.GetComponent<Animator>().SetTrigger("RISE");
+                    sender.transform.GetChild(0).gameObject.SetActive(true);
+                    isLocked = true;
+                }
+            });
+            baseFlag.GetComponent<OnTrigger>().AddEvent("Exit", "Player", (sender, collider) => {
+                if (owner == "") flagEnter = Time.time;
+            });
+        }
     }
 
     // Update is called once per frame

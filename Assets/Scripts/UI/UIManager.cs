@@ -52,6 +52,7 @@ public class UIManager : MonoBehaviour
     [System.NonSerialized]
     public Toggle lastSelectedInfoToggle = null;
 
+    public GameObject winWindow;
     private void Start()
     {
         foreach (var x in baseBorder.GetComponentsInChildren<Image>())
@@ -147,7 +148,11 @@ public class UIManager : MonoBehaviour
                 }
                 lookForNextClick = false;
                 selectedRallyPoint = null;
-                selectedRallyPointButton.color = Color.white;
+                if (selectedRallyPointButton)
+                {
+                    selectedRallyPointButton.color = Color.white;
+                    selectedRallyPointButton = null;
+                }
             }
         }
     }
@@ -199,6 +204,20 @@ public class UIManager : MonoBehaviour
     {
         //GameManager.Instance.SpawnBuilding(buildingName, currentSelected);
         GameManager.Instance.ItemBuy(itemName, currentSelected);
+    }
+    public void LookToPlaceRallyPoint(Transform point)
+    {
+        if (selectedRallyPointButton) selectedRallyPointButton.color = Color.white;
+        if(selectedRallyPoint)
+        {
+            foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>())
+            {
+                x.SetBool("HOLD", false);
+            }
+        }
+        lookForNextClick = true;
+        selectedRallyPoint = point;
+        selectedRallyPointButton = null;
     }
     public void LookToPlaceRallyPoint(Transform point, Image image)
     {

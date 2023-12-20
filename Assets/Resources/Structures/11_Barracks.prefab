@@ -627,7 +627,7 @@ MonoBehaviour:
   upgradeType: 0
   cost:
   - type: 4
-    value: 10
+    value: 1
   - type: 2
     value: 50
   - type: 3
@@ -635,7 +635,7 @@ MonoBehaviour:
   production:
     type: 0
     value: 0
-  loadingBarPrefab: {fileID: 2750228692031925039, guid: 129b96465ceff462ca61cae7cead7bda, type: 3}
+  loadingBarPrefab: {fileID: 2750228692031925039, guid: ef597b0e6f61d4ae8b63e8fa545633a1, type: 3}
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
   mapLocation: {fileID: 0}

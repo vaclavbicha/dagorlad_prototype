@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int secondsToFullRightPanel = 120;
 
     public GameObject flagPrefab;
+
+    public List<Draggable> enemies = new List<Draggable>();
 
     private void Awake()
     {
@@ -169,5 +172,9 @@ public class GameManager : MonoBehaviour
             }
         }
         else UIManager.Instance.DialogWindow("Building Prefab not found");
+    }
+    public void GoMenu()
+    {
+        SceneManager.LoadScene(1);
     }
 }

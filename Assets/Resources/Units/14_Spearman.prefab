@@ -647,7 +647,7 @@ MonoBehaviour:
     value: 0
     valueMAX: 0
   DisplayHP: {fileID: 0}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 7371911628006130468}
   healthBarGradient:
     serializedVersion: 2
     key0: {r: 1, g: 0.019607844, b: 0, a: 1}

@@ -75,6 +75,12 @@ public class Draggable : MonoBehaviour
         if (owner == "Enemy" && currentArmy.Count == 0)
         {
             if(home != null) home.GetComponent<Base>().owner = "";
+            GameManager.Instance.enemies.Remove(this);
+            if(GameManager.Instance.enemies.Count == 0)
+            {
+                Debug.Log("GameWon");
+                UIManager.Instance.winWindow.SetActive(true);
+            }
             Destroy(gameObject);
         }
     }
@@ -159,10 +165,11 @@ public class Draggable : MonoBehaviour
         {
             x.SetBool("HOLD", true);
         }
-        foreach (var child2 in UIManager.Instance.bottomPanelContent.GetChild(1).GetComponentsInChildren<ItemManager>())
-        {
-            if (child2.RallyPoint == gameObject.transform) UIManager.Instance.LookToPlaceRallyPoint(transform, child2.mid.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>());
-        }
+        //foreach (var child2 in UIManager.Instance.bottomPanelContent.GetChild(1).GetComponentsInChildren<ItemManager>())
+        //{
+        //    if (child2.RallyPoint == gameObject.transform) UIManager.Instance.LookToPlaceRallyPoint(transform, child2.mid.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>());
+        //}
+        UIManager.Instance.LookToPlaceRallyPoint(transform);
     }
     private Vector3 GetMouseWorldPosition()
     {
