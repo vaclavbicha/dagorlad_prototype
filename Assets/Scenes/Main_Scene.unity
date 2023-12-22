@@ -26468,25 +26468,25 @@ MonoBehaviour:
     volume: 0.083
     pitch: 1
     loop: 0
-  - name: 12_Archer_attack
+  - name: 13_Archer_attack
     clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
     OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
     volume: 1
     pitch: 1
     loop: 0
-  - name: 12_Archer_death
+  - name: 13_Archer_death
     clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
     OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
     volume: 1
     pitch: 1
     loop: 0
-  - name: 13_Knight_death
+  - name: 12_Knight_death
     clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
     OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
     volume: 1
     pitch: 1
     loop: 0
-  - name: 13_Knight_attack
+  - name: 12_Knight_attack
     clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
     OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
     volume: 1
@@ -29560,7 +29560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 651, y: -66.30005}
+  m_AnchoredPosition: {x: 651, y: -66.299805}
   m_SizeDelta: {x: 458, y: 287.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1551220719

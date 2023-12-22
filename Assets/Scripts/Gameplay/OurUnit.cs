@@ -100,6 +100,7 @@ public class OurUnit : MonoBehaviour
             else
             {
                 isAlreadyAttackedBy = attackersSlots.Find(x => x.attacker == null);
+                if (isAlreadyAttackedBy == null) return null;
                 isAlreadyAttackedBy.attacker = _attacker;
                 return isAlreadyAttackedBy.position;//transform.TransformPoint(isAlreadyAttackedBy.position);
             }
@@ -151,8 +152,9 @@ public class OurUnit : MonoBehaviour
                 Rally_Point.GetComponent<Draggable>().currentArmy.Remove(this);
                 Rally_Point.GetComponent<Draggable>().ManageTargets();
             }
-            Destroy(sender, 3f);
+            Debug.Log("UNIT DIED");
             GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_death");
+            Destroy(sender, 3f);
         };
         //onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
         //onTrigger.AddEvent("Exit", "Enemy", OnEnemyLeave);

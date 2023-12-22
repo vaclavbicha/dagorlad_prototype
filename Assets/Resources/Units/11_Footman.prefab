@@ -546,7 +546,7 @@ MonoBehaviour:
     value: 1.5
     valueMAX: 0
   - type: 1
-    value: 1000
+    value: 5
     valueMAX: 0
   - type: 3
     value: 100

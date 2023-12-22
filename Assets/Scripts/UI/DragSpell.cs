@@ -27,6 +27,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
+        Camera.main.GetComponent<MoveTo>().Lock = true;
         //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
         //RallyPoint.GetComponent<MoveTo>().SetDestination(Camera.main.ScreenToWorldPoint(eventData.position));
         var position = Camera.main.ScreenToWorldPoint(eventData.position);
@@ -81,7 +82,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown");
-        Camera.main.GetComponent<MoveTo>().Lock = true;
+        //Camera.main.GetComponent<MoveTo>().Lock = true;
     }
     public void OnPointerUp(PointerEventData eventData)
     {

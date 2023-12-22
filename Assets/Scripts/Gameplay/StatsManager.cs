@@ -18,6 +18,7 @@ public class StatsManager : MonoBehaviour
     public delegate void TargetEventDelegate(GameObject sender);
     public event TargetEventDelegate On_Death;
 
+    public bool dead = false;
     public Stat GetStat(Utility.StatsTypes type)
     {
         foreach (var x in stats)
@@ -86,7 +87,11 @@ public class StatsManager : MonoBehaviour
                         healthBar.transform.localScale = new Vector3((0.1f / x.valueMAX) * fullBarScale, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
                         healthbarSprite.color = healthBarGradient.Evaluate(0.1f / x.valueMAX);
                     }
-                    On_Death?.Invoke(gameObject);
+                    if (!dead)
+                    {
+                        On_Death?.Invoke(gameObject);
+                        dead = true;
+                    }
                 }
             }
             if(moveTo != null)
