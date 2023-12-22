@@ -543,7 +543,7 @@ MonoBehaviour:
   upgradeType: 0
   cost:
   - type: 4
-    value: 10
+    value: 15
   - type: 2
     value: 200
   - type: 3
