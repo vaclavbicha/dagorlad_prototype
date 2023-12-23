@@ -10,4 +10,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    public void PlayTutorial()
+    {
+        SceneManager.LoadScene(3);
+    }
 }

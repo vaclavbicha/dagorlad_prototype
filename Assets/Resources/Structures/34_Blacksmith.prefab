@@ -549,7 +549,7 @@ MonoBehaviour:
   - type: 3
     value: 200
   production:
-    type: 0
+    type: 1
     value: 0
   loadingBarPrefab: {fileID: 2750228692031925039, guid: ef597b0e6f61d4ae8b63e8fa545633a1, type: 3}
   Rally_Point: {fileID: 0}
@@ -622,6 +622,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  dead: 0
 --- !u!58 &2080445500330606186
 CircleCollider2D:
   m_ObjectHideFlags: 0

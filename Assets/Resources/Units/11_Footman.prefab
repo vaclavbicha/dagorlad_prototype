@@ -490,7 +490,7 @@ MonoBehaviour:
   - type: 3
     value: 100
   - type: 4
-    value: 1
+    value: 10
   attackRange: 0.6
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
@@ -546,10 +546,10 @@ MonoBehaviour:
     value: 1.5
     valueMAX: 0
   - type: 1
-    value: 5
+    value: 100
     valueMAX: 0
   - type: 3
-    value: 100
+    value: 10
     valueMAX: 0
   - type: 4
     value: 1
@@ -589,6 +589,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  dead: 0
 --- !u!58 &4459797693511288770
 CircleCollider2D:
   m_ObjectHideFlags: 0
