@@ -44512,6 +44512,10 @@ PrefabInstance:
       propertyPath: m_RaycastPadding.z
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 4391526515130390578, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4463061884449190429, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
       propertyPath: level
       value: 2
@@ -44605,8 +44609,16 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6052527248502930347, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052527248502930347, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052527248502930347, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
       propertyPath: m_RaycastPadding.z
-      value: -20
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6576528460938883393, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -45888,8 +45900,16 @@ PrefabInstance:
       value: 0.9528302
       objectReference: {fileID: 0}
     - target: {fileID: 8101723211326041605, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101723211326041605, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101723211326041605, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
       propertyPath: m_RaycastPadding.z
-      value: -20
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8529621250010514202, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
       propertyPath: m_Sprite
