@@ -627,7 +627,7 @@ MonoBehaviour:
   upgradeType: 0
   cost:
   - type: 4
-    value: 40
+    value: 20
   - type: 2
     value: 400
   - type: 3
@@ -646,7 +646,7 @@ MonoBehaviour:
   - type: 3
     value: 300
   - type: 4
-    value: 60
+    value: 20
   costUpgrade1:
   - type: 2
     value: 400
@@ -706,6 +706,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  dead: 0
 --- !u!58 &5236776939176141849
 CircleCollider2D:
   m_ObjectHideFlags: 0

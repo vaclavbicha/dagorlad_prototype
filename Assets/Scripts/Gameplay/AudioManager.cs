@@ -50,6 +50,7 @@ public class AudioManager : MonoBehaviour
     {
         volume -= 80;
         audioMixer.SetFloat("Music", volume);
+
     }
     public void SetSFXVolume(float volume)
     {

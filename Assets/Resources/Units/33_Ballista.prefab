@@ -748,7 +748,7 @@ MonoBehaviour:
   - type: 3
     value: 200
   - type: 4
-    value: 30
+    value: 20
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
