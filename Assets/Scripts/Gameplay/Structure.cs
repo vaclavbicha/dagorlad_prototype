@@ -9,6 +9,8 @@ public class Structure : MonoBehaviour
     public Sprite scrollIcon;
     public Sprite Flag1;
     public Sprite Flag3;
+    public Sprite ButtonIcon1;
+    public Sprite ButtonIcon3;
     public RuntimeAnimatorController FlagController1;
     public RuntimeAnimatorController FlagController3;
     public Sprite InfoSprite;

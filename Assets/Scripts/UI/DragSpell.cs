@@ -50,6 +50,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         }
         else
         {
+            Camera.main.GetComponent<MoveTo>().Lock = false;
             UIManager.Instance.DialogWindow("NOT ENOUGH MANA!");
         }
     }

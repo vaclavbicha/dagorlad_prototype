@@ -447,8 +447,9 @@ public class MapLocation : MonoBehaviour
                     itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.scrollIcon;
                     break;
                 case Utility.LocationType.Attack:
-                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = UIManager.Instance.currentBaseID == 3 ? buttonIcon?.Flag3 : buttonIcon?.Flag1;
+                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = UIManager.Instance.currentBaseID == 3 ? buttonIcon?.ButtonIcon3 : buttonIcon?.ButtonIcon1;
                     itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                    itemManager.mid.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
                     itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.scrollIcon;
                     //itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     //EX DRAGDROP.cs
@@ -472,6 +473,32 @@ public class MapLocation : MonoBehaviour
                     //itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     break;
             }
+        }
+        if (status == Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID && buttonIcon.locationType == Utility.LocationType.Attack &&
+            building.GetComponent<Structure>().level >= 0)
+        {
+            Debug.Log("ASDASDASDASFSAA !!!!!!");
+            itemManager.building = building.GetComponent<Structure>();
+
+            itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
+            Color fillingColor = new Color(0, 0, 0);
+            switch (itemManager.building.level)
+            {
+                case 0:
+                    ColorUtility.TryParseHtmlString("#646D6F", out fillingColor);
+                    break;
+                case 1:
+                    ColorUtility.TryParseHtmlString("#7ECFEC", out fillingColor);
+                    break;
+                case 2:
+                    ColorUtility.TryParseHtmlString("#ECB136", out fillingColor);
+                    break;
+            }
+            itemManager.mid.transform.GetChild(0).GetComponent<Image>().color = fillingColor;
+            itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = UIManager.Instance.currentBaseID == 3 ? buttonIcon?.ButtonIcon3 : buttonIcon?.ButtonIcon1;
+            itemManager.mid.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+            itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            itemManager.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
         }
     }
     public void DestroyBuilding()

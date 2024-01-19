@@ -7,6 +7,7 @@ public class Resource : MonoBehaviour
     public Amount amount;
     public Sprite icon;
     public int currentProduction;
+    float sceneStartTime;
 
     public UpdateIconText display;
 
@@ -20,12 +21,13 @@ public class Resource : MonoBehaviour
             display.Icon.sprite = icon;
             On_AmountUpdate += display.UpdateDisplay;
         }
+        sceneStartTime = Time.time;
     }
     public void Update()
     {
         if (amount.type == Utility.ResourceTypes.Time)
         {
-            AmountUpdateWithText(Mathf.FloorToInt(Time.time));
+            AmountUpdateWithText(Mathf.FloorToInt(Time.time - sceneStartTime));
         }
     }
     public void AmountUpdate(int value)
