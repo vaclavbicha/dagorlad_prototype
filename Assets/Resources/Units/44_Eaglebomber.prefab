@@ -742,7 +742,7 @@ MonoBehaviour:
   minimumBuildingTier: 2
   cost:
   - type: 1
-    value: 10
+    value: 5
   - type: 2
     value: 300
   - type: 3

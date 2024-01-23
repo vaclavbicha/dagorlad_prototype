@@ -885,7 +885,7 @@ MonoBehaviour:
   owner: 
   stats:
   - type: 0
-    value: 1
+    value: 1.2
     valueMAX: 0
   - type: 1
     value: 100

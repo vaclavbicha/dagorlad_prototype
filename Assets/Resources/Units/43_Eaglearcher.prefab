@@ -569,7 +569,7 @@ MonoBehaviour:
   minimumBuildingTier: 1
   cost:
   - type: 1
-    value: 5
+    value: 4
   - type: 2
     value: 300
   - type: 3

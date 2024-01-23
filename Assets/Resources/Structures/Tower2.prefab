@@ -197,8 +197,8 @@ Transform:
   m_GameObject: {fileID: 3837748344538438749}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.049999952, y: -0.49000025, z: 0}
-  m_LocalScale: {x: 1.6999999, y: 1.6999999, z: 1}
+  m_LocalPosition: {x: 0.05, y: -0.49, z: 0}
+  m_LocalScale: {x: 2.6009998, y: 2.6009998, z: 1.5298}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3378753580793070684}
@@ -281,7 +281,7 @@ Transform:
   m_GameObject: {fileID: 4033683136033988678}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1434405, y: 0.012103558, z: 0}
+  m_LocalPosition: {x: -0.23, y: -0.47, z: 0}
   m_LocalScale: {x: 21.53088, y: 21.53088, z: 1.34661}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -534,6 +534,8 @@ MonoBehaviour:
   scrollIcon: {fileID: 1527388578, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   Flag1: {fileID: 0}
   Flag3: {fileID: 0}
+  ButtonIcon1: {fileID: 0}
+  ButtonIcon3: {fileID: 0}
   FlagController1: {fileID: 0}
   FlagController3: {fileID: 0}
   InfoSprite: {fileID: 0}
@@ -545,7 +547,7 @@ MonoBehaviour:
   - type: 4
     value: 10
   - type: 2
-    value: 200
+    value: 150
   - type: 3
     value: 100
   production:
@@ -558,18 +560,18 @@ MonoBehaviour:
   level: -2
   costUpgrade0:
   - type: 2
-    value: 100
+    value: 150
   - type: 3
     value: 100
   - type: 4
     value: 10
   costUpgrade1:
   - type: 2
-    value: 200
+    value: 150
   - type: 3
-    value: 200
+    value: 100
   - type: 4
-    value: 60
+    value: 10
 --- !u!114 &4287881081027130642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,8 +747,8 @@ Transform:
   m_GameObject: {fileID: 9025668814943251969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05000019, y: -0.49000025, z: 0}
-  m_LocalScale: {x: 1.6999999, y: 1.6999999, z: 1}
+  m_LocalPosition: {x: 0.05000019, y: -0.49, z: 0}
+  m_LocalScale: {x: 2.6009998, y: 2.6009998, z: 1.5298}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3378753580793070684}

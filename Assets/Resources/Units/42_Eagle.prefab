@@ -737,7 +737,7 @@ MonoBehaviour:
   InfoSprite: {fileID: 0}
   type: 3
   status: 2
-  minimumBuildingTier: 2
+  minimumBuildingTier: 1
   cost:
   - type: 1
     value: 3

@@ -618,8 +618,10 @@ MonoBehaviour:
   scrollIcon: {fileID: 21300000, guid: d26570e5ff106e2499d16cf236bc0696, type: 3}
   Flag1: {fileID: 1320893472, guid: c59131a52dd458a43b2b7f8ef020586f, type: 3}
   Flag3: {fileID: 1102948299, guid: f04681e4001bd7842b7ffd9530342899, type: 3}
-  FlagController1: {fileID: 0}
-  FlagController3: {fileID: 0}
+  ButtonIcon1: {fileID: 1320893472, guid: e22009cb4011a4d8abd5211034c3bf70, type: 3}
+  ButtonIcon3: {fileID: 1102948299, guid: 8b15b315001a3f44fa70311eabd1ab2c, type: 3}
+  FlagController1: {fileID: 9100000, guid: 8da5a5f5e60b2594c8c5106ce1b30b25, type: 2}
+  FlagController3: {fileID: 9100000, guid: 0e5fcf7108b9d5f43a1c372b75aca410, type: 2}
   InfoSprite: {fileID: 0}
   buildingSprite: {fileID: 21300000, guid: 0be6f32ed7abc58408a0e43ec201817c, type: 3}
   locationType: 1
@@ -642,18 +644,18 @@ MonoBehaviour:
   level: -2
   costUpgrade0:
   - type: 2
-    value: 300
+    value: 200
   - type: 3
-    value: 300
+    value: 200
   - type: 4
     value: 15
   costUpgrade1:
   - type: 2
-    value: 40
+    value: 200
   - type: 3
-    value: 400
+    value: 200
   - type: 4
-    value: 90
+    value: 15
 --- !u!114 &-8158935630553139024
 MonoBehaviour:
   m_ObjectHideFlags: 0

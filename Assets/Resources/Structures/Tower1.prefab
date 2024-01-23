@@ -197,8 +197,8 @@ Transform:
   m_GameObject: {fileID: 2659273151340506520}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47, y: 0.2, z: 0}
-  m_LocalScale: {x: 29.497305, y: 29.497305, z: 1.845125}
+  m_LocalPosition: {x: -0.59, y: 0.28, z: 0}
+  m_LocalScale: {x: 47.225185, y: 47.225185, z: 1.845125}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3378753580793070684}
@@ -618,6 +618,8 @@ MonoBehaviour:
   scrollIcon: {fileID: -1549364416, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   Flag1: {fileID: 0}
   Flag3: {fileID: 0}
+  ButtonIcon1: {fileID: 0}
+  ButtonIcon3: {fileID: 0}
   FlagController1: {fileID: 0}
   FlagController3: {fileID: 0}
   InfoSprite: {fileID: 0}
@@ -627,9 +629,9 @@ MonoBehaviour:
   upgradeType: 0
   cost:
   - type: 4
-    value: 5
+    value: 10
   - type: 2
-    value: 200
+    value: 100
   - type: 3
     value: 50
   production:
@@ -644,16 +646,16 @@ MonoBehaviour:
   - type: 2
     value: 100
   - type: 3
-    value: 100
+    value: 50
   - type: 4
-    value: 5
+    value: 10
   costUpgrade1:
   - type: 2
-    value: 200
+    value: 100
   - type: 3
-    value: 200
+    value: 50
   - type: 4
-    value: 60
+    value: 10
 --- !u!114 &-7592410850552709592
 MonoBehaviour:
   m_ObjectHideFlags: 0

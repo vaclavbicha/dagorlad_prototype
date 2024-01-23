@@ -739,7 +739,7 @@ MonoBehaviour:
   InfoSprite: {fileID: 0}
   type: 2
   status: 2
-  minimumBuildingTier: 2
+  minimumBuildingTier: 1
   cost:
   - type: 1
     value: 5
@@ -748,7 +748,7 @@ MonoBehaviour:
   - type: 3
     value: 200
   - type: 4
-    value: 20
+    value: 12
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}

@@ -653,7 +653,7 @@ MonoBehaviour:
   InfoSprite: {fileID: 0}
   type: 2
   status: 2
-  minimumBuildingTier: 0
+  minimumBuildingTier: 1
   cost:
   - type: 1
     value: 2

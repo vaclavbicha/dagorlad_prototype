@@ -618,6 +618,8 @@ MonoBehaviour:
   scrollIcon: {fileID: -1001635048, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   Flag1: {fileID: 0}
   Flag3: {fileID: 0}
+  ButtonIcon1: {fileID: 0}
+  ButtonIcon3: {fileID: 0}
   FlagController1: {fileID: 0}
   FlagController3: {fileID: 0}
   InfoSprite: {fileID: 0}
@@ -646,14 +648,14 @@ MonoBehaviour:
   - type: 3
     value: 100
   - type: 4
-    value: 5
+    value: 10
   costUpgrade1:
   - type: 2
-    value: 200
+    value: 100
   - type: 3
-    value: 200
+    value: 100
   - type: 4
-    value: 60
+    value: 10
 --- !u!114 &6983162763151982436
 MonoBehaviour:
   m_ObjectHideFlags: 0
