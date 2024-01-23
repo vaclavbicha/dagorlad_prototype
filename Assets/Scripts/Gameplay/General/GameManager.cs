@@ -92,7 +92,8 @@ public class GameManager : MonoBehaviour
     public void ItemBuy(string itemName, MapLocation location)
     {
         Debug.Log("Item bought with name:" + itemName);
-        if(buildings.Find(x => x.buildingName == itemName) != null)
+        GetComponent<AudioManager>().Play("item_buy");
+        if (buildings.Find(x => x.buildingName == itemName) != null)
         {
             var itemPrefab = buildings.Find(x => x.buildingName == itemName);
             SpawnBuilding(itemName, location, itemPrefab);

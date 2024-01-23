@@ -18523,6 +18523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Column_v2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2188283518653924812, guid: c132891d5ef074bac9f8bcdf6550127f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2315042466597230151, guid: c132891d5ef074bac9f8bcdf6550127f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -25573,6 +25577,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Column_v2
       objectReference: {fileID: 0}
+    - target: {fileID: 2188283518653924812, guid: c132891d5ef074bac9f8bcdf6550127f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2315042466597230151, guid: c132891d5ef074bac9f8bcdf6550127f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -29694,6 +29702,12 @@ MonoBehaviour:
   - name: Reveal_On_SpellStart
     clip: {fileID: 8300000, guid: f08da9aca60374dd4a405c08f074d4d4, type: 3}
     OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: item_buy
+    clip: {fileID: 8300000, guid: 68d3655a2d1d8464abe0c1668fcd80be, type: 3}
+    OutputMixer: {fileID: 7669016411133074392, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
     volume: 1
     pitch: 1
     loop: 0
