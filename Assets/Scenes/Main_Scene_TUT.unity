@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1331455527}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OnBaseSwitch
         m_Mode: 3
@@ -2945,6 +2945,7 @@ GameObject:
   - component: {fileID: 187147254}
   - component: {fileID: 187147256}
   - component: {fileID: 187147255}
+  - component: {fileID: 187147257}
   m_Layer: 5
   m_Name: Tutorial_Step_19
   m_TagString: Untagged
@@ -3010,6 +3011,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187147253}
   m_CullTransparentMesh: 1
+--- !u!114 &187147257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187147253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: c511ed243df3a4c1b878523cbc6096c5, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 812402929}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 812402928}
+          m_TargetAssemblyTypeName: TimeLinePausePlay, Assembly-CSharp
+          m_MethodName: ListenForNextAction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &188330496
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,7 +3135,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1331455527}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OnCloseBuildingWindow
         m_Mode: 1
@@ -11178,6 +11221,7 @@ GameObject:
   - component: {fileID: 486533825}
   - component: {fileID: 486533827}
   - component: {fileID: 486533826}
+  - component: {fileID: 486533828}
   m_Layer: 5
   m_Name: Tutorial_Step_20
   m_TagString: Untagged
@@ -11244,6 +11288,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486533824}
   m_CullTransparentMesh: 1
+--- !u!114 &486533828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486533824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: c511ed243df3a4c1b878523cbc6096c5, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 812402929}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 812402928}
+          m_TargetAssemblyTypeName: TimeLinePausePlay, Assembly-CSharp
+          m_MethodName: ListenForNextAction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &507142267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21520,6 +21606,7 @@ GameObject:
   - component: {fileID: 991697005}
   - component: {fileID: 991697007}
   - component: {fileID: 991697006}
+  - component: {fileID: 991697008}
   m_Layer: 5
   m_Name: Tutorial_Step_16
   m_TagString: Untagged
@@ -21585,6 +21672,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991697004}
   m_CullTransparentMesh: 1
+--- !u!114 &991697008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991697004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: c511ed243df3a4c1b878523cbc6096c5, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 812402929}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 812402928}
+          m_TargetAssemblyTypeName: TimeLinePausePlay, Assembly-CSharp
+          m_MethodName: ListenForNextAction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &994761192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5841863077411007637, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
@@ -21703,17 +21832,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6583010261181356295, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
   m_PrefabInstance: {fileID: 1000330866}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1000330870 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5661326760009954396, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
-  m_PrefabInstance: {fileID: 1000330866}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32a87ffff49c4ca4859f27e68c85cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1011449340
 GameObject:
   m_ObjectHideFlags: 0
@@ -26738,17 +26856,6 @@ MonoBehaviour:
   flagEnter: 0
   stayPeriodToUnlock: 0
   isLocked: 1
---- !u!114 &1176102739 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5661326760009954396, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
-  m_PrefabInstance: {fileID: 9366329}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32a87ffff49c4ca4859f27e68c85cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1176374699
 GameObject:
   m_ObjectHideFlags: 0
@@ -27821,7 +27928,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1331455527}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OnBaseSwitch
         m_Mode: 3
@@ -29595,7 +29702,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1331455527}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OnBaseSwitch
         m_Mode: 3
@@ -29661,311 +29768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3266c1c8f8184d5ab0e883fdcfcda6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1320947432 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5661326760009954396, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
-  m_PrefabInstance: {fileID: 882399997}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32a87ffff49c4ca4859f27e68c85cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1331455524
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1331455526}
-  - component: {fileID: 1331455525}
-  - component: {fileID: 1331455527}
-  - component: {fileID: 1331455528}
-  - component: {fileID: 1331455529}
-  m_Layer: 0
-  m_Name: Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1331455525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331455524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c816d7ec3289742f2b93c9210873c8d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapRenderer: {fileID: 269567491}
-  drag: 0
-  isOverFlag: 0
-  currentRallyPoint: {fileID: 0}
-  clickedMapLocation: {fileID: 0}
-  dragFlag: 0
-  holdTimerClickedMapLocation: 0.5
-  lastclickedTimer: 0
-  timesClicked: 0
---- !u!4 &1331455526
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331455524}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1383456608}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1331455527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331455524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e7abb226f2dd45659589cb08f061e35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentBaseID: 0
-  toggleGroupBases: {fileID: 1011449345}
-  baseBorder: {fileID: 426051086}
-  borderColors:
-  - serializedVersion: 2
-    rgba: 4290200345
-  - serializedVersion: 2
-    rgba: 4291977485
-  - serializedVersion: 2
-    rgba: 4293491212
-  toggleGroupStructureTypes: {fileID: 1745830694}
-  window: {fileID: 2142718647}
-  currentSelected: {fileID: 0}
-  dialogWindow: {fileID: 1470736847}
-  dialogWindowYesNo: {fileID: 931094540}
-  MiniMap: {fileID: 1457468477}
-  MiniMapCamera: {fileID: 85297968}
-  bottomPanelContent: {fileID: 835278034}
-  bottomPanelButtons:
-  - {fileID: 1691037733427416153, guid: 1abf92187dd39416e92bdf3c942e332a, type: 3}
-  - {fileID: 1691037733427416153, guid: 34dfa21646003402ebd167c3821bcbec, type: 3}
-  - {fileID: 1691037733427416153, guid: e5c11c313163841ffa8d5d5e56d5dc87, type: 3}
-  selectedRallyPoint: {fileID: 0}
-  selectedRallyPointButton: {fileID: 0}
-  leftTimer: {fileID: 0}
-  leftLoadingBar: {fileID: 7454949713393745740}
-  leftINDEX: 0
-  rightTimer: {fileID: 0}
-  rightLoadingBar: {fileID: 5191687187878877676}
-  rightINDEX: 0
-  winWindow: {fileID: 137620757}
---- !u!114 &1331455528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331455524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b5512dec99bd4b9fba78053db50e1e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bases:
-  - {fileID: 1173144451}
-  - {fileID: 1395942492}
-  - {fileID: 1520677507}
-  ALL_Locations: []
-  buildings: []
-  units: []
-  upgrades: []
-  infoSprites: []
-  resourceSprites: []
-  startingAmounts: 0a000000f4010000f4010000
-  secondsToFullLeftPanel: 180
-  secondsToFullRightPanel: 180
-  flagPrefab: {fileID: 3460786186202539531, guid: ddc0c51ec190a442c97aa2b57bf5d43a, type: 3}
-  enemies:
-  - {fileID: 8433495259003061507}
-  - {fileID: 1824147090}
-  - {fileID: 1776860234}
-  - {fileID: 1633861762}
-  - {fileID: 1000330870}
-  - {fileID: 0}
-  - {fileID: 1320947432}
-  - {fileID: 1176102739}
-  - {fileID: 1846122111}
---- !u!114 &1331455529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331455524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e358732a51964750a61768b9fe471db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-  sounds:
-  - name: ThemeSong
-    clip: {fileID: 8300000, guid: 63f309c2399565747aa5308752a0b323, type: 3}
-    OutputMixer: {fileID: -8809142662827895261, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 1
-  - name: 11_Grunt_attack
-    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 11_Grunt_death
-    clip: {fileID: 8300000, guid: c58f4b7e6cb6b3f438c78292ecabbc08, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 0.833
-    pitch: 1
-    loop: 0
-  - name: 11_Footman_attack
-    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 11_Footman_death
-    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 0.083
-    pitch: 1
-    loop: 0
-  - name: 13_Archer_attack
-    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 13_Archer_death
-    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 12_Knight_death
-    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 12_Knight_attack
-    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 14_Spearman_attack
-    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 14_Spearman_death
-    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 21_Wolfhound_attack
-    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 21_Wolfhound_death
-    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 22_Heavy_attack
-    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 22_Heavy_death
-    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 23_Archercavalary_attack
-    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 23_Archercavalary_death
-    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 24_Spearcavalary_attack
-    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: 24_Spearcavalary_death
-    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
-    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: Unit Speed_On_SpellStart
-    clip: {fileID: 8300000, guid: 1eae0f08735cd4a0da25c27af1fcf235, type: 3}
-    OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: Bloodlust_On_SpellStart
-    clip: {fileID: 8300000, guid: 3c39576eee27a4c4cafe953dbdd0da87, type: 3}
-    OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: Timing Bomb_On_SpellStart
-    clip: {fileID: 8300000, guid: 752874d70cd7352449c3d452db38d9ba, type: 3}
-    OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
-  - name: Heal_On_SpellStart
-    clip: {fileID: 8300000, guid: c6cf9556d7aad4a928eefa4507e63113, type: 3}
-    OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 0.6
-    pitch: 1
-    loop: 0
-  - name: Reveal_On_SpellStart
-    clip: {fileID: 8300000, guid: f08da9aca60374dd4a405c08f074d4d4, type: 3}
-    OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
-    volume: 1
-    pitch: 1
-    loop: 0
 --- !u!1 &1335671521
 GameObject:
   m_ObjectHideFlags: 0
@@ -30398,6 +30200,306 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356032951}
   m_CullTransparentMesh: 1
+--- !u!1 &1371024623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1371024628}
+  - component: {fileID: 1371024627}
+  - component: {fileID: 1371024626}
+  - component: {fileID: 1371024625}
+  - component: {fileID: 1371024624}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1371024624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371024623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e358732a51964750a61768b9fe471db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+  sounds:
+  - name: ThemeSong
+    clip: {fileID: 8300000, guid: 63f309c2399565747aa5308752a0b323, type: 3}
+    OutputMixer: {fileID: -8809142662827895261, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - name: 11_Grunt_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 11_Grunt_death
+    clip: {fileID: 8300000, guid: c58f4b7e6cb6b3f438c78292ecabbc08, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 0.833
+    pitch: 1
+    loop: 0
+  - name: 11_Footman_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 11_Footman_death
+    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 0.083
+    pitch: 1
+    loop: 0
+  - name: 13_Archer_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 13_Archer_death
+    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 12_Knight_death
+    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 12_Knight_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 14_Spearman_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 14_Spearman_death
+    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 21_Wolfhound_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 21_Wolfhound_death
+    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 22_Heavy_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 22_Heavy_death
+    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 23_Archercavalary_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 23_Archercavalary_death
+    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 24_Spearcavalary_attack
+    clip: {fileID: 8300000, guid: 42370cef071184bf9b703165f222d177, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: 24_Spearcavalary_death
+    clip: {fileID: 8300000, guid: ae47e7c927fc90c4db5df79ebe9f76d1, type: 3}
+    OutputMixer: {fileID: 921797336076699134, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Unit Speed_On_SpellStart
+    clip: {fileID: 8300000, guid: 1eae0f08735cd4a0da25c27af1fcf235, type: 3}
+    OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Bloodlust_On_SpellStart
+    clip: {fileID: 8300000, guid: 3c39576eee27a4c4cafe953dbdd0da87, type: 3}
+    OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Timing Bomb_On_SpellStart
+    clip: {fileID: 8300000, guid: 752874d70cd7352449c3d452db38d9ba, type: 3}
+    OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: Heal_On_SpellStart
+    clip: {fileID: 8300000, guid: c6cf9556d7aad4a928eefa4507e63113, type: 3}
+    OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+  - name: Reveal_On_SpellStart
+    clip: {fileID: 8300000, guid: f08da9aca60374dd4a405c08f074d4d4, type: 3}
+    OutputMixer: {fileID: 151845588972962015, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: item_buy
+    clip: {fileID: 8300000, guid: 68d3655a2d1d8464abe0c1668fcd80be, type: 3}
+    OutputMixer: {fileID: 7669016411133074392, guid: 67eeb3fdf268e4314b0a29f4ea84ba2d, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+--- !u!114 &1371024625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371024623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5512dec99bd4b9fba78053db50e1e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bases:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ALL_Locations: []
+  buildings: []
+  units: []
+  upgrades: []
+  infoSprites: []
+  resourceSprites: []
+  startingAmounts: 0a000000f4010000f4010000
+  secondsToFullLeftPanel: 180
+  secondsToFullRightPanel: 180
+  flagPrefab: {fileID: 3460786186202539531, guid: ddc0c51ec190a442c97aa2b57bf5d43a, type: 3}
+  enemies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &1371024626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371024623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7abb226f2dd45659589cb08f061e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentBaseID: 0
+  toggleGroupBases: {fileID: 0}
+  baseBorder: {fileID: 0}
+  borderColors:
+  - serializedVersion: 2
+    rgba: 4290200345
+  - serializedVersion: 2
+    rgba: 4291977485
+  - serializedVersion: 2
+    rgba: 4293491212
+  toggleGroupStructureTypes: {fileID: 0}
+  window: {fileID: 0}
+  currentSelected: {fileID: 0}
+  dialogWindow: {fileID: 0}
+  dialogWindowYesNo: {fileID: 0}
+  MiniMap: {fileID: 0}
+  MiniMapCamera: {fileID: 0}
+  bottomPanelContent: {fileID: 0}
+  bottomPanelButtons:
+  - {fileID: 1691037733427416153, guid: 1abf92187dd39416e92bdf3c942e332a, type: 3}
+  - {fileID: 1691037733427416153, guid: 34dfa21646003402ebd167c3821bcbec, type: 3}
+  - {fileID: 1691037733427416153, guid: e5c11c313163841ffa8d5d5e56d5dc87, type: 3}
+  selectedRallyPoint: {fileID: 0}
+  selectedRallyPointButton: {fileID: 0}
+  leftTimer: {fileID: 0}
+  leftLoadingBar: {fileID: 0}
+  leftINDEX: 0
+  rightTimer: {fileID: 0}
+  rightLoadingBar: {fileID: 0}
+  rightINDEX: 0
+  winWindow: {fileID: 0}
+--- !u!114 &1371024627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371024623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c816d7ec3289742f2b93c9210873c8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapRenderer: {fileID: 0}
+  drag: 0
+  isOverFlag: 0
+  currentRallyPoint: {fileID: 0}
+  clickedMapLocation: {fileID: 0}
+  dragFlag: 0
+  holdTimerClickedMapLocation: 0.5
+  lastclickedTimer: 0
+  timesClicked: 0
+--- !u!4 &1371024628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371024623}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1665569662}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1371514176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30582,37 +30684,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381914231}
   m_CullTransparentMesh: 0
---- !u!1 &1383456607
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1383456608}
-  m_Layer: 0
-  m_Name: AudioSources
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1383456608
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383456607}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1331455526}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1388176073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5841863077411007637, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
@@ -33280,7 +33351,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1331455527}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: TurnOnOffMiniMap
         m_Mode: 6
@@ -34609,13 +34680,14 @@ GameObject:
   - component: {fileID: 1611142900}
   - component: {fileID: 1611142902}
   - component: {fileID: 1611142901}
+  - component: {fileID: 1611142903}
   m_Layer: 5
   m_Name: Tutorial_Step_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1611142900
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34674,6 +34746,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611142899}
   m_CullTransparentMesh: 1
+--- !u!114 &1611142903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611142899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: c511ed243df3a4c1b878523cbc6096c5, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 812402929}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 812402928}
+          m_TargetAssemblyTypeName: TimeLinePausePlay, Assembly-CSharp
+          m_MethodName: ListenForNextAction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1614364517
 GameObject:
   m_ObjectHideFlags: 0
@@ -34757,7 +34871,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1331455527}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: TurnOnOffMiniMap
         m_Mode: 6
@@ -35409,17 +35523,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6583010261181356295, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
   m_PrefabInstance: {fileID: 962776405}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1633861762 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5661326760009954396, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
-  m_PrefabInstance: {fileID: 962776405}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32a87ffff49c4ca4859f27e68c85cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1640380876
 GameObject:
   m_ObjectHideFlags: 0
@@ -35843,6 +35946,37 @@ Transform:
   - {fileID: 1600578132}
   - {fileID: 423135053}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1665569661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1665569662}
+  m_Layer: 0
+  m_Name: AudioSources
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1665569662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665569661}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1371024628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1671527098
 GameObject:
@@ -36998,7 +37132,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1331455528}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: GoMenu
         m_Mode: 1
@@ -37679,17 +37813,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6583010261181356295, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
   m_PrefabInstance: {fileID: 1136936129}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1776860234 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5661326760009954396, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
-  m_PrefabInstance: {fileID: 1136936129}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32a87ffff49c4ca4859f27e68c85cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1784607445
 GameObject:
   m_ObjectHideFlags: 0
@@ -38296,17 +38419,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6583010261181356295, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
   m_PrefabInstance: {fileID: 41516836}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1824147090 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5661326760009954396, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
-  m_PrefabInstance: {fileID: 41516836}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32a87ffff49c4ca4859f27e68c85cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1840161071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38587,17 +38699,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6583010261181356295, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
   m_PrefabInstance: {fileID: 1551395543}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1846122111 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5661326760009954396, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
-  m_PrefabInstance: {fileID: 1551395543}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32a87ffff49c4ca4859f27e68c85cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1851247836
 GameObject:
   m_ObjectHideFlags: 0
@@ -39863,6 +39964,7 @@ GameObject:
   - component: {fileID: 1906633296}
   - component: {fileID: 1906633298}
   - component: {fileID: 1906633297}
+  - component: {fileID: 1906633299}
   m_Layer: 5
   m_Name: Tutorial_Step_18
   m_TagString: Untagged
@@ -39928,6 +40030,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906633295}
   m_CullTransparentMesh: 1
+--- !u!114 &1906633299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906633295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: c511ed243df3a4c1b878523cbc6096c5, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 812402929}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 812402928}
+          m_TargetAssemblyTypeName: TimeLinePausePlay, Assembly-CSharp
+          m_MethodName: ListenForNextAction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1912454097
 GameObject:
   m_ObjectHideFlags: 0
@@ -43729,7 +43873,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1331455527}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OnCloseBuildingWindow
         m_Mode: 1
@@ -45080,33 +45224,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5215164833740434016, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}
   m_PrefabInstance: {fileID: 4748758796007376223}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5191687187878877676 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3448673037617845560, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
-  m_PrefabInstance: {fileID: 8973648033011215103}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &5191687187878877677 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2280489336369112096, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
   m_PrefabInstance: {fileID: 8973648033011215103}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7454949713393745740 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1312550558397715347, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
-  m_PrefabInstance: {fileID: 857147865769614969}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &7454949713393745741 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2472147322381558411, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
@@ -45117,17 +45239,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6583010261181356295, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
   m_PrefabInstance: {fileID: 1975726069749263339}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8433495259003061507 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5661326760009954396, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
-  m_PrefabInstance: {fileID: 1975726069749263339}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32a87ffff49c4ca4859f27e68c85cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &8481088697168732627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46088,7 +46199,7 @@ SceneRoots:
   - {fileID: 2043815353}
   - {fileID: 785693800}
   - {fileID: 432965537}
-  - {fileID: 1331455526}
+  - {fileID: 1371024628}
   - {fileID: 638655601}
   - {fileID: 519420032}
   - {fileID: 85297969}
