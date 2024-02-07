@@ -330,6 +330,6 @@ public class OurUnit : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         attackid++;
-        if(currentTarget != null) Attack(currentTarget.gameObject);
+        if(currentTarget != null && status != Utility.UnitStatus.Dead) Attack(currentTarget.gameObject);
     }
 }
