@@ -490,7 +490,7 @@ MonoBehaviour:
   - type: 3
     value: 100
   - type: 4
-    value: 5
+    value: 1
   attackRange: 0.6
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
@@ -509,7 +509,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6567885676609635861}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
