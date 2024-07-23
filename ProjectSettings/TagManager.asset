@@ -24,7 +24,7 @@ TagManager:
   - MapLocation
   - FogOfWarMain
   - FogOfWarSecondary
-  - 
+  - Cliffs
   - 
   - 
   - 
@@ -57,4 +57,10 @@ TagManager:
     locked: 0
   - name: MainCanvas
     uniqueID: 3817598797
+    locked: 0
+  - name: Front
+    uniqueID: 1176651833
+    locked: 0
+  - name: Minimap
+    uniqueID: 2162394421
     locked: 0

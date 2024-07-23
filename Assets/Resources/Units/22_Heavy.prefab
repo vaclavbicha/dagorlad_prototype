@@ -364,8 +364,8 @@ Transform:
   m_GameObject: {fileID: 3586981167644937890}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0035, y: 0.6331, z: 0}
-  m_LocalScale: {x: 0.12563725, y: 0.11653897, z: 1}
+  m_LocalPosition: {x: -0.0162, y: 0.6331, z: 0}
+  m_LocalScale: {x: 0.12066201, y: 0.11653897, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2461845383180301310}
@@ -628,7 +628,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.14413989, y: -1.8769741, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.52, y: 0.52, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8015612892485518698}
@@ -748,7 +748,7 @@ MonoBehaviour:
   - type: 3
     value: 250
   - type: 4
-    value: 12
+    value: 10
   attackRange: 0.5
   home: {fileID: 0}
   Rally_Point: {fileID: 0}

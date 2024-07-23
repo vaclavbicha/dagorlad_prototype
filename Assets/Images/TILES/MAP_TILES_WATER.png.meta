@@ -1,0 +1,1972 @@
+fileFormatVersion: 2
+guid: a8af62d3111cdde4c8d71a28413aca67
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 64, y: 69}
+        - {x: -4, y: 24}
+        - {x: -30, y: -41}
+        - {x: -62, y: -71}
+        - {x: -49, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 70}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8df799ac485a6343835d49b7cb74cfb
+      internalID: 2045178877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 78, y: 50}
+        - {x: 37, y: 64}
+        - {x: -49, y: 87}
+        - {x: -128, y: 68}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 64}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84253b9c82341d5408c80e37f6695397
+      internalID: 899601007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 69, y: 84}
+        - {x: -13, y: 95}
+        - {x: -87, y: 99}
+        - {x: -128, y: 68}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 64}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c3dab45d1284347b08c98fce2db953
+      internalID: 545021242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 58, y: 80}
+        - {x: -7, y: 68}
+        - {x: -75, y: 62}
+        - {x: -128, y: 68}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 64}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc185685e1a5e4439e882350b92c711
+      internalID: -1647807508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -108, y: 83}
+        - {x: -128, y: 72}
+        - {x: -128, y: -128}
+        - {x: -76, y: -128}
+        - {x: -75, y: 115}
+        - {x: -99, y: 114}
+      - - {x: 80, y: -128}
+        - {x: 80, y: 115}
+        - {x: 104, y: 114}
+        - {x: 113, y: 84}
+        - {x: 128, y: 66}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc5b0acf5ceca8e428e88cbe3e9e0480
+      internalID: -1947901627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 75}
+        - {x: -128, y: -128}
+        - {x: 39, y: -128}
+        - {x: 34, y: -69}
+        - {x: -71, y: 64}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57e5e436bed0d144b9ebf58fc468743
+      internalID: -1002398242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 60, y: 22}
+        - {x: 36, y: -38}
+        - {x: 3, y: -85}
+        - {x: -36, y: -106}
+        - {x: -46, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 55}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86fedb874db3e7443858cedcac92b897
+      internalID: 1645555945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 52}
+        - {x: -128, y: -128}
+        - {x: 35, y: -128}
+        - {x: 69, y: -78}
+        - {x: 23, y: -68}
+        - {x: -59, y: 26}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aae41a61666d874d920d4ab31f67117
+      internalID: -335041617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: -55, y: -128}
+        - {x: -69, y: -78}
+        - {x: -56, y: -37}
+        - {x: -64, y: 11}
+        - {x: -49, y: 51}
+        - {x: -39, y: 95}
+        - {x: -52, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7eff61f9358c794ea701ecb1cdc19bd
+      internalID: -2070733279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 37, y: -128}
+        - {x: 65, y: -104}
+        - {x: 108, y: -40}
+        - {x: 99, y: 5}
+        - {x: 128, y: 11}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: abbe5d64d50f6b04c9a0cd3d618d5d3d
+      internalID: 1356601829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: 15}
+        - {x: -101, y: -27}
+        - {x: -54, y: -42}
+        - {x: -31, y: -79}
+        - {x: -34, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ceaecc94148c54469227ec386c5ac60
+      internalID: -326981851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 39, y: -128}
+        - {x: 48, y: -11}
+        - {x: 128, y: 16}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b1be00d35fbe9545bd80afcd5ca50da
+      internalID: 487699885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: 14}
+        - {x: -89, y: 2}
+        - {x: -56, y: -27}
+        - {x: -38, y: -83}
+        - {x: -45, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e1b747d178414f4f9cbe0189a3602f0
+      internalID: -389551472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_13
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 34, y: 128}
+        - {x: 49, y: 71}
+        - {x: 24, y: -3}
+        - {x: 41, y: -63}
+        - {x: 34, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a133f344427c94f9181b0500be6517
+      internalID: 343027499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -49, y: 128}
+        - {x: 4, y: 101}
+        - {x: 45, y: 86}
+        - {x: 77, y: 39}
+        - {x: 128, y: 18}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db4a14abd204cc4180ad62b33838494
+      internalID: 1355687976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_15
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: 16}
+        - {x: -76, y: 55}
+        - {x: -38, y: 72}
+        - {x: -24, y: 106}
+        - {x: 28, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c6462acca90c640a0d3d6ff13ab02f
+      internalID: -1427667112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: -55, y: -128}
+        - {x: -33, y: -89}
+        - {x: -65, y: -69}
+        - {x: -69, y: -38}
+        - {x: -70, y: 11}
+        - {x: -60, y: 54}
+        - {x: -63, y: 104}
+        - {x: -52, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ae21dd37df6834b82c9dbe3526e22e
+      internalID: 1508394987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 36, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 63}
+        - {x: 88, y: 95}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7383b37056553b840b08fd654b97c7fd
+      internalID: 1081298458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -53, y: 128}
+        - {x: -94, y: 95}
+        - {x: -128, y: 70}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96784a96ca64d7a4fbb6a32d98f453aa
+      internalID: -1739519269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 37, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 65}
+        - {x: 59, y: 81}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785526c495b3c4a4388f726166f4f332
+      internalID: 1411289635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_20
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -57, y: 128}
+        - {x: -77, y: 86}
+        - {x: -100, y: 71}
+        - {x: -128, y: 68}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd990cc8474836c44a7f8a96b4af31ff
+      internalID: -664764313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_21
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 34, y: 128}
+        - {x: 58, y: 93}
+        - {x: 47, y: -28}
+        - {x: 49, y: -75}
+        - {x: 34, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a952534636975f04a8000fd09e114614
+      internalID: 1602363106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: 22}
+        - {x: -43, y: 6}
+        - {x: 50, y: 99}
+        - {x: 25, y: 128}
+      - - {x: -46, y: -128}
+        - {x: -67, y: -70}
+        - {x: -25, y: -42}
+        - {x: -23, y: -6}
+        - {x: 36, y: 46}
+        - {x: 78, y: 68}
+        - {x: 128, y: 78}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b0136ba5b888dc489ec139339ca20b9
+      internalID: 675256888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_23
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -52, y: 128}
+        - {x: -20, y: 85}
+        - {x: 22, y: 42}
+        - {x: 82, y: 0}
+        - {x: 128, y: 13}
+        - {x: 128, y: 128}
+      - - {x: -128, y: -128}
+        - {x: -128, y: 64}
+        - {x: -69, y: 59}
+        - {x: -21, y: 2}
+        - {x: 32, y: -64}
+        - {x: 39, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f76a03432ae2543a0f9aab7b073c07
+      internalID: 592199839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -105, y: 128}
+        - {x: -99, y: 90}
+        - {x: 128, y: 96}
+        - {x: 128, y: 128}
+      - - {x: -50, y: -128}
+        - {x: -69, y: -104}
+        - {x: -100, y: -84}
+        - {x: -101, y: -58}
+        - {x: 128, y: -63}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5033a5118c9665a41bef643ee87c8b0c
+      internalID: 598167802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: 95}
+        - {x: 128, y: 94}
+        - {x: 128, y: 128}
+      - - {x: -128, y: -128}
+        - {x: -128, y: -64}
+        - {x: 128, y: -62}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8045b256c589f684486f73c0c2c0565f
+      internalID: 1624140684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 35, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: 16}
+        - {x: -105, y: -22}
+        - {x: -61, y: -38}
+        - {x: -29, y: -72}
+        - {x: -24, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 66}
+        - {x: 81, y: 95}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74fb2f25781faf44adba616a39f3a95
+      internalID: 1355545492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_27
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -53, y: 128}
+        - {x: -93, y: 100}
+        - {x: -106, y: 76}
+        - {x: -128, y: 65}
+        - {x: -128, y: -128}
+        - {x: 39, y: -128}
+        - {x: 53, y: -103}
+        - {x: 85, y: -82}
+        - {x: 98, y: -45}
+        - {x: 92, y: -11}
+        - {x: 106, y: 9}
+        - {x: 128, y: 21}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d112d0055dfaf74dacaaf4e83b4ede4
+      internalID: -1733453319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_28
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: 95}
+        - {x: -78, y: 94}
+        - {x: -78, y: 128}
+      - - {x: 83, y: 90}
+        - {x: 81, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: 91}
+      - - {x: 80, y: -128}
+        - {x: 75, y: -61}
+        - {x: 128, y: -60}
+        - {x: 128, y: -128}
+      - - {x: -128, y: -128}
+        - {x: -128, y: -59}
+        - {x: -76, y: -59}
+        - {x: -77, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a70268d459a384b889dc05411d7df7
+      internalID: 1637644889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_29
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: 93}
+        - {x: 101, y: 92}
+        - {x: 102, y: 128}
+      - - {x: 46, y: -128}
+        - {x: -128, y: -128}
+        - {x: -128, y: -59}
+        - {x: 97, y: -60}
+        - {x: 97, y: -89}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cca2fc5b36ebe94eb465fd88b31403f
+      internalID: 963759608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -57, y: 128}
+        - {x: -11, y: 103}
+        - {x: 50, y: 87}
+        - {x: 86, y: 41}
+        - {x: 128, y: 17}
+        - {x: 128, y: 128}
+      - - {x: -128, y: -128}
+        - {x: -128, y: 67}
+        - {x: -75, y: 38}
+        - {x: -27, y: 21}
+        - {x: -6, y: -38}
+        - {x: 40, y: -81}
+        - {x: 39, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: addcaac2c2351d646ad12e85b338a4ca
+      internalID: -1095043909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_31
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: 28}
+        - {x: -99, y: 32}
+        - {x: -61, y: 67}
+        - {x: -15, y: 98}
+        - {x: 17, y: 128}
+      - - {x: -42, y: -128}
+        - {x: -12, y: -84}
+        - {x: 55, y: -31}
+        - {x: 60, y: 14}
+        - {x: 128, y: 54}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3bd6de68104d4b4ca85f39248dba483
+      internalID: 1707304460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: -55, y: -128}
+        - {x: -53, y: -84}
+        - {x: -53, y: -46}
+        - {x: -71, y: 14}
+        - {x: -61, y: 52}
+        - {x: -61, y: 92}
+        - {x: -52, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c4b53656da0bb245a0283968aa8a81f
+      internalID: 450660045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_33
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91abe8deda7f9a54982b200f9921e6c5
+      internalID: 685718484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -59, y: 128}
+        - {x: -63, y: 108}
+        - {x: -82, y: 90}
+        - {x: -102, y: 75}
+        - {x: -128, y: 69}
+        - {x: -128, y: -128}
+        - {x: 34, y: -128}
+        - {x: 47, y: -83}
+        - {x: 50, y: -22}
+        - {x: 82, y: 2}
+        - {x: 128, y: 12}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c41881eadb8704a89a19e9a1f53155
+      internalID: 193151458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_35
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 36, y: 107}
+        - {x: 36, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: 19}
+        - {x: -86, y: 11}
+        - {x: -54, y: -30}
+        - {x: -30, y: -87}
+        - {x: -42, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 70}
+        - {x: 94, y: 69}
+        - {x: 52, y: 80}
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6206d332d152148a57220e236b4a07
+      internalID: 1383755120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_36
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: -77, y: -128}
+        - {x: -77, y: 128}
+      - - {x: 79, y: -128}
+        - {x: 79, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa9aad107e75eb4eb158423ec3550b6
+      internalID: 415004503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_37
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 34, y: 128}
+        - {x: 49, y: 73}
+        - {x: 36, y: -7}
+        - {x: 41, y: -63}
+        - {x: 34, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d108fc394a0e2154a997a0ffe6a35a9c
+      internalID: 328316841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_38
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4869f881d0d10d4f8c0697b40359b03
+      internalID: 380305009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_39
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d1a2f9eb1abab3409c391820ed2fc1b
+      internalID: -191143104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -48, y: 128}
+        - {x: -35, y: 91}
+        - {x: 0, y: 52}
+        - {x: 41, y: 12}
+        - {x: 91, y: -8}
+        - {x: 128, y: 6}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 366fee8bfd3daff44b3d90918c8cf8b1
+      internalID: 681334676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_41
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 79, y: -2}
+        - {x: 38, y: 6}
+        - {x: -8, y: -4}
+        - {x: -41, y: -7}
+        - {x: -73, y: 0}
+        - {x: -128, y: 10}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 10}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d26df37babc1374bbccfe8bbe168eba
+      internalID: -700103070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_42
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 79, y: -2}
+        - {x: 22, y: 0}
+        - {x: -21, y: 9}
+        - {x: -57, y: 2}
+        - {x: -93, y: 16}
+        - {x: -128, y: 10}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 10}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3850d5303c0c5864dae830e2536b5001
+      internalID: -1722263216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_43
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 107, y: 4}
+        - {x: 83, y: -31}
+        - {x: 22, y: -31}
+        - {x: -35, y: 0}
+        - {x: -77, y: 9}
+        - {x: -128, y: 10}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 10}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e86311f5777aaa64cba77db52dbe0874
+      internalID: 1110761967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_44
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: 15}
+        - {x: -109, y: 0}
+        - {x: -99, y: -23}
+        - {x: -74, y: -18}
+        - {x: -77, y: 128}
+      - - {x: 111, y: 4}
+        - {x: 103, y: -25}
+        - {x: 75, y: -23}
+        - {x: 81, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: 18}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe56b89ecbecd3429f8fc32fe0faab4
+      internalID: 1979804417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_45
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 41, y: 128}
+        - {x: 59, y: 104}
+        - {x: 34, y: 70}
+        - {x: -3, y: 47}
+        - {x: -39, y: 7}
+        - {x: -128, y: 10}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0444254abb7b3cd4ba433f21cb110200
+      internalID: -730885320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_46
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3db596be45a53034287e41f96b817901
+      internalID: -1737721481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_47
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8200215c177e647b156feda77d920d
+      internalID: -1331932128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff01dc0f40fe64d448f0fc90e3b91a98
+      internalID: 1226036605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_49
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ddddd7bb1a65e49a52366bdeea160e
+      internalID: 1179343194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_50
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 008db018db8933a4590d3eee6c1b279f
+      internalID: 1430035418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_51
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4035278a09a8b7e46830139a3d4bd2c0
+      internalID: -230444167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_52
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 21, y: 128}
+        - {x: -58, y: 128}
+        - {x: -51, y: 75}
+        - {x: 116, y: 43}
+        - {x: 60, y: 91}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0166cbd29c040c04a89fe1eafc829c32
+      internalID: 1443171148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_53
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 88}
+        - {x: -128, y: -92}
+        - {x: -85, y: -91}
+        - {x: -52, y: -108}
+        - {x: -46, y: -22}
+        - {x: -65, y: 80}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38944ce9ebbab4d4aba6e0c33779b158
+      internalID: 963255808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_54
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 91, y: 76}
+        - {x: 64, y: -22}
+        - {x: 77, y: -111}
+        - {x: 128, y: -83}
+        - {x: 128, y: 72}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17e26d1a80ad2bc499eac35c2f6bc3f9
+      internalID: 376317306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_55
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17, y: 128}
+        - {x: -28, y: 89}
+        - {x: -115, y: 49}
+        - {x: -16, y: 71}
+        - {x: 26, y: 86}
+        - {x: 45, y: 105}
+        - {x: 44, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd8a2d68291ec6b489be026948c31f3a
+      internalID: -1324881969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7587e3cf99b580b4a8cc366449f058be
+      internalID: 1682486228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_57
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072eae5a6b86e3841b297975b522554c
+      internalID: 1689727784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_58
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 064382ff8ebaf0a49bab6fd0cdbd4564
+      internalID: 101774017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_59
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f7687a7c3c87e84daaae50b0323e315
+      internalID: 569274346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_60
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -57, y: -24}
+        - {x: -73, y: -81}
+        - {x: -60, y: -128}
+        - {x: 24, y: -128}
+        - {x: 89, y: -76}
+        - {x: 118, y: -49}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 932abe3eb7a15cc46ac132746007f705
+      internalID: -740310106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_61
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -93, y: 47}
+        - {x: -128, y: 40}
+        - {x: -128, y: 8}
+        - {x: -77, y: 11}
+        - {x: -43, y: 117}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a554dcb1043f0ce4b9d71a659493bad3
+      internalID: 108098996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_62
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 49, y: 108}
+        - {x: 69, y: 10}
+        - {x: 128, y: 1}
+        - {x: 128, y: 32}
+        - {x: 85, y: 47}
+        - {x: 62, y: 120}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e278c6e9b05cfb4fa1fc4259e4a027d
+      internalID: 1833511879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAP_TILES_WATER_63
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -47, y: -34}
+        - {x: -103, y: -55}
+        - {x: -112, y: -70}
+        - {x: -28, y: -128}
+        - {x: 41, y: -128}
+        - {x: 63, y: -75}
+        - {x: 34, y: -38}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71cdd6ab5a41b7041a4b86841550faee
+      internalID: -147085574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MAP_TILES_WATER_0: 2045178877
+      MAP_TILES_WATER_1: 899601007
+      MAP_TILES_WATER_10: -326981851
+      MAP_TILES_WATER_11: 487699885
+      MAP_TILES_WATER_12: -389551472
+      MAP_TILES_WATER_13: 343027499
+      MAP_TILES_WATER_14: 1355687976
+      MAP_TILES_WATER_15: -1427667112
+      MAP_TILES_WATER_16: 1508394987
+      MAP_TILES_WATER_17: 1081298458
+      MAP_TILES_WATER_18: -1739519269
+      MAP_TILES_WATER_19: 1411289635
+      MAP_TILES_WATER_2: 545021242
+      MAP_TILES_WATER_20: -664764313
+      MAP_TILES_WATER_21: 1602363106
+      MAP_TILES_WATER_22: 675256888
+      MAP_TILES_WATER_23: 592199839
+      MAP_TILES_WATER_24: 598167802
+      MAP_TILES_WATER_25: 1624140684
+      MAP_TILES_WATER_26: 1355545492
+      MAP_TILES_WATER_27: -1733453319
+      MAP_TILES_WATER_28: 1637644889
+      MAP_TILES_WATER_29: 963759608
+      MAP_TILES_WATER_3: -1647807508
+      MAP_TILES_WATER_30: -1095043909
+      MAP_TILES_WATER_31: 1707304460
+      MAP_TILES_WATER_32: 450660045
+      MAP_TILES_WATER_33: 685718484
+      MAP_TILES_WATER_34: 193151458
+      MAP_TILES_WATER_35: 1383755120
+      MAP_TILES_WATER_36: 415004503
+      MAP_TILES_WATER_37: 328316841
+      MAP_TILES_WATER_38: 380305009
+      MAP_TILES_WATER_39: -191143104
+      MAP_TILES_WATER_4: -1947901627
+      MAP_TILES_WATER_40: 681334676
+      MAP_TILES_WATER_41: -700103070
+      MAP_TILES_WATER_42: -1722263216
+      MAP_TILES_WATER_43: 1110761967
+      MAP_TILES_WATER_44: 1979804417
+      MAP_TILES_WATER_45: -730885320
+      MAP_TILES_WATER_46: -1737721481
+      MAP_TILES_WATER_47: -1331932128
+      MAP_TILES_WATER_48: 1226036605
+      MAP_TILES_WATER_49: 1179343194
+      MAP_TILES_WATER_5: -1002398242
+      MAP_TILES_WATER_50: 1430035418
+      MAP_TILES_WATER_51: -230444167
+      MAP_TILES_WATER_52: 1443171148
+      MAP_TILES_WATER_53: 963255808
+      MAP_TILES_WATER_54: 376317306
+      MAP_TILES_WATER_55: -1324881969
+      MAP_TILES_WATER_56: 1682486228
+      MAP_TILES_WATER_57: 1689727784
+      MAP_TILES_WATER_58: 101774017
+      MAP_TILES_WATER_59: 569274346
+      MAP_TILES_WATER_6: 1645555945
+      MAP_TILES_WATER_60: -740310106
+      MAP_TILES_WATER_61: 108098996
+      MAP_TILES_WATER_62: 1833511879
+      MAP_TILES_WATER_63: -147085574
+      MAP_TILES_WATER_7: -335041617
+      MAP_TILES_WATER_8: -2070733279
+      MAP_TILES_WATER_9: 1356601829
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
