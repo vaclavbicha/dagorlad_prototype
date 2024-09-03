@@ -490,7 +490,7 @@ MonoBehaviour:
   - type: 3
     value: 100
   - type: 4
-    value: 1
+    value: 4
   attackRange: 0.6
   home: {fileID: 0}
   Rally_Point: {fileID: 0}
@@ -624,7 +624,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.3
 --- !u!114 &-442610566345700274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,7 +672,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.3
 --- !u!114 &4472395839160517786
 MonoBehaviour:
   m_ObjectHideFlags: 0
