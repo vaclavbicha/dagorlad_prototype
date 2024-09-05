@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class MoveTo : MonoBehaviour
@@ -43,6 +44,9 @@ public class MoveTo : MonoBehaviour
     public Vector3 offsetRallyPoint;
     public Vector3 offsetedTransformDestination;
 
+    // Nav Mesh and pathfinding
+    NavMeshAgent navMeshAgent;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -61,6 +65,15 @@ public class MoveTo : MonoBehaviour
     }
     void Start()
     {
+        // setup mav mesh and pathfinding
+        if ((navMeshAgent = GetComponent<NavMeshAgent>()) != null) {
+            navMeshAgent.updateRotation = false;
+            navMeshAgent.updateUpAxis = false;
+
+            // manual destination setting
+            //navMeshAgent.SetDestination(new Vector2(0, 0));
+        }
+
         //On_FinalDestinationReach += PrintValue;
 
         //if (method == Method.SpeedWithTargetAndRange)
@@ -73,48 +86,51 @@ public class MoveTo : MonoBehaviour
     {
         if (transform.position.z == 10) Debug.LogError("WTF");
 
-        if(method == Method.SpeedWithTargetAndRange) {
-            if (Vector2.Distance(transform.position, TransformDestination.position) < range * 1.42f)
-            {
-                if(timer < Time.time)
-                {
-                    var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
-                    var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
-                    currentRandomTargetPosition = new Vector3(
-                        UnityEngine.Random.Range(TransformDestination.position.x + rangeMin * signX, TransformDestination.position.x + range * signX),
-                        UnityEngine.Random.Range(TransformDestination.position.y + rangeMin * signY, TransformDestination.position.y + range * signY),
-                        0);
-                    timer = Time.time + TimeRandomRange;
-                }
-            }
-            else
-            {
-                currentRandomTargetPosition = new Vector3(TransformDestination.position.x, TransformDestination.position.y, 0);
-            }
-        }
+        if (method == Method.NoMovement) return;
 
-        if (method == Method.SpeedWithFormation)
-        {
-            offsetedTransformDestination = TransformDestination.position + offsetRallyPoint;
+        //if (method == Method.SpeedWithTargetAndRange) {
+        //    if (Vector2.Distance(transform.position, TransformDestination.position) < range * 1.42f)
+        //    {
+        //        if(timer < Time.time)
+        //        {
+        //            var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
+        //            var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
+        //            currentRandomTargetPosition = new Vector3(
+        //                UnityEngine.Random.Range(TransformDestination.position.x + rangeMin * signX, TransformDestination.position.x + range * signX),
+        //                UnityEngine.Random.Range(TransformDestination.position.y + rangeMin * signY, TransformDestination.position.y + range * signY),
+        //                0);
+        //            timer = Time.time + TimeRandomRange;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        currentRandomTargetPosition = new Vector3(TransformDestination.position.x, TransformDestination.position.y, 0);
+        //    }
+        //}
 
-            if (Vector2.Distance(transform.position, offsetedTransformDestination) < range * 1.42f)
-            {
-                if (timer < Time.time)
-                {
-                    var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
-                    var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
-                    currentRandomTargetPosition = new Vector3(
-                        UnityEngine.Random.Range(offsetedTransformDestination.x + rangeMin * signX, offsetedTransformDestination.x + range * signX),
-                        UnityEngine.Random.Range(offsetedTransformDestination.y + rangeMin * signY, offsetedTransformDestination.y + range * signY),
-                        0);
-                    timer = Time.time + TimeRandomRange;
-                }
-            }
-            else
-            {
-                currentRandomTargetPosition = new Vector3(offsetedTransformDestination.x, offsetedTransformDestination.y, 0);
-            }
-        }
+        //if (method == Method.SpeedWithFormation)
+        //{
+        //    offsetedTransformDestination = TransformDestination.position + offsetRallyPoint;
+
+        //    if (Vector2.Distance(transform.position, offsetedTransformDestination) < range * 1.42f)
+        //    {
+        //        if (timer < Time.time)
+        //        {
+        //            var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
+        //            var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
+        //            currentRandomTargetPosition = new Vector3(
+        //                UnityEngine.Random.Range(offsetedTransformDestination.x + rangeMin * signX, offsetedTransformDestination.x + range * signX),
+        //                UnityEngine.Random.Range(offsetedTransformDestination.y + rangeMin * signY, offsetedTransformDestination.y + range * signY),
+        //                0);
+        //            timer = Time.time + TimeRandomRange;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        currentRandomTargetPosition = new Vector3(offsetedTransformDestination.x, offsetedTransformDestination.y, 0);
+        //    }
+        //}
+
         switch (method)
         {
             case Method.Time:
@@ -133,7 +149,7 @@ public class MoveTo : MonoBehaviour
 
             case Method.SpeedWithTargetAndRange:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                else rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
+                //else rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
                 break;
 
             case Method.Attacking:
@@ -146,54 +162,12 @@ public class MoveTo : MonoBehaviour
 
             case Method.SpeedWithFormation:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                else rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
+                //else navMeshAgent.SetDestination(Vector3.MoveTowards(rb.position, (Vector2)currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
+                //else rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
                 break;
 
         }
-        if (rb.position == (Vector2)Destination)
-        {
-            if (!hasReach)
-            {
-                if (hasDestinations)
-                {
-                    if (DestinationsQueue.Count != 0)
-                    {
-                        // To measure distance b2een start and finish
-                        var destCopy = Destination;
-                        //
-
-                        Destination = DestinationsQueue.Dequeue();
-                        On_DestinationReach?.Invoke(gameObject);
-
-                        // To measure distance b2een start and finish
-                        Distance += Vector2.Distance(destCopy, Destination);
-                        if (TravelTime == 0) TravelTime = Time.time;
-                        //
-                    }
-                    else
-                    {
-                        //Debug.Log("Final destination reached");
-                        hasReach = true;
-                        On_FinalDestinationReach?.Invoke(gameObject);
-
-                        // To measure distance b2een start and finish
-                        TravelTime = Time.time - TravelTime;
-                        //
-                    }
-                }
-                else
-                {
-                    hasReach = true;
-                    On_FinalDestinationReach?.Invoke(gameObject);
-                }
-                StartTime = Time.time;
-                StartPosition = rb.position;
-            }
-        }
-        else
-        {
-            hasReach = false;
-        }
+        
     }
     public void SetDestination(Vector3 Dest)
     {
