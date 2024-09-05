@@ -14,16 +14,16 @@ public class MoveTo : MonoBehaviour
     public float Speed;
 
     public bool Lock = false;
-    public Vector3 Destination;
+    public Vector2 Destination;
     public bool hasReach = false;
 
     public bool hasDestinations;
     public List<GameObject> Destinations = new List<GameObject>();
-    public Queue<Vector3> DestinationsQueue = new Queue<Vector3>();
+    public Queue<Vector2> DestinationsQueue = new Queue<Vector2>();
 
     public Transform TransformDestination;
     public float StartTime;
-    public Vector3 StartPosition;
+    public Vector2 StartPosition;
 
     public delegate void TargetEventDelegate(GameObject sender);
     public event TargetEventDelegate On_FinalDestinationReach;
@@ -40,14 +40,15 @@ public class MoveTo : MonoBehaviour
     public float rangeMin;
     public float TimeRandomRange;
     float timer;
-    Vector3 currentRandomTargetPosition;
-    public Vector3 offsetRallyPoint;
-    public Vector3 offsetedTransformDestination;
+    Vector2 currentRandomTargetPosition;
+    public Vector2 offsetRallyPoint;
+    public Vector2 offsetedTransformDestination;
 
     // Nav Mesh and pathfinding
     NavMeshAgent navMeshAgent;
 
-    // Start is called before the first frame update
+    Vector2? desti = null;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -63,6 +64,8 @@ public class MoveTo : MonoBehaviour
         StartTime = Time.time;
         StartPosition = rb.position;
     }
+
+    // Start is called before the first frame update
     void Start()
     {
         // setup mav mesh and pathfinding
@@ -82,79 +85,71 @@ public class MoveTo : MonoBehaviour
         //    timer = Time.time + TimeRandomRange;
         //}
     }
+
     private void FixedUpdate()
     {
         if (transform.position.z == 10) Debug.LogError("WTF");
 
         if (method == Method.NoMovement) return;
 
-        //if (method == Method.SpeedWithTargetAndRange) {
-        //    if (Vector2.Distance(transform.position, TransformDestination.position) < range * 1.42f)
-        //    {
-        //        if(timer < Time.time)
-        //        {
-        //            var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
-        //            var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
-        //            currentRandomTargetPosition = new Vector3(
-        //                UnityEngine.Random.Range(TransformDestination.position.x + rangeMin * signX, TransformDestination.position.x + range * signX),
-        //                UnityEngine.Random.Range(TransformDestination.position.y + rangeMin * signY, TransformDestination.position.y + range * signY),
-        //                0);
-        //            timer = Time.time + TimeRandomRange;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        currentRandomTargetPosition = new Vector3(TransformDestination.position.x, TransformDestination.position.y, 0);
-        //    }
-        //}
+        if (method == Method.SpeedWithTargetAndRange) {
+            if (Vector2.Distance(transform.position, TransformDestination.position) < range * 1.42f) {
+                if (timer < Time.time) {
+                    var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                    var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                    currentRandomTargetPosition = new Vector2(
+                        UnityEngine.Random.Range(TransformDestination.position.x + rangeMin * signX, TransformDestination.position.x + range * signX),
+                        UnityEngine.Random.Range(TransformDestination.position.y + rangeMin * signY, TransformDestination.position.y + range * signY));
+                    timer = Time.time + TimeRandomRange;
+                }
+            } else {
+                currentRandomTargetPosition = new Vector2(TransformDestination.position.x, TransformDestination.position.y);
+            }
+        }
 
-        //if (method == Method.SpeedWithFormation)
-        //{
-        //    offsetedTransformDestination = TransformDestination.position + offsetRallyPoint;
+        if (method == Method.SpeedWithFormation) {
+            offsetedTransformDestination = (Vector2)TransformDestination.position + offsetRallyPoint;
 
-        //    if (Vector2.Distance(transform.position, offsetedTransformDestination) < range * 1.42f)
-        //    {
-        //        if (timer < Time.time)
-        //        {
-        //            var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
-        //            var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
-        //            currentRandomTargetPosition = new Vector3(
-        //                UnityEngine.Random.Range(offsetedTransformDestination.x + rangeMin * signX, offsetedTransformDestination.x + range * signX),
-        //                UnityEngine.Random.Range(offsetedTransformDestination.y + rangeMin * signY, offsetedTransformDestination.y + range * signY),
-        //                0);
-        //            timer = Time.time + TimeRandomRange;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        currentRandomTargetPosition = new Vector3(offsetedTransformDestination.x, offsetedTransformDestination.y, 0);
-        //    }
-        //}
+            if (Vector2.Distance(transform.position, offsetedTransformDestination) < range * 1.42f) {
+                if (timer < Time.time) {
+                    var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                    var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                    currentRandomTargetPosition = new Vector2(
+                        UnityEngine.Random.Range(offsetedTransformDestination.x + rangeMin * signX, offsetedTransformDestination.x + range * signX),
+                        UnityEngine.Random.Range(offsetedTransformDestination.y + rangeMin * signY, offsetedTransformDestination.y + range * signY));
+                    timer = Time.time + TimeRandomRange;
+                }
+            } else {
+                currentRandomTargetPosition = new Vector2(offsetedTransformDestination.x, offsetedTransformDestination.y);
+            }
+        }
+
+        if (navMeshAgent && desti != null) return;
 
         switch (method)
         {
             case Method.Time:
                 var tt = (Time.time - StartTime) / TimeSpan;
-                rb.MovePosition(Vector3.Lerp(StartPosition, Destination, tt));
+                rb.MovePosition(Vector2.Lerp(StartPosition, Destination, tt));
                 break;
 
             case Method.Speed:
-                rb.MovePosition(Vector3.MoveTowards(rb.position, Destination, Time.fixedDeltaTime * Speed));
+                rb.MovePosition(Vector2.MoveTowards(rb.position, Destination, Time.fixedDeltaTime * Speed));
                 break;
 
             case Method.SpeedWithTarget:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                else rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)TransformDestination.position, Time.fixedDeltaTime * Speed));
+                setdest((Vector2)TransformDestination.position);
                 break;
 
             case Method.SpeedWithTargetAndRange:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                //else rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
+                setdest((Vector2)currentRandomTargetPosition);
                 break;
 
             case Method.Attacking:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                else if(!Lock) rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)TransformDestination.position, Time.fixedDeltaTime * Speed));
+                else if(!Lock) setdest((Vector2)TransformDestination.position);
                 break;
 
             case Method.NoMovement:
@@ -162,45 +157,50 @@ public class MoveTo : MonoBehaviour
 
             case Method.SpeedWithFormation:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                //else navMeshAgent.SetDestination(Vector3.MoveTowards(rb.position, (Vector2)currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
-                //else rb.MovePosition(Vector3.MoveTowards(rb.position, (Vector2)currentRandomTargetPosition, Time.fixedDeltaTime * Speed));
+                else setdest((Vector2)currentRandomTargetPosition);
                 break;
-
         }
         
     }
-    public void SetDestination(Vector3 Dest)
-    {
-        if (!Lock)
-        {
-            Destination = Dest;
-            StartTime = Time.time;
-            StartPosition = rb.position;
-        }
+
+    public void setdest( Vector2 NewDestination) {
+        if (!navMeshAgent) return;
+        navMeshAgent.SetDestination(NewDestination);
+        desti = NewDestination;
     }
-    public void SetDestinations(Vector3[] Dests)
+
+    public void SetDestination(Vector2 Dest)
     {
-        if (!Lock)
-        {
-            for (int i = 0; i < Dests.Length; i++)
-            {
-                DestinationsQueue.Enqueue(Dests[i]);
-            }
-            Destination = DestinationsQueue.Dequeue();
-            //Debug.Log(Destination);
-            hasDestinations = true;
-            StartTime = Time.time;
-            StartPosition = rb.position;
-        }
+        if (Lock) return;
+
+        Destination = Dest;
+        StartTime = Time.time;
+        StartPosition = rb.position;
     }
+
+    public void SetDestinations(Vector2[] Dests)
+    {
+        if (Lock) return;
+
+        for (int i = 0; i < Dests.Length; i++) {
+            DestinationsQueue.Enqueue(Dests[i]);
+        }
+        Destination = DestinationsQueue.Dequeue();
+        //Debug.Log(Destination);
+        hasDestinations = true;
+        StartTime = Time.time;
+        StartPosition = rb.position;
+    }
+
     public void PrintValue(GameObject sender)
     {
         GetComponent<SpriteRenderer>().color = Color.black;
         GetComponentInChildren<TextMeshPro>().text = (Time.time - StartTime).ToString("N2");
     }
+
     IEnumerator NewLocation(float t)
     {
-        currentRandomTargetPosition = new Vector3(UnityEngine.Random.Range(TransformDestination.position.x - range, TransformDestination.position.x + range), UnityEngine.Random.Range(TransformDestination.position.y - range, TransformDestination.position.y + range), 0);
+        currentRandomTargetPosition = new Vector2(UnityEngine.Random.Range(TransformDestination.position.x - range, TransformDestination.position.x + range), UnityEngine.Random.Range(TransformDestination.position.y - range, TransformDestination.position.y + range));
         yield return new WaitForSeconds(t);
         StartCoroutine(NewLocation(t));
     }

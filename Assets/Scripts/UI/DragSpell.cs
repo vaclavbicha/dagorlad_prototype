@@ -27,7 +27,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
-        Camera.main.GetComponent<MoveTo>().Lock = true;
+        Camera.main.GetComponent<CameraMovement>().Lock = true;
         //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
         //RallyPoint.GetComponent<MoveTo>().SetDestination(Camera.main.ScreenToWorldPoint(eventData.position));
         var position = Camera.main.ScreenToWorldPoint(eventData.position);
@@ -50,7 +50,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         }
         else
         {
-            Camera.main.GetComponent<MoveTo>().Lock = false;
+            Camera.main.GetComponent<CameraMovement>().Lock = false;
             UIManager.Instance.DialogWindow("NOT ENOUGH MANA!");
         }
     }
@@ -62,7 +62,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
             spellInstance.GetComponent<Spell>().SpellStart();
             spellInstance.GetComponent<Spell>().On_SpellEnd += (spell) => { StartCoroutine(SpawnDeath(spell.transform.position)); Destroy(spell); };//Destroy(spell, spell.GetComponent<Spell>().duration); };
             spellInstance = null;
-            Camera.main.GetComponent<MoveTo>().Lock = false;
+            Camera.main.GetComponent<CameraMovement>().Lock = false;
             UIManager.Instance.SetTimer(RIGHT, level);
 
             Debug.Log(transform.parent.parent.parent.parent.parent.name);
@@ -83,7 +83,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown");
-        //Camera.main.GetComponent<MoveTo>().Lock = true;
+        //Camera.main.GetComponent<CameraMovement>().Lock = true;
     }
     public void OnPointerUp(PointerEventData eventData)
     {

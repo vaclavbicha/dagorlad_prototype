@@ -13532,8 +13532,8 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420035}
-  - component: {fileID: 519420034}
   - component: {fileID: 519420036}
+  - component: {fileID: 519420037}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -13616,37 +13616,6 @@ Transform:
   - {fileID: 1952345427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f5a41d521330420c892ccbd58362d17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 1
-  TimeSpan: 0
-  Speed: 70
-  Lock: 0
-  Destination: {x: 0, y: 0.7, z: 0}
-  hasReach: 0
-  hasDestinations: 0
-  Destinations: []
-  TransformDestination: {fileID: 0}
-  StartTime: 0
-  StartPosition: {x: 0, y: 0, z: 0}
-  Distance: 0
-  CalculatedDistance: 0
-  TravelTime: 0
-  range: 0
-  rangeMin: 0
-  TimeRandomRange: 0
-  offsetRallyPoint: {x: 0, y: 0, z: 0}
-  offsetedTransformDestination: {x: 0, y: 0, z: 0}
 --- !u!50 &519420035
 Rigidbody2D:
   serializedVersion: 4
@@ -13695,6 +13664,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &519420037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a5c9f0c45d182498e7cda6e60cc537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMode: 1
+  TimeSpan: 0
+  Speed: 70
+  Destination: {x: 0, y: 0.6}
+  Lock: 0
+  StartTime: 0
+  StartPosition: {x: 0, y: 0}
 --- !u!1 &534998202
 GameObject:
   m_ObjectHideFlags: 0

@@ -121,7 +121,7 @@ public class Draggable : MonoBehaviour
     public void ON()
     {
         Debug.Log("AAAAABB");
-        Camera.main.GetComponent<MoveTo>().Lock = true;
+        Camera.main.GetComponent<CameraMovement>().Lock = true;
         mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
 
     }
@@ -135,7 +135,7 @@ public class Draggable : MonoBehaviour
     }
     public void OFF()
     {
-        Camera.main.GetComponent<MoveTo>().Lock = false;
+        Camera.main.GetComponent<CameraMovement>().Lock = false;
         foreach (var x in GetComponentsInChildren<Animator>())
         {
             x.SetBool("HOLD", false);
@@ -153,7 +153,7 @@ public class Draggable : MonoBehaviour
         {
             if (ev.gameObject == gameObject)
             {
-                Camera.main.GetComponent<MoveTo>().Lock = true;
+                Camera.main.GetComponent<CameraMovement>().Lock = true;
                 mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
             }
         }

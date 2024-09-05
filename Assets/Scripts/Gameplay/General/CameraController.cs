@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
-    Camera camera;
-    MoveTo cameraMove;
+    Camera mainCamera;
+    CameraMovement cameraMovement;
 
     public SpriteRenderer mapRenderer;
     float mapMinX, mapMaxX, mapMinY, mapMaxY;
@@ -29,8 +29,8 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
-        cameraMove = camera.GetComponent<MoveTo>();
+        mainCamera = Camera.main;
+        cameraMovement = mainCamera.GetComponent<CameraMovement>();
 
         mapMinX = mapRenderer.transform.position.x - mapRenderer.bounds.size.x / 2f;
         mapMaxX = mapRenderer.transform.position.x + mapRenderer.bounds.size.x / 2f;
@@ -101,11 +101,11 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-                Difference = camera.ScreenToWorldPoint(Input.mousePosition) - camera.transform.position;
+                Difference = mainCamera.ScreenToWorldPoint(Input.mousePosition) - mainCamera.transform.position;
                 if (!drag)
                 {
                     drag = true;
-                    Origin = camera.ScreenToWorldPoint(Input.mousePosition);
+                    Origin = mainCamera.ScreenToWorldPoint(Input.mousePosition);
                 }
             }
         }
@@ -126,7 +126,7 @@ public class CameraController : MonoBehaviour
         }
         if (drag && !UIManager.Instance.window.gameObject.activeInHierarchy)
         {
-            cameraMove.SetDestination(ClampCamera(Origin - Difference));
+            cameraMovement.SetDestination(ClampCamera(Origin - Difference));
         }
     }
     public bool isMouseOverOverlayCanvas()
@@ -147,7 +147,7 @@ public class CameraController : MonoBehaviour
     private bool SearchRallyPoint()
     {
         //Debug.Log("MOUSE BUTTON DOWN" + camera.ScreenToWorldPoint(Input.mousePosition));
-        RaycastHit2D[] hit = Physics2D.RaycastAll(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        RaycastHit2D[] hit = Physics2D.RaycastAll(mainCamera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         foreach(var x in hit)
         {
             if(x.collider.gameObject.layer == 9 && x.collider.tag == "Rally_Point")
@@ -166,7 +166,7 @@ public class CameraController : MonoBehaviour
     private MapLocation OnMapLocationClick()
     {
         //Debug.Log("MOUSE BUTTON DOWN" + camera.ScreenToWorldPoint(Input.mousePosition));
-        RaycastHit2D[] hit = Physics2D.RaycastAll(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        RaycastHit2D[] hit = Physics2D.RaycastAll(mainCamera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         foreach (var x in hit)
         {
             if (x.collider.gameObject.layer == 11 && x.collider.tag == "MapLocation")
@@ -208,8 +208,8 @@ public class CameraController : MonoBehaviour
     }
     private Vector3 ClampCamera(Vector3 targetPosition)
     {
-        float camHeight = camera.orthographicSize;
-        float camWidth = camera.orthographicSize * camera.aspect;
+        float camHeight = mainCamera.orthographicSize;
+        float camWidth = mainCamera.orthographicSize * mainCamera.aspect;
 
         float minX = mapMinX + camWidth;
         float maxX = mapMaxX - camWidth;
@@ -223,6 +223,6 @@ public class CameraController : MonoBehaviour
     }
     public void SetPositionWithClamp(Vector3 pos)
     {
-        cameraMove.SetDestination(ClampCamera(pos));
+        cameraMovement.SetDestination(ClampCamera(pos));
     }
 }

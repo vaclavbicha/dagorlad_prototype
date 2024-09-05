@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour
                 {
                     if (isOn)
                     {
-                        if (Time.time - lastClicked <= 1f && currentBaseID == panelNumber) Camera.main.GetComponent<MoveTo>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(panelNumber.ToString())).transform.position);
+                        if (Time.time - lastClicked <= 1f && currentBaseID == panelNumber) Camera.main.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(panelNumber.ToString())).transform.position);
                         lastClicked = Time.time;
                         currentBaseID = panelNumber;
                         GameManager.Instance.InstantiateBottomMenu();
