@@ -9,6 +9,7 @@ TagManager:
   - MapLocation
   - Structure
   - Structures
+  - Manager
   layers:
   - Default
   - TransparentFX

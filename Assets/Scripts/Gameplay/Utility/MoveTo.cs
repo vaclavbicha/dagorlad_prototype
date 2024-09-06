@@ -18,7 +18,6 @@ public class MoveTo : MonoBehaviour
 
     public bool Lock = false;
     public Vector2 Destination;
-    public bool hasReach = false;
 
     public bool hasDestinations;
     public List<GameObject> Destinations = new List<GameObject>();
@@ -29,8 +28,9 @@ public class MoveTo : MonoBehaviour
     public Vector2 StartPosition;
 
     public delegate void TargetEventDelegate(GameObject sender);
-    public event TargetEventDelegate On_FinalDestinationReach;
-    public event TargetEventDelegate On_DestinationReach;
+    public event TargetEventDelegate On_DestinationReached;
+
+    private bool isDestinationReached;
 
     [NonSerialized]
     public Rigidbody2D rb;
@@ -50,22 +50,11 @@ public class MoveTo : MonoBehaviour
     // Nav Mesh and pathfinding
     NavMeshAgent navMeshAgent;
 
-    bool isPathDestinationSet;
-    private float checkRadius = 5f;
-    private float separationRadius = 1.5f;
+    bool isPathDestinationSet = true;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        if (hasDestinations)
-        {
-            for (int i = 0; i < Destinations.Count; i++)
-            {
-                DestinationsQueue.Enqueue(Destinations[i].transform.position);
-                if (i > 0) CalculatedDistance += Vector2.Distance(Destinations[i - 1].transform.position, Destinations[i].transform.position);
-            }
-            Destination = DestinationsQueue.Dequeue();
-        }
         StartTime = Time.time;
         StartPosition = rb.position;
     }
@@ -76,18 +65,19 @@ public class MoveTo : MonoBehaviour
         if ((navMeshAgent = GetComponent<NavMeshAgent>()) != null) {
             navMeshAgent.updateRotation = false;
             navMeshAgent.updateUpAxis = false;
-
-            // manual destination setting
-            //navMeshAgent.SetDestination(new Vector2(0, 0));
         }
 
-        //On_FinalDestinationReach += PrintValue;
+        //On_DestinationReached += LogMob;
 
         //if (method == Method.SpeedWithTargetAndRange)
         //{
         //    StartCoroutine(NewLocation(TimeRandomRange));
         //    timer = Time.time + TimeRandomRange;
         //}
+    }
+
+    private void LogMob(GameObject sender) {
+        ClearPathDestination();
     }
 
     private void FixedUpdate()
@@ -97,8 +87,12 @@ public class MoveTo : MonoBehaviour
             return;
         }
 
+
         if (isPathDestinationSet) {
-            SearchForNearbyUnits();
+            if (Vector2.Distance(transform.position, navMeshAgent.destination) <= navMeshAgent.stoppingDistance) {
+                //On_DestinationReached?.Invoke(gameObject);
+            }
+
             return;
         }
 
@@ -181,19 +175,7 @@ public class MoveTo : MonoBehaviour
         if (!navMeshAgent) return;
         navMeshAgent.isStopped = true;
         isPathDestinationSet = false;
-    }
-
-    private void SearchForNearbyUnits() {
-        if (!navMeshAgent) return;
-
-        if (Vector2.Distance(transform.position, navMeshAgent.destination) <= navMeshAgent.stoppingDistance) {
-            Collider2D[] nearbyUnits = Physics2D.OverlapCircleAll(transform.position, checkRadius);
-            
-            foreach (Collider2D unit in nearbyUnits) {
-                float ratio = Mathf.Clamp01((unit.transform.position - transform.position).magnitude / separationRadius) * 10;
-                Destination -= ratio * (Vector2)(unit.transform.position - transform.position).normalized;
-            }
-        }
+        //CurrentMethod = Method.NoMovement;
     }
 
     public void SetDestination(Vector2 Dest)
@@ -213,7 +195,6 @@ public class MoveTo : MonoBehaviour
             DestinationsQueue.Enqueue(Dests[i]);
         }
         Destination = DestinationsQueue.Dequeue();
-        //Debug.Log(Destination);
         hasDestinations = true;
         StartTime = Time.time;
         StartPosition = rb.position;
