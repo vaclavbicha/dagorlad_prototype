@@ -436,8 +436,8 @@ MonoBehaviour:
   m_IgnoreNavMeshObstacle: 1
   m_OverrideTileSize: 0
   m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.058333334
+  m_OverrideVoxelSize: 1
+  m_VoxelSize: 0.05833333
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
   m_NavMeshData: {fileID: 23800000, guid: 2be185a95dba34444a6ee70618ad2ac8, type: 2}
@@ -88006,6 +88006,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7648119772857791676, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
+      propertyPath: method
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648119772857791676, guid: 0bb806f74c2de466aaf63c71203777b5, type: 3}
       propertyPath: TransformDestination
       value: 
       objectReference: {fileID: 1022769536}
@@ -90661,7 +90665,7 @@ PrefabInstance:
       objectReference: {fileID: 1933364211}
     - target: {fileID: 6583010261181356295, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.683
+      value: 7.75
       objectReference: {fileID: 0}
     - target: {fileID: 6583010261181356295, guid: 6a5b47db87e484a41bd6f7ae6b6ee792, type: 3}
       propertyPath: m_LocalPosition.y

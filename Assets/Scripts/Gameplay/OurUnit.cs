@@ -128,7 +128,7 @@ public class OurUnit : MonoBehaviour
         animator = GetComponent<Animator>();
         statsManager.On_Death += (sender) =>
         {
-            if(moveTo.method != MoveTo.Method.NoMovement && statsManager.owner == "Player")
+            if(moveTo.CurrentMethod != MoveTo.Method.NoMovement && statsManager.owner == "Player")
             {
                 foreach (var x in cost)
                 {
@@ -140,7 +140,7 @@ public class OurUnit : MonoBehaviour
                     }
                 }
             }
-            moveTo.method = MoveTo.Method.NoMovement;
+            moveTo.CurrentMethod = MoveTo.Method.NoMovement;
             status = Utility.UnitStatus.Dead;
             animator.SetBool("isDead", true);
             foreach(var i in GetComponents<CircleCollider2D>())
@@ -216,12 +216,12 @@ public class OurUnit : MonoBehaviour
         //new
         if (GetComponent<StatsManager>().owner == "Enemy")
         {
-            moveTo.method = MoveTo.Method.SpeedWithTargetAndRange;
+            moveTo.CurrentMethod = MoveTo.Method.SpeedWithTargetAndRange;
             moveTo.range = 0.5f;
         }
         else
         {
-            moveTo.method = MoveTo.Method.SpeedWithFormation;
+            moveTo.CurrentMethod = MoveTo.Method.SpeedWithFormation;
             moveTo.range = 0.1f;
         }
         //
@@ -238,7 +238,7 @@ public class OurUnit : MonoBehaviour
         //moveTo.range = 0.2f;
         //moveTo.rangeMin = 0.075f;
         //if(GetComponent<StatsManager>().owner == "Player")
-        moveTo.method = MoveTo.Method.Attacking;
+        moveTo.CurrentMethod = MoveTo.Method.Attacking;
         moveTo.TransformDestination = Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform);
         //moveTo.SetDestination(Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform));
         if (attackTimer == null)

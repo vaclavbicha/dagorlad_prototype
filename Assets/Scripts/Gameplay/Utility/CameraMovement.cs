@@ -36,7 +36,6 @@ public class CameraMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        Debug.Log(Destination);
         switch (cameraMode) {
             case CameraMode.Time:
                 var tt = (Time.time - StartTime) / TimeSpan;

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +10,9 @@ using UnityEngine.AI;
 public class MoveTo : MonoBehaviour
 {
     public enum Method { Time, Speed, SpeedWithTarget, SpeedWithTargetAndRange, Attacking, NoMovement, SpeedWithFormation }
-    public Method method;
+    public Method CurrentMethod;
+    private Method previousMethod; // for changes in the inspector
+
     public float TimeSpan;
     public float Speed;
 
@@ -47,7 +50,9 @@ public class MoveTo : MonoBehaviour
     // Nav Mesh and pathfinding
     NavMeshAgent navMeshAgent;
 
-    Vector2? desti = null;
+    bool isPathDestinationSet;
+    private float checkRadius = 5f;
+    private float separationRadius = 1.5f;
 
     private void Awake()
     {
@@ -65,7 +70,6 @@ public class MoveTo : MonoBehaviour
         StartPosition = rb.position;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         // setup mav mesh and pathfinding
@@ -88,45 +92,17 @@ public class MoveTo : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.position.z == 10) Debug.LogError("WTF");
-
-        if (method == Method.NoMovement) return;
-
-        if (method == Method.SpeedWithTargetAndRange) {
-            if (Vector2.Distance(transform.position, TransformDestination.position) < range * 1.42f) {
-                if (timer < Time.time) {
-                    var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
-                    var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
-                    currentRandomTargetPosition = new Vector2(
-                        UnityEngine.Random.Range(TransformDestination.position.x + rangeMin * signX, TransformDestination.position.x + range * signX),
-                        UnityEngine.Random.Range(TransformDestination.position.y + rangeMin * signY, TransformDestination.position.y + range * signY));
-                    timer = Time.time + TimeRandomRange;
-                }
-            } else {
-                currentRandomTargetPosition = new Vector2(TransformDestination.position.x, TransformDestination.position.y);
-            }
+        if (CurrentMethod == Method.NoMovement) {
+            ClearPathDestination();
+            return;
         }
 
-        if (method == Method.SpeedWithFormation) {
-            offsetedTransformDestination = (Vector2)TransformDestination.position + offsetRallyPoint;
-
-            if (Vector2.Distance(transform.position, offsetedTransformDestination) < range * 1.42f) {
-                if (timer < Time.time) {
-                    var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
-                    var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
-                    currentRandomTargetPosition = new Vector2(
-                        UnityEngine.Random.Range(offsetedTransformDestination.x + rangeMin * signX, offsetedTransformDestination.x + range * signX),
-                        UnityEngine.Random.Range(offsetedTransformDestination.y + rangeMin * signY, offsetedTransformDestination.y + range * signY));
-                    timer = Time.time + TimeRandomRange;
-                }
-            } else {
-                currentRandomTargetPosition = new Vector2(offsetedTransformDestination.x, offsetedTransformDestination.y);
-            }
+        if (isPathDestinationSet) {
+            SearchForNearbyUnits();
+            return;
         }
 
-        if (navMeshAgent && desti != null) return;
-
-        switch (method)
+        switch (CurrentMethod)
         {
             case Method.Time:
                 var tt = (Time.time - StartTime) / TimeSpan;
@@ -139,34 +115,85 @@ public class MoveTo : MonoBehaviour
 
             case Method.SpeedWithTarget:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                setdest((Vector2)TransformDestination.position);
+                SetPathDestination((Vector2)TransformDestination.position);
                 break;
 
             case Method.SpeedWithTargetAndRange:
+                CalculateRandomPosition_SpeedWithTargetAndRange();
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                setdest((Vector2)currentRandomTargetPosition);
+                SetPathDestination(currentRandomTargetPosition);
                 break;
 
             case Method.Attacking:
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                else if(!Lock) setdest((Vector2)TransformDestination.position);
-                break;
-
-            case Method.NoMovement:
+                else if(!Lock) SetPathDestination((Vector2)TransformDestination.position);
                 break;
 
             case Method.SpeedWithFormation:
+                CalculateRandomPosition_SpeedWithFormation();
                 if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
-                else setdest((Vector2)currentRandomTargetPosition);
+                else SetPathDestination(currentRandomTargetPosition);
                 break;
         }
         
     }
 
-    public void setdest( Vector2 NewDestination) {
+    private void CalculateRandomPosition_SpeedWithTargetAndRange() {
+        if (Vector2.Distance(transform.position, TransformDestination.position) < range * 1.42f) {
+            if (timer < Time.time) {
+                var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                currentRandomTargetPosition = new Vector2(
+                    UnityEngine.Random.Range(TransformDestination.position.x + rangeMin * signX, TransformDestination.position.x + range * signX),
+                    UnityEngine.Random.Range(TransformDestination.position.y + rangeMin * signY, TransformDestination.position.y + range * signY));
+                timer = Time.time + TimeRandomRange;
+            }
+        } else {
+            currentRandomTargetPosition = new Vector2(TransformDestination.position.x, TransformDestination.position.y);
+        }
+    }
+
+    private void CalculateRandomPosition_SpeedWithFormation() {
+        offsetedTransformDestination = (Vector2)TransformDestination.position + offsetRallyPoint;
+
+        if (Vector2.Distance(transform.position, offsetedTransformDestination) < range * 1.42f) {
+            if (timer < Time.time) {
+                var signX = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                var signY = UnityEngine.Random.Range(0, 2) * 2 - 1;
+                currentRandomTargetPosition = new Vector2(
+                    UnityEngine.Random.Range(offsetedTransformDestination.x + rangeMin * signX, offsetedTransformDestination.x + range * signX),
+                    UnityEngine.Random.Range(offsetedTransformDestination.y + rangeMin * signY, offsetedTransformDestination.y + range * signY));
+                timer = Time.time + TimeRandomRange;
+            }
+        } else {
+            currentRandomTargetPosition = new Vector2(offsetedTransformDestination.x, offsetedTransformDestination.y);
+        }
+    }
+
+    public void SetPathDestination(Vector2 NewDestination) {
         if (!navMeshAgent) return;
+        navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(NewDestination);
-        desti = NewDestination;
+        isPathDestinationSet = true;
+    }
+
+    private void ClearPathDestination() {
+        if (!navMeshAgent) return;
+        navMeshAgent.isStopped = true;
+        isPathDestinationSet = false;
+    }
+
+    private void SearchForNearbyUnits() {
+        if (!navMeshAgent) return;
+
+        if (Vector2.Distance(transform.position, navMeshAgent.destination) <= navMeshAgent.stoppingDistance) {
+            Collider2D[] nearbyUnits = Physics2D.OverlapCircleAll(transform.position, checkRadius);
+            
+            foreach (Collider2D unit in nearbyUnits) {
+                float ratio = Mathf.Clamp01((unit.transform.position - transform.position).magnitude / separationRadius) * 10;
+                Destination -= ratio * (Vector2)(unit.transform.position - transform.position).normalized;
+            }
+        }
     }
 
     public void SetDestination(Vector2 Dest)
@@ -190,6 +217,14 @@ public class MoveTo : MonoBehaviour
         hasDestinations = true;
         StartTime = Time.time;
         StartPosition = rb.position;
+    }
+
+    // Updating method when changed in the inspector
+    private void OnValidate() {
+        if (previousMethod != CurrentMethod) {
+            previousMethod = CurrentMethod;
+            ClearPathDestination();
+        }
     }
 
     public void PrintValue(GameObject sender)

@@ -370,25 +370,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5a41d521330420c892ccbd58362d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  method: 4
+  CurrentMethod: 5
   TimeSpan: 0
   Speed: 500
   Lock: 0
-  Destination: {x: 0, y: 0, z: 0}
+  Destination: {x: 0, y: 0}
   hasReach: 0
   hasDestinations: 0
   Destinations: []
   TransformDestination: {fileID: 0}
   StartTime: 0
-  StartPosition: {x: 0, y: 0, z: 0}
+  StartPosition: {x: 0, y: 0}
   Distance: 0
   CalculatedDistance: 0
   TravelTime: 0
   range: 0
   rangeMin: 0
   TimeRandomRange: 0
-  offsetRallyPoint: {x: 0, y: 0, z: 0}
-  offsetedTransformDestination: {x: 0, y: 0, z: 0}
+  offsetRallyPoint: {x: 0, y: 0}
+  offsetedTransformDestination: {x: 0, y: 0}
 --- !u!61 &4566022174090275802
 BoxCollider2D:
   m_ObjectHideFlags: 0
