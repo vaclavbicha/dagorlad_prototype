@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,8 @@ public class OurUnit : MonoBehaviour
 
     int attackid = 0;
 
+    public delegate void OnSpawned(OurUnit sender);
+    public event OnSpawned onSpawned;
 
     Vector2 previousPosition;
     public Vector2 lastMoveDirection;
@@ -65,27 +68,7 @@ public class OurUnit : MonoBehaviour
             array[k] = temp;
         }
     }
-    public void Start()
-    {
-        var rng = new System.Random();
-        Shuffle(rng, attackerPositions);
-        foreach (var x in attackerPositions)
-        {
-            var attk_pos = new GameObject();
-
-            //attk_pos.AddComponent<SpriteRenderer>().sprite = circle;
-            //var colr = Color.white;
-            //colr.a = 0.25f;
-            //attk_pos.GetComponent<SpriteRenderer>().color = colr;
-            //attk_pos.transform.localScale *= 0.5f;             Debug.Log(x.magnitude);
-
-            attk_pos.transform.parent = transform;
-            attk_pos.transform.localPosition = x;
-            attk_pos.name = "attk_pos";
-            attackersSlots.Add(new Attacker { position = attk_pos.transform, attacker = null });
-            //attackersSlots.Add(new Attacker { position = x, attacker = null });
-        }
-    }
+   
     public Transform AvailableAttackerPosition(Transform _attacker)
     {
         if (_attacker == null)
@@ -163,6 +146,28 @@ public class OurUnit : MonoBehaviour
         //moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
         //animator.speed = 0.7f;
     }
+
+    public void Start() {
+        onSpawned?.Invoke(this);
+        var rng = new System.Random();
+        Shuffle(rng, attackerPositions);
+        foreach (var x in attackerPositions) {
+            var attk_pos = new GameObject();
+
+            //attk_pos.AddComponent<SpriteRenderer>().sprite = circle;
+            //var colr = Color.white;
+            //colr.a = 0.25f;
+            //attk_pos.GetComponent<SpriteRenderer>().color = colr;
+            //attk_pos.transform.localScale *= 0.5f;             Debug.Log(x.magnitude);
+
+            attk_pos.transform.parent = transform;
+            attk_pos.transform.localPosition = x;
+            attk_pos.name = "attk_pos";
+            attackersSlots.Add(new Attacker { position = attk_pos.transform, attacker = null });
+            //attackersSlots.Add(new Attacker { position = x, attacker = null });
+        }
+    }
+
     private void FixedUpdate()
     {
         if ((Vector2)transform.position != previousPosition)

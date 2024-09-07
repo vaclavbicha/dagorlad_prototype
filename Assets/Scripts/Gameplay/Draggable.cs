@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.FilePathAttribute;
 
 public class Draggable : MonoBehaviour
 {
@@ -88,32 +90,41 @@ public class Draggable : MonoBehaviour
     {
         currentArmy.Add(unit);
         ManageTargets();
+        unit.onSpawned += NotifyNewUnitOnLocation;
     }
     public void ManageTargets()
     {
         Debug.Log("Enemies : " + EnemiesInRange.Count + "  Troops : " + currentArmy.Count);
         var i = 0;
         var j = 0;
-        foreach (var x in currentArmy)
+        foreach (OurUnit unit in currentArmy)
         {
+            // break early if unit becomes dead
+            if (unit.status == Utility.UnitStatus.Dead) break;
+
             if (EnemiesInRange.Count > 0)
             {
                 if (i >= EnemiesInRange.Count)
                 {
                     i = 0;
                 }
-                if (x.status != Utility.UnitStatus.Dead && EnemiesInRange[i].GetComponent<OurUnit>().AvailableAttackerPosition(null) != null) x.Attack(EnemiesInRange[i]);
-                //else
-                //{
-                //    x.StopAttack();
-                //    x.GetComponent<MoveTo>().offsetRallyPoint = targetPositionlist[j];//- transform.position;
-                //}
-                i++;
+
+                GameObject enemy = EnemiesInRange[i];
+                MoveTo unit_movement = unit.GetComponent<MoveTo>();
+
+                if (enemy.GetComponent<OurUnit>().AvailableAttackerPosition(unit.transform) != null) {
+                    unit.Attack(enemy);
+                }
+                Debug.Log(unit.transform.position);
+                Debug.Log(enemy.GetComponent<OurUnit>().AvailableAttackerPosition(unit.transform));
+
+                unit.GetComponent<MoveTo>().SetPathDestination(enemy.transform.position - new Vector3(1, 1, 0) * 0.1f);
             }
             else
             {
-                x.StopAttack();
-                x.GetComponent<MoveTo>().offsetRallyPoint = targetPositionlist[j];//- transform.position;
+                unit.StopAttack();
+                unit.GetComponent<MoveTo>().offsetRallyPoint = targetPositionlist[j];//- transform.position;
+                NotifyArmyOnCurrentLocation();
             }
             j++;
         }
@@ -131,7 +142,9 @@ public class Draggable : MonoBehaviour
         {
             x.SetBool("HOLD", true);
         }
+
         draggableMovement.SetDestination(GetMouseWorldPosition() + mousePositionOffset);
+        gameObject.transform.position = GetMouseWorldPosition() + mousePositionOffset;
     }
     public void OFF()
     {
@@ -141,6 +154,7 @@ public class Draggable : MonoBehaviour
             x.SetBool("HOLD", false);
         }
         Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
+        ManageTargets();
     }
     private void OnMouseClickDown()
     {
@@ -202,5 +216,23 @@ public class Draggable : MonoBehaviour
     private Vector3 ApplyRotationToVector(Vector3 vec, float angle)
     { 
         return Quaternion.Euler(0, 0, angle) * vec;
+    }
+
+    private void NotifyUnitOnLocation(OurUnit unit, Vector2 location) {
+        MoveTo unit_movement = unit.GetComponent<MoveTo>();
+        if (unit_movement != null) unit_movement.SetPathDestination(location);
+    }
+
+    private void NotifyArmyOnCurrentLocation() {
+        List<Vector3> positionList = GetPositionlistAround(transform.position, 0.75f, currentArmy.Count);
+        for (int i = 0; i < currentArmy.Count; i++) {
+            OurUnit unit = currentArmy[i];
+            NotifyUnitOnLocation(unit, positionList[i]);
+        }
+    }
+
+    private void NotifyNewUnitOnLocation(OurUnit unit) {
+        NotifyUnitOnLocation(unit, transform.position);
+        unit.onSpawned -= NotifyNewUnitOnLocation;
     }
 }

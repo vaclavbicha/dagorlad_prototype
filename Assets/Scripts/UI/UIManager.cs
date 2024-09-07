@@ -140,7 +140,7 @@ public class UIManager : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && !isMouseOverOverlayCanvas())
             {
-                selectedRallyPoint.GetComponent<MoveTo>().SetDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 //selectedRallyPoint.GetComponentInChildren<Animator>().SetTrigger("OFF");
                 foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>())
                 {
@@ -235,7 +235,7 @@ public class UIManager : MonoBehaviour
     {
         //map
 
-        //if (Time.time - lastClicked <= 1f && currentBaseID == id) Camera.main.GetComponent<MoveTo>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(id.ToString())).transform.position);
+        //if (Time.time - lastClicked <= 1f && currentBaseID == id) Camera.main.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(id.ToString())).transform.position);
         //lastClicked = Time.time;
         //currentBaseID = id;
         //GameManager.Instance.InstantiateBottomMenu();
@@ -243,7 +243,7 @@ public class UIManager : MonoBehaviour
     }
     public void MapGoTo(int i)
     {
-        Camera.main.GetComponent<MoveTo>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(i.ToString())).transform.position);
+        Camera.main.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(i.ToString())).transform.position);
         EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
     }
     public void InstantiateBottomMenu(MapLocation location)
