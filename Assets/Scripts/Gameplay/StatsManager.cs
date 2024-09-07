@@ -8,7 +8,7 @@ public class StatsManager : MonoBehaviour
     public string owner;
     public Stat[] stats;
     public TextMeshPro DisplayHP;
-    MoveTo moveTo;
+    UnitMovement moveTo;
 
     public GameObject healthBar;
     SpriteRenderer healthbarSprite;
@@ -50,7 +50,7 @@ public class StatsManager : MonoBehaviour
     private void Start()
     {
         DisplayHP = GetComponentInChildren<TextMeshPro>();
-        moveTo = GetComponent<MoveTo>();
+        moveTo = GetComponent<UnitMovement>();
         if (healthBar != null)
         {
             fullBarScale = healthBar.transform.localScale.x;

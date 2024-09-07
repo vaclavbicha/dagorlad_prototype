@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Spell : MonoBehaviour
 {
-    MoveTo moveTo;
+    UnitMovement moveTo;
     OnTrigger onTrigger;
     public uint delay = 1;
     public uint duration = 0;
@@ -24,7 +24,7 @@ public class Spell : MonoBehaviour
 
     private void Start()
     {
-        moveTo = GetComponent<MoveTo>();
+        moveTo = GetComponent<UnitMovement>();
         onTrigger = GetComponent<OnTrigger>();
         onTrigger.AddEvent("Enter", "Enemy", (sender, collider) => {
             if (unitsInRage.Find(x => x.name == collider.name) == null)

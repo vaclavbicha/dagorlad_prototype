@@ -24,17 +24,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         Debug.Log("OnDrag");
         //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-        RallyPoint.GetComponent<MoveTo>().SetDestination(Camera.main.ScreenToWorldPoint(eventData.position));
+        RallyPoint.GetComponent<DraggableMovement>().SetDestination(Camera.main.ScreenToWorldPoint(eventData.position));
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("OnEndDrag");
-        Camera.main.GetComponent<MoveTo>().Lock = false;
+        Camera.main.GetComponent<CameraMovement>().IsLocked = false;
     }
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown");
-        Camera.main.GetComponent<MoveTo>().Lock = true;
+        Camera.main.GetComponent<CameraMovement>().IsLocked = true;
     }
     public void OnPointerUp(PointerEventData eventData)
     {

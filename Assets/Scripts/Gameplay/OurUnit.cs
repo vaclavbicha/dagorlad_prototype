@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(MoveTo))]
+[RequireComponent(typeof(UnitMovement))]
 public class OurUnit : MonoBehaviour
 {
     public string unitName;
@@ -14,7 +14,7 @@ public class OurUnit : MonoBehaviour
     public int minimumBuildingTier;
     public Amount[] cost;
     public float attackRange;
-    MoveTo moveTo;
+    UnitMovement moveTo;
     OnTrigger onTrigger;
     OnCollision onCollision;
 
@@ -104,14 +104,14 @@ public class OurUnit : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        moveTo = GetComponent<MoveTo>();
+        moveTo = GetComponent<UnitMovement>();
         onTrigger = GetComponent<OnTrigger>();
         onCollision = GetComponent<OnCollision>();
         statsManager = GetComponent<StatsManager>();
         animator = GetComponent<Animator>();
         statsManager.On_Death += (sender) =>
         {
-            if(moveTo.CurrentMethod != MoveTo.Method.NoMovement && statsManager.owner == "Player")
+            if(moveTo.CurrentMethod != UnitMovement.Method.NoMovement && statsManager.owner == "Player")
             {
                 foreach (var x in cost)
                 {
@@ -123,7 +123,7 @@ public class OurUnit : MonoBehaviour
                     }
                 }
             }
-            moveTo.CurrentMethod = MoveTo.Method.NoMovement;
+            moveTo.CurrentMethod = UnitMovement.Method.NoMovement;
             status = Utility.UnitStatus.Dead;
             animator.SetBool("isDead", true);
             foreach(var i in GetComponents<CircleCollider2D>())
@@ -221,12 +221,12 @@ public class OurUnit : MonoBehaviour
         //new
         if (GetComponent<StatsManager>().owner == "Enemy")
         {
-            moveTo.CurrentMethod = MoveTo.Method.SpeedWithTargetAndRange;
+            moveTo.CurrentMethod = UnitMovement.Method.SpeedWithTargetAndRange;
             moveTo.range = 0.5f;
         }
         else
         {
-            moveTo.CurrentMethod = MoveTo.Method.SpeedWithFormation;
+            moveTo.CurrentMethod = UnitMovement.Method.SpeedWithFormation;
             moveTo.range = 0.1f;
         }
         //
@@ -234,16 +234,16 @@ public class OurUnit : MonoBehaviour
         status = Utility.UnitStatus.GoingToFlag;
         moveTo.TransformDestination = Rally_Point.transform;
         //moveTo.range = 0.5f;
-        moveTo.Lock = false;
+        moveTo.IsLocked = false;
     }
     public void Attack(GameObject Enemy)
     {
-        //->older-> moveTo.method = MoveTo.Method.SpeedWithTarget;
+        //->older-> moveTo.method = UnitMovement.Method.SpeedWithTarget;
         //moveTo.TransformDestination = Enemy.transform;
         //moveTo.range = 0.2f;
         //moveTo.rangeMin = 0.075f;
         //if(GetComponent<StatsManager>().owner == "Player")
-        moveTo.CurrentMethod = MoveTo.Method.Attacking;
+        moveTo.CurrentMethod = UnitMovement.Method.Attacking;
         moveTo.TransformDestination = Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform);
         //moveTo.SetDestination(Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform));
         if (attackTimer == null)
@@ -307,12 +307,12 @@ public class OurUnit : MonoBehaviour
 
                 animator.SetTrigger("isAttacking");
                 GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
-                moveTo.Lock = true;
+                moveTo.IsLocked = true;
                 dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
             }
             else
             {
-                moveTo.Lock = false;
+                moveTo.IsLocked = false;
             }
             if (dead)
             {

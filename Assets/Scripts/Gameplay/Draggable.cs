@@ -110,20 +110,18 @@ public class Draggable : MonoBehaviour
                 }
 
                 GameObject enemy = EnemiesInRange[i];
-                MoveTo unit_movement = unit.GetComponent<MoveTo>();
+                UnitMovement unit_movement = unit.GetComponent<UnitMovement>();
 
                 if (enemy.GetComponent<OurUnit>().AvailableAttackerPosition(unit.transform) != null) {
                     unit.Attack(enemy);
                 }
-                Debug.Log(unit.transform.position);
-                Debug.Log(enemy.GetComponent<OurUnit>().AvailableAttackerPosition(unit.transform));
 
-                unit.GetComponent<MoveTo>().SetPathDestination(enemy.transform.position - new Vector3(1, 1, 0) * 0.1f);
+                unit.GetComponent<UnitMovement>().SetPathDestination(enemy.transform.position - new Vector3(1, 1, 0) * 0.1f);
             }
             else
             {
                 unit.StopAttack();
-                unit.GetComponent<MoveTo>().offsetRallyPoint = targetPositionlist[j];//- transform.position;
+                unit.GetComponent<UnitMovement>().offsetRallyPoint = targetPositionlist[j];//- transform.position;
                 NotifyArmyOnCurrentLocation();
             }
             j++;
@@ -219,8 +217,7 @@ public class Draggable : MonoBehaviour
     }
 
     private void NotifyUnitOnLocation(OurUnit unit, Vector2 location) {
-        MoveTo unit_movement = unit.GetComponent<MoveTo>();
-        if (unit_movement != null) unit_movement.SetPathDestination(location);
+        if (unit.TryGetComponent<UnitMovement>(out var unit_movement)) unit_movement.SetPathDestination(location);
     }
 
     private void NotifyArmyOnCurrentLocation() {
