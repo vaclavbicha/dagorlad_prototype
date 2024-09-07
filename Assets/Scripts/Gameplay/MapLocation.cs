@@ -208,7 +208,7 @@ public class MapLocation : MonoBehaviour
             if (buildingStructure.locationType == Utility.LocationType.Attack)
             {
                 buildingStructure.Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
-                buildingStructure.Rally_Point.GetComponent<MoveTo>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
+                buildingStructure.Rally_Point.GetComponent<DraggableMovement>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
                 building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
 
                 buildingStructure.Rally_Point.GetComponent<Draggable>().home = buildingStructure.gameObject;

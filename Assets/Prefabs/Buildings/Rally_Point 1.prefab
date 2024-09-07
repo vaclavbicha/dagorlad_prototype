@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 174609613759559533}
   - component: {fileID: 2756672298208102294}
   - component: {fileID: 6904688016169406966}
-  - component: {fileID: 6044358905186423645}
+  - component: {fileID: 7574304825281997319}
   - component: {fileID: -8915760075453215423}
   - component: {fileID: 1400941118007059499}
   m_Layer: 9
@@ -169,7 +169,7 @@ MonoBehaviour:
   - {x: 0.3399189, y: -1.2961621, z: 0}
   - {x: 0.73604375, y: -1.0674592, z: 0}
   - {x: 1.0049001, y: -0.69741017, z: 0}
---- !u!114 &6044358905186423645
+--- !u!114 &7574304825281997319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,28 +178,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3460786186202539531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f5a41d521330420c892ccbd58362d17, type: 3}
+  m_Script: {fileID: 11500000, guid: f4a0987895aabd04b9bd1bc7321539f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  method: 1
+  CurrentMethod: 1
   TimeSpan: 0
   Speed: 500
-  Lock: 0
-  Destination: {x: 0, y: 0, z: 0}
-  hasReach: 0
-  hasDestinations: 0
-  Destinations: []
-  TransformDestination: {fileID: 0}
+  Destination: {x: 0, y: 0}
   StartTime: 0
-  StartPosition: {x: 0, y: 0, z: 0}
-  Distance: 0
-  CalculatedDistance: 0
-  TravelTime: 0
-  range: 0
-  rangeMin: 0
-  TimeRandomRange: 0
-  offsetRallyPoint: {x: 0, y: 0, z: 0}
-  offsetedTransformDestination: {x: 0, y: 0, z: 0}
+  StartPosition: {x: 0, y: 0}
+  IsLocked: 0
 --- !u!61 &-8915760075453215423
 BoxCollider2D:
   m_ObjectHideFlags: 0

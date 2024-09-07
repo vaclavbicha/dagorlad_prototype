@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1280812329
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dfe5faea570204828abe22f265c9414d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,10 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32a87ffff49c4ca4859f27e68c85cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: 
   onTrigger: {fileID: 2247799376332207792}
   home: {fileID: 0}
   currentArmy: []
   EnemiesInRange: []
+  MAX_UNITS: 30
+  targetPositionlist: []
 --- !u!61 &8451223753952640558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -157,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8433495259071557004}
   - component: {fileID: 2486661279062167801}
-  - component: {fileID: 6451156658648401189}
+  - component: {fileID: 4949503292091851319}
   m_Layer: 0
   m_Name: Rally_Point2.0
   m_TagString: Rally_Point
@@ -209,7 +212,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6451156658648401189
+--- !u!114 &4949503292091851319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,25 +221,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3460786186202539531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f5a41d521330420c892ccbd58362d17, type: 3}
+  m_Script: {fileID: 11500000, guid: f4a0987895aabd04b9bd1bc7321539f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  method: 1
+  CurrentMethod: 1
   TimeSpan: 0
   Speed: 50
-  Lock: 0
-  Destination: {x: 0, y: 0, z: 0}
-  hasReach: 0
-  hasDestinations: 0
-  Destinations: []
-  TransformDestination: {fileID: 0}
+  Destination: {x: 0, y: 0}
   StartTime: 0
-  StartPosition: {x: 0, y: 0, z: 0}
-  Distance: 0
-  CalculatedDistance: 0
-  TravelTime: 0
-  range: 0
-  TimeRandomRange: 0
+  StartPosition: {x: 0, y: 0}
+  IsLocked: 0
 --- !u!1 &5868248805562318994
 GameObject:
   m_ObjectHideFlags: 0

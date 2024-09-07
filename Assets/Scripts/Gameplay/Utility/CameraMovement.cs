@@ -5,31 +5,18 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
     public enum CameraMode { Time, Speed }
     public CameraMode cameraMode;
-    public float TimeSpan;
+    float TimeSpan;
     public float Speed;
-    public Vector2 Destination = Vector2.zero;
-    public bool Lock;
+    Vector2 Destination = Vector2.zero;
+    public bool IsLocked;
 
     [NonSerialized]
     Rigidbody2D rb;
-    public float StartTime;
-    public Vector2 StartPosition;
-
-    //public bool hasDestinations;
-    //public List<GameObject> Destinations = new List<GameObject>();
-    //public Queue<Vector2> DestinationsQueue = new Queue<Vector2>();
-    //public float CalculatedDistance;
+    float StartTime;
+    Vector2 StartPosition;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
-
-        //if (hasDestinations) {
-        //    for (int i = 0; i < Destinations.Count; i++) {
-        //        DestinationsQueue.Enqueue(Destinations[i].transform.position);
-        //        if (i > 0) CalculatedDistance += Vector2.Distance(Destinations[i - 1].transform.position, Destinations[i].transform.position);
-        //    }
-        //    Destination = DestinationsQueue.Dequeue();
-        //}
 
         StartTime = Time.time;
         StartPosition = rb.position;
@@ -49,24 +36,11 @@ public class CameraMovement : MonoBehaviour {
     }
 
     public void SetDestination(Vector2 Dest) {
-        if (Lock) return;
+        if (IsLocked) return;
 
         Destination = Dest;
         StartTime = Time.time;
         StartPosition = rb.position;
     }
-
-    //public void SetDestinations(Vector2[] Dests) {
-    //    if (Lock) return;
-
-    //    for (int i = 0; i < Dests.Length; i++) {
-    //        DestinationsQueue.Enqueue(Dests[i]);
-    //    }
-    //    Destination = DestinationsQueue.Dequeue();
-    //    //Debug.Log(Destination);
-    //    hasDestinations = true;
-    //    StartTime = Time.time;
-    //    StartPosition = rb.position;
-    //}
 
 }

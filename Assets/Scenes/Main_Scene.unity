@@ -13677,12 +13677,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMode: 1
-  TimeSpan: 0
   Speed: 70
-  Destination: {x: 0, y: 0.6}
-  Lock: 0
-  StartTime: 0
-  StartPosition: {x: 0, y: 0}
+  IsLocked: 0
 --- !u!1 &534998202
 GameObject:
   m_ObjectHideFlags: 0
@@ -46840,7 +46836,11 @@ MonoBehaviour:
   units: []
   upgrades: []
   infoSprites: []
-  resourceSprites: []
+  resourceSprites:
+  - {fileID: 21300000, guid: 7274ba455af104d7c93ea9cf1a47a4cc, type: 3}
+  - {fileID: 21300000, guid: f163ea5e42597f3468baeda3edb74b0f, type: 3}
+  - {fileID: 21300000, guid: 5234bdae00fa1496dbdc05d619cb7992, type: 3}
+  - {fileID: 21300000, guid: 43077ff4f4fa545d89b2057098e7e940, type: 3}
   startingAmounts: 0a000000f4010000f4010000
   secondsToFullLeftPanel: 180
   secondsToFullRightPanel: 180

@@ -8,7 +8,7 @@ public class Draggable : MonoBehaviour
 {
     public string owner;
     Vector3 mousePositionOffset;
-    MoveTo moveTo;
+    DraggableMovement draggableMovement;
     public OnTrigger onTrigger;
     public GameObject home;
 
@@ -47,7 +47,7 @@ public class Draggable : MonoBehaviour
         //    attk_pos.name = "attk_pos";
         //}
 
-        moveTo = GetComponent<MoveTo>();
+        draggableMovement = GetComponent<DraggableMovement>();
         GetComponentInChildren<OnTrigger>().AddEvent("Enter", owner == "Player" ? "Enemy" : "Player", (sender, collider) => {
             if (EnemiesInRange.Find(x => x.name == collider.name) == null)
             {
@@ -121,7 +121,7 @@ public class Draggable : MonoBehaviour
     public void ON()
     {
         Debug.Log("AAAAABB");
-        Camera.main.GetComponent<CameraMovement>().Lock = true;
+        Camera.main.GetComponent<CameraMovement>().IsLocked = true;
         mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
 
     }
@@ -131,11 +131,11 @@ public class Draggable : MonoBehaviour
         {
             x.SetBool("HOLD", true);
         }
-        moveTo.SetDestination(GetMouseWorldPosition() + mousePositionOffset);
+        draggableMovement.SetDestination(GetMouseWorldPosition() + mousePositionOffset);
     }
     public void OFF()
     {
-        Camera.main.GetComponent<CameraMovement>().Lock = false;
+        Camera.main.GetComponent<CameraMovement>().IsLocked = false;
         foreach (var x in GetComponentsInChildren<Animator>())
         {
             x.SetBool("HOLD", false);
@@ -153,7 +153,7 @@ public class Draggable : MonoBehaviour
         {
             if (ev.gameObject == gameObject)
             {
-                Camera.main.GetComponent<CameraMovement>().Lock = true;
+                Camera.main.GetComponent<CameraMovement>().IsLocked = true;
                 mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
             }
         }

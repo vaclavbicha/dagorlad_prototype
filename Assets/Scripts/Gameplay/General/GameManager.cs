@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
             ALL_Locations.AddRange(locations);
         }
         infoSprites.AddRange(Resources.LoadAll<Sprite>("InfoSprites"));
-        resourceSprites.AddRange(Resources.LoadAll<Sprite>("ResourceSprites"));
+        //resourceSprites.AddRange(Resources.LoadAll<Sprite>("ResourceSprites"));
         //foreach (GameObject i in Resources.LoadAll<GameObject>("Structures"))
         //{
         //    buildings.Add(i.name, i.GetComponent<Structure>());
