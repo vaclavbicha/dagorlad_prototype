@@ -11,6 +11,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     DraggableMovement spellInstance;
     public bool RIGHT;
     public int level;
+    bool isDragged;
 
     //private CanvasGroup canvasGroup;
 
@@ -33,52 +34,53 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         var position = Camera.main.ScreenToWorldPoint(eventData.position);
 
         var currIndex = RIGHT ? UIManager.Instance.rightINDEX : UIManager.Instance.leftINDEX;
-        if(currIndex >= level)
-        {
-            if (!isMouseOverOverlayCanvas())
-            {
-                if (spellInstance == null)
-                {
-                    spellInstance = Instantiate(spellPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity).GetComponent<DraggableMovement>();
-                    if (spellInstance.GetComponent<Animator>()) spellInstance.GetComponent<Animator>().SetTrigger("EFFECT");
-                }
-                else
-                {
-                    spellInstance.SetDestination(new Vector3(position.x, position.y, 0));
-                }
-            }
-        }
-        else
-        {
+        if(currIndex < level) {
             Camera.main.GetComponent<CameraMovement>().IsLocked = false;
             UIManager.Instance.DialogWindow("NOT ENOUGH MANA!");
+            return;
+        }
+
+        if (spellInstance == null) {
+            spellInstance = Instantiate(spellPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity).GetComponent<DraggableMovement>();
+            if (spellInstance.GetComponent<Animator>()) spellInstance.GetComponent<Animator>().SetTrigger("EFFECT");
+        }
+
+        if (!isMouseOverOverlayCanvas()) {
+            spellInstance.GetComponent<SpriteRenderer>().enabled = true;
+            spellInstance.SetDestination(new Vector3(position.x, position.y, 0));
+        } else {
+            // Cancel spell casting
+            spellInstance.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
+
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("OnEndDrag");
-        if(spellInstance != null)
-        {
-            spellInstance.GetComponent<Spell>().SpellStart();
-            spellInstance.GetComponent<Spell>().On_SpellEnd += (spell) => { StartCoroutine(SpawnDeath(spell.transform.position)); Destroy(spell); };//Destroy(spell, spell.GetComponent<Spell>().duration); };
+        if (spellInstance == null) return;
+
+        // Cancel spell casting
+        if (isMouseOverOverlayCanvas()) {
             spellInstance = null;
-            Camera.main.GetComponent<CameraMovement>().IsLocked = false;
-            UIManager.Instance.SetTimer(RIGHT, level);
-
-            Debug.Log(transform.parent.parent.parent.parent.parent.name);
-            if (transform.parent.parent.parent.parent.parent.name.Contains("Left"))
-            {
-
-                UIManager.Instance.leftLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().SetTrigger("IN");
-
-            }
-            else
-            {
-                UIManager.Instance.rightLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().SetTrigger("IN");
-            }
-            //UIManager.Instance.leftLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().ResetTrigger("IN");
-            //UIManager.Instance.rightLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().ResetTrigger("IN");
+            return;
         }
+
+        spellInstance.GetComponent<Spell>().SpellStart();
+        spellInstance.GetComponent<Spell>().On_SpellEnd += (spell) => { StartCoroutine(SpawnDeath(spell.transform.position)); Destroy(spell); };//Destroy(spell, spell.GetComponent<Spell>().duration); };
+        spellInstance = null;
+        Camera.main.GetComponent<CameraMovement>().IsLocked = false;
+        UIManager.Instance.SetTimer(RIGHT, level);
+
+        Debug.Log(transform.parent.parent.parent.parent.parent.name);
+        if (transform.parent.parent.parent.parent.parent.name.Contains("Left")) {
+
+            UIManager.Instance.leftLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().SetTrigger("IN");
+
+        } else {
+            UIManager.Instance.rightLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().SetTrigger("IN");
+        }
+        //UIManager.Instance.leftLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().ResetTrigger("IN");
+        //UIManager.Instance.rightLoadingBar.transform.parent.parent.parent.GetComponent<Animator>().ResetTrigger("IN");
     }
     public void OnPointerDown(PointerEventData eventData)
     {
