@@ -8,7 +8,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     private RectTransform rectTransform;
     public GameObject spellPrefab;
     public GameObject deathPrefab;
-    MoveTo spellInstance;
+    DraggableMovement spellInstance;
     public bool RIGHT;
     public int level;
 
@@ -29,7 +29,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         Debug.Log("OnDrag");
         Camera.main.GetComponent<CameraMovement>().Lock = true;
         //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-        //RallyPoint.GetComponent<MoveTo>().SetDestination(Camera.main.ScreenToWorldPoint(eventData.position));
+        //RallyPoint.GetComponent<DraggableMovement>().SetDestination(Camera.main.ScreenToWorldPoint(eventData.position));
         var position = Camera.main.ScreenToWorldPoint(eventData.position);
 
         var currIndex = RIGHT ? UIManager.Instance.rightINDEX : UIManager.Instance.leftINDEX;
@@ -39,7 +39,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
             {
                 if (spellInstance == null)
                 {
-                    spellInstance = Instantiate(spellPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity).GetComponent<MoveTo>();
+                    spellInstance = Instantiate(spellPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity).GetComponent<DraggableMovement>();
                     if (spellInstance.GetComponent<Animator>()) spellInstance.GetComponent<Animator>().SetTrigger("EFFECT");
                 }
                 else
