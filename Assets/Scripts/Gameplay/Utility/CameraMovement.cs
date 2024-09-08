@@ -2,16 +2,20 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
     public enum CameraMode { Time, Speed }
+
+    private const int cameraZIndex = -10;
+
     public CameraMode cameraMode;
     public float TimeSpan;
     public float Speed;
-    Vector2 Destination;
+
+    Vector3 StartPosition;
+    float StartTime;
+    Vector3 Destination;
+
     public bool IsLocked;
 
-    float StartTime;
-    Vector2 StartPosition;
-
-    Vector2 tempPosition;
+    Vector3 tempPosition;
 
     private void Awake() {
         StartTime = Time.time;
@@ -22,22 +26,22 @@ public class CameraMovement : MonoBehaviour {
         switch (cameraMode) {
             case CameraMode.Time:
                 var tt = (Time.time - StartTime) / TimeSpan;
-                tempPosition = Vector2.Lerp(StartPosition, Destination, tt);
+                tempPosition = Vector3.Lerp(StartPosition, Destination, tt);
                 break;
 
             case CameraMode.Speed:
-                tempPosition = Vector2.MoveTowards(StartPosition, Destination, Time.fixedDeltaTime * Speed);
+                tempPosition = Vector3.Lerp(StartPosition, Destination, Time.fixedDeltaTime * Speed);
                 break;
         }
 
-        transform.position = new Vector3(tempPosition.x, tempPosition.y, -10);
+        transform.position = new Vector3(tempPosition.x, tempPosition.y, cameraZIndex);
     }
 
-    public void SetDestination(Vector2 newDestination) {
+    public void SetDestination(Vector3 newDestination) {
         if (IsLocked) return;
 
-        Destination = newDestination;
         StartTime = Time.time;
         StartPosition = transform.position;
+        Destination = new Vector3(newDestination.x, newDestination.y, cameraZIndex);
     }
 }
