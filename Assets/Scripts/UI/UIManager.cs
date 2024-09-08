@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour
             for (int i = 0; i < Toggles.Length; i++)
             {
                 int panelNumber = i+1;
-                Toggles[i].onValueChanged.AddListenerOnce(delegate (bool isOn)
+                Toggles[i].onValueChanged.AddListener(delegate (bool isOn)
                 {
                     if (isOn)
                     {
@@ -303,12 +303,12 @@ public class UIManager : MonoBehaviour
             if (x.gameObject.name.Contains("YES"))
             {
                 x.onClick.RemoveAllListeners();
-                x.onClick.AddListenerOnce(yesEvent);
+                x.onClick.AddListener(yesEvent);
             }
             if (x.gameObject.name.Contains("NO"))
             {
                 x.onClick.RemoveAllListeners();
-                x.onClick.AddListenerOnce(noEvent);
+                x.onClick.AddListener(noEvent);
             }
         }
     }

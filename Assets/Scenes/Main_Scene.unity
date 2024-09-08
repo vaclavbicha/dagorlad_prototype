@@ -90364,6 +90364,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2288457360381252312, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2288457360381252312, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
       propertyPath: m_RaycastPadding.z
       value: -15
       objectReference: {fileID: 0}
@@ -90418,6 +90422,10 @@ PrefabInstance:
     - target: {fileID: 3880167605222812856, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
       propertyPath: m_RaycastPadding.z
       value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391526515130390578, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4391526515130390578, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
       propertyPath: m_RaycastPadding.x
