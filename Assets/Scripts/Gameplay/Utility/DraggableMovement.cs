@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class DraggableMovement : MonoBehaviour
 {
@@ -16,15 +12,10 @@ public class DraggableMovement : MonoBehaviour
     public float StartTime;
     public Vector2 StartPosition;
 
-    [NonSerialized]
-    public Rigidbody2D rb;
-
     public bool IsLocked;
 
     private void Awake() {
-        rb = GetComponent<Rigidbody2D>();
         StartTime = Time.time;
-        StartPosition = rb.position;
     }
 
     private void FixedUpdate() {
@@ -35,11 +26,11 @@ public class DraggableMovement : MonoBehaviour
         switch (CurrentMethod) {
             case Method.Time:
                 var tt = (Time.time - StartTime) / TimeSpan;
-                rb.MovePosition(Vector2.Lerp(StartPosition, Destination, tt));
+                transform.position = Vector2.Lerp(StartPosition, Destination, tt);
                 break;
 
             case Method.Speed:
-                rb.MovePosition(Vector2.MoveTowards(rb.position, Destination, Time.fixedDeltaTime * Speed));
+                transform.position = Vector2.MoveTowards(StartPosition, Destination, Time.fixedDeltaTime * Speed);
                 break;
         }
     }
@@ -49,7 +40,7 @@ public class DraggableMovement : MonoBehaviour
 
         Destination = Dest;
         StartTime = Time.time;
-        StartPosition = rb.position;
+        StartPosition = transform.position;
     }
 }
 
