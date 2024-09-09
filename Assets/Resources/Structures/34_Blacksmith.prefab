@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 4800447211320401558}
   - component: {fileID: 7831526641010325677}
   - component: {fileID: 2931617695603681710}
+  - component: {fileID: 8815607316792139820}
   m_Layer: 6
   m_Name: 34_Blacksmith
   m_TagString: Structures
@@ -721,6 +722,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoggEvents: 1
+--- !u!114 &8815607316792139820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712121292194843664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &9069851824841617452
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class OurUnit : MonoBehaviour
     public int minimumBuildingTier;
     public Amount[] cost;
     public float attackRange;
-    UnitMovement moveTo;
+    UnitMovement unitMovement;
     OnTrigger onTrigger;
     OnCollision onCollision;
 
@@ -44,7 +44,7 @@ public class OurUnit : MonoBehaviour
         public Transform position;
         public Transform attacker;
     }
-    public List<Attacker> attackersSlots = new List<Attacker>();
+    public List<Attacker> attackersSlots = new();
 
     public Sprite circle;
 
@@ -104,14 +104,14 @@ public class OurUnit : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        moveTo = GetComponent<UnitMovement>();
+        unitMovement = GetComponent<UnitMovement>();
         onTrigger = GetComponent<OnTrigger>();
         onCollision = GetComponent<OnCollision>();
         statsManager = GetComponent<StatsManager>();
         animator = GetComponent<Animator>();
         statsManager.On_Death += (sender) =>
         {
-            if(moveTo.CurrentMethod != UnitMovement.Method.NoMovement && statsManager.owner == "Player")
+            if(unitMovement.CurrentMethod != UnitMovement.Method.NoMovement && statsManager.owner == "Player")
             {
                 foreach (var x in cost)
                 {
@@ -123,7 +123,7 @@ public class OurUnit : MonoBehaviour
                     }
                 }
             }
-            moveTo.CurrentMethod = UnitMovement.Method.NoMovement;
+            unitMovement.CurrentMethod = UnitMovement.Method.NoMovement;
             status = Utility.UnitStatus.Dead;
             animator.SetBool("isDead", true);
             foreach(var i in GetComponents<CircleCollider2D>())
@@ -142,8 +142,8 @@ public class OurUnit : MonoBehaviour
         //onTrigger.AddEvent("Enter", "Enemy", OnEnemyEncounter);
         //onTrigger.AddEvent("Exit", "Enemy", OnEnemyLeave);
 
-        //moveTo.On_FinalDestinationReach += RandomBetween;
-        //moveTo.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
+        //unitMovement.On_FinalDestinationReach += RandomBetween;
+        //unitMovement.SetDestination(new Vector3(Random.Range(rangeOrigin.position.x - range, rangeOrigin.position.x + range), Random.Range(rangeOrigin.position.y - range, rangeOrigin.position.y + range), 0));
         //animator.speed = 0.7f;
     }
 
@@ -221,31 +221,31 @@ public class OurUnit : MonoBehaviour
         //new
         if (GetComponent<StatsManager>().owner == "Enemy")
         {
-            moveTo.CurrentMethod = UnitMovement.Method.SpeedWithTargetAndRange;
-            moveTo.range = 0.5f;
+            unitMovement.CurrentMethod = UnitMovement.Method.SpeedWithTargetAndRange;
+            unitMovement.range = 0.5f;
         }
         else
         {
-            moveTo.CurrentMethod = UnitMovement.Method.SpeedWithFormation;
-            moveTo.range = 0.1f;
+            unitMovement.CurrentMethod = UnitMovement.Method.SpeedWithFormation;
+            unitMovement.range = 0.1f;
         }
         //
         currentTarget = null;
         status = Utility.UnitStatus.GoingToFlag;
-        moveTo.TransformDestination = Rally_Point.transform;
-        //moveTo.range = 0.5f;
-        moveTo.IsLocked = false;
+        unitMovement.TransformDestination = Rally_Point.transform;
+        //unitMovement.range = 0.5f;
+        unitMovement.IsLocked = false;
     }
     public void Attack(GameObject Enemy)
     {
-        //->older-> moveTo.method = UnitMovement.Method.SpeedWithTarget;
-        //moveTo.TransformDestination = Enemy.transform;
-        //moveTo.range = 0.2f;
-        //moveTo.rangeMin = 0.075f;
+        //->older-> unitMovement.method = UnitMovement.Method.SpeedWithTarget;
+        //unitMovement.TransformDestination = Enemy.transform;
+        //unitMovement.range = 0.2f;
+        //unitMovement.rangeMin = 0.075f;
         //if(GetComponent<StatsManager>().owner == "Player")
-        moveTo.CurrentMethod = UnitMovement.Method.Attacking;
-        moveTo.TransformDestination = Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform);
-        //moveTo.SetDestination(Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform));
+        unitMovement.CurrentMethod = UnitMovement.Method.Attacking;
+        unitMovement.TransformDestination = Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform);
+        //unitMovement.SetDestination(Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform));
         if (attackTimer == null)
         {
             //Debug.Log("ATTACK " + Enemy.name);
@@ -307,12 +307,12 @@ public class OurUnit : MonoBehaviour
 
                 animator.SetTrigger("isAttacking");
                 GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
-                moveTo.IsLocked = true;
+                unitMovement.IsLocked = true;
                 dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
             }
             else
             {
-                moveTo.IsLocked = false;
+                unitMovement.IsLocked = false;
             }
             if (dead)
             {

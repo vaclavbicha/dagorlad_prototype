@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
 
     public bool isOverFlag = false;
     public Draggable currentRallyPoint = null;
-    public MapLocation clickedMapLocation = null;
+    public BuildingSlot clickedMapLocation = null;
     public bool dragFlag = false;
 
     public float holdTimerClickedMapLocation = 0f;
@@ -163,7 +163,7 @@ public class CameraController : MonoBehaviour
         currentRallyPoint = null;
         return false;
     }
-    private MapLocation OnMapLocationClick()
+    private BuildingSlot OnMapLocationClick()
     {
         //Debug.Log("MOUSE BUTTON DOWN" + camera.ScreenToWorldPoint(Input.mousePosition));
         RaycastHit2D[] hit = Physics2D.RaycastAll(mainCamera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -174,19 +174,19 @@ public class CameraController : MonoBehaviour
                 //Debug.Log(x.transform.name);
                 //var clickedMapLocation = x.transform.GetComponent<MapLocation>();
                 //SelectLocation(clickedMapLocation);
-                return x.transform.GetComponent<MapLocation>();
+                return x.transform.GetComponent<BuildingSlot>();
             }
             if (x.collider.gameObject.layer == 6 && x.collider.tag == "Structure")
             {
                 //var clickedMapLocation = x.transform.GetComponent<Structure>();
                 //SelectLocation(clickedMapLocation.mapLocation);
-                return x.transform.GetComponent<Structure>().mapLocation;
+                return x.transform.GetComponent<Structure>().buildingSlot;
             }
         }
         //clickedMapLocation = null;
         return null;
     }
-    private void SelectLocation(MapLocation location)
+    private void SelectLocation(BuildingSlot location)
     {
         foreach (var z in UIManager.Instance.toggleGroupBases.GetComponentsInChildren<Toggle>())
         {
@@ -197,12 +197,12 @@ public class CameraController : MonoBehaviour
         }
         foreach (var z in UIManager.Instance.toggleGroupStructureTypes.GetComponentsInChildren<Toggle>())
         {
-            if (z.name == location.type.ToString())
+            if (z.name == location.Type.ToString())
             {
                 z.isOn = true;
             }
         }
-        UIManager.Instance.OnSelectLocation(location.id, location.type);
+        UIManager.Instance.OnSelectLocation(location.id, location.Type);
         clickedMapLocation = null;
         timesClicked = 0;
     }

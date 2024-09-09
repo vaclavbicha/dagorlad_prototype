@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class Spell : MonoBehaviour
 {
-    UnitMovement moveTo;
     OnTrigger onTrigger;
     public uint delay = 1;
     public uint duration = 0;
@@ -20,11 +19,10 @@ public class Spell : MonoBehaviour
     public event TargetEventDelegate On_SpellStart;
     public event TargetEventDelegate On_SpellEnd;
 
-    public List<GameObject> unitsInRage = new List<GameObject>();
+    public List<GameObject> unitsInRage = new();
 
     private void Start()
     {
-        moveTo = GetComponent<UnitMovement>();
         onTrigger = GetComponent<OnTrigger>();
         onTrigger.AddEvent("Enter", "Enemy", (sender, collider) => {
             if (unitsInRage.Find(x => x.name == collider.name) == null)
@@ -69,7 +67,7 @@ public class Spell : MonoBehaviour
     {
         if(duration != 0 && hasStarted)
         {
-            if (unit.tag == "Enemy")
+            if (unit.CompareTag("Enemy"))
             {
                 unit.GetComponent<StatsManager>().UpdateStats(affectedStatsEnemies, undo);
             }
@@ -83,10 +81,10 @@ public class Spell : MonoBehaviour
     {
         On_SpellStart?.Invoke(gameObject);
         yield return new WaitForSeconds(delay);
-        Camera.main.GetComponent<Animator>().SetTrigger(AnimationTrigger);
+        if (!AnimationTrigger.Equals("")) Camera.main.GetComponent<Animator>().SetTrigger(AnimationTrigger);
         foreach (var x in unitsInRage)
         {
-            if(x.tag == "Enemy")
+            if(x.CompareTag("Enemy"))
             {
                 x.GetComponent<StatsManager>().UpdateStats(affectedStatsEnemies);
             }
@@ -104,7 +102,7 @@ public class Spell : MonoBehaviour
                 {
                     foreach(var y in unitsInRage)
                     {
-                        if (y.tag == "Enemy")
+                        if (y.CompareTag("Enemy"))
                         {
                             //y.GetComponent<StatsManager>().UpdateStats(affectedStatsEnemies, true);
                         }
@@ -124,7 +122,7 @@ public class Spell : MonoBehaviour
         {
             if (duration != 0 && hasStarted && isBuff)
             {
-                if (x.tag == "Enemy")
+                if (x.CompareTag("Enemy"))
                 {
                     x.GetComponent<StatsManager>().UpdateStats(affectedStatsEnemies, true);
                 }

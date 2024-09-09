@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class BuildingWindow : MonoBehaviour
 {
     public GameObject infoPanel;
-    public void ActivateWindow(int location_id, Utility.LocationType location_type, MapLocation mapLocation)
+    public void ActivateWindow(int location_id, Utility.LocationType location_type, BuildingSlot mapLocation)
     {
         if (mapLocation.status == Utility.LocationStatus.Built || mapLocation.status == Utility.LocationStatus.Training)
         {
             int i = 0;
             int j = 0;
-            switch (mapLocation.type)
+            switch (mapLocation.Type)
             {
                 case Utility.LocationType.Defense:
                     break;

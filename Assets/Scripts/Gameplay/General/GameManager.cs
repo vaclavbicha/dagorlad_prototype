@@ -8,16 +8,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public List<GameObject> bases = new List<GameObject>();
-    public List<MapLocation> ALL_Locations = new List<MapLocation>();
+    public List<GameObject> bases = new();
+    public List<BuildingSlot> ALL_Locations = new();
 
-    public List<Structure> buildings = new List<Structure>();
-    public List<OurUnit> units = new List<OurUnit>();
-    public List<ItemUpgrade> upgrades = new List<ItemUpgrade>();
+    public List<Structure> buildings = new();
+    public List<OurUnit> units = new();
+    public List<ItemUpgrade> upgrades = new();
     //public Dictionary<string, Structure> buildings = new Dictionary<string, Structure>();
 
-    public List<Sprite> infoSprites = new List<Sprite>();
-    public List<Sprite> resourceSprites = new List<Sprite>();
+    public List<Sprite> infoSprites = new();
+    public List<Sprite> resourceSprites = new();
     public int[] startingAmounts = new[] { 500, 1000, 1500, 2000 };
 
     public int secondsToFullLeftPanel = 60;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject flagPrefab;
 
-    public List<Draggable> enemies = new List<Draggable>();
+    public List<Draggable> enemies = new();
 
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
         for(int i = 0; i < bases.Count; i ++)
         {
-            var locations = bases[i].GetComponentsInChildren<MapLocation>();
+            var locations = bases[i].GetComponentsInChildren<BuildingSlot>();
             foreach(var location in locations)
             {
                 location.baseID = i + 1;
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.InstantiateBottomMenu(x);
         }
     }
-    public void ItemBuy(string itemName, MapLocation location)
+    public void ItemBuy(string itemName, BuildingSlot location)
     {
         Debug.Log("Item bought with name:" + itemName);
         GetComponent<AudioManager>().Play("item_buy");
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    public void SpawnUpgrade(string itemName, MapLocation location, ItemUpgrade upgradePrefab)
+    public void SpawnUpgrade(string itemName, BuildingSlot location, ItemUpgrade upgradePrefab)
     {
         if (upgradePrefab)
         {
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
         }
         else UIManager.Instance.DialogWindow("UNIT Prefab not found");
     }
-    public void SpawnUnit(string unitName, MapLocation location, OurUnit unitPrefab)
+    public void SpawnUnit(string unitName, BuildingSlot location, OurUnit unitPrefab)
     {
         if (unitPrefab)
         {
@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
         }
         else UIManager.Instance.DialogWindow("UNIT Prefab not found");
     }
-    public void SpawnBuilding(string building, MapLocation location, Structure buildingPrefab)
+    public void SpawnBuilding(string building, BuildingSlot location, Structure buildingPrefab)
     {
         //Debug.Log(building);
         //var buildingPrefab = buildings.Find(x => x.buildingName == building);
@@ -165,6 +165,7 @@ public class GameManager : MonoBehaviour
             if (Player.Instance.Buy(buildingPrefab.cost))
             {
                 location.SpawnBuilding(buildingPrefab.gameObject);
+                NavMeshManager.Instance.UpdateNavMesh();
                 UIManager.Instance.OnCloseBuildingWindow();
             }
             else

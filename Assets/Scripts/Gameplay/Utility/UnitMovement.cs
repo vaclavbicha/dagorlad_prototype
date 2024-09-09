@@ -18,8 +18,8 @@ public class UnitMovement : MonoBehaviour
     public Vector2 Destination;
 
     public bool hasDestinations;
-    public List<GameObject> Destinations = new List<GameObject>();
-    public Queue<Vector2> DestinationsQueue = new Queue<Vector2>();
+    public List<GameObject> Destinations = new();
+    public Queue<Vector2> DestinationsQueue = new();
 
     public Transform TransformDestination;
     public float StartTime;

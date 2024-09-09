@@ -20,7 +20,7 @@ public class ItemManager : MonoBehaviour
 
     bool pressed = false;
     float endTimer;
-    float pressTime = 0.7f;
+    readonly float pressTime = 0.7f;
 
 
     public void Start()
@@ -71,12 +71,12 @@ public class ItemManager : MonoBehaviour
     }
     public void OnBuildingDestroy()
     {
-        building.mapLocation.DestroyBuilding();
+        building.buildingSlot.DestroyBuilding();
     }
     public void OnBuildingUpgradeWindow()
     {
         //var location = GameManager.Instance.ALL_Locations.Find(x => x.id == locationID && x.type == type && x.baseID == UIManager.Instance.currentBaseID);
-        if (building.mapLocation)
+        if (building.buildingSlot)
         {
             var cost = building.ReturnCostOfLevel();
             if (cost != null)
@@ -89,7 +89,7 @@ public class ItemManager : MonoBehaviour
                         {
                             foreach(var x in cost)
                             {
-                                if (x.type == Utility.ResourceTypes.Time) building.mapLocation.UpgradeStructure(x.value);
+                                if (x.type == Utility.ResourceTypes.Time) building.buildingSlot.UpgradeStructure(x.value);
                             }
                             //location.building.GetComponent<Structure>().UpgradeStructure();
                             Debug.Log("PLAYER CAN AFFORD");

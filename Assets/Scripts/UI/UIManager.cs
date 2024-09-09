@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     public ToggleGroup toggleGroupStructureTypes;
 
     public BuildingWindow window;
-    public MapLocation currentSelected;
+    public BuildingSlot currentSelected;
 
     public GameObject dialogWindow;
     public GameObject dialogWindowYesNo;
@@ -185,7 +185,7 @@ public class UIManager : MonoBehaviour
     {
         DeselectLocation();
         Debug.Log(location_id);
-        currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.id == location_id && x.type == location_type && x.baseID == currentBaseID);
+        currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.id == location_id && x.Type == location_type && x.baseID == currentBaseID);
         if (currentSelected)
         {
             currentSelected.selectionStatus = Utility.LocationSelectionStatus.Selected;
@@ -246,11 +246,11 @@ public class UIManager : MonoBehaviour
         Camera.main.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(i.ToString())).transform.position);
         EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
     }
-    public void InstantiateBottomMenu(MapLocation location)
+    public void InstantiateBottomMenu(BuildingSlot location)
     {
-        var button = Instantiate(bottomPanelButtons.Find(x => x.GetComponent<ItemManager>().type == location.type), bottomPanelContent.Find(location.type.ToString()));
+        var button = Instantiate(bottomPanelButtons.Find(x => x.GetComponent<ItemManager>().type == location.Type), bottomPanelContent.Find(location.Type.ToString()));
         button.GetComponent<ItemManager>().locationID = location.id;
-        button.name = "Button_" + location.type.ToString() +  "_" + location.id.ToString();
+        button.name = "Button_" + location.Type.ToString() +  "_" + location.id.ToString();
 
         if (location.building != null)
         {

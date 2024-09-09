@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 8784103412311606208}
   - component: {fileID: 4247717248377712665}
   - component: {fileID: 4450624188069163045}
+  - component: {fileID: 9118688770544182177}
   m_Layer: 6
   m_Name: Tower2
   m_TagString: Structures
@@ -721,6 +722,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoggEvents: 1
+--- !u!114 &9118688770544182177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712121292194843664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &9025668814943251969
 GameObject:
   m_ObjectHideFlags: 0

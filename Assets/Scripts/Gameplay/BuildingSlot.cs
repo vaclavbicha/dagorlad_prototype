@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MapLocation : MonoBehaviour
+public class BuildingSlot : MonoBehaviour
 {
     private Camera mainCamera;
 
@@ -13,7 +13,7 @@ public class MapLocation : MonoBehaviour
     public int baseID;
     public bool isVisisble;
     public Player owner;
-    public Utility.LocationType type;
+    public Utility.LocationType Type { get; set; }
     public Utility.LocationStatus status;
     public Utility.LocationSelectionStatus selectionStatus;
     public GameObject building = null;
@@ -23,15 +23,13 @@ public class MapLocation : MonoBehaviour
     SpriteRenderer sprite;
     Color color = Color.white;
 
-    [SerializeField]
     public Timer timer;
-    [SerializeField]
     public Slider loadingBar;
 
     public ItemManager itemManager;
 
     // Production Queue
-    public List<GameObject> productionList = new List<GameObject>();
+    public List<GameObject> productionList = new();
 
 
     // Start is called before the first frame update
@@ -78,10 +76,10 @@ public class MapLocation : MonoBehaviour
                 timer = gameObject.AddComponent<Timer>();
                 timer.AddTimer("BuildingUpgrade", buildTime, true, 0.25f);
 
-                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
                 loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
                 timer.On_PingAction += UpdateSlider;
-                timer.On_Duration_End += isDoneUpgrading;
+                timer.On_Duration_End += IsDoneUpgrading;
                 loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
             }
@@ -126,11 +124,11 @@ public class MapLocation : MonoBehaviour
                 timer = gameObject.AddComponent<Timer>();
                 timer.AddTimer("Training", buildTime, true, 0.25f);
 
-                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
                 loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
                 loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
                 timer.On_PingAction += UpdateSlider;
-                timer.On_Duration_End += isDoneTraining;
+                timer.On_Duration_End += IsDoneTraining;
                 loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
             }
@@ -177,11 +175,11 @@ public class MapLocation : MonoBehaviour
                 timer = gameObject.AddComponent<Timer>();
                 timer.AddTimer("Training", buildTime, true, 0.25f);
 
-                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
                 loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
                 loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
                 timer.On_PingAction += UpdateSlider;
-                timer.On_Duration_End += isDoneTraining;
+                timer.On_Duration_End += IsDoneTraining;
                 loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
             }
@@ -203,7 +201,7 @@ public class MapLocation : MonoBehaviour
             building.tag = "Structure";
             building.name += building.GetInstanceID().ToString();
             var buildingStructure = building.GetComponent<Structure>();
-            buildingStructure.mapLocation = this;
+            buildingStructure.buildingSlot = this;
 
             if (buildingStructure.locationType == Utility.LocationType.Attack)
             {
@@ -237,10 +235,10 @@ public class MapLocation : MonoBehaviour
                 timer = gameObject.AddComponent<Timer>();
                 timer.AddTimer("Building", buildTime, true, 0.25f);
 
-                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
                 loadingBar = Instantiate(buildingPrefab.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
                 timer.On_PingAction += UpdateSlider;
-                timer.On_Duration_End += isDoneBuilding;
+                timer.On_Duration_End += IsDoneBuilding;
                 loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
             }
@@ -263,10 +261,10 @@ public class MapLocation : MonoBehaviour
             timer = gameObject.AddComponent<Timer>();
             timer.AddTimer("Upgrade", time, true, 0.25f);
 
-            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
             loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
             timer.On_PingAction += UpdateSlider;
-            timer.On_Duration_End += isDoneUpgradingBuilding;
+            timer.On_Duration_End += IsDoneUpgradingBuilding;
             loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
         }
@@ -275,7 +273,7 @@ public class MapLocation : MonoBehaviour
             UIManager.Instance.DialogWindow("This location all ready has a timer");
         }
     }
-    public void isDoneUpgradingBuilding(Timer _timer)
+    public void IsDoneUpgradingBuilding(Timer _timer)
     {
         //Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         status = Utility.LocationStatus.Built;
@@ -291,7 +289,7 @@ public class MapLocation : MonoBehaviour
     {
         loadingBar.value = Mathf.Abs((Time.time - _timer.timeStarted) / (_timer.timeStarted - _timer.timeFinish));
     }
-    public void isDoneTraining(Timer _timer)
+    public void IsDoneTraining(Timer _timer)
     {
         trainingUnit.SetActive(true);
         status = Utility.LocationStatus.Built;
@@ -308,8 +306,8 @@ public class MapLocation : MonoBehaviour
             SpawnUnitQueue();
         }
     }
-    public void isDoneBuilding(Timer _timer)
-    {
+    public void IsDoneBuilding(Timer _timer)
+    {        
         //Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         building.GetComponent<Structure>().UpgradeStructure();
         //building.SetActive(true);
@@ -328,12 +326,12 @@ public class MapLocation : MonoBehaviour
         {
             Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(building.GetComponent<Structure>().production.value);
         }
-        else if(type == Utility.LocationType.Resource)
+        else if(Type == Utility.LocationType.Resource)
         {
             Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction += building.GetComponent<Structure>().production.value;
         }
     }
-    public void isDoneUpgrading(Timer _timer)
+    public void IsDoneUpgrading(Timer _timer)
     {
         status = Utility.LocationStatus.Built;
         var reff = upgradeItem.GetComponent<ItemUpgrade>();
@@ -376,7 +374,7 @@ public class MapLocation : MonoBehaviour
                 if(building.GetComponent<Structure>().level < 0)
                 {
                     Player.Instance.Refund(building.GetComponent<Structure>().cost);
-                    if (type == Utility.LocationType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);
+                    if (Type == Utility.LocationType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);
                     Destroy(building);
                     status = Utility.LocationStatus.Free;
                     selectionStatus = Utility.LocationSelectionStatus.Unselected;
@@ -390,7 +388,7 @@ public class MapLocation : MonoBehaviour
                 break;
 
             case Utility.LocationStatus.Training:
-                if(type == Utility.LocationType.Attack)
+                if(Type == Utility.LocationType.Attack)
                 {
                     foreach (var unit in productionList)
                     {
@@ -399,13 +397,15 @@ public class MapLocation : MonoBehaviour
                     Destroy(trainingUnit);
                     productionList.RemoveAll(x => x);
                 }
-                if(type == Utility.LocationType.Resource)
+                if(Type == Utility.LocationType.Resource)
                 {
                     Player.Instance.Refund(upgradeItem.GetComponent<ItemUpgrade>().cost);
                     Destroy(upgradeItem);
                 }
                 break;
         }
+
+        NavMeshManager.Instance.UpdateNavMesh();
     }
     IEnumerator UpdateBuildingSprite(float t)
     {
@@ -416,7 +416,7 @@ public class MapLocation : MonoBehaviour
     {
         if(timer != null)
         {
-            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == type);
+            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
             loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
             timer.On_PingAction += UpdateSlider;
             loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
@@ -426,7 +426,7 @@ public class MapLocation : MonoBehaviour
             itemManager.building = building.GetComponent<Structure>();
 
             itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
-            Color fillingColor = new Color(0, 0, 0);
+            Color fillingColor = new(0, 0, 0);
             switch (itemManager.building.level)
             {
                 case 0:
@@ -481,7 +481,7 @@ public class MapLocation : MonoBehaviour
             itemManager.building = building.GetComponent<Structure>();
 
             itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
-            Color fillingColor = new Color(0, 0, 0);
+            Color fillingColor = new(0, 0, 0);
             switch (itemManager.building.level)
             {
                 case 0:
@@ -508,7 +508,7 @@ public class MapLocation : MonoBehaviour
         {
             Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(-building.GetComponent<Structure>().production.value);
         }
-        else if (type == Utility.LocationType.Resource)
+        else if (Type == Utility.LocationType.Resource)
         {
             Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction -= building.GetComponent<Structure>().production.value;
         }

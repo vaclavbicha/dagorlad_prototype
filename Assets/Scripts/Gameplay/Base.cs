@@ -5,7 +5,7 @@ using UnityEngine;
 public class Base : MonoBehaviour
 {
     public string owner;
-    public List<MapLocation> locations = new List<MapLocation>();
+    public List<BuildingSlot> locations = new List<BuildingSlot>();
     public GameObject baseFlag;
 
     public float flagEnter;

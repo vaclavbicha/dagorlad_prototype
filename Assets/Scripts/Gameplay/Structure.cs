@@ -23,12 +23,12 @@ public class Structure : MonoBehaviour
     public GameObject loadingBarPrefab;
     public GameObject Rally_Point;
     public bool isAttackPoint = false;
-    public MapLocation mapLocation;
+    public BuildingSlot buildingSlot;
 
     public int level;
     public Amount[] costUpgrade0;
     public Amount[] costUpgrade1;
-    private int maxLevel = 3;
+    private readonly int maxLevel = 3;
 
     //public List<OurUnit> currentArmy = new List<OurUnit>();
 
