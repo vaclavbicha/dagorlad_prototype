@@ -53,8 +53,13 @@ public class UIManager : MonoBehaviour
     public Toggle lastSelectedInfoToggle = null;
 
     public GameObject winWindow;
+
+    Camera mainCamera;
+
     private void Start()
     {
+        mainCamera = Camera.main;
+
         foreach (var x in baseBorder.GetComponentsInChildren<Image>())
         {
             x.color = borderColors[currentBaseID];
@@ -136,27 +141,28 @@ public class UIManager : MonoBehaviour
     }
     public void Update()
     {
-        if (lookForNextClick)
-        {
-            if (Input.GetMouseButton(0) && !isMouseOverOverlayCanvas())
-            {
-                selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                //selectedRallyPoint.GetComponentInChildren<Animator>().SetTrigger("OFF");
-                foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>())
-                {
-                    x.SetBool("HOLD", false);
-                }
-                lookForNextClick = false;
-                selectedRallyPoint = null;
-                if (selectedRallyPointButton)
-                {
-                    selectedRallyPointButton.color = Color.white;
-                    selectedRallyPointButton = null;
-                }
-            }
+        if (!lookForNextClick) return;
+
+        if (Input.GetMouseButton(0) && !IsMouseOverOverlayCanvas()) {
+            PutRallyPointDown(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
     }
-    public bool isMouseOverOverlayCanvas()
+
+    public void PutRallyPointDown(Vector3 destination) {
+        selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(destination);
+        //selectedRallyPoint.GetComponentInChildren<Animator>().SetTrigger("OFF");
+        foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>()) {
+            x.SetBool("HOLD", false);
+        }
+        lookForNextClick = false;
+        selectedRallyPoint = null;
+        if (selectedRallyPointButton) {
+            selectedRallyPointButton.color = Color.white;
+            selectedRallyPointButton = null;
+        }
+    }
+
+    public bool IsMouseOverOverlayCanvas()
     {
         PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
         pointerEventData.position = Input.mousePosition;

@@ -1,12 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static DragSpell;
 
-public class ItemManager : MonoBehaviour
-{
+public class ItemManager : MonoBehaviour {
     public int locationID;
     public Utility.LocationType type;
 
@@ -22,44 +19,94 @@ public class ItemManager : MonoBehaviour
     float endTimer;
     readonly float pressTime = 0.7f;
 
+    enum ClickType { NoClick, SingleClick, DoubleClick };
+
+    ClickType click_type = ClickType.NoClick;
+
+    private readonly float doubleTapThreshold = 0.2f;
+    int tapCount;
+    
+    float passedTimeSinceLaskClick;
+    bool isClicked;
+    bool isDoubleClicked;
+
+    Camera mainCamera;
+
 
     public void Start()
     {
         top = transform.GetChild(1).GetChild(0).gameObject;
+        mainCamera = Camera.main;
     }
-    public void Update()
-    {
-        if(endTimer <= Time.time)
-        {
-            if (pressed && building != null)
-            {
+    public void Update() {
+        if (endTimer <= Time.time) {
+            if (pressed && building != null) {
                 delete.SetActive(true);
             }
         }
+
+        HandleClickAndDoubleClick();
     }
+
+    private void HandleClickAndDoubleClick() {
+        switch (click_type) {
+            case ClickType.SingleClick:
+                if (UIManager.Instance.selectedRallyPoint == null) {
+                    PickRallyPointUp();
+                } else {
+                    PutRallyPointBackDown();
+                }
+                break;
+            case ClickType.DoubleClick:
+                if (UIManager.Instance.selectedRallyPoint != null) PutRallyPointBackDown();
+                MoveToRallyPointPosition();
+                break;
+        }
+
+        click_type = ClickType.NoClick;
+    }
+
     public void SelectLocation(string arg)
     {
         UIManager.Instance.OnSelectLocation(locationID, type);
         //UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Button>().
     }
-    public void OnFlagClick(bool isRed)
-    {
-        if(UIManager.Instance.selectedRallyPoint == null)
-        {
-            var img = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
-            foreach (var x in RallyPoint.GetComponentsInChildren<Animator>())
-            {
-                x.SetBool("HOLD", true);
-            }
-            building.isAttackPoint = isRed;
-            UIManager.Instance.LookToPlaceRallyPoint(RallyPoint, img);
+
+    IEnumerator SingleOrDoubleTap() {
+        yield return new WaitForSeconds(doubleTapThreshold);
+
+        if (tapCount == 1) {
+            click_type = ClickType.SingleClick;
+        } else if (tapCount == 2) {
+            click_type = ClickType.DoubleClick;
         }
+
+        tapCount = 0;
     }
-    public void OnFlagDoubleClick()
+
+    public void OnFlagClick()
     {
-        //PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        //Debug.Log(pointerEventData.clickCount);
+        tapCount++;
+        StartCoroutine(SingleOrDoubleTap());
     }
+
+    private void PickRallyPointUp() {
+        var img = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
+        foreach (var x in RallyPoint.GetComponentsInChildren<Animator>()) {
+            x.SetBool("HOLD", true);
+        }
+        building.isAttackPoint = false;
+        UIManager.Instance.LookToPlaceRallyPoint(RallyPoint, img);
+    }
+
+    private void PutRallyPointBackDown() {
+        UIManager.Instance.PutRallyPointDown(RallyPoint.position);
+    }
+
+    private void MoveToRallyPointPosition() {
+        mainCamera.GetComponent<CameraMovement>().SetDestination(RallyPoint.position);
+    }
+
     public void OnHold()
     {
         pressed = true;
