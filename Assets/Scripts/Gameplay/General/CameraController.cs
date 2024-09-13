@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     CameraMovement cameraMovement;
 
     public SpriteRenderer mapRenderer;
-    float mapMinX, mapMaxX, mapMinY, mapMaxY;
+    public float mapMinX, mapMaxX, mapMinY, mapMaxY;
 
     Vector3 Origin;
     Vector3 Difference;
@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0) && !isMouseOverOverlayCanvas() && !UIManager.Instance.lookForNextClick && clickedMapLocation == null)
+        if (Input.GetMouseButtonDown(0) && !IsMouseOverOverlayCanvas() && !UIManager.Instance.lookForNextClick && clickedMapLocation == null)
         {
             clickedMapLocation = OnMapLocationClick();
             if (clickedMapLocation != null)
@@ -49,7 +49,7 @@ public class CameraController : MonoBehaviour
                 lastclickedTimer = Time.time + holdTimerClickedMapLocation;
             }
         }
-        if (Input.GetMouseButtonUp(0) && !isMouseOverOverlayCanvas() && clickedMapLocation != null)
+        if (Input.GetMouseButtonUp(0) && !IsMouseOverOverlayCanvas() && clickedMapLocation != null)
         {
             if(clickedMapLocation == OnMapLocationClick())
             {
@@ -87,7 +87,7 @@ public class CameraController : MonoBehaviour
     void FixedUpdate()
     {
         //if(Input.GetMouseButtonDown(0)) SearchRallyPoint();
-        if (Input.GetMouseButton(0) && !isMouseOverOverlayCanvas())
+        if (Input.GetMouseButton(0) && !IsMouseOverOverlayCanvas())
         {
             if (!drag && !dragFlag) isOverFlag = SearchRallyPoint();
             //if(!drag && !currentRallyPoint) SearchRallyPoint();
@@ -129,7 +129,7 @@ public class CameraController : MonoBehaviour
             cameraMovement.SetDestination(ClampCamera(Origin - Difference));
         }
     }
-    public bool isMouseOverOverlayCanvas()
+    public bool IsMouseOverOverlayCanvas()
     {
         PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
         pointerEventData.position = Input.mousePosition;
@@ -206,7 +206,7 @@ public class CameraController : MonoBehaviour
         clickedMapLocation = null;
         timesClicked = 0;
     }
-    private Vector3 ClampCamera(Vector3 targetPosition)
+    public Vector3 ClampCamera(Vector3 targetPosition)
     {
         float camHeight = mainCamera.orthographicSize;
         float camWidth = mainCamera.orthographicSize * mainCamera.aspect;

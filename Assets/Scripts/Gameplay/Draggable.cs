@@ -131,6 +131,7 @@ public class Draggable : MonoBehaviour
     {
         Debug.Log("AAAAABB");
         Camera.main.GetComponent<CameraMovement>().IsLocked = true;
+        Camera.main.GetComponent<CameraMovement>().EnableEdgeScrolling();
         mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
 
     }
@@ -147,6 +148,7 @@ public class Draggable : MonoBehaviour
     public void OFF()
     {
         Camera.main.GetComponent<CameraMovement>().IsLocked = false;
+        Camera.main.GetComponent<CameraMovement>().DisableEdgeScrolling();
         foreach (var x in GetComponentsInChildren<Animator>())
         {
             x.SetBool("HOLD", false);
