@@ -64,6 +64,11 @@ public class GameManager : MonoBehaviour
         UpdatePlayerResources(Player.Instance, startingAmounts);
 
         UIManager.Instance.currentBaseID = 1;
+        StartCoroutine(InstantiateBottomMenuCoroutine());
+    }
+
+    IEnumerator InstantiateBottomMenuCoroutine() {
+        yield return new WaitForFixedUpdate();
         InstantiateBottomMenu();
     }
 

@@ -117,7 +117,7 @@ public class Draggable : MonoBehaviour
             else
             {
                 unit.StopAttack();
-                unit.GetComponent<UnitMovement>().offsetRallyPoint = targetPositionlist[j];//- transform.position;
+                //unit.GetComponent<UnitMovement>().offsetRallyPoint = targetPositionlist[j];//- transform.position;
                 NotifyArmyOnCurrentLocation();
             }
             j++;

@@ -150,11 +150,19 @@ public class UIManager : MonoBehaviour
 
     public void PutRallyPointDown(Vector3 destination) {
         selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(destination);
-        //selectedRallyPoint.GetComponentInChildren<Animator>().SetTrigger("OFF");
+        selectedRallyPoint.transform.position = destination;
+
         foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>()) {
             x.SetBool("HOLD", false);
         }
         lookForNextClick = false;
+
+        Camera.main.GetComponent<CameraMovement>().IsLocked = false;
+        Camera.main.GetComponent<CameraMovement>().DisableEdgeScrolling();
+        Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
+
+        selectedRallyPoint.GetComponent<Draggable>().ManageTargets();
+
         selectedRallyPoint = null;
         if (selectedRallyPointButton) {
             selectedRallyPointButton.color = Color.white;
