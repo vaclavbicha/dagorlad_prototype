@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using static DragSpell;
 
 public class ItemManager : MonoBehaviour {
     public int locationID;
@@ -91,6 +90,8 @@ public class ItemManager : MonoBehaviour {
     }
 
     private void PickRallyPointUp() {
+        if (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject == null) return;
+
         var img = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
         foreach (var x in RallyPoint.GetComponentsInChildren<Animator>()) {
             x.SetBool("HOLD", true);
