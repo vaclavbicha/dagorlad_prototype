@@ -18,7 +18,11 @@ public class CameraMovement : MonoBehaviour {
 
     Vector3 tempPosition;
 
-    float edgeSize = 150f;
+    float edgeSize = 200;
+    float upCanvasSize = 500;
+    float upEdgeSize;
+    float downCanvasSize = 680;
+    float downEdgeSize;
     bool isEdgeScrolling;
     float scrollingSpeed = 1.3f;
     float maxScrollingSpeedDifference = 0.3f;
@@ -36,6 +40,9 @@ public class CameraMovement : MonoBehaviour {
 
     private void Start() {
         cameraController = GameManager.Instance.GetComponent<CameraController>();
+
+        upEdgeSize = edgeSize + upCanvasSize;
+        downEdgeSize = edgeSize + downCanvasSize;
     }
 
     private void FixedUpdate() {
@@ -73,14 +80,14 @@ public class CameraMovement : MonoBehaviour {
         }
 
         // up
-        if (mousePosition.y > screenHeight - edgeSize) {
-            float tempY = Destination.y + Mathf.Clamp(Time.deltaTime * scrollingSpeed / (screenHeight - mousePosition.y) * edgeSize, 0, maxScrollingSpeedDifference);
+        if (mousePosition.y > screenHeight - upEdgeSize) {
+            float tempY = Destination.y + Mathf.Clamp(Time.deltaTime * scrollingSpeed / (screenHeight - mousePosition.y) * upEdgeSize, 0, maxScrollingSpeedDifference);
             Destination = cameraController.ClampCamera(new Vector3(Destination.x, tempY, cameraZIndex));
         }
 
         // down
-        if (mousePosition.y < edgeSize) {
-            float tempY = Destination.y - Mathf.Clamp(Time.deltaTime * scrollingSpeed / mousePosition.y * edgeSize, 0, maxScrollingSpeedDifference);
+        if (mousePosition.y < downEdgeSize) {
+            float tempY = Destination.y - Mathf.Clamp(Time.deltaTime * scrollingSpeed / mousePosition.y * downEdgeSize, 0, maxScrollingSpeedDifference);
             Destination = cameraController.ClampCamera(new Vector3(Destination.x, tempY, cameraZIndex));
         }
     }

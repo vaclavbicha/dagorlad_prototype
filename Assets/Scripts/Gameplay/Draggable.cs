@@ -159,10 +159,8 @@ public class Draggable : MonoBehaviour
 
         List<RaycastResult> raycastResults = new List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-        foreach (var ev in raycastResults)
-        {
-            if (ev.gameObject == gameObject)
-            {
+        foreach (var ev in raycastResults) {
+            if (ev.gameObject == gameObject) {
                 Camera.main.GetComponent<CameraMovement>().IsLocked = true;
                 mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
             }

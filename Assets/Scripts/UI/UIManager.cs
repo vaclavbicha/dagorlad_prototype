@@ -143,7 +143,7 @@ public class UIManager : MonoBehaviour
     {
         if (!lookForNextClick) return;
 
-        if (Input.GetMouseButton(0) && !IsMouseOverOverlayCanvas()) {
+        if (Input.GetMouseButton(0)) {
             PutRallyPointDown(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
     }

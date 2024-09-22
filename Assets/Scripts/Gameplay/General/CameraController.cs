@@ -89,7 +89,8 @@ public class CameraController : MonoBehaviour
     void FixedUpdate()
     {
         //if(Input.GetMouseButtonDown(0)) SearchRallyPoint();
-        if (Input.GetMouseButton(0) && !IsMouseOverOverlayCanvas())
+        // here you can block ui with  && !IsMouseOverOverlayCanvas()
+        if (Input.GetMouseButton(0))
         {
             if (!drag && !dragFlag) isOverFlag = SearchRallyPoint();
             //if(!drag && !currentRallyPoint) SearchRallyPoint();
