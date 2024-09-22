@@ -31,6 +31,7 @@ public class CameraMovement : MonoBehaviour {
     private void Awake() {
         StartTime = Time.time;
         StartPosition = transform.position;
+        Destination = StartPosition;
     }
 
     private void Start() {

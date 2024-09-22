@@ -53,18 +53,20 @@ public class CameraController : MonoBehaviour
         {
             if(clickedMapLocation == OnMapLocationClick())
             {
-                //Debug.Log("DASDADASDA");
-                //SelectLocation(clickedMapLocation);
+
                 if (lastclickedTimer > Time.time)
                 {
                     if (timesClicked == 1)
                     {
+                        // Double click action
                         SelectLocation(clickedMapLocation);
                     }
                     else
                     {
                         if (timesClicked == 0)
                         {
+                            SelectLocation(clickedMapLocation);
+                            // Single click action
                             timesClicked++;
                         }
                     }
