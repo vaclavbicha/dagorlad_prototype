@@ -133,8 +133,7 @@ public class Draggable : MonoBehaviour
     }
     public void HOLD()
     {
-        foreach (var x in GetComponentsInChildren<Animator>())
-        {
+        foreach (var x in GetComponentsInChildren<Animator>()) {
             x.SetBool("HOLD", true);
         }
 
@@ -151,20 +150,6 @@ public class Draggable : MonoBehaviour
         }
         Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         ManageTargets();
-    }
-    private void OnMouseClickDown()
-    {
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Input.mousePosition;
-
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-        foreach (var ev in raycastResults) {
-            if (ev.gameObject == gameObject) {
-                Camera.main.GetComponent<CameraMovement>().IsLocked = true;
-                mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
-            }
-        }
     }
     public void TapAndTap()
     {

@@ -155,17 +155,14 @@ public class UIManager : MonoBehaviour
     }
 
     public void PutRallyPointDown(Vector3 destination) {
-        selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(destination);
-        selectedRallyPoint.transform.position = destination;
-
-        foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>()) {
-            x.SetBool("HOLD", false);
-        }
-        lookForNextClick = false;
-
         Camera.main.GetComponent<CameraMovement>().IsLocked = false;
         Camera.main.GetComponent<CameraMovement>().DisableEdgeScrolling();
         Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
+
+        selectedRallyPoint.transform.position = destination;
+        selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(destination);
+
+        lookForNextClick = false;
 
         selectedRallyPoint.GetComponent<Draggable>().ManageTargets();
 
@@ -176,20 +173,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public bool IsMouseOverOverlayCanvas()
-    {
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Input.mousePosition;
-
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-        foreach (var ev in raycastResults)
-        {
-            //if (ev.gameObject.layer == 9) ev.gameObject.GetComponent<Draggable>().ONNNN();
-            if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
-        }
-        return false;
-    }
     public void OnCloseBuildingWindow()
     {
         if (lastSelectedInfoToggle)
@@ -230,8 +213,7 @@ public class UIManager : MonoBehaviour
         if (selectedRallyPointButton) selectedRallyPointButton.color = Color.white;
         if(selectedRallyPoint)
         {
-            foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>())
-            {
+            foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>()) {
                 x.SetBool("HOLD", false);
             }
         }

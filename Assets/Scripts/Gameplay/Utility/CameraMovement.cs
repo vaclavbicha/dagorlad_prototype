@@ -8,8 +8,10 @@ public class CameraMovement : MonoBehaviour {
     public float TimeSpan;
     public float Speed;
 
+    [SerializeField]
     Vector3 StartPosition;
     float StartTime;
+    [SerializeField]
     Vector3 Destination;
 
     private const int cameraZIndex = -10;
