@@ -14405,7 +14405,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 17377
+    m_Bits: 19425
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -61796,6 +61796,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9213537092274823670, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213537092274823670, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -67162,6 +67170,10 @@ PrefabInstance:
       propertyPath: type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4798783025495759023, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4849835491403736396, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}
       propertyPath: type
       value: 1
@@ -67172,6 +67184,10 @@ PrefabInstance:
       objectReference: {fileID: 638655602}
     - target: {fileID: 4849835491403736396, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}
       propertyPath: baseID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4923752482005895520, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5215164833740434016, guid: b8027f658ecc9401291d6d69db71eafb, type: 3}

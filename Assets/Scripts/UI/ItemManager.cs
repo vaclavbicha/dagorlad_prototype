@@ -22,10 +22,10 @@ public class ItemManager : MonoBehaviour {
 
     ClickType click_type = ClickType.NoClick;
 
-    private readonly float doubleTapThreshold = 0.2f;
+    private readonly float doubleTapThreshold = 0.15f;
     int tapCount;
-    
-    float passedTimeSinceLaskClick;
+
+    readonly float passedTimeSinceLaskClick;
     bool isClicked;
     bool isDoubleClicked;
 

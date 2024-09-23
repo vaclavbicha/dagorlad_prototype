@@ -56,6 +56,8 @@ public class UIManager : MonoBehaviour
 
     Camera mainCamera;
 
+    LayerMask buildingSlotLayer;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -99,6 +101,8 @@ public class UIManager : MonoBehaviour
         rightTimer.AddTimer("Building", GameManager.Instance.secondsToFullRightPanel, true, 0.25f);
 
         rightTimer.On_PingAction += UpdateSliderRight;
+
+        buildingSlotLayer = 1 << LayerMask.NameToLayer("BuildingSlot");
     }
     public void UnlockBase(string name)
     {
@@ -141,6 +145,8 @@ public class UIManager : MonoBehaviour
     }
     public void Update()
     {
+        HandleBuildingSlotClicked();
+
         if (!lookForNextClick) return;
 
         if (Input.GetMouseButton(0)) {
@@ -200,17 +206,17 @@ public class UIManager : MonoBehaviour
         DeselectLocation();
         Debug.Log(location_id);
         currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.id == location_id && x.Type == location_type && x.baseID == currentBaseID);
-        if (currentSelected)
-        {
-            currentSelected.selectionStatus = Utility.LocationSelectionStatus.Selected;
-            window.ActivateWindow(location_id, location_type, currentSelected);
-        }
-        else DialogWindow("Selected Location not visible on screen");
+        if (!currentSelected) DialogWindow("Selected Location not visible on screen");
+
+        currentSelected.SelectionStatus = Utility.LocationSelectionStatus.Selected;
+        window.ActivateWindow(location_id, location_type, currentSelected);
     }
 
     public void DeselectLocation()
     {
-        if (currentSelected) currentSelected.selectionStatus = Utility.LocationSelectionStatus.Unselected;
+        if (currentSelected) {
+            currentSelected.SelectionStatus = Utility.LocationSelectionStatus.Unselected;
+        }
         currentSelected = null;
     }
 
@@ -343,5 +349,18 @@ public class UIManager : MonoBehaviour
         if (rightLoadingBar.value >= 0.5f && rightLoadingBar.value < 0.75f) rightINDEX = 2;
         if (rightLoadingBar.value >= 0.75f && rightLoadingBar.value < 1f) rightINDEX = 3;
         if (rightLoadingBar.value == 1f) rightINDEX = 4;
+    }
+
+    public void HandleBuildingSlotClicked() {
+        if (Input.GetMouseButtonDown(0)) {
+            Vector2 rayOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero, Mathf.Infinity, buildingSlotLayer);
+
+            if (hit.collider != null) {
+                BuildingSlot clickedBuildingSlot = hit.collider.gameObject.GetComponent<BuildingSlot>();
+                OnSelectLocation(clickedBuildingSlot.id, clickedBuildingSlot.Type);
+            }
+        }
     }
 }

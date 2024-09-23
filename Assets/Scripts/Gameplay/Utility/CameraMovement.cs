@@ -18,17 +18,17 @@ public class CameraMovement : MonoBehaviour {
 
     Vector3 tempPosition;
 
-    float edgeSize = 200;
-    float upCanvasSize = 500;
+    readonly float edgeSize = 200;
+    readonly float upCanvasSize = 500;
     float upEdgeSize;
-    float downCanvasSize = 680;
+    readonly float downCanvasSize = 680;
     float downEdgeSize;
     bool isEdgeScrolling;
-    float scrollingSpeed = 1.3f;
-    float maxScrollingSpeedDifference = 0.3f;
+    readonly float scrollingSpeed = 1.3f;
+    readonly float maxScrollingSpeedDifference = 0.3f;
 
-    int screenWidth = Screen.width;
-    int screenHeight = Screen.height;
+    readonly int screenWidth = Screen.width;
+    readonly int screenHeight = Screen.height;
 
     CameraController cameraController;
 

@@ -10,11 +10,11 @@ public class Draggable : MonoBehaviour
     public OnTrigger onTrigger;
     public GameObject home;
 
-    public List<OurUnit> currentArmy = new List<OurUnit>();
-    public List<GameObject> EnemiesInRange = new List<GameObject>();
+    public List<OurUnit> currentArmy = new();
+    public List<GameObject> EnemiesInRange = new();
 
     public int MAX_UNITS = 30;
-    public List<Vector3> targetPositionlist = new List<Vector3>();
+    public List<Vector3> targetPositionlist = new();
 
     //public class FormationPosition
     //{
