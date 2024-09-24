@@ -161,6 +161,7 @@ public class UIManager : MonoBehaviour
 
         selectedRallyPoint.transform.position = destination;
         selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(destination);
+        selectedRallyPoint.GetComponent<Draggable>().PlayPutRallyPointDownAnimation();
 
         lookForNextClick = false;
 
@@ -216,6 +217,7 @@ public class UIManager : MonoBehaviour
             foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>()) {
                 x.SetBool("HOLD", false);
             }
+            selectedRallyPoint.GetComponent<Draggable>().PlayPutRallyPointDownAnimation();
         }
         lookForNextClick = true;
         selectedRallyPoint = point;

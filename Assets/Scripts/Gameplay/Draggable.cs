@@ -21,6 +21,8 @@ public class Draggable : MonoBehaviour
     //    public Vector3 
     //}
 
+    Animator[] animators;
+
     private void Start()
     {
         //Debug.Log(transform.parent.TransformPoint(transform.localPosition));
@@ -46,6 +48,7 @@ public class Draggable : MonoBehaviour
         //}
 
         draggableMovement = GetComponent<DraggableMovement>();
+        animators = GetComponentsInChildren<Animator>();
         GetComponentInChildren<OnTrigger>().AddEvent("Enter", owner == "Player" ? "Enemy" : "Player", (sender, collider) => {
             if (EnemiesInRange.Find(x => x.name == collider.name) == null)
             {
@@ -133,37 +136,31 @@ public class Draggable : MonoBehaviour
     }
     public void HOLD()
     {
-        foreach (var x in GetComponentsInChildren<Animator>()) {
-            x.SetBool("HOLD", true);
-        }
+        PlayPickRallyPointUpAnimation();
 
         draggableMovement.SetDestination(GetMouseWorldPosition() + mousePositionOffset);
         gameObject.transform.position = GetMouseWorldPosition() + mousePositionOffset;
     }
-    public void OFF()
-    {
+    public void OFF() {
         Camera.main.GetComponent<CameraMovement>().IsLocked = false;
         Camera.main.GetComponent<CameraMovement>().DisableEdgeScrolling();
-        foreach (var x in GetComponentsInChildren<Animator>())
-        {
-            x.SetBool("HOLD", false);
-        }
+        PlayPutRallyPointDownAnimation();
         Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         ManageTargets();
     }
-    public void TapAndTap()
-    {
-        Debug.Log("PLACEEE");
-        foreach (var x in GetComponentsInChildren<Animator>())
-        {
-            x.SetBool("HOLD", true);
+
+    public void PlayPutRallyPointDownAnimation() {
+        foreach (var a in animators) {
+            a.SetBool("HOLD", false);
         }
-        //foreach (var child2 in UIManager.Instance.bottomPanelContent.GetChild(1).GetComponentsInChildren<ItemManager>())
-        //{
-        //    if (child2.RallyPoint == gameObject.transform) UIManager.Instance.LookToPlaceRallyPoint(transform, child2.mid.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>());
-        //}
-        UIManager.Instance.LookToPlaceRallyPoint(transform);
     }
+
+    public void PlayPickRallyPointUpAnimation() {
+        foreach (var a in animators) {
+            a.SetBool("HOLD", true);
+        }
+    }
+
     private Vector3 GetMouseWorldPosition()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
