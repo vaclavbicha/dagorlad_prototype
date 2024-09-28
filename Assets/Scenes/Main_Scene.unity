@@ -10058,7 +10058,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 176916579695214763, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
   m_PrefabInstance: {fileID: 857147865769614969}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &345085375
+--- !u!114 &345085382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14469,6 +14469,8 @@ MonoBehaviour:
   cameraMode: 1
   TimeSpan: 0
   Speed: 70
+  StartPosition: {x: 0, y: 0, z: 0}
+  Destination: {x: 0, y: 0, z: 0}
 --- !u!1 &534998202
 GameObject:
   m_ObjectHideFlags: 0
@@ -24035,7 +24037,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1105290462941649844, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
   m_PrefabInstance: {fileID: 8973648033011215103}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &997913554
+--- !u!114 &997913561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48970,6 +48972,7 @@ GameObject:
   - component: {fileID: 1331455527}
   - component: {fileID: 1331455528}
   - component: {fileID: 1331455529}
+  - component: {fileID: 1331455530}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -49265,6 +49268,19 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+--- !u!114 &1331455530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331455524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc45bbb673df6d4e9d4f19437ff307b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellButtons: []
 --- !u!1 &1333144436
 GameObject:
   m_ObjectHideFlags: 0
@@ -92301,7 +92317,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 176916579695214763, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 345085375}
+      addedObject: {fileID: 345085382}
   m_SourcePrefab: {fileID: 100100000, guid: 25b0b392cbd0d44e98711791546882a3, type: 3}
 --- !u!224 &1537428460707626135
 RectTransform:
@@ -93599,7 +93615,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1105290462941649844, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 997913554}
+      addedObject: {fileID: 997913561}
     - targetCorrespondingSourceObject: {fileID: 2052940526216612563, guid: e74ed1a6a28824a6f8a42ec17122c207, type: 3}
       insertIndex: -1
       addedObject: {fileID: 272154852}

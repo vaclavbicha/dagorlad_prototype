@@ -58,6 +58,7 @@ public class UIManager : MonoBehaviour
 
     LayerMask buildingSlotLayer;
 
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -104,6 +105,7 @@ public class UIManager : MonoBehaviour
 
         buildingSlotLayer = 1 << LayerMask.NameToLayer("BuildingSlot");
     }
+
     public void UnlockBase(string name)
     {
         var Toggles = toggleGroupBases.GetComponentsInChildren<Toggle>();
