@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Base : MonoBehaviour
 {
     public string owner;
-    public List<BuildingSlot> locations = new List<BuildingSlot>();
+    public List<BuildingSlot> locations = new();
     public GameObject baseFlag;
 
     public float flagEnter;

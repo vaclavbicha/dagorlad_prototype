@@ -3,19 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BuildingSlot : MonoBehaviour
-{
+public class BuildingSlot : MonoBehaviour {
     private Camera mainCamera;
 
     public int id;
     public int baseID;
-    public bool isVisisble;
+    [SerializeField]
+    bool isVisisble;
     public Player owner;
     public Utility.LocationType Type { get; set; }
+
     public Utility.LocationStatus status;
-    public Utility.LocationSelectionStatus selectionStatus;
+    public Utility.LocationStatus Status { 
+        get { return status; }
+        set {
+            status = value;
+
+            switch (status) {
+                default:
+                    OnDefaultStatusChangeColor();
+                    break;
+                case Utility.LocationStatus.Building:
+                    OnBuildingChangeColor();
+                    break;
+            }
+        }
+    }
+
+    private Utility.LocationSelectionStatus selectionStatus;
+    public Utility.LocationSelectionStatus SelectionStatus { 
+        get { return selectionStatus; } 
+        set {
+            selectionStatus = value;
+
+            switch (selectionStatus) {
+            default:
+                OnUnselectChangeColor();
+                break;
+            case Utility.LocationSelectionStatus.Selected:
+                OnSelectChangeColor();
+                break;
+            }
+        } 
+ }
     public GameObject building = null;
     public GameObject trainingUnit = null;
     public GameObject upgradeItem = null;
@@ -31,67 +64,74 @@ public class BuildingSlot : MonoBehaviour
     // Production Queue
     public List<GameObject> productionList = new();
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         mainCamera = Camera.main;
         sprite = GetComponent<SpriteRenderer>();
-        status = Utility.LocationStatus.Free;
+        Status = Utility.LocationStatus.Free;
+        sprite.color = Color.white;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        color = selectionStatus == Utility.LocationSelectionStatus.Selected ? Color.black : Color.white;
-        color.a = selectionStatus == Utility.LocationSelectionStatus.Selected ? 1f : 0.78f;
-        color = status == Utility.LocationStatus.Building ? Color.green : color;
-        var screenPosition = mainCamera.WorldToScreenPoint(transform.position);
-        isVisisble = !(screenPosition.x <= 10 || screenPosition.x >= Screen.width || screenPosition.y <= 10 || screenPosition.y >= Screen.height);
+    //void Update() {
+    //    if(Input.GetMouseButtonDown(0) && IsMouseOverBuildingSlot()) {
+    //        Debug.Log("Fdfd");
+    //    }
+        //var screenPosition = mainCamera.WorldToScreenPoint(transform.position);
+        //isVisisble = !(screenPosition.x <= 10 || screenPosition.x >= Screen.width || screenPosition.y <= 10 || screenPosition.y >= Screen.height);
 
-        //color.a = isVisisble ? 1f : 1f;
+        //color.a = isVisisble ? 0f : 1f;
+    //}
 
+    public void OnSelectChangeColor() {
+        color = Color.black;
+        color.a = 1f;
         sprite.color = color;
-
     }
+
+    public void OnDefaultStatusChangeColor() {
+        sprite.color = Color.white;
+    }
+
+    public void OnBuildingChangeColor() {
+        color = Color.green;
+        sprite.color = color;
+    }
+
+    public void OnUnselectChangeColor() {
+        color = Color.white;
+        color.a = 0.8f;
+        sprite.color = color;
+    }
+
+    public void SelectLocation() {
+        UIManager.Instance.OnSelectLocation(id, Type);
+    }
+
     public void SpawnUpgrade(ItemUpgrade upgradePrefab)
     {
-        if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected)
-        {
-            upgradeItem = Instantiate(upgradePrefab.gameObject, new Vector3(-5, -10, 0), Quaternion.identity);
+        if (building == null || SelectionStatus != Utility.LocationSelectionStatus.Selected) UIManager.Instance.DialogWindow("Weird error");
 
-            upgradeItem.tag = "Player";
-            upgradeItem.name += upgradeItem.GetInstanceID().ToString();
+        upgradeItem = Instantiate(upgradePrefab.gameObject, new Vector3(-5, -10, 0), Quaternion.identity);
 
-            status = Utility.LocationStatus.Training;
+        upgradeItem.tag = "Player";
+        upgradeItem.name += upgradeItem.GetInstanceID().ToString();
 
-            var buildTime = 0f;
-            foreach (var x in upgradePrefab.cost)
-            {
-                if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
-            }
+        Status = Utility.LocationStatus.Training;
 
-            if (timer == null)
-            {
-                timer = gameObject.AddComponent<Timer>();
-                timer.AddTimer("BuildingUpgrade", buildTime, true, 0.25f);
-
-                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-                loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-                timer.On_PingAction += UpdateSlider;
-                timer.On_Duration_End += IsDoneUpgrading;
-                loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
-
-            }
-            else
-            {
-                UIManager.Instance.DialogWindow("This location all ready is building upgrade");
-            }
+        var buildTime = 0f;
+        foreach (var x in upgradePrefab.cost) {
+            if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
         }
-        else
-        {
-            UIManager.Instance.DialogWindow("wierd error");
-        }
+
+        if (timer != null) UIManager.Instance.DialogWindow("This location all ready is building upgrade");
+
+        timer = gameObject.AddComponent<Timer>();
+        timer.AddTimer("BuildingUpgrade", buildTime, true, 0.25f);
+
+        itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
+        loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+        timer.On_PingAction += UpdateSlider;
+        timer.On_Duration_End += IsDoneUpgrading;
+        loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
     }
     public void SpawnUnitQueue()
     {
@@ -112,30 +152,24 @@ public class BuildingSlot : MonoBehaviour
                 }
             }
             trainingUnit.SetActive(false);
-            status = Utility.LocationStatus.Training;
+            Status = Utility.LocationStatus.Training;
 
             var buildTime = 0f;
             foreach (var x in trainingUnit.GetComponent<OurUnit>().cost)
             {
                 if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
             }
-            if (timer == null)
-            {
-                timer = gameObject.AddComponent<Timer>();
-                timer.AddTimer("Training", buildTime, true, 0.25f);
+            if (timer != null) //UIManager.Instance.DialogWindow("This location all ready is traning troops");
 
-                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-                loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-                loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
-                timer.On_PingAction += UpdateSlider;
-                timer.On_Duration_End += IsDoneTraining;
-                loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
+            timer = gameObject.AddComponent<Timer>();
+            timer.AddTimer("Training", buildTime, true, 0.25f);
 
-            }
-            else
-            {
-                //UIManager.Instance.DialogWindow("This location all ready is traning troops");
-            }
+            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
+            loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+            loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
+            timer.On_PingAction += UpdateSlider;
+            timer.On_Duration_End += IsDoneTraining;
+            loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
     }
     public void UpdateSliderMultiplier()
     {
@@ -143,7 +177,7 @@ public class BuildingSlot : MonoBehaviour
     }
     public void SpawnUnit()
     {
-        if (building != null && selectionStatus == Utility.LocationSelectionStatus.Selected && productionList.Count == 1)
+        if (building != null && SelectionStatus == Utility.LocationSelectionStatus.Selected && productionList.Count == 1)
         {
             Debug.Log("Started spawning ...");
             trainingUnit = Instantiate(productionList[0], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
@@ -163,7 +197,7 @@ public class BuildingSlot : MonoBehaviour
                 }
             }
             trainingUnit.SetActive(false);
-            status = Utility.LocationStatus.Training;
+            Status = Utility.LocationStatus.Training;
 
             var buildTime = 0f;
             foreach (var x in trainingUnit.GetComponent<OurUnit>().cost)
@@ -195,88 +229,69 @@ public class BuildingSlot : MonoBehaviour
     }
     public void SpawnBuilding(GameObject buildingPrefab)
     {
-        if (building == null && selectionStatus == Utility.LocationSelectionStatus.Selected)
-        {
-            building = Instantiate(buildingPrefab, transform.position, Quaternion.identity);
-            building.tag = "Structure";
-            building.name += building.GetInstanceID().ToString();
-            var buildingStructure = building.GetComponent<Structure>();
-            buildingStructure.buildingSlot = this;
+        if (building != null || SelectionStatus != Utility.LocationSelectionStatus.Selected) UIManager.Instance.DialogWindow("This location all ready has a building on it");
 
-            if (buildingStructure.locationType == Utility.LocationType.Attack)
-            {
-                buildingStructure.Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
-                buildingStructure.Rally_Point.GetComponent<DraggableMovement>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
-                building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
+        building = Instantiate(buildingPrefab, transform.position, Quaternion.identity);
+        building.tag = "Structure";
+        building.name += building.GetInstanceID().ToString();
+        var buildingStructure = building.GetComponent<Structure>();
+        buildingStructure.buildingSlot = this;
 
-                buildingStructure.Rally_Point.GetComponent<Draggable>().home = buildingStructure.gameObject;
-                buildingStructure.Rally_Point.GetComponent<Draggable>().owner = Player.Instance.PlayerName;
-                buildingStructure.Rally_Point.GetComponent<Animator>().enabled = false;
-                buildingStructure.Rally_Point.GetComponent<SpriteRenderer>().sprite = UIManager.Instance.currentBaseID == 3 ? buildingStructure.Flag3 : buildingStructure.Flag1;
-                buildingStructure.Rally_Point.GetComponent<Animator>().enabled = true;
-                buildingStructure.Rally_Point.GetComponent<Animator>().runtimeAnimatorController = UIManager.Instance.currentBaseID == 3 ? buildingStructure.FlagController3 : buildingStructure.FlagController1;
-            }
-            //building.SetActive(false);
-            //var aux = buildingStructure.buildingSprite;
-            //buildingStructure.buildingSprite = building.GetComponent<SpriteRenderer>().sprite;
-            //building.GetComponent<SpriteRenderer>().sprite = aux;
-            building.GetComponent<Structure>().ChangeSprite();
-            var buildTime = 0f;
-            foreach(var x in building.GetComponent<Structure>().cost)
-            {
-                if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
-            }
-            StartCoroutine(UpdateBuildingSprite(buildTime / 2));
+        if (buildingStructure.locationType == Utility.LocationType.Attack) {
+            buildingStructure.Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
+            buildingStructure.Rally_Point.GetComponent<DraggableMovement>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
+            building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
 
-            status = Utility.LocationStatus.Building;
-
-            if (timer == null)
-            {
-                timer = gameObject.AddComponent<Timer>();
-                timer.AddTimer("Building", buildTime, true, 0.25f);
-
-                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-                loadingBar = Instantiate(buildingPrefab.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-                timer.On_PingAction += UpdateSlider;
-                timer.On_Duration_End += IsDoneBuilding;
-                loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
-
-            }
-            else
-            {
-                UIManager.Instance.DialogWindow("This location all ready has a timer");
-            }
+            buildingStructure.Rally_Point.GetComponent<Draggable>().home = buildingStructure.gameObject;
+            buildingStructure.Rally_Point.GetComponent<Draggable>().owner = Player.Instance.PlayerName;
+            buildingStructure.Rally_Point.GetComponent<Animator>().enabled = false;
+            buildingStructure.Rally_Point.GetComponent<SpriteRenderer>().sprite = UIManager.Instance.currentBaseID == 3 ? buildingStructure.Flag3 : buildingStructure.Flag1;
+            buildingStructure.Rally_Point.GetComponent<Animator>().enabled = true;
+            buildingStructure.Rally_Point.GetComponent<Animator>().runtimeAnimatorController = UIManager.Instance.currentBaseID == 3 ? buildingStructure.FlagController3 : buildingStructure.FlagController1;
         }
-        else
-        {
-            UIManager.Instance.DialogWindow("This location all ready has a building on it");
+        //building.SetActive(false);
+        //var aux = buildingStructure.buildingSprite;
+        //buildingStructure.buildingSprite = building.GetComponent<SpriteRenderer>().sprite;
+        //building.GetComponent<SpriteRenderer>().sprite = aux;
+        building.GetComponent<Structure>().ChangeSprite();
+        var buildTime = 0f;
+        foreach (var x in building.GetComponent<Structure>().cost) {
+            if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
         }
+        StartCoroutine(UpdateBuildingSprite(buildTime / 2));
+
+        Status = Utility.LocationStatus.Building;
+
+        if (timer != null) UIManager.Instance.DialogWindow("This location all ready has a timer");
+
+        timer = gameObject.AddComponent<Timer>();
+        timer.AddTimer("Building", buildTime, true, 0.25f);
+
+        itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
+        loadingBar = Instantiate(buildingPrefab.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+        timer.On_PingAction += UpdateSlider;
+        timer.On_Duration_End += IsDoneBuilding;
+        loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
     }
     public void UpgradeStructure(float time)
     {
-        status = Utility.LocationStatus.Building;
+        Status = Utility.LocationStatus.Building;
 
-        if (timer == null)
-        {
-            timer = gameObject.AddComponent<Timer>();
-            timer.AddTimer("Upgrade", time, true, 0.25f);
+        if (timer != null) UIManager.Instance.DialogWindow("This location all ready has a timer");
 
-            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-            loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-            timer.On_PingAction += UpdateSlider;
-            timer.On_Duration_End += IsDoneUpgradingBuilding;
-            loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
+        timer = gameObject.AddComponent<Timer>();
+        timer.AddTimer("Upgrade", time, true, 0.25f);
 
-        }
-        else
-        {
-            UIManager.Instance.DialogWindow("This location all ready has a timer");
-        }
+        itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
+        loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+        timer.On_PingAction += UpdateSlider;
+        timer.On_Duration_End += IsDoneUpgradingBuilding;
+        loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
     }
     public void IsDoneUpgradingBuilding(Timer _timer)
     {
         //Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
-        status = Utility.LocationStatus.Built;
+        Status = Utility.LocationStatus.Built;
 
         DestroyImmediate(timer);
         if (loadingBar != null) Destroy(loadingBar.gameObject);
@@ -292,7 +307,7 @@ public class BuildingSlot : MonoBehaviour
     public void IsDoneTraining(Timer _timer)
     {
         trainingUnit.SetActive(true);
-        status = Utility.LocationStatus.Built;
+        Status = Utility.LocationStatus.Built;
 
         DestroyImmediate(timer);
         if (loadingBar != null) Destroy(loadingBar.gameObject);
@@ -315,7 +330,7 @@ public class BuildingSlot : MonoBehaviour
         //building.GetComponent<SpriteRenderer>().sprite = building.GetComponent<Structure>().buildingSprite;
         //building.GetComponent<Structure>().buildingSprite = aux;
 
-        status = Utility.LocationStatus.Built;
+        Status = Utility.LocationStatus.Built;
 
         DestroyImmediate(timer);
         if(loadingBar != null) Destroy(loadingBar.gameObject);
@@ -333,7 +348,7 @@ public class BuildingSlot : MonoBehaviour
     }
     public void IsDoneUpgrading(Timer _timer)
     {
-        status = Utility.LocationStatus.Built;
+        Status = Utility.LocationStatus.Built;
         var reff = upgradeItem.GetComponent<ItemUpgrade>();
         Player.Instance.ownedUpgrades.Add(reff);
         if (reff.effect.type == Utility.UpgradeEffectTypes.Resource)
@@ -368,7 +383,7 @@ public class BuildingSlot : MonoBehaviour
         DestroyImmediate(timer);
         if (loadingBar != null) Destroy(loadingBar.gameObject);
 
-        switch (status)
+        switch (Status)
         {
             case Utility.LocationStatus.Building:
                 if(building.GetComponent<Structure>().level < 0)
@@ -376,13 +391,13 @@ public class BuildingSlot : MonoBehaviour
                     Player.Instance.Refund(building.GetComponent<Structure>().cost);
                     if (Type == Utility.LocationType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);
                     Destroy(building);
-                    status = Utility.LocationStatus.Free;
-                    selectionStatus = Utility.LocationSelectionStatus.Unselected;
+                    Status = Utility.LocationStatus.Free;
+                    SelectionStatus = Utility.LocationSelectionStatus.Unselected;
                 }
                 else
                 {
-                    status = Utility.LocationStatus.Built;
-                    selectionStatus = Utility.LocationSelectionStatus.Unselected;
+                    Status = Utility.LocationStatus.Built;
+                    SelectionStatus = Utility.LocationSelectionStatus.Unselected;
                     UpdateItemManager(true, building.GetComponent<Structure>());
                 }
                 break;
@@ -421,7 +436,7 @@ public class BuildingSlot : MonoBehaviour
             timer.On_PingAction += UpdateSlider;
             loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
         }
-        if (status != Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID)
+        if (Status != Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID)
         {
             itemManager.building = building.GetComponent<Structure>();
 
@@ -444,13 +459,13 @@ public class BuildingSlot : MonoBehaviour
             switch (buttonIcon.locationType)
             {
                 case Utility.LocationType.Defense:
-                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.scrollIcon;
+                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon != null ? buttonIcon.scrollIcon : null;
                     break;
                 case Utility.LocationType.Attack:
-                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = UIManager.Instance.currentBaseID == 3 ? buttonIcon?.ButtonIcon3 : buttonIcon?.ButtonIcon1;
+                    itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = UIManager.Instance.currentBaseID == 3 ? buttonIcon != null ? buttonIcon.ButtonIcon3 : null : buttonIcon != null ? buttonIcon.ButtonIcon1 : null;
                     itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                     itemManager.mid.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-                    itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.scrollIcon;
+                    itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon != null ? buttonIcon.scrollIcon : null;
                     //itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     //EX DRAGDROP.cs
                     //var x = itemManager.bottom.GetComponentInChildren<DragDrop>();
@@ -474,7 +489,7 @@ public class BuildingSlot : MonoBehaviour
                     break;
             }
         }
-        if (status == Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID && buttonIcon.locationType == Utility.LocationType.Attack &&
+        if (Status == Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID && buttonIcon.locationType == Utility.LocationType.Attack &&
             building.GetComponent<Structure>().level >= 0)
         {
             Debug.Log("ASDASDASDASFSAA !!!!!!");
@@ -514,7 +529,7 @@ public class BuildingSlot : MonoBehaviour
         }
 
         DestroyImmediate(building);
-        status = Utility.LocationStatus.Free;
+        Status = Utility.LocationStatus.Free;
         GameManager.Instance.InstantiateBottomMenu();
     }
 }

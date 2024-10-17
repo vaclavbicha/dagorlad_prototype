@@ -10,16 +10,18 @@ public class Draggable : MonoBehaviour
     public OnTrigger onTrigger;
     public GameObject home;
 
-    public List<OurUnit> currentArmy = new List<OurUnit>();
-    public List<GameObject> EnemiesInRange = new List<GameObject>();
+    public List<OurUnit> currentArmy = new();
+    public List<GameObject> EnemiesInRange = new();
 
     public int MAX_UNITS = 30;
-    public List<Vector3> targetPositionlist = new List<Vector3>();
+    public List<Vector3> targetPositionlist = new();
 
     //public class FormationPosition
     //{
     //    public Vector3 
     //}
+
+    Animator[] animators;
 
     private void Start()
     {
@@ -46,6 +48,7 @@ public class Draggable : MonoBehaviour
         //}
 
         draggableMovement = GetComponent<DraggableMovement>();
+        animators = GetComponentsInChildren<Animator>();
         GetComponentInChildren<OnTrigger>().AddEvent("Enter", owner == "Player" ? "Enemy" : "Player", (sender, collider) => {
             if (EnemiesInRange.Find(x => x.name == collider.name) == null)
             {
@@ -133,52 +136,31 @@ public class Draggable : MonoBehaviour
     }
     public void HOLD()
     {
-        foreach (var x in GetComponentsInChildren<Animator>())
-        {
-            x.SetBool("HOLD", true);
-        }
+        PlayPickRallyPointUpAnimation();
 
         draggableMovement.SetDestination(GetMouseWorldPosition() + mousePositionOffset);
         gameObject.transform.position = GetMouseWorldPosition() + mousePositionOffset;
     }
-    public void OFF()
-    {
+    public void OFF() {
         Camera.main.GetComponent<CameraMovement>().IsLocked = false;
         Camera.main.GetComponent<CameraMovement>().DisableEdgeScrolling();
-        foreach (var x in GetComponentsInChildren<Animator>())
-        {
-            x.SetBool("HOLD", false);
-        }
+        PlayPutRallyPointDownAnimation();
         Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         ManageTargets();
     }
-    private void OnMouseClickDown()
-    {
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Input.mousePosition;
 
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-        foreach (var ev in raycastResults) {
-            if (ev.gameObject == gameObject) {
-                Camera.main.GetComponent<CameraMovement>().IsLocked = true;
-                mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
-            }
+    public void PlayPutRallyPointDownAnimation() {
+        foreach (var a in animators) {
+            a.SetBool("HOLD", false);
         }
     }
-    public void TapAndTap()
-    {
-        Debug.Log("PLACEEE");
-        foreach (var x in GetComponentsInChildren<Animator>())
-        {
-            x.SetBool("HOLD", true);
+
+    public void PlayPickRallyPointUpAnimation() {
+        foreach (var a in animators) {
+            a.SetBool("HOLD", true);
         }
-        //foreach (var child2 in UIManager.Instance.bottomPanelContent.GetChild(1).GetComponentsInChildren<ItemManager>())
-        //{
-        //    if (child2.RallyPoint == gameObject.transform) UIManager.Instance.LookToPlaceRallyPoint(transform, child2.mid.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>());
-        //}
-        UIManager.Instance.LookToPlaceRallyPoint(transform);
     }
+
     private Vector3 GetMouseWorldPosition()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);

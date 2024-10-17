@@ -56,6 +56,9 @@ public class UIManager : MonoBehaviour
 
     Camera mainCamera;
 
+    LayerMask buildingSlotLayer;
+
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -99,7 +102,10 @@ public class UIManager : MonoBehaviour
         rightTimer.AddTimer("Building", GameManager.Instance.secondsToFullRightPanel, true, 0.25f);
 
         rightTimer.On_PingAction += UpdateSliderRight;
+
+        buildingSlotLayer = 1 << LayerMask.NameToLayer("BuildingSlot");
     }
+
     public void UnlockBase(string name)
     {
         var Toggles = toggleGroupBases.GetComponentsInChildren<Toggle>();
@@ -141,6 +147,8 @@ public class UIManager : MonoBehaviour
     }
     public void Update()
     {
+        HandleBuildingSlotClicked();
+
         if (!lookForNextClick) return;
 
         if (Input.GetMouseButton(0)) {
@@ -149,17 +157,15 @@ public class UIManager : MonoBehaviour
     }
 
     public void PutRallyPointDown(Vector3 destination) {
-        selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(destination);
-        selectedRallyPoint.transform.position = destination;
-
-        foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>()) {
-            x.SetBool("HOLD", false);
-        }
-        lookForNextClick = false;
-
         Camera.main.GetComponent<CameraMovement>().IsLocked = false;
         Camera.main.GetComponent<CameraMovement>().DisableEdgeScrolling();
         Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
+
+        selectedRallyPoint.transform.position = destination;
+        selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(destination);
+        selectedRallyPoint.GetComponent<Draggable>().PlayPutRallyPointDownAnimation();
+
+        lookForNextClick = false;
 
         selectedRallyPoint.GetComponent<Draggable>().ManageTargets();
 
@@ -170,20 +176,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public bool IsMouseOverOverlayCanvas()
-    {
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Input.mousePosition;
-
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-        foreach (var ev in raycastResults)
-        {
-            //if (ev.gameObject.layer == 9) ev.gameObject.GetComponent<Draggable>().ONNNN();
-            if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
-        }
-        return false;
-    }
     public void OnCloseBuildingWindow()
     {
         if (lastSelectedInfoToggle)
@@ -200,17 +192,17 @@ public class UIManager : MonoBehaviour
         DeselectLocation();
         Debug.Log(location_id);
         currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.id == location_id && x.Type == location_type && x.baseID == currentBaseID);
-        if (currentSelected)
-        {
-            currentSelected.selectionStatus = Utility.LocationSelectionStatus.Selected;
-            window.ActivateWindow(location_id, location_type, currentSelected);
-        }
-        else DialogWindow("Selected Location not visible on screen");
+        if (!currentSelected) DialogWindow("Selected Location not visible on screen");
+
+        currentSelected.SelectionStatus = Utility.LocationSelectionStatus.Selected;
+        window.ActivateWindow(location_id, location_type, currentSelected);
     }
 
     public void DeselectLocation()
     {
-        if (currentSelected) currentSelected.selectionStatus = Utility.LocationSelectionStatus.Unselected;
+        if (currentSelected) {
+            currentSelected.SelectionStatus = Utility.LocationSelectionStatus.Unselected;
+        }
         currentSelected = null;
     }
 
@@ -224,10 +216,10 @@ public class UIManager : MonoBehaviour
         if (selectedRallyPointButton) selectedRallyPointButton.color = Color.white;
         if(selectedRallyPoint)
         {
-            foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>())
-            {
+            foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>()) {
                 x.SetBool("HOLD", false);
             }
+            selectedRallyPoint.GetComponent<Draggable>().PlayPutRallyPointDownAnimation();
         }
         lookForNextClick = true;
         selectedRallyPoint = point;
@@ -343,5 +335,18 @@ public class UIManager : MonoBehaviour
         if (rightLoadingBar.value >= 0.5f && rightLoadingBar.value < 0.75f) rightINDEX = 2;
         if (rightLoadingBar.value >= 0.75f && rightLoadingBar.value < 1f) rightINDEX = 3;
         if (rightLoadingBar.value == 1f) rightINDEX = 4;
+    }
+
+    public void HandleBuildingSlotClicked() {
+        if (Input.GetMouseButtonDown(0)) {
+            Vector2 rayOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero, Mathf.Infinity, buildingSlotLayer);
+
+            if (hit.collider != null) {
+                BuildingSlot clickedBuildingSlot = hit.collider.gameObject.GetComponent<BuildingSlot>();
+                OnSelectLocation(clickedBuildingSlot.id, clickedBuildingSlot.Type);
+            }
+        }
     }
 }

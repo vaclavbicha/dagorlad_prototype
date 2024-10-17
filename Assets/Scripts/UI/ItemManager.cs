@@ -22,10 +22,10 @@ public class ItemManager : MonoBehaviour {
 
     ClickType click_type = ClickType.NoClick;
 
-    private readonly float doubleTapThreshold = 0.2f;
+    private readonly float doubleTapThreshold = 0.15f;
     int tapCount;
-    
-    float passedTimeSinceLaskClick;
+
+    readonly float passedTimeSinceLaskClick;
     bool isClicked;
     bool isDoubleClicked;
 
@@ -92,11 +92,9 @@ public class ItemManager : MonoBehaviour {
     private void PickRallyPointUp() {
         if (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject == null) return;
 
-        var img = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
-        foreach (var x in RallyPoint.GetComponentsInChildren<Animator>()) {
-            x.SetBool("HOLD", true);
-        }
+        RallyPoint.GetComponent<Draggable>().PlayPickRallyPointUpAnimation();
         building.isAttackPoint = false;
+        var img = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
         UIManager.Instance.LookToPlaceRallyPoint(RallyPoint, img);
     }
 

@@ -9,7 +9,7 @@ public class BuildingWindow : MonoBehaviour
     public GameObject infoPanel;
     public void ActivateWindow(int location_id, Utility.LocationType location_type, BuildingSlot mapLocation)
     {
-        if (mapLocation.status == Utility.LocationStatus.Built || mapLocation.status == Utility.LocationStatus.Training)
+        if (mapLocation.Status == Utility.LocationStatus.Built || mapLocation.Status == Utility.LocationStatus.Training)
         {
             int i = 0;
             int j = 0;
@@ -182,7 +182,7 @@ public class BuildingWindow : MonoBehaviour
                     break;
             }
         }
-        if (mapLocation.status == Utility.LocationStatus.Free)
+        if (mapLocation.Status == Utility.LocationStatus.Free)
         {
             gameObject.SetActive(true);
             int i = 0;

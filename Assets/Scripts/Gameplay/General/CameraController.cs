@@ -134,10 +134,11 @@ public class CameraController : MonoBehaviour
     }
     public bool IsMouseOverOverlayCanvas()
     {
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Input.mousePosition;
+        PointerEventData pointerEventData = new(EventSystem.current) {
+            position = Input.mousePosition
+        };
 
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        List<RaycastResult> raycastResults = new();
         EventSystem.current.RaycastAll(pointerEventData, raycastResults);
         foreach(var ev in raycastResults)
         {

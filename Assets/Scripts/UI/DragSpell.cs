@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 using UnityEngine.UI;
-using static DragSpell;
 
 public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
@@ -16,6 +16,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public int level;
     bool isSelected;
     bool isDragged;
+    UnityEngine.Color imageColor;
 
     public delegate void OnClicked(GameObject spellButton);
     public event OnClicked onClicked;
@@ -25,6 +26,10 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     {
         rectTransform = GetComponent<RectTransform>();
         //canvasGroup = GameObject.Find("Canvas").GetComponent<CanvasGroup>();
+    }
+
+    private void Start() {
+        imageColor = GetComponent<Image>().color;
     }
 
     private void FixedUpdate() {
@@ -64,12 +69,12 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         var position = Camera.main.ScreenToWorldPoint(eventData.position);
 
         // Won't buy without enough mana
-        //var currIndex = RIGHT ? UIManager.Instance.rightINDEX : UIManager.Instance.leftINDEX;
-        //if(currIndex < level) {
-        //    Camera.main.GetComponent<CameraMovement>().IsLocked = false;
-        //    UIManager.Instance.DialogWindow("NOT ENOUGH MANA!");
-        //    return;
-        //}
+        var currIndex = RIGHT ? UIManager.Instance.rightINDEX : UIManager.Instance.leftINDEX;
+        if (currIndex < level) {
+            Camera.main.GetComponent<CameraMovement>().IsLocked = false;
+            UIManager.Instance.DialogWindow("NOT ENOUGH MANA!");
+            return;
+        }
 
         if (spellInstance == null) {
             spellInstance = Instantiate(spellPrefab, position, Quaternion.identity).GetComponent<DraggableMovement>();
@@ -121,14 +126,13 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
         // Won't buy without enough mana
-        // var currIndex = RIGHT ? UIManager.Instance.rightINDEX : UIManager.Instance.leftINDEX;
-        //     if(currIndex < level) {
-        //         Camera.main.GetComponent<CameraMovement>().IsLocked = false;
-        //         UIManager.Instance.DialogWindow("NOT ENOUGH MANA!");
-        //         return;
-        //     }
+        var currIndex = RIGHT ? UIManager.Instance.rightINDEX : UIManager.Instance.leftINDEX;
+        if (currIndex < level) {
+            Camera.main.GetComponent<CameraMovement>().IsLocked = false;
+            UIManager.Instance.DialogWindow("NOT ENOUGH MANA!");
+            return;
+        }
 
         var position = Camera.main.ScreenToWorldPoint(eventData.position);
 
@@ -145,13 +149,15 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void SelectSpell() {
         isSelected = true;
         Camera.main.GetComponent<CameraMovement>().IsLocked = true;
-        GetComponent<Image>().color = Color.red;
+        imageColor.a = 0.5f;
+        GetComponent<Image>().color = imageColor;
     }
 
     public void UnSelectSpell() {
         isSelected = false;
         Camera.main.GetComponent<CameraMovement>().IsLocked = false;
-        GetComponent<Image>().color = Color.white;
+        imageColor.a = 1;
+        GetComponent<Image>().color = imageColor;
 
         // Cancel spell casting
         spellInstance = null;
