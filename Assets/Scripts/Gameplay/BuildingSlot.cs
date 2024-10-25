@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class BuildingSlot : MonoBehaviour {
     private Camera mainCamera;
+    private AudioSource audioSource;
 
     public int id;
     public int baseID;
@@ -66,6 +67,7 @@ public class BuildingSlot : MonoBehaviour {
 
     void Start() {
         mainCamera = Camera.main;
+        audioSource = GetComponent<AudioSource>();
         sprite = GetComponent<SpriteRenderer>();
         Status = Utility.LocationStatus.Free;
         sprite.color = Color.white;
@@ -531,5 +533,9 @@ public class BuildingSlot : MonoBehaviour {
         DestroyImmediate(building);
         Status = Utility.LocationStatus.Free;
         GameManager.Instance.InstantiateBottomMenu();
+    }
+
+    public void PlaySound() {
+        audioSource.Play();
     }
 }
