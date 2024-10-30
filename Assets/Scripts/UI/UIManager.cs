@@ -345,7 +345,7 @@ public class UIManager : MonoBehaviour
 
             if (hit.collider != null) {
                 BuildingSlot clickedBuildingSlot = hit.collider.gameObject.GetComponent<BuildingSlot>();
-                clickedBuildingSlot.PlaySound();
+                clickedBuildingSlot.PlayStoneSound();
                 OnSelectLocation(clickedBuildingSlot.id, clickedBuildingSlot.Type);
             }
         }

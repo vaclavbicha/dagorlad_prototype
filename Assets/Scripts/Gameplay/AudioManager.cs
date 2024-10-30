@@ -82,7 +82,7 @@ public class AudioManager : MonoBehaviour
 //        obj.AddEvent("Enter", "CameraWall", OnCollisionSound);
 //    }
 //}
-//public void PlaySound(float volume)
+//public void PlayStoneSound(float volume)
 //{
 //    for (int i = 0; i < AudioSources.Length; i++)
 //    {

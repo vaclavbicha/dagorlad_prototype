@@ -4,11 +4,17 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class BuildingSlot : MonoBehaviour {
     private Camera mainCamera;
     private AudioSource audioSource;
+    private Tilemap basesTilemap;
+    private TileBase baseTile;
+
+    private Vector3Int baseTileIndex;
 
     public int id;
     public int baseID;
@@ -68,9 +74,13 @@ public class BuildingSlot : MonoBehaviour {
     void Start() {
         mainCamera = Camera.main;
         audioSource = GetComponent<AudioSource>();
+        basesTilemap = FindObjectOfType<BasesTilemap>().GetComponent<Tilemap>();
         sprite = GetComponent<SpriteRenderer>();
         Status = Utility.LocationStatus.Free;
         sprite.color = Color.white;
+
+        baseTileIndex = GetBaseTileLocation();
+        baseTile = basesTilemap.GetTile(baseTileIndex);
     }
 
     //void Update() {
@@ -231,6 +241,7 @@ public class BuildingSlot : MonoBehaviour {
     }
     public void SpawnBuilding(GameObject buildingPrefab)
     {
+        DisableBaseTile();
         if (building != null || SelectionStatus != Utility.LocationSelectionStatus.Selected) UIManager.Instance.DialogWindow("This location all ready has a building on it");
 
         building = Instantiate(buildingPrefab, transform.position, Quaternion.identity);
@@ -381,6 +392,7 @@ public class BuildingSlot : MonoBehaviour {
     }
     public void CancelLoading()
     {
+        EnableBaseTile();
         Debug.Log("Cancel loading bar");
         DestroyImmediate(timer);
         if (loadingBar != null) Destroy(loadingBar.gameObject);
@@ -533,9 +545,25 @@ public class BuildingSlot : MonoBehaviour {
         DestroyImmediate(building);
         Status = Utility.LocationStatus.Free;
         GameManager.Instance.InstantiateBottomMenu();
+        EnableBaseTile();
     }
 
-    public void PlaySound() {
+    public void PlayStoneSound() {
         audioSource.Play();
+    }
+
+    private Vector3Int GetBaseTileLocation() {
+        Vector3Int cellIndex = basesTilemap.WorldToCell(transform.position);
+        return cellIndex;
+    }
+
+    private void DisableBaseTile() {
+        gameObject.GetComponent<Renderer>().enabled = false;
+        basesTilemap.SetTile(baseTileIndex, null);
+    }
+
+    private void EnableBaseTile() {
+        gameObject.GetComponent<Renderer>().enabled = true;
+        basesTilemap.SetTile(baseTileIndex, baseTile);
     }
 }
