@@ -5929,7 +5929,7 @@ GameObject:
   - component: {fileID: 230497256}
   - component: {fileID: 230497258}
   - component: {fileID: 230497257}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5970,7 +5970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -19172,7 +19172,7 @@ GameObject:
   - component: {fileID: 770637256}
   - component: {fileID: 770637255}
   - component: {fileID: 770637254}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62677,7 +62677,7 @@ GameObject:
   - component: {fileID: 1470736848}
   - component: {fileID: 1470736850}
   - component: {fileID: 1470736849}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Dialog_Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62719,7 +62719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -87340,7 +87340,7 @@ GameObject:
   - component: {fileID: 1928116903}
   - component: {fileID: 1928116905}
   - component: {fileID: 1928116904}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
