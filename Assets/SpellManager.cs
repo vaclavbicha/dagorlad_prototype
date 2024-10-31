@@ -3,10 +3,21 @@ using UnityEngine;
 
 public class SpellManager : MonoBehaviour
 {
+    public static SpellManager Instance;
     List<SliderMenu> sliderMenus = new();
     [SerializeField]
-    List<GameObject> spellButtons = new();
+    List<GameObject> spellButtons = new(); 
+    [SerializeField]
     GameObject currentlySelectedSpellButton;
+
+    private void Awake() {
+        // If there is an instance, and it's not me, delete myself.
+        if (Instance != null && Instance != this) {
+            Destroy(this);
+        } else {
+            Instance = this;
+        }
+    }
 
     void Start() {
         LoadChildren();
@@ -20,6 +31,7 @@ public class SpellManager : MonoBehaviour
                 GameObject child = menu.transform.GetChild(i).GetChild(0).gameObject;
                 spellButtons.Add(child);
                 child.GetComponent<DragSpell>().onClicked += ManageSpellButtonSelection;
+                child.GetComponent<DragSpell>().onUnSelected += ClearSelectedSpellButton;
             }
         }        
     }
@@ -34,12 +46,22 @@ public class SpellManager : MonoBehaviour
         currentlySelectedSpellButton.GetComponent<DragSpell>().SelectSpell();
     }
 
+    void ClearSelectedSpellButton(GameObject spellButton) {
+        if (currentlySelectedSpellButton == spellButton) {
+            currentlySelectedSpellButton = null;
+        }
+    }
+
     void UnselectSpellButtons() {
         foreach (GameObject child in spellButtons) {
             if (child == currentlySelectedSpellButton) {
                 currentlySelectedSpellButton.GetComponent<DragSpell>().UnSelectSpell();
-                currentlySelectedSpellButton = null;
             }
         }
+    }
+
+    public bool IsAnySpellSelected() {
+        Debug.Log(currentlySelectedSpellButton != null);
+        return (currentlySelectedSpellButton != null);
     }
 }

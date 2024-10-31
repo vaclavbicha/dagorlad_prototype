@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -21,6 +22,9 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public delegate void OnClicked(GameObject spellButton);
     public event OnClicked onClicked;
 
+    public delegate void OnUnSelected(GameObject spellButton);
+    public event OnUnSelected onUnSelected;
+
     //private CanvasGroup canvasGroup;
     private void Awake()
     {
@@ -36,8 +40,10 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         if (isDragged) return;
         if (!isSelected) return;
 
-        if (Input.touchCount > 0 && !isMouseOverOverlayCanvas()) {
+        if (Input.touchCount > 0 && !UIManager.Instance.IsMouseOverOverlayCanvas()) {
             Touch touch = Input.GetTouch(0);
+
+            if (touch.phase != TouchPhase.Ended) { return; }
 
             Vector2 touch_position = touch.position;
             Vector3 screen_position = Camera.main.ScreenToWorldPoint(new Vector3(touch_position.x, touch_position.y, 0));
@@ -82,7 +88,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
             spellInstance.SetDestination(position);
         }
 
-        if (!isMouseOverOverlayCanvas()) {
+        if (!UIManager.Instance.IsMouseOverOverlayCanvas()) {
             spellInstance.GetComponent<SpriteRenderer>().enabled = true;
             spellInstance.SetDestination(position);
         } else {
@@ -97,7 +103,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         if (spellInstance == null) return;
 
         // Cancel spell casting
-        if (isMouseOverOverlayCanvas()) {
+        if (UIManager.Instance.IsMouseOverOverlayCanvas()) {
             spellInstance = null;
             return;
         }
@@ -136,7 +142,7 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
         var position = Camera.main.ScreenToWorldPoint(eventData.position);
 
-        if (!isMouseOverOverlayCanvas()) return;
+        if (!UIManager.Instance.IsMouseOverOverlayCanvas()) return;
 
         if (!isSelected) {
             SelectSpell();
@@ -161,6 +167,8 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
         // Cancel spell casting
         spellInstance = null;
+
+        onUnSelected?.Invoke(gameObject);
     }
 
     // public void OnPointerUp(PointerEventData eventData)
@@ -168,21 +176,6 @@ public class DragSpell : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     //     Debug.Log("OnPointerUp");
     //     isSelected = false;
     // }
-
-    public bool isMouseOverOverlayCanvas()
-    {
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Input.mousePosition;
-
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-        foreach (var ev in raycastResults)
-        {
-            //if (ev.gameObject.layer == 9) ev.gameObject.GetComponent<Draggable>().ONNNN();
-            if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
-        }
-        return false;
-    }
 
     IEnumerator SpawnDeath(Vector3 pos)
     {

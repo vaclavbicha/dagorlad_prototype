@@ -92,9 +92,6 @@ public class BuildingSlot : MonoBehaviour
     }
 
     //void Update() {
-    //    if(Input.GetMouseButtonDown(0) && IsMouseOverBuildingSlot()) {
-    //        Debug.Log("Fdfd");
-    //    }
     //var screenPosition = mainCamera.WorldToScreenPoint(transform.position);
     //isVisisble = !(screenPosition.x <= 10 || screenPosition.x >= Screen.width || screenPosition.y <= 10 || screenPosition.y >= Screen.height);
 

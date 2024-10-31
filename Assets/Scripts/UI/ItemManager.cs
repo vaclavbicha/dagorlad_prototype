@@ -20,7 +20,7 @@ public class ItemManager : MonoBehaviour {
 
     enum ClickType { NoClick, SingleClick, DoubleClick };
 
-    ClickType click_type = ClickType.NoClick;
+    ClickType clickType = ClickType.NoClick;
 
     private readonly float doubleTapThreshold = 0.15f;
     int tapCount;
@@ -48,7 +48,7 @@ public class ItemManager : MonoBehaviour {
     }
 
     private void HandleClickAndDoubleClick() {
-        switch (click_type) {
+        switch (clickType) {
             case ClickType.SingleClick:
                 if (UIManager.Instance.selectedRallyPoint == null) {
                     PickRallyPointUp();
@@ -62,7 +62,7 @@ public class ItemManager : MonoBehaviour {
                 break;
         }
 
-        click_type = ClickType.NoClick;
+        clickType = ClickType.NoClick;
     }
 
     public void SelectLocation(string arg)
@@ -75,9 +75,9 @@ public class ItemManager : MonoBehaviour {
         yield return new WaitForSeconds(doubleTapThreshold);
 
         if (tapCount == 1) {
-            click_type = ClickType.SingleClick;
+            clickType = ClickType.SingleClick;
         } else if (tapCount == 2) {
-            click_type = ClickType.DoubleClick;
+            clickType = ClickType.DoubleClick;
         }
 
         tapCount = 0;
@@ -99,6 +99,7 @@ public class ItemManager : MonoBehaviour {
     }
 
     private void PutRallyPointBackDown() {
+        UIManager.Instance.DisableLookingForNextClick();
         UIManager.Instance.PutRallyPointDown(RallyPoint.position);
     }
 
