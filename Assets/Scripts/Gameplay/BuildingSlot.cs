@@ -8,7 +8,8 @@ using UnityEngine.Tilemaps;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
-public class BuildingSlot : MonoBehaviour {
+public class BuildingSlot : MonoBehaviour
+{
     private Camera mainCamera;
     private AudioSource audioSource;
     private Tilemap basesTilemap;
@@ -24,12 +25,15 @@ public class BuildingSlot : MonoBehaviour {
     public Utility.LocationType Type { get; set; }
 
     public Utility.LocationStatus status;
-    public Utility.LocationStatus Status { 
+    public Utility.LocationStatus Status
+    {
         get { return status; }
-        set {
+        set
+        {
             status = value;
 
-            switch (status) {
+            switch (status)
+            {
                 default:
                     OnDefaultStatusChangeColor();
                     break;
@@ -41,21 +45,24 @@ public class BuildingSlot : MonoBehaviour {
     }
 
     private Utility.LocationSelectionStatus selectionStatus;
-    public Utility.LocationSelectionStatus SelectionStatus { 
-        get { return selectionStatus; } 
-        set {
+    public Utility.LocationSelectionStatus SelectionStatus
+    {
+        get { return selectionStatus; }
+        set
+        {
             selectionStatus = value;
 
-            switch (selectionStatus) {
-            default:
-                OnUnselectChangeColor();
-                break;
-            case Utility.LocationSelectionStatus.Selected:
-                OnSelectChangeColor();
-                break;
+            switch (selectionStatus)
+            {
+                default:
+                    OnUnselectChangeColor();
+                    break;
+                case Utility.LocationSelectionStatus.Selected:
+                    OnSelectChangeColor();
+                    break;
             }
-        } 
- }
+        }
+    }
     public GameObject building = null;
     public GameObject trainingUnit = null;
     public GameObject upgradeItem = null;
@@ -71,7 +78,8 @@ public class BuildingSlot : MonoBehaviour {
     // Production Queue
     public List<GameObject> productionList = new();
 
-    void Start() {
+    void Start()
+    {
         mainCamera = Camera.main;
         audioSource = GetComponent<AudioSource>();
         basesTilemap = FindObjectOfType<BasesTilemap>().GetComponent<Tilemap>();
@@ -87,34 +95,39 @@ public class BuildingSlot : MonoBehaviour {
     //    if(Input.GetMouseButtonDown(0) && IsMouseOverBuildingSlot()) {
     //        Debug.Log("Fdfd");
     //    }
-        //var screenPosition = mainCamera.WorldToScreenPoint(transform.position);
-        //isVisisble = !(screenPosition.x <= 10 || screenPosition.x >= Screen.width || screenPosition.y <= 10 || screenPosition.y >= Screen.height);
+    //var screenPosition = mainCamera.WorldToScreenPoint(transform.position);
+    //isVisisble = !(screenPosition.x <= 10 || screenPosition.x >= Screen.width || screenPosition.y <= 10 || screenPosition.y >= Screen.height);
 
-        //color.a = isVisisble ? 0f : 1f;
+    //color.a = isVisisble ? 0f : 1f;
     //}
 
-    public void OnSelectChangeColor() {
+    public void OnSelectChangeColor()
+    {
         color = Color.black;
         color.a = 1f;
         sprite.color = color;
     }
 
-    public void OnDefaultStatusChangeColor() {
+    public void OnDefaultStatusChangeColor()
+    {
         sprite.color = Color.white;
     }
 
-    public void OnBuildingChangeColor() {
+    public void OnBuildingChangeColor()
+    {
         color = Color.green;
         sprite.color = color;
     }
 
-    public void OnUnselectChangeColor() {
+    public void OnUnselectChangeColor()
+    {
         color = Color.white;
         color.a = 0.8f;
         sprite.color = color;
     }
 
-    public void SelectLocation() {
+    public void SelectLocation()
+    {
         UIManager.Instance.OnSelectLocation(id, Type);
     }
 
@@ -130,7 +143,8 @@ public class BuildingSlot : MonoBehaviour {
         Status = Utility.LocationStatus.Training;
 
         var buildTime = 0f;
-        foreach (var x in upgradePrefab.cost) {
+        foreach (var x in upgradePrefab.cost)
+        {
             if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
         }
 
@@ -141,12 +155,61 @@ public class BuildingSlot : MonoBehaviour {
 
         itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
         loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+        loadingBar.interactable = false;
         timer.On_PingAction += UpdateSlider;
         timer.On_Duration_End += IsDoneUpgrading;
         loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
     }
     public void SpawnUnitQueue()
     {
+        Debug.Log("Started spawning ...");
+        trainingUnit = Instantiate(productionList[0], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+        trainingUnit.tag = "Player";
+        trainingUnit.name += trainingUnit.GetInstanceID().ToString();
+        trainingUnit.GetComponent<UnitMovement>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
+        trainingUnit.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
+        trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.GoingToFlag;
+        trainingUnit.GetComponent<OurUnit>().Rally_Point = building.GetComponent<Structure>().Rally_Point.transform;
+        trainingUnit.GetComponent<OurUnit>().home = building.GetComponent<Structure>();
+        var upgradez = Player.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
+        if (upgradez.Count > 0)
+        {
+            foreach (var up in upgradez)
+            {
+                trainingUnit.GetComponent<StatsManager>().UpgradeStat(up.effect.stat, up.effect.isPercent);
+            }
+        }
+        trainingUnit.SetActive(false);
+        Status = Utility.LocationStatus.Training;
+
+        var buildTime = 0f;
+        foreach (var x in trainingUnit.GetComponent<OurUnit>().cost)
+        {
+            if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
+        }
+        if (timer == null) {//UIManager.Instance.DialogWindow("This location is already traning troops");
+
+            timer = gameObject.AddComponent<Timer>();
+            timer.AddTimer("Training", buildTime, true, 0.25f);
+
+            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
+            loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+            loadingBar.interactable = false;
+            loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
+            timer.On_PingAction += UpdateSlider;
+            timer.On_Duration_End += IsDoneTraining;
+            loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
+        }
+    }
+    public void UpdateSliderMultiplier()
+    {
+        loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
+    }
+    public void SpawnUnit()
+    {
+        if (building != null && SelectionStatus == Utility.LocationSelectionStatus.Selected && productionList.Count == 1)
+        {
+            Debug.Log("Started spawning ...");
             trainingUnit = Instantiate(productionList[0], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
             trainingUnit.tag = "Player";
             trainingUnit.name += trainingUnit.GetInstanceID().ToString();
@@ -171,51 +234,6 @@ public class BuildingSlot : MonoBehaviour {
             {
                 if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
             }
-            if (timer != null) //UIManager.Instance.DialogWindow("This location all ready is traning troops");
-
-            timer = gameObject.AddComponent<Timer>();
-            timer.AddTimer("Training", buildTime, true, 0.25f);
-
-            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-            loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-            loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
-            timer.On_PingAction += UpdateSlider;
-            timer.On_Duration_End += IsDoneTraining;
-            loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
-    }
-    public void UpdateSliderMultiplier()
-    {
-        loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
-    }
-    public void SpawnUnit()
-    {
-        if (building != null && SelectionStatus == Utility.LocationSelectionStatus.Selected && productionList.Count == 1)
-        {
-            Debug.Log("Started spawning ...");
-            trainingUnit = Instantiate(productionList[0], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-            trainingUnit.tag = "Player";
-            trainingUnit.name += trainingUnit.GetInstanceID().ToString();
-            trainingUnit.GetComponent<UnitMovement>().TransformDestination = building.GetComponent<Structure>().Rally_Point.transform;
-            trainingUnit.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
-            trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.GoingToFlag;
-            trainingUnit.GetComponent<OurUnit>().Rally_Point = building.GetComponent<Structure>().Rally_Point.transform;
-            trainingUnit.GetComponent<OurUnit>().home = building.GetComponent<Structure>();
-            var upgradez = Player.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
-            if(upgradez.Count > 0)
-            {
-                foreach(var up in upgradez)
-                {
-                    trainingUnit.GetComponent<StatsManager>().UpgradeStat(up.effect.stat, up.effect.isPercent);
-                }
-            }
-            trainingUnit.SetActive(false);
-            Status = Utility.LocationStatus.Training;
-
-            var buildTime = 0f;
-            foreach (var x in trainingUnit.GetComponent<OurUnit>().cost)
-            {
-                if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
-            }
             if (timer == null)
             {
                 timer = gameObject.AddComponent<Timer>();
@@ -223,6 +241,7 @@ public class BuildingSlot : MonoBehaviour {
 
                 itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
                 loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+                loadingBar.interactable = false;
                 loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
                 timer.On_PingAction += UpdateSlider;
                 timer.On_Duration_End += IsDoneTraining;
@@ -250,7 +269,8 @@ public class BuildingSlot : MonoBehaviour {
         var buildingStructure = building.GetComponent<Structure>();
         buildingStructure.buildingSlot = this;
 
-        if (buildingStructure.locationType == Utility.LocationType.Attack) {
+        if (buildingStructure.locationType == Utility.LocationType.Attack)
+        {
             buildingStructure.Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
             buildingStructure.Rally_Point.GetComponent<DraggableMovement>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
             building.GetComponent<StatsManager>().owner = Player.Instance.PlayerName;
@@ -268,7 +288,8 @@ public class BuildingSlot : MonoBehaviour {
         //building.GetComponent<SpriteRenderer>().sprite = aux;
         building.GetComponent<Structure>().ChangeSprite();
         var buildTime = 0f;
-        foreach (var x in building.GetComponent<Structure>().cost) {
+        foreach (var x in building.GetComponent<Structure>().cost)
+        {
             if (x.type == Utility.ResourceTypes.Time) buildTime = x.value;
         }
         StartCoroutine(UpdateBuildingSprite(buildTime / 2));
@@ -282,6 +303,7 @@ public class BuildingSlot : MonoBehaviour {
 
         itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
         loadingBar = Instantiate(buildingPrefab.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+        loadingBar.interactable = false;
         timer.On_PingAction += UpdateSlider;
         timer.On_Duration_End += IsDoneBuilding;
         loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
@@ -297,6 +319,7 @@ public class BuildingSlot : MonoBehaviour {
 
         itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
         loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+        loadingBar.interactable = false;
         timer.On_PingAction += UpdateSlider;
         timer.On_Duration_End += IsDoneUpgradingBuilding;
         loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
@@ -335,7 +358,7 @@ public class BuildingSlot : MonoBehaviour {
         }
     }
     public void IsDoneBuilding(Timer _timer)
-    {        
+    {
         //Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         building.GetComponent<Structure>().UpgradeStructure();
         //building.SetActive(true);
@@ -346,15 +369,15 @@ public class BuildingSlot : MonoBehaviour {
         Status = Utility.LocationStatus.Built;
 
         DestroyImmediate(timer);
-        if(loadingBar != null) Destroy(loadingBar.gameObject);
+        if (loadingBar != null) Destroy(loadingBar.gameObject);
 
         UpdateItemManager(true, building.GetComponent<Structure>());
 
-        if(building.GetComponent<Structure>().production.type == Utility.ResourceTypes.Supply)
+        if (building.GetComponent<Structure>().production.type == Utility.ResourceTypes.Supply)
         {
             Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(building.GetComponent<Structure>().production.value);
         }
-        else if(Type == Utility.LocationType.Resource)
+        else if (Type == Utility.LocationType.Resource)
         {
             Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction += building.GetComponent<Structure>().production.value;
         }
@@ -375,12 +398,12 @@ public class BuildingSlot : MonoBehaviour {
                 Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).currentProduction += reff.effect.resourceAmount.value;
             }
         }
-        if(reff.effect.type == Utility.UpgradeEffectTypes.Troops)
+        if (reff.effect.type == Utility.UpgradeEffectTypes.Troops)
         {
             var statsManagers = FindObjectsOfType<StatsManager>();
-            foreach(var z in statsManagers)
+            foreach (var z in statsManagers)
             {
-                if(z.gameObject.layer != 6)
+                if (z.gameObject.layer != 6)
                 {
                     z.UpgradeStat(reff.effect.stat, reff.effect.isPercent);
                 }
@@ -400,7 +423,7 @@ public class BuildingSlot : MonoBehaviour {
         switch (Status)
         {
             case Utility.LocationStatus.Building:
-                if(building.GetComponent<Structure>().level < 0)
+                if (building.GetComponent<Structure>().level < 0)
                 {
                     Player.Instance.Refund(building.GetComponent<Structure>().cost);
                     if (Type == Utility.LocationType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);
@@ -417,7 +440,7 @@ public class BuildingSlot : MonoBehaviour {
                 break;
 
             case Utility.LocationStatus.Training:
-                if(Type == Utility.LocationType.Attack)
+                if (Type == Utility.LocationType.Attack)
                 {
                     foreach (var unit in productionList)
                     {
@@ -426,7 +449,7 @@ public class BuildingSlot : MonoBehaviour {
                     Destroy(trainingUnit);
                     productionList.RemoveAll(x => x);
                 }
-                if(Type == Utility.LocationType.Resource)
+                if (Type == Utility.LocationType.Resource)
                 {
                     Player.Instance.Refund(upgradeItem.GetComponent<ItemUpgrade>().cost);
                     Destroy(upgradeItem);
@@ -439,14 +462,15 @@ public class BuildingSlot : MonoBehaviour {
     IEnumerator UpdateBuildingSprite(float t)
     {
         yield return new WaitForSeconds(t);
-        if(building) building.GetComponent<Structure>().UpgradeStructure();
+        if (building) building.GetComponent<Structure>().UpgradeStructure();
     }
     public void UpdateItemManager(bool filling, Structure buttonIcon)
     {
-        if(timer != null)
+        if (timer != null)
         {
             itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
             loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+            loadingBar.interactable = false;
             timer.On_PingAction += UpdateSlider;
             loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
         }
@@ -548,21 +572,25 @@ public class BuildingSlot : MonoBehaviour {
         EnableBaseTile();
     }
 
-    public void PlayStoneSound() {
+    public void PlayStoneSound()
+    {
         audioSource.Play();
     }
 
-    private Vector3Int GetBaseTileLocation() {
+    private Vector3Int GetBaseTileLocation()
+    {
         Vector3Int cellIndex = basesTilemap.WorldToCell(transform.position);
         return cellIndex;
     }
 
-    private void DisableBaseTile() {
+    private void DisableBaseTile()
+    {
         gameObject.GetComponent<Renderer>().enabled = false;
         basesTilemap.SetTile(baseTileIndex, null);
     }
 
-    private void EnableBaseTile() {
+    private void EnableBaseTile()
+    {
         gameObject.GetComponent<Renderer>().enabled = true;
         basesTilemap.SetTile(baseTileIndex, baseTile);
     }

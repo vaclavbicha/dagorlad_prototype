@@ -62,6 +62,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
+        rightLoadingBar.interactable = false;
+        leftLoadingBar.interactable = false;
 
         foreach (var x in baseBorder.GetComponentsInChildren<Image>())
         {
