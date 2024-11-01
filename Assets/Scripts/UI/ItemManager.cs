@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour {
     public int locationID;
-    public Utility.LocationType type;
+    public Utility.BuildingSlotType type;
 
     public GameObject top;
     public GameObject mid;

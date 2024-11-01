@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8256477909925688873}
   - component: {fileID: 8343471991897806024}
   m_Layer: 11
-  m_Name: Location
+  m_Name: BuildingSlot
   m_TagString: BuildingSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   building: {fileID: 0}
   trainingUnit: {fileID: 0}
   upgradeItem: {fileID: 0}
+  loadingBarPrefab: {fileID: 2750228692031925039, guid: ef597b0e6f61d4ae8b63e8fa545633a1, type: 3}
   timer: {fileID: 0}
   loadingBar: {fileID: 0}
   itemManager: {fileID: 0}

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Utility
 {
 
-    public enum LocationType { Defense, Attack, Resource }
+    public enum BuildingSlotType { Defense, Attack, Resource }
     public enum LocationStatus { NONE, Free, Building, Built, Training, Upgrading }
     public enum LocationSelectionStatus { Unselected, Selected, Unavailable }
     public enum DefenseTypes { Tower1, Tower2, Tower3, Tower4 }

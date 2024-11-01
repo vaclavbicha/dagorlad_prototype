@@ -53,13 +53,10 @@ public class UIManager : MonoBehaviour {
 
     public GameObject winWindow;
 
-    Camera mainCamera;
-
     LayerMask buildingSlotLayer;
 
 
     private void Start() {
-        mainCamera = Camera.main;
         rightLoadingBar.interactable = false;
         leftLoadingBar.interactable = false;
 
@@ -168,7 +165,7 @@ public class UIManager : MonoBehaviour {
         DeselectLocation();
     }
 
-    public void OnSelectLocation(int location_id, Utility.LocationType location_type) {
+    public void OnSelectLocation(int location_id, Utility.BuildingSlotType location_type) {
         DeselectLocation();
         Debug.Log(location_id);
         currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.id == location_id && x.Type == location_type && x.baseID == currentBaseID);

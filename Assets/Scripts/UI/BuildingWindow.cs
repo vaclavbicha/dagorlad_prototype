@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class BuildingWindow : MonoBehaviour
 {
     public GameObject infoPanel;
-    public void ActivateWindow(int location_id, Utility.LocationType location_type, BuildingSlot mapLocation)
+    public void ActivateWindow(int location_id, Utility.BuildingSlotType location_type, BuildingSlot mapLocation)
     {
         if (mapLocation.Status == Utility.LocationStatus.Built || mapLocation.Status == Utility.LocationStatus.Training)
         {
@@ -15,9 +15,9 @@ public class BuildingWindow : MonoBehaviour
             int j = 0;
             switch (mapLocation.Type)
             {
-                case Utility.LocationType.Defense:
+                case Utility.BuildingSlotType.Defense:
                     break;
-                case Utility.LocationType.Attack:
+                case Utility.BuildingSlotType.Attack:
                     gameObject.SetActive(true);
 
                     foreach (var obj in GameManager.Instance.units.FindAll(x => x.type == mapLocation.building.GetComponent<Structure>().unitType))
@@ -91,7 +91,7 @@ public class BuildingWindow : MonoBehaviour
                         i++;
                     }
                     break;
-                case Utility.LocationType.Resource:
+                case Utility.BuildingSlotType.Resource:
                     gameObject.SetActive(true);
                     foreach (var obj in GameManager.Instance.upgrades.FindAll(x => x.type == mapLocation.building.GetComponent<Structure>().upgradeType))
                     {

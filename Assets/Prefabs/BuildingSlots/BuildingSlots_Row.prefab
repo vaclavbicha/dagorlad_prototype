@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5215164833740434016}
   - component: {fileID: 8974855444352862612}
   m_Layer: 0
-  m_Name: Location_Row
+  m_Name: BuildingSlots_Row
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,7 +10,6 @@ using UnityEngine.UI;
 
 public class BuildingSlot : MonoBehaviour
 {
-    private Camera mainCamera;
     private AudioSource audioSource;
     private Tilemap basesTilemap;
     private TileBase baseTile;
@@ -22,7 +21,7 @@ public class BuildingSlot : MonoBehaviour
     [SerializeField]
     bool isVisisble;
     public Player owner;
-    public Utility.LocationType Type { get; set; }
+    public Utility.BuildingSlotType Type { get; set; }
 
     public Utility.LocationStatus status;
     public Utility.LocationStatus Status
@@ -70,6 +69,9 @@ public class BuildingSlot : MonoBehaviour
     SpriteRenderer sprite;
     Color color = Color.white;
 
+    [SerializeField]
+    private GameObject loadingBarPrefab;
+
     public Timer timer;
     public Slider loadingBar;
 
@@ -80,7 +82,6 @@ public class BuildingSlot : MonoBehaviour
 
     void Start()
     {
-        mainCamera = Camera.main;
         audioSource = GetComponent<AudioSource>();
         basesTilemap = FindObjectOfType<BasesTilemap>().GetComponent<Tilemap>();
         sprite = GetComponent<SpriteRenderer>();
@@ -150,13 +151,12 @@ public class BuildingSlot : MonoBehaviour
         timer = gameObject.AddComponent<Timer>();
         timer.AddTimer("BuildingUpgrade", buildTime, true, 0.25f);
 
-        itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-        loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-        loadingBar.interactable = false;
+        CreateLoadingBar();
+
         timer.On_PingAction += UpdateSlider;
         timer.On_Duration_End += IsDoneUpgrading;
-        loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
     }
+
     public void SpawnUnitQueue()
     {
         Debug.Log("Started spawning ...");
@@ -189,13 +189,10 @@ public class BuildingSlot : MonoBehaviour
             timer = gameObject.AddComponent<Timer>();
             timer.AddTimer("Training", buildTime, true, 0.25f);
 
-            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-            loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-            loadingBar.interactable = false;
+            CreateLoadingBar();
             loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
             timer.On_PingAction += UpdateSlider;
             timer.On_Duration_End += IsDoneTraining;
-            loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
         }
     }
     public void UpdateSliderMultiplier()
@@ -236,13 +233,10 @@ public class BuildingSlot : MonoBehaviour
                 timer = gameObject.AddComponent<Timer>();
                 timer.AddTimer("Training", buildTime, true, 0.25f);
 
-                itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-                loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-                loadingBar.interactable = false;
+                CreateLoadingBar();
                 loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
                 timer.On_PingAction += UpdateSlider;
                 timer.On_Duration_End += IsDoneTraining;
-                loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
 
             }
             else
@@ -266,7 +260,7 @@ public class BuildingSlot : MonoBehaviour
         var buildingStructure = building.GetComponent<Structure>();
         buildingStructure.buildingSlot = this;
 
-        if (buildingStructure.locationType == Utility.LocationType.Attack)
+        if (buildingStructure.locationType == Utility.BuildingSlotType.Attack)
         {
             buildingStructure.Rally_Point = Instantiate(GameManager.Instance.flagPrefab, transform.position + new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
             buildingStructure.Rally_Point.GetComponent<DraggableMovement>().SetDestination(transform.position + new Vector3(0.5f, 0.5f, 0f));
@@ -298,12 +292,10 @@ public class BuildingSlot : MonoBehaviour
         timer = gameObject.AddComponent<Timer>();
         timer.AddTimer("Building", buildTime, true, 0.25f);
 
-        itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-        loadingBar = Instantiate(buildingPrefab.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-        loadingBar.interactable = false;
+        CreateLoadingBar();
+
         timer.On_PingAction += UpdateSlider;
         timer.On_Duration_End += IsDoneBuilding;
-        loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
     }
     public void UpgradeStructure(float time)
     {
@@ -314,25 +306,22 @@ public class BuildingSlot : MonoBehaviour
         timer = gameObject.AddComponent<Timer>();
         timer.AddTimer("Upgrade", time, true, 0.25f);
 
-        itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-        loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-        loadingBar.interactable = false;
+        CreateLoadingBar();
+
         timer.On_PingAction += UpdateSlider;
         timer.On_Duration_End += IsDoneUpgradingBuilding;
-        loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
     }
-    public void IsDoneUpgradingBuilding(Timer _timer)
-    {
+    public void IsDoneUpgradingBuilding(Timer _timer) {
         //Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         Status = Utility.LocationStatus.Built;
 
-        DestroyImmediate(timer);
-        if (loadingBar != null) Destroy(loadingBar.gameObject);
+        ClearTimerAndLoadingBar();
 
         building.GetComponent<Structure>().UpgradeStructure();
 
         UpdateItemManager(true, building.GetComponent<Structure>());
     }
+
     public void UpdateSlider(Timer _timer)
     {
         loadingBar.value = Mathf.Abs((Time.time - _timer.timeStarted) / (_timer.timeStarted - _timer.timeFinish));
@@ -342,8 +331,7 @@ public class BuildingSlot : MonoBehaviour
         trainingUnit.SetActive(true);
         Status = Utility.LocationStatus.Built;
 
-        DestroyImmediate(timer);
-        if (loadingBar != null) Destroy(loadingBar.gameObject);
+        ClearTimerAndLoadingBar();
 
         building.GetComponent<Structure>().Rally_Point.GetComponent<Draggable>().NewUnitSpawned(trainingUnit.GetComponent<OurUnit>());
 
@@ -365,8 +353,7 @@ public class BuildingSlot : MonoBehaviour
 
         Status = Utility.LocationStatus.Built;
 
-        DestroyImmediate(timer);
-        if (loadingBar != null) Destroy(loadingBar.gameObject);
+        ClearTimerAndLoadingBar();
 
         UpdateItemManager(true, building.GetComponent<Structure>());
 
@@ -374,7 +361,7 @@ public class BuildingSlot : MonoBehaviour
         {
             Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(building.GetComponent<Structure>().production.value);
         }
-        else if (Type == Utility.LocationType.Resource)
+        else if (Type == Utility.BuildingSlotType.Resource)
         {
             Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction += building.GetComponent<Structure>().production.value;
         }
@@ -407,15 +394,13 @@ public class BuildingSlot : MonoBehaviour
             }
         }
 
-        Destroy(timer);
-        if (loadingBar != null) Destroy(loadingBar.gameObject);
+        ClearTimerAndLoadingBar();
     }
     public void CancelLoading()
     {
         EnableBaseTile();
         Debug.Log("Cancel loading bar");
-        DestroyImmediate(timer);
-        if (loadingBar != null) Destroy(loadingBar.gameObject);
+        ClearTimerAndLoadingBar();
 
         switch (Status)
         {
@@ -423,7 +408,7 @@ public class BuildingSlot : MonoBehaviour
                 if (building.GetComponent<Structure>().level < 0)
                 {
                     Player.Instance.Refund(building.GetComponent<Structure>().cost);
-                    if (Type == Utility.LocationType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);
+                    if (Type == Utility.BuildingSlotType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);
                     Destroy(building);
                     Status = Utility.LocationStatus.Free;
                     SelectionStatus = Utility.LocationSelectionStatus.Unselected;
@@ -437,7 +422,7 @@ public class BuildingSlot : MonoBehaviour
                 break;
 
             case Utility.LocationStatus.Training:
-                if (Type == Utility.LocationType.Attack)
+                if (Type == Utility.BuildingSlotType.Attack)
                 {
                     foreach (var unit in productionList)
                     {
@@ -446,7 +431,7 @@ public class BuildingSlot : MonoBehaviour
                     Destroy(trainingUnit);
                     productionList.RemoveAll(x => x);
                 }
-                if (Type == Utility.LocationType.Resource)
+                if (Type == Utility.BuildingSlotType.Resource)
                 {
                     Player.Instance.Refund(upgradeItem.GetComponent<ItemUpgrade>().cost);
                     Destroy(upgradeItem);
@@ -465,11 +450,8 @@ public class BuildingSlot : MonoBehaviour
     {
         if (timer != null)
         {
-            itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
-            loadingBar = Instantiate(building.GetComponent<Structure>().loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
-            loadingBar.interactable = false;
+            CreateLoadingBar();
             timer.On_PingAction += UpdateSlider;
-            loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
         }
         if (Status != Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID)
         {
@@ -493,10 +475,10 @@ public class BuildingSlot : MonoBehaviour
 
             switch (buttonIcon.locationType)
             {
-                case Utility.LocationType.Defense:
+                case Utility.BuildingSlotType.Defense:
                     itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon != null ? buttonIcon.scrollIcon : null;
                     break;
-                case Utility.LocationType.Attack:
+                case Utility.BuildingSlotType.Attack:
                     itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = UIManager.Instance.currentBaseID == 3 ? buttonIcon != null ? buttonIcon.ButtonIcon3 : null : buttonIcon != null ? buttonIcon.ButtonIcon1 : null;
                     itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                     itemManager.mid.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
@@ -518,13 +500,13 @@ public class BuildingSlot : MonoBehaviour
                     //}
                     itemManager.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
                     break;
-                case Utility.LocationType.Resource:
+                case Utility.BuildingSlotType.Resource:
                     itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.scrollIcon;
                     //itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     break;
             }
         }
-        if (Status == Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID && buttonIcon.locationType == Utility.LocationType.Attack &&
+        if (Status == Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID && buttonIcon.locationType == Utility.BuildingSlotType.Attack &&
             building.GetComponent<Structure>().level >= 0)
         {
             Debug.Log("ASDASDASDASFSAA !!!!!!");
@@ -558,7 +540,7 @@ public class BuildingSlot : MonoBehaviour
         {
             Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(-building.GetComponent<Structure>().production.value);
         }
-        else if (Type == Utility.LocationType.Resource)
+        else if (Type == Utility.BuildingSlotType.Resource)
         {
             Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction -= building.GetComponent<Structure>().production.value;
         }
@@ -567,6 +549,19 @@ public class BuildingSlot : MonoBehaviour
         Status = Utility.LocationStatus.Free;
         GameManager.Instance.InstantiateBottomMenu();
         EnableBaseTile();
+    }
+
+    private void CreateLoadingBar() {
+
+        itemManager = UIManager.Instance.bottomPanelContent.GetComponentsInChildren<ItemManager>().ToList().Find(x => x.locationID == id && x.type == Type);
+        loadingBar = Instantiate(loadingBarPrefab, itemManager.transform.GetChild(1).GetChild(0)).GetComponent<Slider>();
+        loadingBar.interactable = false;
+        loadingBar.GetComponentInChildren<Button>().onClick.AddListener(CancelLoading);
+    }
+
+    private void ClearTimerAndLoadingBar() {
+        DestroyImmediate(timer);
+        if (loadingBar != null) Destroy(loadingBar.gameObject);
     }
 
     public void PlayStoneSound()
