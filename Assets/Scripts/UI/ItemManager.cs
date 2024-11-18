@@ -31,7 +31,6 @@ public class ItemManager : MonoBehaviour {
 
     Camera mainCamera;
 
-
     public void Start()
     {
         top = transform.GetChild(1).GetChild(0).gameObject;
@@ -68,7 +67,6 @@ public class ItemManager : MonoBehaviour {
     public void SelectLocation(string arg)
     {
         UIManager.Instance.OnSelectLocation(locationID, type);
-        //UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Button>().
     }
 
     IEnumerator SingleOrDoubleTap() {

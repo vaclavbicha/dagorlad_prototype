@@ -125,7 +125,7 @@ public class CameraController : MonoBehaviour
             currentRallyPoint.HOLD();
             // 19 JAN empty
         }
-        if (drag && !UIManager.Instance.window.gameObject.activeInHierarchy)
+        if (drag && !UIManager.Instance.buildingWindow.gameObject.activeInHierarchy)
         {
             cameraMovement.SetDestination(ClampCamera(Origin - Difference));
         }

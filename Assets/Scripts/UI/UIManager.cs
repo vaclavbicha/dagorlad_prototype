@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour {
 
     public ToggleGroup toggleGroupStructureTypes;
 
-    public BuildingWindow window;
+    public BuildingWindow buildingWindow;
     public BuildingSlot currentSelected;
 
     public GameObject dialogWindow;
@@ -55,10 +55,17 @@ public class UIManager : MonoBehaviour {
 
     LayerMask buildingSlotLayer;
 
+    private void Awake() {
+        // If there is an instance, and it's not me, delete myself.
+        if (Instance != null && Instance != this) {
+            Destroy(this);
+        } else {
+            Instance = this;
+        }
+    }
 
     private void Start() {
-        rightLoadingBar.interactable = false;
-        leftLoadingBar.interactable = false;
+        SetupUIComponents();
 
         foreach (var x in baseBorder.GetComponentsInChildren<Image>()) {
             x.color = borderColors[currentBaseID];
@@ -84,6 +91,13 @@ public class UIManager : MonoBehaviour {
                 if (i > 0) Toggles[i].transform.GetChild(0).gameObject.SetActive(false);
             }
         }
+    }
+
+    private void SetupUIComponents() {
+        buildingWindow = FindObjectOfType<BuildingWindow>(true);
+        rightLoadingBar.interactable = false;
+        leftLoadingBar.interactable = false;
+
         leftTimer = gameObject.AddComponent<Timer>();
         leftTimer.AddTimer("Building", GameManager.Instance.secondsToFullLeftPanel, true, 0.25f);
 
@@ -118,14 +132,7 @@ public class UIManager : MonoBehaviour {
             leftTimer.On_PingAction += UpdateSliderLeft;
         }
     }
-    private void Awake() {
-        // If there is an instance, and it's not me, delete myself.
-        if (Instance != null && Instance != this) {
-            Destroy(this);
-        } else {
-            Instance = this;
-        }
-    }
+    
     public void Update() {
         HandleBuildingSlotClicked();
 
@@ -161,7 +168,7 @@ public class UIManager : MonoBehaviour {
             lastSelectedInfoToggle.isOn = false;
             lastSelectedInfoToggle = null;
         }
-        window.gameObject.SetActive(false);
+        buildingWindow.gameObject.SetActive(false);
         DeselectLocation();
     }
 
@@ -172,7 +179,7 @@ public class UIManager : MonoBehaviour {
         if (!currentSelected) DialogWindow("Selected Location not visible on screen");
 
         currentSelected.SelectionStatus = Utility.LocationSelectionStatus.Selected;
-        window.ActivateWindow(location_id, location_type, currentSelected);
+        buildingWindow.ActivateWindow(location_id, location_type, currentSelected);
     }
 
     public void DeselectLocation() {
