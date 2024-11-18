@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static BuildingWindow;
 
 public class UIManager : MonoBehaviour {
     public static UIManager Instance;
@@ -101,6 +102,10 @@ public class UIManager : MonoBehaviour {
 
     private void SetupUIComponents() {
         buildingWindow = FindObjectOfType<BuildingWindow>(true);
+        // load the building window
+        buildingWindow.gameObject.SetActive(true);
+        buildingWindow.DeactivateWindow();
+
         rightLoadingBar.interactable = false;
         leftLoadingBar.interactable = false;
 
@@ -174,11 +179,12 @@ public class UIManager : MonoBehaviour {
             lastSelectedInfoToggle.isOn = false;
             lastSelectedInfoToggle = null;
         }
-        buildingWindow.gameObject.SetActive(false);
+        buildingWindow.DeactivateWindow();
         DeselectLocation();
     }
 
     public void OnSelectLocation(int location_id, Utility.BuildingSlotType location_type) {
+        if (selectedRallyPoint) PutRallyPointDown(selectedRallyPoint.position);
         DeselectLocation();
         Debug.Log(location_id);
         currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.id == location_id && x.Type == location_type && x.baseID == currentBaseID);
