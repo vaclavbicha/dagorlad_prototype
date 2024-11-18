@@ -873,8 +873,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_fontSize
-      value: 145
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3212285635254278012, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1043,8 +1047,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_fontSize
-      value: 145
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3212285635254278012, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1213,8 +1221,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_fontSize
-      value: 145
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3212285635254278012, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1383,8 +1395,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3020959178964278003, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_fontSize
-      value: 145
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3212285635254278012, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_SizeDelta.y

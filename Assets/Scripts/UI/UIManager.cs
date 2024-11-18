@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour {
     public GameObject MiniMap;
     public Camera MiniMapCamera;
 
+    Camera mainCamera;
+
     public RectTransform bottomPanelContent;
 
     public List<GameObject> bottomPanelButtons;
@@ -55,6 +57,8 @@ public class UIManager : MonoBehaviour {
 
     LayerMask buildingSlotLayer;
 
+    private bool isMovingOnTheBuilding = false;
+
     private void Awake() {
         // If there is an instance, and it's not me, delete myself.
         if (Instance != null && Instance != this) {
@@ -65,6 +69,8 @@ public class UIManager : MonoBehaviour {
     }
 
     private void Start() {
+        mainCamera = Camera.main;
+
         SetupUIComponents();
 
         foreach (var x in baseBorder.GetComponentsInChildren<Image>()) {
@@ -78,7 +84,7 @@ public class UIManager : MonoBehaviour {
                 int panelNumber = i + 1;
                 Toggles[i].onValueChanged.AddListener(delegate (bool isOn) {
                     if (isOn) {
-                        if (Time.time - lastClicked <= 1f && currentBaseID == panelNumber) Camera.main.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(panelNumber.ToString())).transform.position);
+                        if (Time.time - lastClicked <= 1f && currentBaseID == panelNumber) mainCamera.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(panelNumber.ToString())).transform.position);
                         lastClicked = Time.time;
                         currentBaseID = panelNumber;
                         GameManager.Instance.InstantiateBottomMenu();
@@ -138,15 +144,15 @@ public class UIManager : MonoBehaviour {
 
         if (!lookForNextClick) return;
 
-        if (Input.GetMouseButton(0) && !IsMouseOverOverlayCanvas()) {
-            PutRallyPointDown(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if (selectedRallyPoint && Input.GetMouseButton(0) && !IsMouseOverOverlayCanvas()) {
+            PutRallyPointDown(mainCamera.ScreenToWorldPoint(Input.mousePosition));
         }
     }
 
     public void PutRallyPointDown(Vector3 destination) {
-        Camera.main.GetComponent<CameraMovement>().IsLocked = false;
-        Camera.main.GetComponent<CameraMovement>().DisableEdgeScrolling();
-        Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
+        mainCamera.GetComponent<CameraMovement>().IsLocked = false;
+        mainCamera.GetComponent<CameraMovement>().DisableEdgeScrolling();
+        mainCamera.GetComponent<Animator>().SetTrigger("SmallShake");
 
         selectedRallyPoint.transform.position = destination;
         selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(destination);
@@ -223,14 +229,14 @@ public class UIManager : MonoBehaviour {
     public void OnBaseSwitch(int id) {
         //map
 
-        //if (Time.time - lastClicked <= 1f && currentBaseID == id) Camera.main.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(id.ToString())).transform.position);
+        //if (Time.time - lastClicked <= 1f && currentBaseID == id) mainCamera.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(id.ToString())).transform.position);
         //lastClicked = Time.time;
         //currentBaseID = id;
         //GameManager.Instance.InstantiateBottomMenu();
 
     }
     public void MapGoTo(int i) {
-        Camera.main.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(i.ToString())).transform.position);
+        mainCamera.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(i.ToString())).transform.position);
         EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
     }
     public void InstantiateBottomMenu(BuildingSlot location) {
@@ -305,17 +311,49 @@ public class UIManager : MonoBehaviour {
 
     public void HandleBuildingSlotClicked() {
         // && !SpellManager.Instance.IsAnySpellSelected() nie dzia³a
-        if (Input.GetMouseButtonUp(0) && !IsMouseOverOverlayCanvas()) {
-            Vector2 rayOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (IsMouseOverOverlayCanvas()) return;
 
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero, Mathf.Infinity, buildingSlotLayer);
+        Vector2 rayOrigin = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-            if (hit.collider != null) {
-                BuildingSlot clickedBuildingSlot = hit.collider.gameObject.GetComponent<BuildingSlot>();
-                clickedBuildingSlot.PlayStoneSound();
-                OnSelectLocation(clickedBuildingSlot.id, clickedBuildingSlot.Type);
-            }
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero, Mathf.Infinity, buildingSlotLayer);
+
+        if (!hit.collider) return;
+
+        BuildingSlot clickedBuildingSlot = hit.collider.gameObject.GetComponent<BuildingSlot>();
+
+        // If the player is moving the camera, don't select the building slot
+        if (Input.touchCount <= 0) {
+            if (isMovingOnTheBuilding) isMovingOnTheBuilding = false;
+            return;
         }
+
+        TouchPhase touchPhase = Input.GetTouch(0).phase;
+
+        switch (touchPhase) {
+            case TouchPhase.Moved:
+                isMovingOnTheBuilding = true;
+                break;
+            case TouchPhase.Ended:
+                if (isMovingOnTheBuilding) return;
+
+                // If the building window is active and the player taps on the building slot, close it
+                // FIX IT
+                //if (buildingWindow.gameObject.activeSelf) {
+                //    lookForNextClick = false;
+                //    buildingWindow.gameObject.SetActive(false);
+                //    return;
+                //} else {
+                //    lookForNextClick = true;
+                //}
+
+                SelectBuildingSlot(clickedBuildingSlot);
+                break;
+        }
+    }
+
+    private void SelectBuildingSlot(BuildingSlot clickedBuildingSlot) {
+        clickedBuildingSlot.PlayStoneSound();
+        OnSelectLocation(clickedBuildingSlot.id, clickedBuildingSlot.Type);
     }
 
     public bool IsMouseOverOverlayCanvas() {
@@ -326,10 +364,9 @@ public class UIManager : MonoBehaviour {
         List<RaycastResult> raycastResults = new();
         EventSystem.current.RaycastAll(pointerEventData, raycastResults);
         foreach (var ev in raycastResults) {
-            //Debug.Log(ev.gameObject.name);
-            //if (ev.gameObject.layer == 9) ev.gameObject.GetComponent<RallyPoint>().ONNNN();
             if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
         }
         return false;
+
     }
 }
