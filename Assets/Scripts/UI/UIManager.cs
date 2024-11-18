@@ -143,11 +143,11 @@ public class UIManager : MonoBehaviour {
 
         selectedRallyPoint.transform.position = destination;
         selectedRallyPoint.GetComponent<DraggableMovement>().SetDestination(destination);
-        selectedRallyPoint.GetComponent<Draggable>().PlayPutRallyPointDownAnimation();
+        selectedRallyPoint.GetComponent<RallyPoint>().PlayPutRallyPointDownAnimation();
 
         lookForNextClick = false;
 
-        selectedRallyPoint.GetComponent<Draggable>().ManageTargets();
+        selectedRallyPoint.GetComponent<RallyPoint>().ManageTargets();
 
         selectedRallyPoint = null;
         if (selectedRallyPointButton) {
@@ -192,7 +192,7 @@ public class UIManager : MonoBehaviour {
             foreach (var x in selectedRallyPoint.GetComponentsInChildren<Animator>()) {
                 x.SetBool("HOLD", false);
             }
-            selectedRallyPoint.GetComponent<Draggable>().PlayPutRallyPointDownAnimation();
+            selectedRallyPoint.GetComponent<RallyPoint>().PlayPutRallyPointDownAnimation();
         }
         lookForNextClick = true;
         selectedRallyPoint = point;
@@ -320,7 +320,7 @@ public class UIManager : MonoBehaviour {
         EventSystem.current.RaycastAll(pointerEventData, raycastResults);
         foreach (var ev in raycastResults) {
             //Debug.Log(ev.gameObject.name);
-            //if (ev.gameObject.layer == 9) ev.gameObject.GetComponent<Draggable>().ONNNN();
+            //if (ev.gameObject.layer == 9) ev.gameObject.GetComponent<RallyPoint>().ONNNN();
             if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
         }
         return false;

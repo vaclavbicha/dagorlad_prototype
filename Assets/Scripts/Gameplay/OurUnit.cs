@@ -132,8 +132,8 @@ public class OurUnit : MonoBehaviour
             }
             if (Rally_Point)
             {
-                Rally_Point.GetComponent<Draggable>().currentArmy.Remove(this);
-                Rally_Point.GetComponent<Draggable>().ManageTargets();
+                Rally_Point.GetComponent<RallyPoint>().currentArmy.Remove(this);
+                Rally_Point.GetComponent<RallyPoint>().ManageTargets();
             }
             Debug.Log("UNIT DIED");
             GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_death");

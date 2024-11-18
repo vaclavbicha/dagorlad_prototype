@@ -92,7 +92,7 @@ public class ItemManager : MonoBehaviour {
     private void PickRallyPointUp() {
         if (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject == null) return;
 
-        RallyPoint.GetComponent<Draggable>().PlayPickRallyPointUpAnimation();
+        RallyPoint.GetComponent<RallyPoint>().PlayPickRallyPointUpAnimation();
         building.isAttackPoint = false;
         var img = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
         UIManager.Instance.LookToPlaceRallyPoint(RallyPoint, img);

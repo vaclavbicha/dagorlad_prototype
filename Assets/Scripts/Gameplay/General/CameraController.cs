@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
     public bool drag = false;
 
     public bool isOverFlag = false;
-    public Draggable currentRallyPoint = null;
+    public RallyPoint currentRallyPoint = null;
     public BuildingSlot clickedMapLocation = null;
     public bool dragFlag = false;
 
@@ -142,9 +142,9 @@ public class CameraController : MonoBehaviour
             if(x.collider.gameObject.layer == 9 && x.collider.tag == "Rally_Point")
             {
                 //Debug.Log(x.transform.name);
-                currentRallyPoint = x.transform.GetComponent<Draggable>();
+                currentRallyPoint = x.transform.GetComponent<RallyPoint>();
                 currentRallyPoint.ON();
-                //19 JAN currentRallyPoint = x.transform.GetComponent<Draggable>();
+                //19 JAN currentRallyPoint = x.transform.GetComponent<RallyPoint>();
 
                 return true;
             } 

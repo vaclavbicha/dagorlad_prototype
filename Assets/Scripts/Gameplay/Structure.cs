@@ -67,7 +67,7 @@ public class Structure : MonoBehaviour
     //    //Sorting + Target selection
     //    foreach(var x in currentArmy)
     //    {
-    //        x.Attack(Rally_Point.GetComponent<Draggable>().EnemiesInRange[0]);
+    //        x.Attack(Rally_Point.GetComponent<RallyPoint>().EnemiesInRange[0]);
     //    }
     //}
     //public void StopAttackEnemiesInRange(GameObject enemy)

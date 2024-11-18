@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject flagPrefab;
 
-    public List<Draggable> enemies = new();
+    public List<RallyPoint> enemies = new();
 
     private void Awake()
     {
