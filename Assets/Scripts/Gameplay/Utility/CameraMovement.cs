@@ -46,8 +46,21 @@ public class CameraMovement : MonoBehaviour {
         upEdgeSize = edgeSize + upCanvasSize;
         downEdgeSize = edgeSize + downCanvasSize;
     }
+    private void Update() {
+        if (UIManager.Instance.IsMouseOverOverlayCanvas()) {
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0)) {
+                IsLocked = true;
+            }
+        } else {
+            if (Input.GetMouseButtonDown(0)) {
+                IsLocked = false;
+            }
+        }
+    }
 
     private void FixedUpdate() {
+        if (IsLocked) return;
+
         switch (cameraMode) {
             case CameraMode.Time:
                 var tt = (Time.time - StartTime) / TimeSpan;
