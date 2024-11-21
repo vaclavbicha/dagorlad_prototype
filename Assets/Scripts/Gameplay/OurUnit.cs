@@ -74,7 +74,7 @@ public class OurUnit : MonoBehaviour
         if (_attacker == null)
         {
             var result = attackersSlots.Find(x => x.attacker == null);
-            return result == null ? null : result.position;//transform.TransformPoint(attackersSlots.Find(x => x.attacker == null).position);
+            return result?.position;//transform.TransformPoint(attackersSlots.Find(x => x.attacker == null).position);
         }
         else
         {

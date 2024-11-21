@@ -6,6 +6,7 @@ public class BuildingColumn : MonoBehaviour
     public UpdateIconText[] array;
     public string currentItemName = "default";
     Image infoImage = null;
+    public BuildingWindow.BottomPanelMode bottomPanelMode;
     public void Start()
     {
         infoImage = transform.parent.GetComponentInParent<BuildingWindow>().infoPanel.GetComponent<Image>();

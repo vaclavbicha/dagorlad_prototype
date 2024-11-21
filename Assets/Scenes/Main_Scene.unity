@@ -47427,7 +47427,23 @@ MonoBehaviour:
   - {fileID: 1520677507}
   ALL_Locations: []
   buildings: []
-  units: []
+  units:
+  - {fileID: 2467180795165718603, guid: 661787ccbb77a42c49eaa06151820d1a, type: 3}
+  - {fileID: 2467180795165718603, guid: a0eb7ded25faa4b139b79bf069efc9ce, type: 3}
+  - {fileID: 2467180795165718603, guid: 89a2c69f56458429191f9c73829b1bc4, type: 3}
+  - {fileID: 2467180795165718603, guid: 5f89ad083e0054357b28916bee0591b6, type: 3}
+  - {fileID: 2467180795165718603, guid: 10de3519406d045aaa8f47dd36bbcb75, type: 3}
+  - {fileID: 2467180795165718603, guid: f758dd6e4f04f4df59b8803e815b4187, type: 3}
+  - {fileID: 2467180795165718603, guid: e8afe81f989034c71ba809d859e98fe8, type: 3}
+  - {fileID: 2467180795165718603, guid: 762be527057ed453ebc835f53d8d8a46, type: 3}
+  - {fileID: 2467180795165718603, guid: 6be4e90a4cb024db996025c0d18cb68e, type: 3}
+  - {fileID: 2467180795165718603, guid: 1cd432c9150e9424f957fd741a8aaf9e, type: 3}
+  - {fileID: 2467180795165718603, guid: 0ead766c735c74124ade618cb62cb717, type: 3}
+  - {fileID: 2467180795165718603, guid: d12fca0b2e9484c96a42211b4fba5668, type: 3}
+  - {fileID: 2467180795165718603, guid: 7cc1338b5077d4d238d8f882464bd580, type: 3}
+  - {fileID: 2467180795165718603, guid: dd9bed52f9586488e8600d36282cbdcb, type: 3}
+  - {fileID: 2467180795165718603, guid: 02229e1026429448eb28757b7199b65a, type: 3}
+  - {fileID: 2467180795165718603, guid: 7667ae392ff404327a2cb5ed262f4b18, type: 3}
   upgrades: []
   infoSprites:
   - {fileID: 0}

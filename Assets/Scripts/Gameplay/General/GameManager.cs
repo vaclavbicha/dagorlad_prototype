@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public List<BuildingSlot> ALL_Locations = new();
 
     public List<Structure> buildings = new();
+
+    [SerializeField]
     public List<OurUnit> units = new();
     public List<ItemUpgrade> upgrades = new();
     //public Dictionary<string, Structure> buildings = new Dictionary<string, Structure>();

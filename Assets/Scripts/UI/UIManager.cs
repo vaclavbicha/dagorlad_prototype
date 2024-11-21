@@ -191,7 +191,7 @@ public class UIManager : MonoBehaviour {
         if (!currentSelected) DialogWindow("Selected Location not visible on screen");
 
         currentSelected.SelectionStatus = Utility.LocationSelectionStatus.Selected;
-        buildingWindow.ActivateWindow(location_id, location_type, currentSelected);
+        buildingWindow.ActivateWindow(currentSelected);
     }
 
     public void DeselectLocation() {

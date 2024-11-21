@@ -22,6 +22,8 @@ public class Structure : MonoBehaviour
     public Amount production;
     public GameObject Rally_Point;
     public bool isAttackPoint = false;
+    [SerializeField]
+    public List<OurUnit> producingUnits;
     public BuildingSlot buildingSlot;
 
     public int level;
