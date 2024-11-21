@@ -205,6 +205,49 @@ public class UIManager : MonoBehaviour {
         //GameManager.Instance.SpawnBuilding(buildingName, currentSelected);
         GameManager.Instance.ItemBuy(itemName, currentSelected);
     }
+
+    public void OnBuildingDestroy() {
+        if (!currentSelected) {
+            DialogWindow("Selected Location was not found!");
+            return;
+        }
+
+        currentSelected.DestroyBuilding();
+        buildingWindow.DeactivateWindow();
+    }
+
+    public void OnOpenUpgradeBuildingWindow() {
+        if (!currentSelected) {
+            DialogWindow("Selected Location was not found!");
+            return;
+        }
+
+        OpenUpgradeBuildingWindow();
+        buildingWindow.DeactivateWindow();
+    }
+
+    public void OpenUpgradeBuildingWindow() {
+        var cost = currentSelected.building.GetComponent<Structure>().ReturnCostOfLevel();
+        if (cost == null) {
+            DialogWindow("Building is at the MAX level");
+            return;
+        }
+
+        DialogWindowYesNo("Do you want to upgrade this building ?", cost,
+            () => {
+                Debug.Log("PLAYER SAID YES");
+                if (Player.Instance.Buy(cost)) {
+                    foreach (var x in cost) {
+                        if (x.type == Utility.ResourceTypes.Time) currentSelected.UpgradeStructure(x.value);
+                    }
+                    //location.building.GetComponent<Structure>().UpgradeStructure();
+                    Debug.Log("PLAYER CAN AFFORD");
+                    GameManager.Instance.InstantiateBottomMenu();
+                } else DialogWindow("Player cannot afford");
+            },
+            () => { Debug.Log("PLAYER SAID NO"); });
+    }
+
     public void LookToPlaceRallyPoint(Transform point) {
         if (selectedRallyPointButton) selectedRallyPointButton.color = Color.white;
         if (selectedRallyPoint) {

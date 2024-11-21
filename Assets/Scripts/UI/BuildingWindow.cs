@@ -70,7 +70,6 @@ public class BuildingWindow : MonoBehaviour
 
                         Color fillingColor = GetFillingColor(unit.minimumBuildingTier);
                         UpdateUnitCostDisplay(normalBuildingColumns[j], unit, fillingColor);
-                        UpdateUnitResourceSprites(normalBuildingColumns[j], unit);
                         UpdateUnitResourceAndButtonInteractivity(buildingSlot, normalBuildingColumns[j], unit, fillingColor);
                     }
 
@@ -93,15 +92,6 @@ public class BuildingWindow : MonoBehaviour
                             text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
                             currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0).GetComponent<Image>().color = fillingColor;
 
-                        }
-                        foreach (var resource in GameManager.Instance.resourceSprites)
-                        {
-                            bool found = false;
-                            foreach (var cost in upgrade.cost)
-                            {
-                                if (cost.type.ToString() == resource.name) found = true;
-                            }
-                            if (!found) currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + resource.name).GetChild(0).gameObject.SetActive(false);
                         }
                         //Debug.Log(buildingSlot.baseID + " MAP : " + buildingSlot.name + buildingSlot.building.GetComponent<Structure>().level);
                         for (int j = 0; j < currentBottomPanel.transform.GetChild(i).childCount; j++)
@@ -238,16 +228,6 @@ public class BuildingWindow : MonoBehaviour
         buildingColumn.transform.transform.Find("Button_Wrap").GetComponent<Image>().color = fillingColor;
         buildingColumn.transform.transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = unit.Icon;
         buildingColumn.transform.GetComponent<BuildingColumn>().currentItemName = unit.unitName;
-    }
-
-    private static void UpdateUnitResourceSprites(BuildingColumn buildingColumn, OurUnit unit) {
-        foreach (var resource in GameManager.Instance.resourceSprites) {
-            bool found = false;
-            foreach (var cost in unit.cost) {
-                if (cost.type.ToString() == resource.name) found = true;
-            }
-            if (!found) buildingColumn.transform.transform.Find("Cost_" + resource.name).GetChild(0).gameObject.SetActive(false);
-        }
     }
 
     private void UpdateUnitCostDisplay(BuildingColumn buildingColumn, OurUnit unit, Color fillingColor) {

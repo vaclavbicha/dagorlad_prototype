@@ -110,37 +110,4 @@ public class ItemManager : MonoBehaviour {
     {
         pressed = false;
     }
-    public void OnBuildingDestroy()
-    {
-        building.buildingSlot.DestroyBuilding();
-    }
-    public void OnBuildingUpgradeWindow()
-    {
-        //var location = GameManager.Instance.ALL_Locations.Find(x => x.id == locationID && x.type == type && x.baseID == UIManager.Instance.currentBaseID);
-        if (!building.buildingSlot) {
-            UIManager.Instance.DialogWindow("Selected Location was not found!");
-            return;
-        }
-
-        var cost = building.ReturnCostOfLevel();
-        if (cost == null) {
-            UIManager.Instance.DialogWindow("Building is at the MAX level");
-            return;
-        }
-
-        UIManager.Instance.DialogWindowYesNo("Do you want to upgrade this building ?", cost, 
-            () => {
-                Debug.Log("PLAYER SAID YES");
-                if (Player.Instance.Buy(cost)) {
-                    foreach (var x in cost) {
-                        if (x.type == Utility.ResourceTypes.Time) building.buildingSlot.UpgradeStructure(x.value);
-                    }
-                    //location.building.GetComponent<Structure>().UpgradeStructure();
-                    Debug.Log("PLAYER CAN AFFORD");
-                    GameManager.Instance.InstantiateBottomMenu();
-                } else UIManager.Instance.DialogWindow("Player cannot afford");
-            },
-            () => { Debug.Log("PLAYER SAID NO"); });
-        delete.SetActive(false);
-    }
 }

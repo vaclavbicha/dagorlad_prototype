@@ -287,7 +287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -60202271, guid: fb1f8ed186636e94b915a3bd3cbf42f9, type: 3}
+  m_Sprite: {fileID: 1129783727, guid: 040ae93db43ee364185e7012ef4973e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -476,6 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   array: []
   currentItemName: default
+  buildingColumnMode: 0
 --- !u!1 &3579931822318142934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1374,10 @@ PrefabInstance:
     - target: {fileID: 838941962431147632, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_Colors.m_DisabledColor.r
       value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131419165108469358, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2598352188822609004, guid: 77c7c7f21c8de4632b503216201bf87a, type: 3}
       propertyPath: m_Name

@@ -301,6 +301,7 @@ public class BuildingSlot : MonoBehaviour
         timer.On_PingAction += UpdateSlider;
         timer.On_Duration_End += IsDoneUpgradingBuilding;
     }
+
     public void IsDoneUpgradingBuilding(Timer _timer) {
         //Camera.main.GetComponent<Animator>().SetTrigger("SmallShake");
         Status = Utility.LocationStatus.Built;
