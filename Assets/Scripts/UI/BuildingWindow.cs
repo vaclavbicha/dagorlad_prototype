@@ -3,17 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static BuildingWindowBottomPanel;
 
 public class BuildingWindow : MonoBehaviour
 {
     public GameObject infoPanel;
     GameObject bottomPanelNormal;
     GameObject bottomPanelUtility;
-
-    public enum BottomPanelMode {
-        normalPanel,
-        utilityPanel
-    }
+    BuildingWindowBottomPanel currentBottomPanel;
 
     private void Awake() {
         SetupComponents();
@@ -24,18 +21,36 @@ public class BuildingWindow : MonoBehaviour
 
         if (!bottomPanelNormal) {
             bottomPanelNormal = transform.GetChild(2).transform.gameObject;
+            bottomPanelNormal.GetComponent<BuildingWindowBottomPanel>().SetupColumns();
             bottomPanelNormal.SetActive(false);
         }
 
         if (!bottomPanelUtility) {
-            bottomPanelUtility = transform.GetChild(3).gameObject;
+            bottomPanelUtility = transform.GetChild(3).transform.gameObject;
+            bottomPanelUtility.GetComponent<BuildingWindowBottomPanel>().SetupColumns();
             bottomPanelUtility.SetActive(false);
         }
     }
 
+    public void DeactivateWindow() {
+        if (currentBottomPanel) {
+            foreach (BuildingColumn buildingColumn in currentBottomPanel.BuildingColumns) {
+                buildingColumn.TurnOffInfoIcon();
+            }
+        }
+
+        if (currentBottomPanel) {
+            currentBottomPanel.gameObject.SetActive(false);
+            currentBottomPanel = null;
+        }
+
+        infoPanel.SetActive(false);
+        gameObject.SetActive(false);
+
+    }
+
     public void ActivateWindow(BuildingSlot buildingSlot)
     {
-        GameObject panel = null;
         if (buildingSlot.Status == Utility.LocationStatus.Built || buildingSlot.Status == Utility.LocationStatus.Training)
         {
             switch (buildingSlot.Type)
@@ -43,12 +58,11 @@ public class BuildingWindow : MonoBehaviour
                 case Utility.BuildingSlotType.Defense:
                     break;
                 case Utility.BuildingSlotType.Attack:
-                    panel = OpenPanel(BottomPanelMode.utilityPanel);
+                    currentBottomPanel = OpenPanel(BottomPanelMode.utilityPanel).GetComponent<BuildingWindowBottomPanel>();
                     List<OurUnit> units = buildingSlot.building.GetComponent<Structure>().producingUnits;
 
-                    BuildingColumn[] buildingColumns = panel.GetComponentsInChildren<BuildingColumn>();
-                    BuildingColumn[] normalBuildingColumns = Array.FindAll(buildingColumns, BuildingColumn => BuildingColumn.bottomPanelMode == BottomPanelMode.normalPanel);
-                    BuildingColumn[] utilityColumns = Array.FindAll(buildingColumns, BuildingColumn => BuildingColumn.bottomPanelMode == BottomPanelMode.utilityPanel);
+                    BuildingColumn[] normalBuildingColumns = currentBottomPanel.NormalBuildingColumns;
+                    BuildingColumn[] utilityColumns = currentBottomPanel.UtilityColumns;
 
                     for (int j = 0; j < units.Count; j++) {
                         OurUnit unit = units[j];
@@ -63,7 +77,7 @@ public class BuildingWindow : MonoBehaviour
                     
                     break;
                 case Utility.BuildingSlotType.Resource:
-                    panel = OpenPanel(BottomPanelMode.normalPanel);
+                    currentBottomPanel = OpenPanel(BottomPanelMode.normalPanel).GetComponent<BuildingWindowBottomPanel>();
 
                     int i = 0;
                     List<ItemUpgrade> upgrades = GameManager.Instance.upgrades.FindAll(x => x.type == buildingSlot.building.GetComponent<Structure>().upgradeType);
@@ -73,11 +87,11 @@ public class BuildingWindow : MonoBehaviour
                         
                         foreach (Amount cost in upgrade.cost)
                         {
-                            var text = panel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
+                            var text = currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
                             text.gameObject.SetActive(true);
                             text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
                             text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
-                            panel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0).GetComponent<Image>().color = fillingColor;
+                            currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0).GetComponent<Image>().color = fillingColor;
 
                         }
                         foreach (var resource in GameManager.Instance.resourceSprites)
@@ -87,20 +101,20 @@ public class BuildingWindow : MonoBehaviour
                             {
                                 if (cost.type.ToString() == resource.name) found = true;
                             }
-                            if (!found) panel.transform.GetChild(i).transform.Find("Cost_" + resource.name).GetChild(0).gameObject.SetActive(false);
+                            if (!found) currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + resource.name).GetChild(0).gameObject.SetActive(false);
                         }
                         //Debug.Log(buildingSlot.baseID + " MAP : " + buildingSlot.name + buildingSlot.building.GetComponent<Structure>().level);
-                        for (int j = 0; j < panel.transform.GetChild(i).childCount; j++)
+                        for (int j = 0; j < currentBottomPanel.transform.GetChild(i).childCount; j++)
                         {
-                            if (panel.transform.GetChild(i).GetChild(j).name.Contains("Cost") ||
-                                panel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap"))
+                            if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Cost") ||
+                                currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap"))
                             {
-                                foreach (var x in panel.transform.GetChild(i).GetChild(j).GetComponentsInChildren<Button>())
+                                foreach (var x in currentBottomPanel.transform.GetChild(i).GetChild(j).GetComponentsInChildren<Button>())
                                 {
                                     var cantAfford = false;
-                                    if (panel.transform.GetChild(i).GetChild(j).name.Contains("Cost"))
+                                    if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Cost"))
                                     {
-                                        var resourceName = panel.transform.GetChild(i).GetChild(j).name.Replace("Cost_", "");
+                                        var resourceName = currentBottomPanel.transform.GetChild(i).GetChild(j).name.Replace("Cost_", "");
                                         if (resourceName == "Gold" || resourceName == "Wood")
                                         {
                                             var v1 = (Utility.ResourceTypes)Enum.Parse(typeof(Utility.ResourceTypes), resourceName);
@@ -113,11 +127,11 @@ public class BuildingWindow : MonoBehaviour
                                     x.interactable = upgrade.minimumBuildingTier <= buildingSlot.building.GetComponent<Structure>().level && !cantAfford;
                                 }
                             }
-                            if (panel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap")) panel.transform.GetChild(i).GetChild(j).GetComponent<Button>().interactable = upgrade.minimumBuildingTier > buildingSlot.building.GetComponent<Structure>().level ? false : true;
+                            if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap")) currentBottomPanel.transform.GetChild(i).GetChild(j).GetComponent<Button>().interactable = upgrade.minimumBuildingTier > buildingSlot.building.GetComponent<Structure>().level ? false : true;
                         }
-                        panel.transform.GetChild(i).transform.Find("Button_Wrap").GetComponent<Image>().color = fillingColor;
-                        panel.transform.GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = upgrade.Icon;
-                        panel.transform.GetChild(i).GetComponent<BuildingColumn>().currentItemName = upgrade.upgradeName;
+                        currentBottomPanel.transform.GetChild(i).transform.Find("Button_Wrap").GetComponent<Image>().color = fillingColor;
+                        currentBottomPanel.transform.GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = upgrade.Icon;
+                        currentBottomPanel.transform.GetChild(i).GetComponent<BuildingColumn>().currentItemName = upgrade.upgradeName;
                         i++;
                     }
                     break;
@@ -125,7 +139,7 @@ public class BuildingWindow : MonoBehaviour
         }
         if (buildingSlot.Status == Utility.LocationStatus.Free)
         {
-            panel = OpenPanel(BottomPanelMode.normalPanel);
+            currentBottomPanel = OpenPanel(BottomPanelMode.normalPanel).GetComponent<BuildingWindowBottomPanel>();
 
             int i = 0;
             foreach (var obj in GameManager.Instance.buildings.FindAll(x => x.locationType == buildingSlot.Type))
@@ -133,24 +147,24 @@ public class BuildingWindow : MonoBehaviour
                 ColorUtility.TryParseHtmlString("#6D7779", out Color fillingColor);
                 foreach (Amount cost in obj.cost)
                 {
-                    var text = panel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
+                    var text = currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
                     text.GetComponent<Image>().color = fillingColor;
                     text.gameObject.SetActive(true);
                     text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
                     text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
 
                 }
-                for (int j = 0; j < panel.transform.GetChild(i).childCount; j++)
+                for (int j = 0; j < currentBottomPanel.transform.GetChild(i).childCount; j++)
                 {
-                    if (panel.transform.GetChild(i).GetChild(j).name.Contains("Cost") ||
-                        panel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap"))
+                    if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Cost") ||
+                        currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap"))
                     {
-                        foreach (var x in panel.transform.GetChild(i).GetChild(j).GetComponentsInChildren<Button>())
+                        foreach (var x in currentBottomPanel.transform.GetChild(i).GetChild(j).GetComponentsInChildren<Button>())
                         {
                             var cantAfford1 = false;
-                            if (panel.transform.GetChild(i).GetChild(j).name.Contains("Cost"))
+                            if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Cost"))
                             {
-                                var resourceName = panel.transform.GetChild(i).GetChild(j).name.Replace("Cost_", "");
+                                var resourceName = currentBottomPanel.transform.GetChild(i).GetChild(j).name.Replace("Cost_", "");
                                 if (resourceName == "Gold" || resourceName == "Wood")
                                 {
                                     var v1 = (Utility.ResourceTypes)Enum.Parse(typeof(Utility.ResourceTypes), resourceName);
@@ -163,9 +177,9 @@ public class BuildingWindow : MonoBehaviour
                             x.interactable = !cantAfford1;
                         }
                     }
-                    if (panel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap")) panel.transform.GetChild(i).GetChild(j).GetComponent<Button>().interactable = true;
+                    if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap")) currentBottomPanel.transform.GetChild(i).GetChild(j).GetComponent<Button>().interactable = true;
                 }
-                panel.transform.GetChild(i).transform.Find("Button_Wrap").GetComponent<Image>().color = fillingColor;
+                currentBottomPanel.transform.GetChild(i).transform.Find("Button_Wrap").GetComponent<Image>().color = fillingColor;
 
                 foreach (var resource in GameManager.Instance.resourceSprites)
                 {
@@ -174,10 +188,10 @@ public class BuildingWindow : MonoBehaviour
                     {
                         if (cost.type.ToString() == resource.name) found = true;
                     }
-                    if (!found) panel.transform.GetChild(i).transform.Find("Cost_" + resource.name).GetChild(0).gameObject.SetActive(false);
+                    if (!found) currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + resource.name).GetChild(0).gameObject.SetActive(false);
                 }
-                panel.transform.GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = obj.Icon;
-                panel.transform.GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.buildingName;
+                currentBottomPanel.transform.GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = obj.Icon;
+                currentBottomPanel.transform.GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.buildingName;
                 i++;
             }
         }
@@ -244,12 +258,6 @@ public class BuildingWindow : MonoBehaviour
             text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
             buildingColumn.transform.Find("Cost_" + cost.type.ToString()).GetChild(0).GetComponent<Image>().color = fillingColor;
         }
-    }
-
-    public void DeactivateWindow() {
-        bottomPanelNormal.SetActive(false);
-        bottomPanelUtility.SetActive(false);
-        gameObject.SetActive(false);
     }
 
     private static Color GetFillingColor(int minimumBuildingTier) {

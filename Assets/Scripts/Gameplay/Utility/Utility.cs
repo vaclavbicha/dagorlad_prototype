@@ -14,7 +14,6 @@ public class Utility
     public enum UpgradeTypes { NONE, Farm, Mill, Blacksmith, Quary }
     public enum UpgradeEffectTypes { NONE, Resource, Troops, Building, Spell }
     public enum UnitTypes { NONE, Baracks, Stables, Workshop, Airport }
-    public enum UnitClass { Footman, Knight, Archer, Spearman, Wolfhound, Heavy, Archercavalry, Spearchavalary, Ram, Barrel, Ballista, Trebuchet, Hawk, Eagle, Eaglearcher, Eaglebomber }
     public enum UnitStatus { GoingToFlag, AttackGoingToFlag, IdleFlag, Attacking, Dead }
     public enum StatsTypes { MoveSpeed, Health, Armor, Attack, AttackSpeed }
 

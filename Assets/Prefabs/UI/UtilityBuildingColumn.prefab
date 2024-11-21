@@ -476,6 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   array: []
   currentItemName: default
+  buildingColumnMode: 1
 --- !u!1 &3579931822318142934
 GameObject:
   m_ObjectHideFlags: 0
