@@ -74,7 +74,7 @@ public class OurUnit : MonoBehaviour
         if (_attacker == null)
         {
             var result = attackersSlots.Find(x => x.attacker == null);
-            return result == null ? null : result.position;//transform.TransformPoint(attackersSlots.Find(x => x.attacker == null).position);
+            return result?.position;//transform.TransformPoint(attackersSlots.Find(x => x.attacker == null).position);
         }
         else
         {
@@ -132,8 +132,8 @@ public class OurUnit : MonoBehaviour
             }
             if (Rally_Point)
             {
-                Rally_Point.GetComponent<Draggable>().currentArmy.Remove(this);
-                Rally_Point.GetComponent<Draggable>().ManageTargets();
+                Rally_Point.GetComponent<RallyPoint>().currentArmy.Remove(this);
+                Rally_Point.GetComponent<RallyPoint>().ManageTargets();
             }
             Debug.Log("UNIT DIED");
             GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_death");

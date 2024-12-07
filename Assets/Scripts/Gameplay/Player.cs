@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
     [System.Obsolete]
     public void DistributeResources(Timer timer)
     {
-        foreach (var x in GameManager.Instance.ALL_Locations.FindAll(y => y.Type == Utility.LocationType.Resource && y.owner == this && (y.Status == Utility.LocationStatus.Built || y.Status == Utility.LocationStatus.Training)))
+        foreach (var x in GameManager.Instance.ALL_Locations.FindAll(y => y.Type == Utility.BuildingSlotType.Resource && y.owner == this && (y.Status == Utility.LocationStatus.Built || y.Status == Utility.LocationStatus.Training)))
         {
             if (x.building.GetComponent<Structure>().production.type != Utility.ResourceTypes.Supply)
             {

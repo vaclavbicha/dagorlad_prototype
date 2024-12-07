@@ -15,14 +15,15 @@ public class Structure : MonoBehaviour
     public RuntimeAnimatorController FlagController3;
     public Sprite InfoSprite;
     public Sprite buildingSprite;
-    public Utility.LocationType locationType;
+    public Utility.BuildingSlotType locationType;
     public Utility.UnitTypes unitType;
     public Utility.UpgradeTypes upgradeType;
     public Amount[] cost;
     public Amount production;
-    public GameObject loadingBarPrefab;
     public GameObject Rally_Point;
     public bool isAttackPoint = false;
+    [SerializeField]
+    public List<OurUnit> producingUnits;
     public BuildingSlot buildingSlot;
 
     public int level;
@@ -68,7 +69,7 @@ public class Structure : MonoBehaviour
     //    //Sorting + Target selection
     //    foreach(var x in currentArmy)
     //    {
-    //        x.Attack(Rally_Point.GetComponent<Draggable>().EnemiesInRange[0]);
+    //        x.Attack(Rally_Point.GetComponent<RallyPoint>().EnemiesInRange[0]);
     //    }
     //}
     //public void StopAttackEnemiesInRange(GameObject enemy)

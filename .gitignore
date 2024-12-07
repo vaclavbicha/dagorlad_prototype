@@ -76,3 +76,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+*.dwlt
+Assets/MiniMAp.renderTexture
+Assets/RenderTextures/FOGMAIN.renderTexture
+Assets/RenderTextures/FOGSEC.renderTexture

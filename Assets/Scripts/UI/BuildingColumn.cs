@@ -1,14 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingColumn : MonoBehaviour
-{
+public class BuildingColumn : MonoBehaviour {
     public UpdateIconText[] array;
     public string currentItemName = "default";
     Image infoImage = null;
+
+    [SerializeField]
+    public BuildingColumnMode buildingColumnMode;
+
+    public enum BuildingColumnMode {
+        normal,
+        utility
+    }
+
+    Transform infoToggle;
+    Toggle infoButtonToggle;
+
+
     public void Start()
     {
         infoImage = transform.parent.GetComponentInParent<BuildingWindow>().infoPanel.GetComponent<Image>();
+        infoToggle = transform.Find("Info_Wrap").Find("Toggle_Button").transform;
+        infoButtonToggle = infoToggle.GetComponent<Toggle>();
     }
     public void OnBuy()
     {
@@ -26,5 +40,9 @@ public class BuildingColumn : MonoBehaviour
             infoImage.gameObject.SetActive(false);
             UIManager.Instance.lastSelectedInfoToggle = null;
         }
+    }
+
+    public void TurnOffInfoIcon() {
+        infoButtonToggle.isOn = false;
     }
 }

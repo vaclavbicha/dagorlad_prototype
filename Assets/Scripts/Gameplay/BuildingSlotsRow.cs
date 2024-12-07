@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class LocationRow : MonoBehaviour
+public class BuildingSlotsRow : MonoBehaviour
 {
     [SerializeField]
-    Utility.LocationType type;
+    Utility.BuildingSlotType type;
 
     void Start()
     {

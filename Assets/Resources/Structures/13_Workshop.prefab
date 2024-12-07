@@ -638,9 +638,11 @@ MonoBehaviour:
   production:
     type: 0
     value: 0
-  loadingBarPrefab: {fileID: 2750228692031925039, guid: ef597b0e6f61d4ae8b63e8fa545633a1, type: 3}
   Rally_Point: {fileID: 0}
   isAttackPoint: 0
+  producingUnits:
+  - {fileID: 2467180795165718603, guid: 6be4e90a4cb024db996025c0d18cb68e, type: 3}
+  - {fileID: 2467180795165718603, guid: 1cd432c9150e9424f957fd741a8aaf9e, type: 3}
   buildingSlot: {fileID: 0}
   level: -2
   costUpgrade0:

@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
     public bool drag = false;
 
     public bool isOverFlag = false;
-    public Draggable currentRallyPoint = null;
+    public RallyPoint currentRallyPoint = null;
     public BuildingSlot clickedMapLocation = null;
     public bool dragFlag = false;
 
@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0) && !IsMouseOverOverlayCanvas() && !UIManager.Instance.lookForNextClick && clickedMapLocation == null)
+        if (Input.GetMouseButtonDown(0) && !UIManager.Instance.IsMouseOverOverlayCanvas() && !UIManager.Instance.lookForNextClick && clickedMapLocation == null)
         {
             clickedMapLocation = OnMapLocationClick();
             if (clickedMapLocation != null)
@@ -49,7 +49,7 @@ public class CameraController : MonoBehaviour
                 lastclickedTimer = Time.time + holdTimerClickedMapLocation;
             }
         }
-        if (Input.GetMouseButtonUp(0) && !IsMouseOverOverlayCanvas() && clickedMapLocation != null)
+        if (Input.GetMouseButtonUp(0) && !UIManager.Instance.IsMouseOverOverlayCanvas() && clickedMapLocation != null)
         {
             if(clickedMapLocation == OnMapLocationClick())
             {
@@ -88,13 +88,11 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //if(Input.GetMouseButtonDown(0)) SearchRallyPoint();
         // here you can block ui with  && !IsMouseOverOverlayCanvas()
         if (Input.GetMouseButton(0))
         {
             if (!drag && !dragFlag) isOverFlag = SearchRallyPoint();
-            //if(!drag && !currentRallyPoint) SearchRallyPoint();
-            //if (cameraMove.Lock && currentRallyPoint) currentRallyPoint.HOLD();
+
             if (isOverFlag)
             {
                 if (!dragFlag)
@@ -127,39 +125,26 @@ public class CameraController : MonoBehaviour
             currentRallyPoint.HOLD();
             // 19 JAN empty
         }
-        if (drag && !UIManager.Instance.window.gameObject.activeInHierarchy)
+        if (drag && !UIManager.Instance.buildingWindow.gameObject.activeInHierarchy)
         {
             cameraMovement.SetDestination(ClampCamera(Origin - Difference));
         }
     }
-    public bool IsMouseOverOverlayCanvas()
-    {
-        PointerEventData pointerEventData = new(EventSystem.current) {
-            position = Input.mousePosition
-        };
-
-        List<RaycastResult> raycastResults = new();
-        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-        foreach(var ev in raycastResults)
-        {
-            //Debug.Log(ev.gameObject.name);
-            //if (ev.gameObject.layer == 9) ev.gameObject.GetComponent<Draggable>().ONNNN();
-            if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
-        }
-        return false;
-    }
     private bool SearchRallyPoint()
     {
-        //Debug.Log("MOUSE BUTTON DOWN" + camera.ScreenToWorldPoint(Input.mousePosition));
+        // Don't allow rally point pickup if it activates canvas buttons
+        if (UIManager.Instance.IsMouseOverOverlayCanvas()) return false;
+
+        //Debug.Log("MOUSE BUTTON DOWN");
         RaycastHit2D[] hit = Physics2D.RaycastAll(mainCamera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         foreach(var x in hit)
         {
             if(x.collider.gameObject.layer == 9 && x.collider.tag == "Rally_Point")
             {
                 //Debug.Log(x.transform.name);
-                currentRallyPoint = x.transform.GetComponent<Draggable>();
+                currentRallyPoint = x.transform.GetComponent<RallyPoint>();
                 currentRallyPoint.ON();
-                //19 JAN currentRallyPoint = x.transform.GetComponent<Draggable>();
+                //19 JAN currentRallyPoint = x.transform.GetComponent<RallyPoint>();
 
                 return true;
             } 

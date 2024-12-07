@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Draggable : MonoBehaviour
+public class RallyPoint : MonoBehaviour
 {
     public string owner;
     Vector3 mousePositionOffset;
@@ -85,6 +86,17 @@ public class Draggable : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnDestroy() {
+        ClearArmy();
+    }
+
+    private void ClearArmy() {
+        foreach (var unit in currentArmy) {
+            if (unit) Destroy(unit.gameObject);
+        }
+    }
+
     public void NewUnitSpawned(OurUnit unit)
     {
         currentArmy.Add(unit);
@@ -195,7 +207,7 @@ public class Draggable : MonoBehaviour
     }
 
     private void NotifyUnitOnLocation(OurUnit unit, Vector2 location) {
-        if (unit.TryGetComponent<UnitMovement>(out var unit_movement)) unit_movement.SetPathDestination(location);
+        if (unit && unit.TryGetComponent<UnitMovement>(out var unit_movement)) unit_movement.SetPathDestination(location);
     }
 
     private void NotifyArmyOnCurrentLocation() {
