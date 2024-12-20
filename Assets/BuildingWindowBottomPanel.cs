@@ -1,5 +1,7 @@
+using HutongGames.Utility;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildingWindowBottomPanel : MonoBehaviour
 {
@@ -16,6 +18,46 @@ public class BuildingWindowBottomPanel : MonoBehaviour
         BuildingColumns = transform.GetComponentsInChildren<BuildingColumn>(true);
         NormalBuildingColumns = Array.FindAll(BuildingColumns, BuildingColumn => BuildingColumn.buildingColumnMode == BuildingColumn.BuildingColumnMode.normal);
         UtilityColumns = Array.FindAll(BuildingColumns, BuildingColumn => BuildingColumn.buildingColumnMode == BuildingColumn.BuildingColumnMode.utility);
+
+        if (UtilityColumns.Length > 0) {
+            SetUtilityColumnDemolishCost(UtilityColumns[0], GameManager.Instance.BuildingDestructionCost);
+            //Player.Instance.onResourcesUpdated += () => {
+            //    if (GetComponentInParent<BuildingWindow>().isActiveAndEnabled) SetUtilityColumnDemolishCost(UtilityColumns[0], GameManager.Instance.BuildingDestructionCost);
+            //};
+        }
+    }
+
+    public void SetUtilityColumnDemolishCost(BuildingColumn utilityColumn, Amount[] costs) {
+        for (int i = 0; i < utilityColumn.transform.childCount; i++) {
+            Transform child = utilityColumn.transform.GetChild(i);
+            if (!child.name.Contains("Cost")) return;
+
+            foreach (Button button in child.GetComponentsInChildren<Button>()) {
+                bool canAfford = true;
+                
+                string resourceName = child.name.Replace("Cost_", "");
+
+                if (resourceName == "Gold" || resourceName == "Wood") {
+                    Utility.ResourceTypes resourceType = (Utility.ResourceTypes)Enum.Parse(typeof(Utility.ResourceTypes), resourceName);
+                    
+                    int owned = Player.Instance.resources.Find(x => x.amount.type == resourceType).amount.value;
+                    Debug.Log("Owned: " + owned);
+                    Amount costamount = Array.Find(costs, x => x.type == resourceType);
+
+                    child.GetComponentInChildren<UpdateIconText>().UpdateText(costamount.value.ToString(), gameObject);
+
+                    if (costamount != null) canAfford = owned >= costamount.value;
+                }
+
+                button.interactable = canAfford;
+            }
+        }
+    }
+
+    public void SetUtilityColumnUpdateCost(BuildingColumn utilityColumn, Amount[] costs) {
+        //for (int i = 0; i < costs.Length; i++) {
+        //    utilityColumn.array[i].UpdateText(costs[i].GetValueText());
+        //}
     }
 
 }

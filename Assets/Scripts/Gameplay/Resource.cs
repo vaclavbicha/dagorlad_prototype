@@ -19,7 +19,6 @@ public class Resource : MonoBehaviour
         if (display)
         {
             display.Icon.sprite = icon;
-            On_AmountUpdate += display.UpdateDisplay;
         }
         sceneStartTime = Time.time;
     }
@@ -30,30 +29,28 @@ public class Resource : MonoBehaviour
             AmountUpdateWithText(Mathf.FloorToInt(Time.time - sceneStartTime));
         }
     }
-    public void AmountUpdate(int value)
-    {
-        amount.value += value;
-        On_AmountUpdate?.Invoke(amount.value, gameObject);
-    }
+    //public void AmountUpdate(int value)
+    //{
+    //    amount.value += value;
+    //    On_AmountUpdate?.Invoke(amount.value, gameObject);
+    //}
     public void AmountUpdateWithText(int value)
     {
-        if(amount.type != Utility.ResourceTypes.Supply)
-        {
-            if(amount.type != Utility.ResourceTypes.Time)
-            {
-                amount.value += value;
-                display.UpdateText(amount.value.ToString() + "<color=#C7D3EF>" + "+" + currentProduction.ToString() + "</color>", gameObject);
-            }
-            else
-            {
-                amount.value = value;
-                display.UpdateText(amount.GetValueText(), gameObject);
-            }
-        }
-        else
-        {
+        if (amount.type == Utility.ResourceTypes.Time) {
+            amount.value = value;
+            display.UpdateText(amount.GetValueText(), gameObject);
+        } 
+        
+        else if (amount.type == Utility.ResourceTypes.Supply) {
             amount.value += value;
             display.UpdateText(Player.Instance.currentSupply.ToString() + "/" + amount.value, gameObject);
-        }
+            On_AmountUpdate(value, gameObject);
+        } 
+        
+        else if (amount.type == Utility.ResourceTypes.Gold || amount.type == Utility.ResourceTypes.Wood) {
+            amount.value += value;
+            display.UpdateText(amount.value.ToString() + "<color=#C7D3EF>" + "+" + currentProduction.ToString() + "</color>", gameObject);
+            On_AmountUpdate(value, gameObject);
+        }        
     }
 }

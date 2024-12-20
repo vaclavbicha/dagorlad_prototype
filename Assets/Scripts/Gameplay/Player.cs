@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,14 +11,17 @@ public class Player : MonoBehaviour
 
     //public List<MapLocation> locations = new List<MapLocation>();
 
-    public List<Resource> resources = new List<Resource>();
+    public List<Resource> resources = new();
     public int currentSupply;
 
-    public List<ItemUpgrade> ownedUpgrades = new List<ItemUpgrade>();
+    public List<ItemUpgrade> ownedUpgrades = new();
 
     public Timer productionTimer;
 
     public int resourceCicleTime;
+
+    public delegate void OnResourcesUpdated();
+    public OnResourcesUpdated onResourcesUpdated;
 
     private void Awake()
     {
@@ -30,8 +34,19 @@ public class Player : MonoBehaviour
         {
             Instance = this;
         }
-        resources.AddRange(GetComponents<Resource>());
+        resources = GetComponents<Resource>().ToList();
         StartCoroutine(NewTimer());
+    }
+
+    private void Start() {
+        foreach (Resource resource in resources) {
+            resource.On_AmountUpdate += OnResourceUpdated;
+        }
+    }
+
+    void OnResourceUpdated(int _value, GameObject _sender) {
+        Debug.Log("OnResourceUpdated");
+        onResourcesUpdated?.Invoke();
     }
     IEnumerator NewTimer()
     {

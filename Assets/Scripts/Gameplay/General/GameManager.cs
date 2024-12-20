@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     public List<RallyPoint> enemies = new();
 
+    public Amount[] BuildingDestructionCost;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DanielLochner.Assets;
@@ -58,7 +59,9 @@ public class UIManager : MonoBehaviour {
 
     LayerMask buildingSlotLayer;
 
-    private bool isMovingOnTheBuilding = false;
+    // these two values are used to prevent selecting the building slot in the camera or if building slot is under the UI
+    bool isMovingOnTheBuilding;
+    bool isTouchStarted;
 
     private void Awake() {
         // If there is an instance, and it's not me, delete myself.
@@ -103,8 +106,10 @@ public class UIManager : MonoBehaviour {
     private void SetupUIComponents() {
         buildingWindow = FindObjectOfType<BuildingWindow>(true);
         // load the building window
-        buildingWindow.gameObject.SetActive(true);
-        buildingWindow.DeactivateWindow();
+        if (buildingWindow) {
+            buildingWindow.gameObject.SetActive(true);
+            buildingWindow.DeactivateWindow();
+        }
 
         rightLoadingBar.interactable = false;
         leftLoadingBar.interactable = false;
@@ -145,7 +150,7 @@ public class UIManager : MonoBehaviour {
     }
     
     public void Update() {
-        HandleBuildingSlotClicked();
+        if (!MiniMap.activeSelf) HandleBuildingSlotClicked();
 
         if (!lookForNextClick) return;
 
@@ -188,7 +193,7 @@ public class UIManager : MonoBehaviour {
         DeselectLocation();
         Debug.Log(location_id);
         currentSelected = GameManager.Instance.ALL_Locations.Find(x => x.id == location_id && x.Type == location_type && x.baseID == currentBaseID);
-        if (!currentSelected) DialogWindow("Selected Location not visible on screen");
+        if (!currentSelected) return;
 
         currentSelected.SelectionStatus = Utility.LocationSelectionStatus.Selected;
         buildingWindow.ActivateWindow(currentSelected);
@@ -359,7 +364,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void HandleBuildingSlotClicked() {
-        // && !SpellManager.Instance.IsAnySpellSelected() nie dzia³a
+        // && !SpellManager.Instance.IsAnySpellSelected() doesn't work
         if (IsMouseOverOverlayCanvas()) return;
 
         Vector2 rayOrigin = mainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -379,11 +384,15 @@ public class UIManager : MonoBehaviour {
         TouchPhase touchPhase = Input.GetTouch(0).phase;
 
         switch (touchPhase) {
+            case TouchPhase.Began:
+                isTouchStarted = true;
+                break;
             case TouchPhase.Moved:
                 isMovingOnTheBuilding = true;
                 break;
             case TouchPhase.Ended:
                 if (isMovingOnTheBuilding) return;
+                if (!isTouchStarted) return;
 
                 // If the building window is active and the player taps on the building slot, close it
                 // FIX IT
@@ -396,6 +405,7 @@ public class UIManager : MonoBehaviour {
                 //}
 
                 SelectBuildingSlot(clickedBuildingSlot);
+                isTouchStarted = false;
                 break;
         }
     }
@@ -416,6 +426,5 @@ public class UIManager : MonoBehaviour {
             if (ev.gameObject.layer == 5) return true; //layer 5 is the UI layer
         }
         return false;
-
     }
 }

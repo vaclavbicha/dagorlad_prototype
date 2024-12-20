@@ -40,6 +40,7 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log(OnMapLocationClick());
 
         if (Input.GetMouseButtonDown(0) && !UIManager.Instance.IsMouseOverOverlayCanvas() && !UIManager.Instance.lookForNextClick && clickedMapLocation == null)
         {
@@ -158,14 +159,14 @@ public class CameraController : MonoBehaviour
         RaycastHit2D[] hit = Physics2D.RaycastAll(mainCamera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         foreach (var x in hit)
         {
-            if (x.collider.gameObject.layer == 11 && x.collider.tag == "MapLocation")
+            if (x.collider.gameObject.layer == 11 && x.collider.CompareTag("MapLocation"))
             {
                 //Debug.Log(x.transform.name);
                 //var clickedMapLocation = x.transform.GetComponent<MapLocation>();
                 //SelectLocation(clickedMapLocation);
                 return x.transform.GetComponent<BuildingSlot>();
             }
-            if (x.collider.gameObject.layer == 6 && x.collider.tag == "Structure")
+            if (x.collider.gameObject.layer == 6 && x.collider.CompareTag("Structure"))
             {
                 //var clickedMapLocation = x.transform.GetComponent<Structure>();
                 //SelectLocation(clickedMapLocation.mapLocation);

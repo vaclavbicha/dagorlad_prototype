@@ -8,9 +8,10 @@ using static BuildingWindowBottomPanel;
 public class BuildingWindow : MonoBehaviour
 {
     public GameObject infoPanel;
-    GameObject bottomPanelNormal;
-    GameObject bottomPanelUtility;
+    public GameObject bottomPanelNormal;
+    public GameObject bottomPanelUtility;
     BuildingWindowBottomPanel currentBottomPanel;
+
 
     private void Awake() {
         SetupComponents();
@@ -21,15 +22,17 @@ public class BuildingWindow : MonoBehaviour
 
         if (!bottomPanelNormal) {
             bottomPanelNormal = transform.GetChild(2).transform.gameObject;
-            bottomPanelNormal.GetComponent<BuildingWindowBottomPanel>().SetupColumns();
-            bottomPanelNormal.SetActive(false);
         }
 
         if (!bottomPanelUtility) {
             bottomPanelUtility = transform.GetChild(3).transform.gameObject;
-            bottomPanelUtility.GetComponent<BuildingWindowBottomPanel>().SetupColumns();
-            bottomPanelUtility.SetActive(false);
         }
+
+        bottomPanelNormal.GetComponent<BuildingWindowBottomPanel>().SetupColumns();
+        bottomPanelNormal.SetActive(false);
+
+        bottomPanelUtility.GetComponent<BuildingWindowBottomPanel>().SetupColumns();
+        bottomPanelUtility.SetActive(false);
     }
 
     public void DeactivateWindow() {
@@ -46,7 +49,6 @@ public class BuildingWindow : MonoBehaviour
 
         infoPanel.SetActive(false);
         gameObject.SetActive(false);
-
     }
 
     public void ActivateWindow(BuildingSlot buildingSlot)
@@ -71,9 +73,13 @@ public class BuildingWindow : MonoBehaviour
                         Color fillingColor = GetFillingColor(unit.minimumBuildingTier);
                         UpdateUnitCostDisplay(normalBuildingColumns[j], unit, fillingColor);
                         UpdateUnitResourceAndButtonInteractivity(buildingSlot, normalBuildingColumns[j], unit, fillingColor);
+
+                        // Check if the player has enough resources to buy the unit in real time
+                        Player.Instance.onResourcesUpdated += () => {
+                            if (gameObject.activeSelf) UpdateUnitResourceAndButtonInteractivity(buildingSlot, normalBuildingColumns[j], unit, fillingColor);
+                        };
                     }
 
-                    
                     break;
                 case Utility.BuildingSlotType.Resource:
                     currentBottomPanel = OpenPanel(BottomPanelMode.normalPanel).GetComponent<BuildingWindowBottomPanel>();
@@ -188,15 +194,18 @@ public class BuildingWindow : MonoBehaviour
     }
 
     private GameObject OpenPanel(BottomPanelMode bottomPanelMode) {
-        GameObject panel = null;
 
+        GameObject panel;
         switch (bottomPanelMode) {
-            case BottomPanelMode.normalPanel:
-                panel = bottomPanelNormal;
-                break;
+
             case BottomPanelMode.utilityPanel:
                 panel = bottomPanelUtility;
                 break;
+            case BottomPanelMode.normalPanel:
+            default:
+                panel = bottomPanelNormal;
+                break;
+
         }
 
         panel.SetActive(true);
