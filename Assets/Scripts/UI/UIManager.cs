@@ -290,6 +290,7 @@ public class UIManager : MonoBehaviour {
 
     }
     public void MapGoTo(int i) {
+        Debug.Log("GO TO " + i);
         mainCamera.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(i.ToString())).transform.position);
         EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
     }

@@ -16,7 +16,7 @@ public class CameraMovement : MonoBehaviour {
 
     private const int cameraZIndex = -10;
 
-    public bool IsLocked { get; set; }
+    public bool IsLocked;
 
     Vector3 tempPosition;
 
@@ -113,6 +113,11 @@ public class CameraMovement : MonoBehaviour {
         StartTime = Time.time;
         StartPosition = transform.position;
         Destination = new Vector3(newDestination.x, newDestination.y, cameraZIndex);
+    }
+
+    public void TeleportTo(Vector3 newDestination) {
+        transform.position = new Vector3(newDestination.x, newDestination.y, cameraZIndex);
+        Destination = transform.position;
     }
 
     public void EnableEdgeScrolling() {

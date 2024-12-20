@@ -8,16 +8,12 @@ public class MiniMapController : MonoBehaviour, IPointerClickHandler
 {
     public Camera miniMapCam;
 
-
     public void OnPointerClick(PointerEventData eventData)
     {
-        Vector2 cursor = new Vector2(0, 0);
-
         //Debug.Log(eventData.pressPosition);
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(GetComponent<RawImage>().rectTransform,
-            eventData.pressPosition, eventData.pressEventCamera, out cursor))
+            eventData.pressPosition, eventData.pressEventCamera, out Vector2 cursor))
         {
-
             Texture texture = GetComponent<RawImage>().texture;
             Rect rect = GetComponent<RawImage>().rectTransform.rect;
 
@@ -32,8 +28,6 @@ public class MiniMapController : MonoBehaviour, IPointerClickHandler
 
             CastRayToWorld(cursor);
         }
-
-
     }
 
     private void CastRayToWorld(Vector2 vec)

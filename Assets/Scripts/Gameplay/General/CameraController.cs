@@ -40,7 +40,6 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(OnMapLocationClick());
 
         if (Input.GetMouseButtonDown(0) && !UIManager.Instance.IsMouseOverOverlayCanvas() && !UIManager.Instance.lookForNextClick && clickedMapLocation == null)
         {
@@ -213,6 +212,8 @@ public class CameraController : MonoBehaviour
     }
     public void SetPositionWithClamp(Vector3 pos)
     {
-        cameraMovement.SetDestination(ClampCamera(pos));
+        cameraMovement.TeleportTo(ClampCamera(pos));
     }
+
+
 }
