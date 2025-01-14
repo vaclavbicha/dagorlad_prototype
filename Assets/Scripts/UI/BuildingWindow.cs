@@ -74,10 +74,10 @@ public class BuildingWindow : MonoBehaviour
                         UpdateUnitCostDisplay(normalBuildingColumns[j], unit, fillingColor);
                         UpdateUnitResourceAndButtonInteractivity(buildingSlot, normalBuildingColumns[j], unit, fillingColor);
 
-                        // Check if the player has enough resources to buy the unit in real time
-                        Player.Instance.onResourcesUpdated += () => {
-                            if (gameObject.activeSelf) UpdateUnitResourceAndButtonInteractivity(buildingSlot, normalBuildingColumns[j], unit, fillingColor);
-                        };
+                        // Check if the player has enough resources to buy the unit in real time - fix it!
+                        //Player.Instance.onResourcesUpdated += () => {
+                        //    if (gameObject.activeSelf) UpdateUnitResourceAndButtonInteractivity(buildingSlot, normalBuildingColumns[j], unit, fillingColor);
+                        //};
                     }
 
                     break;

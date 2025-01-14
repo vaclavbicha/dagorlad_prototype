@@ -238,20 +238,31 @@ public class UIManager : MonoBehaviour {
             return;
         }
 
-        DialogWindowYesNo("Do you want to upgrade this building ?", cost,
-            () => {
-                Debug.Log("PLAYER SAID YES");
-                if (Player.Instance.Buy(cost)) {
-                    foreach (var x in cost) {
-                        if (x.type == Utility.ResourceTypes.Time) currentSelected.UpgradeStructure(x.value);
-                    }
-                    //location.building.GetComponent<Structure>().UpgradeStructure();
-                    Debug.Log("PLAYER CAN AFFORD");
-                    GameManager.Instance.InstantiateBottomMenu();
-                } else DialogWindow("Player cannot afford");
-            },
-            () => { Debug.Log("PLAYER SAID NO"); });
-    }
+        // good code - temporary disabled
+        //DialogWindowYesNo("Do you want to upgrade this building ?", cost,
+        //    () => {
+        //        Debug.Log("PLAYER SAID YES");
+        //        if (Player.Instance.Buy(cost)) {
+        //            foreach (var x in cost) {
+        //                if (x.type == Utility.ResourceTypes.Time) currentSelected.UpgradeStructure(x.value);
+        //            }
+        //            //location.building.GetComponent<Structure>().UpgradeStructure();
+        //            Debug.Log("PLAYER CAN AFFORD");
+        //            GameManager.Instance.InstantiateBottomMenu();
+        //        } else DialogWindow("Player cannot afford");
+        //    },
+        //    () => { Debug.Log("PLAYER SAID NO"); });
+
+        // temporary
+        if (Player.Instance.Buy(cost)) {
+            foreach (var x in cost) {
+                if (x.type == Utility.ResourceTypes.Time) currentSelected.UpgradeStructure(x.value);
+            }
+                //location.building.GetComponent<Structure>().UpgradeStructure();
+                Debug.Log("PLAYER CAN AFFORD");
+                GameManager.Instance.InstantiateBottomMenu();
+            } else DialogWindow("Player cannot afford");
+        }
 
     public void LookToPlaceRallyPoint(Transform point) {
         if (selectedRallyPointButton) selectedRallyPointButton.color = Color.white;
