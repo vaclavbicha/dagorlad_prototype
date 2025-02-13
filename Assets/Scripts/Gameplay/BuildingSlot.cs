@@ -447,10 +447,6 @@ public class BuildingSlot : MonoBehaviour
         if (Status != Utility.LocationStatus.Building && baseID == UIManager.Instance.currentBaseID) {
             itemManager.building = building.GetComponent<Structure>();
 
-            itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
-            Color fillingColor = CalculateBuildingLevelFillingColor();
-            itemManager.mid.transform.GetChild(0).GetComponent<Image>().color = fillingColor;
-
             switch (buttonIcon.locationType) {
                 case Utility.BuildingSlotType.Defense:
                     itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon != null ? buttonIcon.scrollIcon : null;
@@ -489,33 +485,11 @@ public class BuildingSlot : MonoBehaviour
             Debug.Log("ASDASDASDASFSAA !!!!!!");
             itemManager.building = building.GetComponent<Structure>();
 
-            itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
-            Color fillingColor = CalculateBuildingLevelFillingColor();
-            itemManager.mid.transform.GetChild(0).GetComponent<Image>().color = fillingColor;
-
             itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = UIManager.Instance.currentBaseID == 3 ? buttonIcon?.ButtonIcon3 : buttonIcon?.ButtonIcon1;
             itemManager.mid.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
             itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             itemManager.RallyPoint = building.GetComponent<Structure>().Rally_Point.transform;
         }
-    }
-
-    private Color CalculateBuildingLevelFillingColor() {
-        Color fillingColor = new(0, 0, 0);
-
-        switch (itemManager.building.level) {
-            case 0:
-                ColorUtility.TryParseHtmlString("#646D6F", out fillingColor);
-                break;
-            case 1:
-                ColorUtility.TryParseHtmlString("#7ECFEC", out fillingColor);
-                break;
-            case 2:
-                ColorUtility.TryParseHtmlString("#ECB136", out fillingColor);
-                break;
-        }
-
-        return fillingColor;
     }
 
     public void DestroyBuilding()
