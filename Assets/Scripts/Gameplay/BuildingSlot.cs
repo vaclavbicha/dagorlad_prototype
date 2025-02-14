@@ -168,14 +168,9 @@ public class BuildingSlot : MonoBehaviour
         trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.GoingToFlag;
         trainingUnit.GetComponent<OurUnit>().Rally_Point = building.GetComponent<Structure>().Rally_Point.transform;
         trainingUnit.GetComponent<OurUnit>().home = building.GetComponent<Structure>();
-        //var upgradez = Player.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
-        //if (upgradez.Count > 0)
-        //{
-        //    foreach (var up in upgradez)
-        //    {
-        //        trainingUnit.GetComponent<StatsManager>().UpgradeStat(up.effect.stat, up.effect.isPercent);
-        //    }
-        //}
+
+        UpgradeStats();
+
         trainingUnit.SetActive(false);
         Status = Utility.LocationStatus.Training;
 
@@ -199,8 +194,7 @@ public class BuildingSlot : MonoBehaviour
     {
         if (loadingBar) loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
     }
-    public void SpawnUnit()
-    {
+    public void SpawnUnit() {
         if (building == null || SelectionStatus != Utility.LocationSelectionStatus.Selected) {
             Debug.Log("error");
             return;
@@ -215,12 +209,9 @@ public class BuildingSlot : MonoBehaviour
         trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.GoingToFlag;
         trainingUnit.GetComponent<OurUnit>().Rally_Point = building.GetComponent<Structure>().Rally_Point.transform;
         trainingUnit.GetComponent<OurUnit>().home = building.GetComponent<Structure>();
-        //var upgradez = Player.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
-        //if (upgradez.Count > 0) {
-        //    foreach (var up in upgradez) {
-        //        trainingUnit.GetComponent<StatsManager>().UpgradeStat(up.effect.stat, up.effect.isPercent);
-        //    }
-        //}
+        
+        UpgradeStats();
+
         trainingUnit.SetActive(false);
         Status = Utility.LocationStatus.Training;
 
@@ -236,6 +227,15 @@ public class BuildingSlot : MonoBehaviour
             loadingBar.GetComponentInChildren<TextMeshProUGUI>().text = "X" + productionList.Count.ToString();
             timer.On_PingAction += UpdateSlider;
             timer.On_Duration_End += IsDoneTraining;
+        }
+    }
+
+    private void UpgradeStats() {
+        var upgrades = ResourceManager.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
+        if (upgrades.Count > 0) {
+            foreach (ItemUpgrade upgrade in upgrades) {
+                trainingUnit.GetComponent<StatsManager>().UpgradeStat(upgrade.effect.stat, upgrade.effect.isPercent);
+            }
         }
     }
 
@@ -368,11 +368,12 @@ public class BuildingSlot : MonoBehaviour
     public void IsDoneUpgrading(Timer _timer)
     {
         Status = Utility.LocationStatus.Built;
-        var reff = upgradeItem.GetComponent<ItemUpgrade>();
-        //Player.Instance.ownedUpgrades.Add(reff);
-        if (reff.effect.type == Utility.UpgradeEffectTypes.Resource)
+        ItemUpgrade upgrade = upgradeItem.GetComponent<ItemUpgrade>();
+        ResourceManager.Instance.AddUpgrade(upgrade);
+
+        if (upgrade.effect.type == Utility.UpgradeEffectTypes.Resource)
         {
-            if (reff.effect.resourceAmount.type == Utility.ResourceTypes.Supply)
+            if (upgrade.effect.resourceAmount.type == Utility.ResourceTypes.Supply)
             {
                 //Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).AmountUpdateWithText(reff.effect.resourceAmount.value);
             }
@@ -381,14 +382,14 @@ public class BuildingSlot : MonoBehaviour
                 //Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).currentProduction += reff.effect.resourceAmount.value;
             }
         }
-        if (reff.effect.type == Utility.UpgradeEffectTypes.Troops)
+        if (upgrade.effect.type == Utility.UpgradeEffectTypes.Troops)
         {
             var statsManagers = FindObjectsOfType<StatsManager>();
             foreach (var z in statsManagers)
             {
                 if (z.gameObject.layer != 6)
                 {
-                    z.UpgradeStat(reff.effect.stat, reff.effect.isPercent);
+                    z.UpgradeStat(upgrade.effect.stat, upgrade.effect.isPercent);
                 }
             }
         }

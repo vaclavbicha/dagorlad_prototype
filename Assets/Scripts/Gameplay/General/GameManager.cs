@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
 
         if (buildings.Find(x => x.buildingName == itemName) != null)
         {
+            Debug.Log(buildings);
             var itemPrefab = buildings.Find(x => x.buildingName == itemName);
             SpawnBuilding(itemName, location, itemPrefab);
         }
@@ -124,10 +125,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        //if (Player.Instance.ownedUpgrades.FindAll(x => x.upgradeName == upgradePrefab.upgradeName).Count >= upgradePrefab.effect.maxOwned) {
-        //    UIManager.Instance.DialogWindow("Player ownes the maximum amount of this upgrade");
-        //    return;
-        //}
+        if (ResourceManager.Instance.ownedUpgrades.FindAll(x => x.upgradeName == upgradePrefab.upgradeName).Count >= upgradePrefab.effect.maxOwned) {
+            UIManager.Instance.DialogWindow("Player ownes the maximum amount of this upgrade");
+            return;
+        }
 
         location.SpawnUpgrade(upgradePrefab);
         UIManager.Instance.OnCloseBuildingWindow();
@@ -151,7 +152,6 @@ public class GameManager : MonoBehaviour
     }
     public void SpawnBuilding(string building, BuildingSlot location, Structure buildingPrefab)
     {
-        //Debug.Log(building);
         //var buildingPrefab = buildings.Find(x => x.buildingName == building);
         if (!buildingPrefab) {
             UIManager.Instance.DialogWindow("Building Prefab not found");
@@ -165,6 +165,7 @@ public class GameManager : MonoBehaviour
 
         ResourceManager.Instance.Buy(buildingPrefab.cost);
 
+        Debug.Log(buildingPrefab.gameObject);
         location.SpawnBuilding(buildingPrefab.gameObject);
         NavMeshManager.Instance.UpdateNavMesh();
         UIManager.Instance.OnCloseBuildingWindow();

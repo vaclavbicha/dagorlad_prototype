@@ -37,9 +37,8 @@ public class ResourceManager : MonoBehaviour {
 
     public List<ItemUpgrade> ownedUpgrades = new();
 
-    //public Timer productionTimer;
-
-    //public int resourceCicleTime;
+    public delegate void OnResourcesUpdated();
+    public OnResourcesUpdated onResourcesUpdated;
 
     private void Awake() {
         // If there is an instance, and it's not me, delete myself.
@@ -54,6 +53,12 @@ public class ResourceManager : MonoBehaviour {
         sceneStartTime = Time.time;
         SetStartingTime();
         SetStartingResourcesAmount();
+
+        SubscribeToResourceUpdates();
+    }
+
+    private void OnDestroy() {
+        UnsubscribeToResourceUpdates();
     }
 
     private void Update() {
@@ -100,25 +105,21 @@ public class ResourceManager : MonoBehaviour {
         return WoodResource.GetValue() >= value;
     }
 
-    //public List<MapLocation> locations = new List<MapLocation>();
+    void SubscribeToResourceUpdates() {
+        SupplyResource.On_AmountUpdate += OnResourceUpdated;
+        GoldResource.On_AmountUpdate += OnResourceUpdated;
+        WoodResource.On_AmountUpdate += OnResourceUpdated;
+    }
 
-    //public List<Resource> resources = new();
-    //
+    public void UnsubscribeToResourceUpdates() {
+        SupplyResource.On_AmountUpdate -= OnResourceUpdated;
+        GoldResource.On_AmountUpdate -= OnResourceUpdated;
+        WoodResource.On_AmountUpdate -= OnResourceUpdated;
+    }
 
-
-    //public delegate void OnResourcesUpdated();
-    //public OnResourcesUpdated onResourcesUpdated;
-
-    //private void Start() {
-    //    foreach (Resource resource in resources) {
-    //        resource.On_AmountUpdate += OnResourceUpdated;
-    //    }
-    //}
-
-    //void OnResourceUpdated(int _value, GameObject _sender) {
-    //    Debug.Log("OnResourceUpdated");
-    //    onResourcesUpdated?.Invoke();
-    //}
+    void OnResourceUpdated(int _value) {
+        onResourcesUpdated?.Invoke();
+    }
 
     public bool CanAfford(Amount[] prices) {
         bool canAfford = false;
@@ -173,6 +174,14 @@ public class ResourceManager : MonoBehaviour {
                     break;
             }
         }
+    }
+
+    public void AddUpgrade(ItemUpgrade upgrade) {
+        ownedUpgrades.Add(upgrade);
+    }
+
+    public void RemoveUpgrade(ItemUpgrade upgrade) {
+        ownedUpgrades.Remove(upgrade);
     }
 }
         //var priceaux = new List<Amount>();
