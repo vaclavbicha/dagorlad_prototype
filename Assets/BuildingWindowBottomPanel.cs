@@ -40,13 +40,13 @@ public class BuildingWindowBottomPanel : MonoBehaviour
                 if (resourceName == "Gold" || resourceName == "Wood") {
                     Utility.ResourceTypes resourceType = (Utility.ResourceTypes)Enum.Parse(typeof(Utility.ResourceTypes), resourceName);
                     
-                    int owned = Player.Instance.resources.Find(x => x.amount.type == resourceType).amount.value;
-                    Debug.Log("Owned: " + owned);
+                    //int owned = Player.Instance.resources.Find(x => x.amount.type == resourceType).amount.value;
+                    //Debug.Log("Owned: " + owned);
                     Amount costamount = Array.Find(costs, x => x.type == resourceType);
 
-                    child.GetComponentInChildren<UpdateIconText>().UpdateText(costamount.value.ToString(), gameObject);
+                    child.GetComponentInChildren<UpdateIconText>().UpdateText(costamount.value.ToString());
 
-                    if (costamount != null) canAfford = owned >= costamount.value;
+                    //if (costamount != null) canAfford = owned >= costamount.value;
                 }
 
                 button.interactable = canAfford;

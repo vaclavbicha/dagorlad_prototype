@@ -117,9 +117,9 @@ public class OurUnit : MonoBehaviour
                 {
                     if (x.type == Utility.ResourceTypes.Supply)
                     {
-                        Player.Instance.currentSupply -= x.value;
-                        if (Player.Instance.currentSupply < 0) Player.Instance.currentSupply = 0;
-                        Player.Instance.resources.Find(y => y.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(0);
+                        //Player.Instance.currentSupply -= x.value;
+                        //if (Player.Instance.currentSupply < 0) Player.Instance.currentSupply = 0;
+                        //Player.Instance.resources.Find(y => y.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(0);
                     }
                 }
             }

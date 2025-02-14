@@ -254,15 +254,17 @@ public class UIManager : MonoBehaviour {
         //    () => { Debug.Log("PLAYER SAID NO"); });
 
         // temporary
-        if (Player.Instance.Buy(cost)) {
-            foreach (var x in cost) {
-                if (x.type == Utility.ResourceTypes.Time) currentSelected.UpgradeStructure(x.value);
-            }
-                //location.building.GetComponent<Structure>().UpgradeStructure();
-                Debug.Log("PLAYER CAN AFFORD");
-                GameManager.Instance.InstantiateBottomMenu();
-            } else DialogWindow("Player cannot afford");
-        }
+
+        // FIX
+        //if (Player.Instance.Buy(cost)) {
+        //    foreach (var x in cost) {
+        //        if (x.type == Utility.ResourceTypes.Time) currentSelected.UpgradeStructure(x.value);
+        //    }
+        //        //location.building.GetComponent<Structure>().UpgradeStructure();
+        //        Debug.Log("PLAYER CAN AFFORD");
+        //        GameManager.Instance.InstantiateBottomMenu();
+        //    } else DialogWindow("Player cannot afford");
+    }
 
     public void LookToPlaceRallyPoint(Transform point) {
         if (selectedRallyPointButton) selectedRallyPointButton.color = Color.white;
@@ -294,8 +296,8 @@ public class UIManager : MonoBehaviour {
     public void OnBaseSwitch(int id) {
         //map
 
-        //if (Time.time - lastClicked <= 1f && currentBaseID == id) mainCamera.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(id.ToString())).transform.position);
-        //lastClicked = Time.time;
+        //if (Time.Time - lastClicked <= 1f && currentBaseID == id) mainCamera.GetComponent<CameraMovement>().SetDestination(GameManager.Instance.bases.Find(x => x.name.Contains(id.ToString())).transform.position);
+        //lastClicked = Time.Time;
         //currentBaseID = id;
         //GameManager.Instance.InstantiateBottomMenu();
 
@@ -324,24 +326,21 @@ public class UIManager : MonoBehaviour {
         yield return new WaitForSeconds(t);
         dialogWindow.SetActive(false);
     }
-    public void DialogWindowYesNo(string message, Amount[] _cost, UnityAction yesEvent, UnityAction noEvent) {
-        if (_cost != null) {
-            var column = dialogWindowYesNo.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(1).GetChild(0);
-            column.gameObject.SetActive(true);
-            var j = 0;
-            foreach (var cost in _cost) {
-                var text = column.transform.Find("Cost_" + j.ToString()).GetChild(0);
-                text.gameObject.SetActive(true);
-                text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
-                text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
-                j++;
-            }
-            while (j <= 2) {
-                column.transform.Find("Cost_" + j).GetChild(0).gameObject.SetActive(false);
-                j++;
-            }
-        } else {
-            dialogWindowYesNo.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(1).GetChild(0).gameObject.SetActive(false);
+    public void DialogWindowYesNo(string message, Amount[] costs, UnityAction yesEvent, UnityAction noEvent) {
+        if (costs == null) dialogWindowYesNo.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(1).GetChild(0).gameObject.SetActive(false);
+
+        var column = dialogWindowYesNo.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(1).GetChild(0);
+        column.gameObject.SetActive(true);
+        var j = 0;
+        foreach (var cost in costs) {
+            var text = column.transform.Find("Cost_" + j.ToString()).GetChild(0);
+            text.gameObject.SetActive(true);
+            text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText());
+            j++;
+        }
+        while (j <= 2) {
+            column.transform.Find("Cost_" + j).GetChild(0).gameObject.SetActive(false);
+            j++;
         }
 
         dialogWindowYesNo.SetActive(true);

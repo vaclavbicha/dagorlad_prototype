@@ -168,14 +168,14 @@ public class BuildingSlot : MonoBehaviour
         trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.GoingToFlag;
         trainingUnit.GetComponent<OurUnit>().Rally_Point = building.GetComponent<Structure>().Rally_Point.transform;
         trainingUnit.GetComponent<OurUnit>().home = building.GetComponent<Structure>();
-        var upgradez = Player.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
-        if (upgradez.Count > 0)
-        {
-            foreach (var up in upgradez)
-            {
-                trainingUnit.GetComponent<StatsManager>().UpgradeStat(up.effect.stat, up.effect.isPercent);
-            }
-        }
+        //var upgradez = Player.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
+        //if (upgradez.Count > 0)
+        //{
+        //    foreach (var up in upgradez)
+        //    {
+        //        trainingUnit.GetComponent<StatsManager>().UpgradeStat(up.effect.stat, up.effect.isPercent);
+        //    }
+        //}
         trainingUnit.SetActive(false);
         Status = Utility.LocationStatus.Training;
 
@@ -215,12 +215,12 @@ public class BuildingSlot : MonoBehaviour
         trainingUnit.GetComponent<OurUnit>().status = Utility.UnitStatus.GoingToFlag;
         trainingUnit.GetComponent<OurUnit>().Rally_Point = building.GetComponent<Structure>().Rally_Point.transform;
         trainingUnit.GetComponent<OurUnit>().home = building.GetComponent<Structure>();
-        var upgradez = Player.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
-        if (upgradez.Count > 0) {
-            foreach (var up in upgradez) {
-                trainingUnit.GetComponent<StatsManager>().UpgradeStat(up.effect.stat, up.effect.isPercent);
-            }
-        }
+        //var upgradez = Player.Instance.ownedUpgrades.FindAll(y => y.effect.type == Utility.UpgradeEffectTypes.Troops);
+        //if (upgradez.Count > 0) {
+        //    foreach (var up in upgradez) {
+        //        trainingUnit.GetComponent<StatsManager>().UpgradeStat(up.effect.stat, up.effect.isPercent);
+        //    }
+        //}
         trainingUnit.SetActive(false);
         Status = Utility.LocationStatus.Training;
 
@@ -347,30 +347,38 @@ public class BuildingSlot : MonoBehaviour
         ClearTimerAndLoadingBar();
 
         UpdateItemManager(true, building.GetComponent<Structure>());
-
-        if (building.GetComponent<Structure>().production.type == Utility.ResourceTypes.Supply)
+        
+        if (Type == Utility.BuildingSlotType.Resource)
         {
-            Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(building.GetComponent<Structure>().production.value);
-        }
-        else if (Type == Utility.BuildingSlotType.Resource)
-        {
-            Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction += building.GetComponent<Structure>().production.value;
+            int newProductionValue = building.GetComponent<Structure>().production.value;
+            
+            switch (building.GetComponent<Structure>().production.type) {
+                case Utility.ResourceTypes.Supply:
+                    ResourceManager.Instance.SupplyResource.AddCurrentProduction(newProductionValue);
+                    break;
+                case Utility.ResourceTypes.Gold:
+                    ResourceManager.Instance.GoldResource.AddCurrentProduction(newProductionValue);
+                    break;
+                case Utility.ResourceTypes.Wood:
+                    ResourceManager.Instance.WoodResource.AddCurrentProduction(newProductionValue);
+                    break;
+            }
         }
     }
     public void IsDoneUpgrading(Timer _timer)
     {
         Status = Utility.LocationStatus.Built;
         var reff = upgradeItem.GetComponent<ItemUpgrade>();
-        Player.Instance.ownedUpgrades.Add(reff);
+        //Player.Instance.ownedUpgrades.Add(reff);
         if (reff.effect.type == Utility.UpgradeEffectTypes.Resource)
         {
             if (reff.effect.resourceAmount.type == Utility.ResourceTypes.Supply)
             {
-                Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).AmountUpdateWithText(reff.effect.resourceAmount.value);
+                //Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).AmountUpdateWithText(reff.effect.resourceAmount.value);
             }
             else
             {
-                Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).currentProduction += reff.effect.resourceAmount.value;
+                //Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).currentProduction += reff.effect.resourceAmount.value;
             }
         }
         if (reff.effect.type == Utility.UpgradeEffectTypes.Troops)
@@ -398,7 +406,7 @@ public class BuildingSlot : MonoBehaviour
             case Utility.LocationStatus.Building:
                 if (building.GetComponent<Structure>().level < 0)
                 {
-                    Player.Instance.Refund(building.GetComponent<Structure>().cost);
+                    //Player.Instance.Refund(building.GetComponent<Structure>().cost);
                     if (Type == Utility.BuildingSlotType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);
                     Destroy(building);
                     Status = Utility.LocationStatus.Free;
@@ -417,14 +425,14 @@ public class BuildingSlot : MonoBehaviour
                 {
                     foreach (var unit in productionList)
                     {
-                        Player.Instance.Refund(unit.GetComponent<OurUnit>().cost);
+                        //Player.Instance.Refund(unit.GetComponent<OurUnit>().cost);
                     }
                     Destroy(trainingUnit);
                     productionList.RemoveAll(x => x);
                 }
                 if (Type == Utility.BuildingSlotType.Resource)
                 {
-                    Player.Instance.Refund(upgradeItem.GetComponent<ItemUpgrade>().cost);
+                    //Player.Instance.Refund(upgradeItem.GetComponent<ItemUpgrade>().cost);
                     Destroy(upgradeItem);
                 }
                 break;
@@ -498,11 +506,11 @@ public class BuildingSlot : MonoBehaviour
 
         if (building.GetComponent<Structure>().production.type == Utility.ResourceTypes.Supply)
         {
-            Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(-building.GetComponent<Structure>().production.value);
+            //Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(-building.GetComponent<Structure>().production.value);
         }
         else if (Type == Utility.BuildingSlotType.Resource)
         {
-            Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction -= building.GetComponent<Structure>().production.value;
+            //Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction -= building.GetComponent<Structure>().production.value;
         }
 
         if (Type == Utility.BuildingSlotType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);

@@ -1,56 +1,60 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource : MonoBehaviour
-{
-    public Amount amount;
+public class Resource : MonoBehaviour {
+    [SerializeField]
+    Amount amount;
     public Sprite icon;
     public int currentProduction;
-    float sceneStartTime;
 
     public UpdateIconText display;
 
-    public delegate void UpdatedEventDelegate(int value, GameObject sender);
+    public delegate void UpdatedEventDelegate(int value);
     public event UpdatedEventDelegate On_AmountUpdate;
 
-    private void Awake()
-    {
-        if (display)
-        {
-            display.Icon.sprite = icon;
-        }
-        sceneStartTime = Time.time;
+    public void SetStartingValue(int value) {
+        amount.value = value;
+        AmountUpdateWithText();
     }
-    public void Update()
-    {
-        if (amount.type == Utility.ResourceTypes.Time)
-        {
-            AmountUpdateWithText(Mathf.FloorToInt(Time.time - sceneStartTime));
+
+    public void SetValue(int value) {
+        amount.value = value;
+        AmountUpdateWithText();
+        On_AmountUpdate?.Invoke(value);
+    }
+
+    public void AddValue(int value) {
+        SetValue(amount.value + value);
+    }
+
+    public void SetCurrentProduction(int value) {
+        currentProduction = value;
+
+        if (currentProduction > 0) {
+            StartCoroutine(DistributeResource());
+        } else {
+            StopCoroutine(DistributeResource());
         }
     }
-    //public void AmountUpdate(int value)
-    //{
-    //    amount.value += value;
-    //    On_AmountUpdate?.Invoke(amount.value, gameObject);
-    //}
-    public void AmountUpdateWithText(int value)
+
+    public void AddCurrentProduction(int value) {
+        SetCurrentProduction(currentProduction + value);
+    }
+
+    IEnumerator DistributeResource() {
+        float initialSceneStartTime = ResourceManager.Instance.GetGameTime();
+        yield return new WaitUntil(() => ResourceManager.Instance.GetGameTime() != initialSceneStartTime);
+
+        AddValue(currentProduction);
+        StartCoroutine(DistributeResource());
+    }
+
+    public void AmountUpdateWithText()
     {
-        if (amount.type == Utility.ResourceTypes.Time) {
-            amount.value = value;
-            display.UpdateText(amount.GetValueText(), gameObject);
-        } 
-        
-        else if (amount.type == Utility.ResourceTypes.Supply) {
-            amount.value += value;
-            display.UpdateText(Player.Instance.currentSupply.ToString() + "/" + amount.value, gameObject);
-            On_AmountUpdate(value, gameObject);
-        } 
-        
-        else if (amount.type == Utility.ResourceTypes.Gold || amount.type == Utility.ResourceTypes.Wood) {
-            amount.value += value;
-            display.UpdateText(amount.value.ToString() + "<color=#C7D3EF>" + "+" + currentProduction.ToString() + "</color>", gameObject);
-            On_AmountUpdate(value, gameObject);
-        }        
+        if (amount.type == Utility.ResourceTypes.Supply) {
+            display.UpdateText(ResourceManager.Instance.currentSupply.ToString() + "/" + amount.value);
+        } else if (amount.type == Utility.ResourceTypes.Gold || amount.type == Utility.ResourceTypes.Wood) {
+            display.UpdateText(amount.value.ToString() + "<color=#C7D3EF>" + "+" + currentProduction.ToString() + "</color>");
+        }
     }
 }

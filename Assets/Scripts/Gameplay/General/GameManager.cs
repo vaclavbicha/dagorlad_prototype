@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,8 +18,6 @@ public class GameManager : MonoBehaviour
     //public Dictionary<string, Structure> buildings = new Dictionary<string, Structure>();
 
     public List<Sprite> infoSprites = new();
-    public List<Sprite> resourceSprites = new();
-    public int[] startingAmounts = new[] { 500, 1000, 1500, 2000 };
 
     public int secondsToFullLeftPanel = 60;
     public int secondsToFullRightPanel = 120;
@@ -57,7 +54,6 @@ public class GameManager : MonoBehaviour
             ALL_Locations.AddRange(locations);
         }
         infoSprites.AddRange(Resources.LoadAll<Sprite>("InfoSprites"));
-        //resourceSprites.AddRange(Resources.LoadAll<Sprite>("ResourceSprites"));
         //foreach (GameObject i in Resources.LoadAll<GameObject>("Structures"))
         //{
         //    buildings.Add(i.name, i.GetComponent<Structure>());
@@ -65,7 +61,6 @@ public class GameManager : MonoBehaviour
         buildings.AddRange(Resources.LoadAll<Structure>("Structures"));
         units.AddRange(Resources.LoadAll<OurUnit>("Units"));
         upgrades.AddRange(Resources.LoadAll<ItemUpgrade>("Upgrades"));
-        UpdatePlayerResources(Player.Instance, startingAmounts);
 
         UIManager.Instance.currentBaseID = 1;
         StartCoroutine(InstantiateBottomMenuCoroutine());
@@ -74,14 +69,6 @@ public class GameManager : MonoBehaviour
     IEnumerator InstantiateBottomMenuCoroutine() {
         yield return new WaitForFixedUpdate();
         InstantiateBottomMenu();
-    }
-
-    private void UpdatePlayerResources(Player player, int[] newAmounts)
-    {
-        for(int i = 0; i < newAmounts.Length; i++)
-        {
-            player.resources[i].AmountUpdateWithText(newAmounts[i]);
-        }
     }
     public void InstantiateBottomMenu()
     {
@@ -132,15 +119,15 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if (!Player.Instance.Buy(upgradePrefab.cost)) {
-            UIManager.Instance.DialogWindow("Player cannot afford this UPGRADE");
-            return;
-        }
+        //if (!Player.Instance.Buy(upgradePrefab.cost)) {
+        //    UIManager.Instance.DialogWindow("Player cannot afford this UPGRADE");
+        //    return;
+        //}
 
-        if (Player.Instance.ownedUpgrades.FindAll(x => x.upgradeName == upgradePrefab.upgradeName).Count >= upgradePrefab.effect.maxOwned) {
-            UIManager.Instance.DialogWindow("Player ownes the maximum amount of this upgrade");
-            return;
-        }
+        //if (Player.Instance.ownedUpgrades.FindAll(x => x.upgradeName == upgradePrefab.upgradeName).Count >= upgradePrefab.effect.maxOwned) {
+        //    UIManager.Instance.DialogWindow("Player ownes the maximum amount of this upgrade");
+        //    return;
+        //}
 
         location.SpawnUpgrade(upgradePrefab);
         UIManager.Instance.OnCloseBuildingWindow();
@@ -152,10 +139,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if (!Player.Instance.Buy(unitPrefab.cost)) {
-            UIManager.Instance.DialogWindow("Not enough resources");
-            return;
-        }
+        //if (!Player.Instance.Buy(unitPrefab.cost)) {
+        //    UIManager.Instance.DialogWindow("Not enough resources");
+        //    return;
+        //}
 
         location.productionList.Add(unitPrefab.gameObject);
         location.SpawnUnit();
@@ -171,10 +158,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if (!Player.Instance.Buy(buildingPrefab.cost)) {
-            UIManager.Instance.DialogWindow("Player cannot afford this building");
-            return;
-        }
+        //if (!Player.Instance.Buy(buildingPrefab.cost)) {
+        //    UIManager.Instance.DialogWindow("Player cannot afford this building");
+        //    return;
+        //}
 
         location.SpawnBuilding(buildingPrefab.gameObject);
         NavMeshManager.Instance.UpdateNavMesh();

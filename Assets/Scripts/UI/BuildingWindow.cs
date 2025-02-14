@@ -73,7 +73,7 @@ public class BuildingWindow : MonoBehaviour
                         UpdateUnitCostDisplay(normalBuildingColumns[j], unit);
                         UpdateUnitResourceAndButtonInteractivity(buildingSlot, normalBuildingColumns[j], unit);
 
-                        // Check if the player has enough resources to buy the unit in real time - fix it!
+                        // Check if the player has enough resources to buy the unit in real Time - fix it!
                         //Player.Instance.onResourcesUpdated += () => {
                         //    if (gameObject.activeSelf) UpdateUnitResourceAndButtonInteractivity(buildingSlot, normalBuildingColumns[j], unit);
                         //};
@@ -91,8 +91,7 @@ public class BuildingWindow : MonoBehaviour
                         {
                             var text = currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
                             text.gameObject.SetActive(true);
-                            text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
-                            text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
+                            text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText());
 
                         }
                         //Debug.Log(buildingSlot.baseID + " MAP : " + buildingSlot.name + buildingSlot.building.GetComponent<Structure>().level);
@@ -110,9 +109,9 @@ public class BuildingWindow : MonoBehaviour
                                         if (resourceName == "Gold" || resourceName == "Wood")
                                         {
                                             var v1 = (Utility.ResourceTypes)Enum.Parse(typeof(Utility.ResourceTypes), resourceName);
-                                            var owned = Player.Instance.resources.Find(x => x.amount.type == v1).amount.value;
+                                            //var owned = Player.Instance.resources.Find(x => x.amount.type == v1).amount.value;
                                             var costamount = Array.Find(upgrade.cost, x => x.type == v1);
-                                            if (costamount != null) cantAfford = owned < costamount.value;
+                                            //if (costamount != null) cantAfford = owned < costamount.value;
                                         }
                                     }
 
@@ -140,8 +139,7 @@ public class BuildingWindow : MonoBehaviour
                     var text = currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
                     
                     text.gameObject.SetActive(true);
-                    text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
-                    text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
+                    text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText());
 
                 }
                 for (int j = 0; j < currentBottomPanel.transform.GetChild(i).childCount; j++)
@@ -158,9 +156,9 @@ public class BuildingWindow : MonoBehaviour
                                 if (resourceName == "Gold" || resourceName == "Wood")
                                 {
                                     var v1 = (Utility.ResourceTypes)Enum.Parse(typeof(Utility.ResourceTypes), resourceName);
-                                    var owned = Player.Instance.resources.Find(x => x.amount.type == v1).amount.value;
+                                    //var owned = Player.Instance.resources.Find(x => x.amount.type == v1).amount.value;
                                     var costamount = Array.Find(obj.cost, x => x.type == v1);
-                                    if(costamount != null) cantAfford1 = owned < costamount.value;
+                                    //if(costamount != null) cantAfford1 = owned < costamount.value;
                                 }
                             }
 
@@ -168,16 +166,6 @@ public class BuildingWindow : MonoBehaviour
                         }
                     }
                     if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap")) currentBottomPanel.transform.GetChild(i).GetChild(j).GetComponent<Button>().interactable = true;
-                }
-
-                foreach (var resource in GameManager.Instance.resourceSprites)
-                {
-                    bool found = false;
-                    foreach (Amount cost in obj.cost)
-                    {
-                        if (cost.type.ToString() == resource.name) found = true;
-                    }
-                    if (!found) currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + resource.name).GetChild(0).gameObject.SetActive(false);
                 }
                 currentBottomPanel.transform.GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = obj.Icon;
                 currentBottomPanel.transform.GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.buildingName;
@@ -216,9 +204,9 @@ public class BuildingWindow : MonoBehaviour
                         var resourceName = buildingColumn.transform.GetChild(j).name.Replace("Cost_", "");
                         if (resourceName == "Gold" || resourceName == "Wood") {
                             var v1 = (Utility.ResourceTypes)Enum.Parse(typeof(Utility.ResourceTypes), resourceName);
-                            var owned = Player.Instance.resources.Find(x => x.amount.type == v1).amount.value;
+                            //var owned = Player.Instance.resources.Find(x => x.amount.type == v1).amount.value;
                             var costamount = Array.Find(unit.cost, x => x.type == v1);
-                            if (costamount != null) cantAfford = owned < costamount.value;
+                            //if (costamount != null) cantAfford = owned < costamount.value;
                         }
                     }
 
@@ -235,8 +223,7 @@ public class BuildingWindow : MonoBehaviour
         foreach (Amount cost in unit.cost) {
             var text = buildingColumn.transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
             text.gameObject.SetActive(true);
-            text.GetComponent<UpdateIconText>().Icon.sprite = GameManager.Instance.resourceSprites.Find(sprite => sprite.name == cost.type.ToString());
-            text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText(), gameObject);
+            text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText());
         }
     }
 }
