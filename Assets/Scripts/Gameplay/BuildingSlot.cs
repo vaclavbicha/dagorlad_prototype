@@ -406,7 +406,7 @@ public class BuildingSlot : MonoBehaviour
             case Utility.LocationStatus.Building:
                 if (building.GetComponent<Structure>().level < 0)
                 {
-                    //Player.Instance.Refund(building.GetComponent<Structure>().cost);
+                    ResourceManager.Instance.Refund(building.GetComponent<Structure>().cost);
                     if (Type == Utility.BuildingSlotType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);
                     Destroy(building);
                     Status = Utility.LocationStatus.Free;
@@ -425,14 +425,14 @@ public class BuildingSlot : MonoBehaviour
                 {
                     foreach (var unit in productionList)
                     {
-                        //Player.Instance.Refund(unit.GetComponent<OurUnit>().cost);
+                        ResourceManager.Instance.Refund(unit.GetComponent<OurUnit>().cost);
                     }
                     Destroy(trainingUnit);
                     productionList.RemoveAll(x => x);
                 }
                 if (Type == Utility.BuildingSlotType.Resource)
                 {
-                    //Player.Instance.Refund(upgradeItem.GetComponent<ItemUpgrade>().cost);
+                    ResourceManager.Instance.Refund(upgradeItem.GetComponent<ItemUpgrade>().cost);
                     Destroy(upgradeItem);
                 }
                 break;
@@ -464,7 +464,6 @@ public class BuildingSlot : MonoBehaviour
                     itemManager.mid.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                     itemManager.mid.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
                     itemManager.mid.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = buttonIcon != null ? buttonIcon.scrollIcon : null;
-                    //itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     //EX DRAGDROP.cs
                     //var x = itemManager.bottom.GetComponentInChildren<DragDrop>();
                     //var y = itemManager.bottom.GetComponentInChildren<Toggle>();
@@ -483,7 +482,6 @@ public class BuildingSlot : MonoBehaviour
                     break;
                 case Utility.BuildingSlotType.Resource:
                     itemManager.mid.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().sprite = buttonIcon?.scrollIcon;
-                    //itemManager.mid.transform.GetChild(0).GetComponent<Image>().enabled = filling;
                     break;
             }
         }
@@ -504,16 +502,23 @@ public class BuildingSlot : MonoBehaviour
     {
         if (timer) ClearTimerAndLoadingBar();
 
-        if (building.GetComponent<Structure>().production.type == Utility.ResourceTypes.Supply)
-        {
-            //Player.Instance.resources.Find(x => x.amount.type == Utility.ResourceTypes.Supply).AmountUpdateWithText(-building.GetComponent<Structure>().production.value);
-        }
-        else if (Type == Utility.BuildingSlotType.Resource)
-        {
-            //Player.Instance.resources.Find(x => x.amount.type == building.GetComponent<Structure>().production.type).currentProduction -= building.GetComponent<Structure>().production.value;
-        }
+        if (Type == Utility.BuildingSlotType.Resource) {
+            int lostProductionValue = building.GetComponent<Structure>().production.value;
 
-        if (Type == Utility.BuildingSlotType.Attack) Destroy(building.GetComponent<Structure>().Rally_Point);
+            switch (building.GetComponent<Structure>().production.type) {
+                case Utility.ResourceTypes.Supply:
+                    ResourceManager.Instance.SupplyResource.DeductCurrentProduction(lostProductionValue);
+                    break;
+                case Utility.ResourceTypes.Gold:
+                    ResourceManager.Instance.GoldResource.DeductCurrentProduction(lostProductionValue);
+                    break;
+                case Utility.ResourceTypes.Wood:
+                    ResourceManager.Instance.WoodResource.DeductCurrentProduction(lostProductionValue);
+                    break;
+            }
+        } else if (Type == Utility.BuildingSlotType.Attack) {
+            Destroy(building.GetComponent<Structure>().Rally_Point);
+        }
 
         DestroyImmediate(building);
         Status = Utility.LocationStatus.Free;

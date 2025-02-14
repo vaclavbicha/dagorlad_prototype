@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour {
     public static ResourceManager Instance;
@@ -45,17 +41,23 @@ public class ResourceManager : MonoBehaviour {
 
     //public int resourceCicleTime;
 
-    private void Awake()
-    {
+    private void Awake() {
         // If there is an instance, and it's not me, delete myself.
-        if (Instance != null && Instance != this)
-        {
+        if (Instance != null && Instance != this) {
             Destroy(this);
-        }
-        else
-        {
+        } else {
             Instance = this;
         }
+    }
+
+    private void Start() {
+        sceneStartTime = Time.time;
+        SetStartingTime();
+        SetStartingResourcesAmount();
+    }
+
+    private void Update() {
+        UpdateInRealTime();
     }
 
     public void UpdateInRealTime() {
@@ -66,26 +68,11 @@ public class ResourceManager : MonoBehaviour {
         return timeResource.GetValue();
     }
 
-    private void Start()
-    {
-        sceneStartTime = Time.time;
-        // temporary
-        resources = new List<Resource> { SupplyResource, GoldResource, WoodResource };
-            SetStartingTime();
-            SetStartingResourcesAmount();
-    }
-
-    private void Update() {
-        UpdateInRealTime();
-    }
-
     private void SetStartingTime() {
         timeResource.SetValue(0);
     }
 
-    private void SetStartingResourcesAmount()
-    {
-        Debug.Log(startingAmounts.Length);
+    private void SetStartingResourcesAmount() {
         foreach (Amount amount in startingAmounts) {
             switch (amount.type) {
                 case Utility.ResourceTypes.Supply:
@@ -99,6 +86,18 @@ public class ResourceManager : MonoBehaviour {
                     break;
             }
         }
+    }
+
+    public bool HasEnoughSupplies(int value) {
+        return SupplyResource.GetValue() >= value;
+    }
+
+    public bool HasEnoughGold(int value) {
+        return GoldResource.GetValue() >= value;
+    }
+
+    public bool HasEnoughWood(int value) {
+        return WoodResource.GetValue() >= value;
     }
 
     //public List<MapLocation> locations = new List<MapLocation>();
@@ -120,71 +119,82 @@ public class ResourceManager : MonoBehaviour {
     //    Debug.Log("OnResourceUpdated");
     //    onResourcesUpdated?.Invoke();
     //}
-    //IEnumerator NewTimer() {
-    //    yield return new WaitForSeconds(0);
-    //    productionTimer = gameObject.AddComponent<Timer>();
-    //    productionTimer.AddTimer("Produce", resourceCicleTime, true);
-    //    productionTimer.On_Duration_End += DistributeResources;
-    //}
-    //public bool Refund(Amount[] price) {
-    //    var priceaux = new List<Amount>();
-    //    foreach (var x in price) {
-    //        if (x.type != Utility.ResourceTypes.Time) priceaux.Add(x);
-    //    }
-    //    price = priceaux.ToArray();
-    //    foreach (var y in price) {
-    //        if (y.type != Utility.ResourceTypes.Supply) {
-    //            resources.Find(x => x.amount.type == y.type).AmountUpdateWithText(y.value);
-    //        } else {
-    //            currentSupply -= y.value;
-    //            resources.Find(x => x.amount.type == y.type).AmountUpdateWithText(0);
-    //        }
-    //    }
-    //    return true;
-    //}
-    //public bool Buy(Amount[] price) {
-    //    var priceaux = new List<Amount>();
-    //    foreach (var x in price) {
-    //        if (x.type != Utility.ResourceTypes.Time) priceaux.Add(x);
-    //    }
-    //    price = priceaux.ToArray();
-    //    foreach (var y in price) {
-    //        if (y.type != Utility.ResourceTypes.Supply) {
-    //            var owned = resources.Find(x => x.amount.type == y.type).amount.value;
-    //            if (owned < y.value) return false;
-    //        } else {
-    //            if ((resources.Find(x => x.amount.type == y.type).amount.value - currentSupply) < y.value) return false;
-    //        }
-    //    }
-    //    foreach (var y in price) {
-    //        if (y.type != Utility.ResourceTypes.Supply) {
-    //            resources.Find(x => x.amount.type == y.type).AmountUpdateWithText(-y.value);
-    //        } else {
-    //            currentSupply += y.value;
-    //            resources.Find(x => x.amount.type == y.type).AmountUpdateWithText(0);
-    //        }
-    //    }
-    //    return true;
-    //}
 
-    //[System.Obsolete]
-    //public void DistributeResources(Timer timer) {
-    //    foreach (var x in GameManager.Instance.ALL_Locations.FindAll(y => y.Type == Utility.BuildingSlotType.Resource && y.owner == this && (y.Status == Utility.LocationStatus.Built || y.Status == Utility.LocationStatus.Training))) {
-    //        if (x.building.GetComponent<Structure>().production.type != Utility.ResourceTypes.Supply) {
-    //            var aux = ownedUpgrades.FindAll(z => z.effect.resourceAmount.type == x.building.GetComponent<Structure>().production.type && z.gameObject.active == true);
-    //            var totalValueGained = aux.Count == 0 ? x.building.GetComponent<Structure>().production.value : x.building.GetComponent<Structure>().production.value + aux.Count * aux[0].effect.resourceAmount.value;
-    //            var money = x.building.GetComponent<Structure>().production.value + aux.Count;
-    //            switch (x.building.GetComponent<Structure>().production.type) {
-    //                case Utility.ResourceTypes.Gold:
-    //                    GoldResource.AddValue(money);
-    //                    break;
-    //                case Utility.ResourceTypes.Wood:
-    //                    WoodResource.AddValue(money);
-    //                    break;
-    //            }
-    //        }
-    //    }
-    //    Destroy(productionTimer);
-    //    StartCoroutine(NewTimer());
-    //}
+    public bool CanAfford(Amount[] prices) {
+        bool canAfford = false;
+
+        foreach (Amount amount in prices) {
+            switch (amount.type) {
+                // currentValue
+                //case Utility.ResourceTypes.Supply:
+                //    canAfford = SupplyResource.GetValue() >= amount.value;
+                //    break;
+                case Utility.ResourceTypes.Gold:
+                    canAfford = GoldResource.GetValue() >= amount.value;
+                    break;
+                case Utility.ResourceTypes.Wood:
+                    canAfford = WoodResource.GetValue() >= amount.value;
+                    break;
+            }
+        }
+
+        return canAfford;
+    }
+
+    public void Buy(Amount[] prices) {
+        foreach (Amount amount in prices) {
+            switch (amount.type) {
+                // currentValue
+                //case Utility.ResourceTypes.Supply:
+                //    canAfford = SupplyResource.GetValue() >= amount.value;
+                //    break;
+                case Utility.ResourceTypes.Gold:
+                    GoldResource.DeductValue(amount.value);
+                    break;
+                case Utility.ResourceTypes.Wood:
+                    WoodResource.DeductValue(amount.value);
+                    break;
+            }
+        }
+    }
+
+    public void Refund(Amount[] prices) {
+        foreach (Amount amount in prices) {
+            switch (amount.type) {
+                // currentValue
+                //case Utility.ResourceTypes.Supply:
+                //    canAfford = SupplyResource.GetValue() >= amount.value;
+                //    break;
+                case Utility.ResourceTypes.Gold:
+                    GoldResource.AddValue(amount.value);
+                    break;
+                case Utility.ResourceTypes.Wood:
+                    WoodResource.AddValue(amount.value);
+                    break;
+            }
+        }
+    }
 }
+        //var priceaux = new List<Amount>();
+        //foreach (var x in price) {
+        //    if (x.type != Utility.ResourceTypes.Time) priceaux.Add(x);
+        //}
+        //price = priceaux.ToArray();
+        //foreach (var resource in price) {
+        //    if (resource.type != Utility.ResourceTypes.Supply) {
+        //        var ownedSupplies = SupplyResource.GetValue();
+        //        if (ownedSupplies < resource.value) return false;
+        //    } else {
+        //        if ((resources.Find(x => x.amount.type == y.type).amount.value - currentSupply) < y.value) return false;
+        //    }
+        //}
+        //foreach (var y in price) {
+        //    if (y.type != Utility.ResourceTypes.Supply) {
+        //        resources.Find(x => x.amount.type == y.type).AmountUpdateWithText(-y.value);
+        //    } else {
+        //        currentSupply += y.value;
+        //        resources.Find(x => x.amount.type == y.type).AmountUpdateWithText(0);
+        //    }
+        //}
+        //return true;
+

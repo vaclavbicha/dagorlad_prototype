@@ -17,6 +17,10 @@ public class Resource : MonoBehaviour {
         AmountUpdateWithText();
     }
 
+    public int GetValue() {
+        return amount.value;
+    }
+
     public void SetValue(int value) {
         amount.value = value;
         AmountUpdateWithText();
@@ -25,6 +29,10 @@ public class Resource : MonoBehaviour {
 
     public void AddValue(int value) {
         SetValue(amount.value + value);
+    }
+
+    public void DeductValue(int value) {
+        SetValue(amount.value - value);
     }
 
     public void SetCurrentProduction(int value) {
@@ -39,6 +47,10 @@ public class Resource : MonoBehaviour {
 
     public void AddCurrentProduction(int value) {
         SetCurrentProduction(currentProduction + value);
+    }
+
+    public void DeductCurrentProduction(int value) {
+        SetCurrentProduction(currentProduction - value);
     }
 
     IEnumerator DistributeResource() {

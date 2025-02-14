@@ -119,10 +119,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        //if (!Player.Instance.Buy(upgradePrefab.cost)) {
-        //    UIManager.Instance.DialogWindow("Player cannot afford this UPGRADE");
-        //    return;
-        //}
+        if (!ResourceManager.Instance.CanAfford(upgradePrefab.cost)) {
+            UIManager.Instance.DialogWindow("Player cannot afford this UPGRADE");
+            return;
+        }
 
         //if (Player.Instance.ownedUpgrades.FindAll(x => x.upgradeName == upgradePrefab.upgradeName).Count >= upgradePrefab.effect.maxOwned) {
         //    UIManager.Instance.DialogWindow("Player ownes the maximum amount of this upgrade");
@@ -139,10 +139,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        //if (!Player.Instance.Buy(unitPrefab.cost)) {
-        //    UIManager.Instance.DialogWindow("Not enough resources");
-        //    return;
-        //}
+        if (!ResourceManager.Instance.CanAfford(unitPrefab.cost)) {
+            UIManager.Instance.DialogWindow("Not enough resources");
+            return;
+        }
 
         location.productionList.Add(unitPrefab.gameObject);
         location.SpawnUnit();
@@ -158,10 +158,12 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        //if (!Player.Instance.Buy(buildingPrefab.cost)) {
-        //    UIManager.Instance.DialogWindow("Player cannot afford this building");
-        //    return;
-        //}
+        if (!ResourceManager.Instance.CanAfford(buildingPrefab.cost)) {
+            UIManager.Instance.DialogWindow("Player cannot afford this building");
+            return;
+        }
+
+        ResourceManager.Instance.Buy(buildingPrefab.cost);
 
         location.SpawnBuilding(buildingPrefab.gameObject);
         NavMeshManager.Instance.UpdateNavMesh();
