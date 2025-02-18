@@ -8,9 +8,7 @@ public class ResourceManager : MonoBehaviour {
     public List<Sprite> resourceSprites = new();
 
     [SerializeField]
-    public Resource SupplyResource;
-
-    public int currentSupply;
+    public SupplyResource SupplyResource;
 
     [SerializeField]
     public Resource GoldResource;
@@ -28,7 +26,8 @@ public class ResourceManager : MonoBehaviour {
     public Amount[] startingAmounts = new[] {
         new Amount(Utility.ResourceTypes.Supply, 500),
         new Amount(Utility.ResourceTypes.Gold, 500),
-        new Amount(Utility.ResourceTypes.Wood, 500)
+        new Amount(Utility.ResourceTypes.Wood, 500),
+        new Amount(Utility.ResourceTypes.Time, 0)   
     };
 
     public List<Resource> resources;
@@ -66,7 +65,7 @@ public class ResourceManager : MonoBehaviour {
     }
 
     public void UpdateInRealTime() {
-        timeResource.AmountUpdateWithText(Mathf.FloorToInt(Time.time - sceneStartTime));
+        timeResource.SetValue(Mathf.FloorToInt(Time.time - sceneStartTime));
     }
 
     public int GetGameTime() {
@@ -89,12 +88,17 @@ public class ResourceManager : MonoBehaviour {
                 case Utility.ResourceTypes.Wood:
                     WoodResource.SetStartingValue(amount.value);
                     break;
+                case Utility.ResourceTypes.Time:
+                    timeResource.SetValue(amount.value);
+                    break;
             }
         }
     }
 
     public bool HasEnoughSupplies(int value) {
-        return SupplyResource.GetValue() >= value;
+        int maxAmount = SupplyResource.GetMaxValue();
+        int currentAmount = SupplyResource.GetCurrentValue();
+        return currentAmount + value <= maxAmount;
     }
 
     public bool HasEnoughGold(int value) {
@@ -122,19 +126,18 @@ public class ResourceManager : MonoBehaviour {
     }
 
     public bool CanAfford(Amount[] prices) {
-        bool canAfford = false;
+        bool canAfford = true;
 
         foreach (Amount amount in prices) {
             switch (amount.type) {
-                // currentValue
-                //case Utility.ResourceTypes.Supply:
-                //    canAfford = SupplyResource.GetValue() >= amount.value;
-                //    break;
-                case Utility.ResourceTypes.Gold:
-                    canAfford = GoldResource.GetValue() >= amount.value;
+                case Utility.ResourceTypes.Supply:
+                    if (!HasEnoughSupplies(amount.value)) return false;
+                    break;
+            case Utility.ResourceTypes.Gold:
+                    if (!HasEnoughGold(amount.value)) return false;
                     break;
                 case Utility.ResourceTypes.Wood:
-                    canAfford = WoodResource.GetValue() >= amount.value;
+                    if (!HasEnoughWood(amount.value)) return false;
                     break;
             }
         }
@@ -145,10 +148,6 @@ public class ResourceManager : MonoBehaviour {
     public void Buy(Amount[] prices) {
         foreach (Amount amount in prices) {
             switch (amount.type) {
-                // currentValue
-                //case Utility.ResourceTypes.Supply:
-                //    canAfford = SupplyResource.GetValue() >= amount.value;
-                //    break;
                 case Utility.ResourceTypes.Gold:
                     GoldResource.DeductValue(amount.value);
                     break;
@@ -162,10 +161,6 @@ public class ResourceManager : MonoBehaviour {
     public void Refund(Amount[] prices) {
         foreach (Amount amount in prices) {
             switch (amount.type) {
-                // currentValue
-                //case Utility.ResourceTypes.Supply:
-                //    canAfford = SupplyResource.GetValue() >= amount.value;
-                //    break;
                 case Utility.ResourceTypes.Gold:
                     GoldResource.AddValue(amount.value);
                     break;
@@ -176,6 +171,14 @@ public class ResourceManager : MonoBehaviour {
         }
     }
 
+    public void BuyUnit(Amount price) {
+        SupplyResource.AddCurrentValue(price.value);
+    }
+
+    public void RefundUnit(Amount price) {
+        SupplyResource.DeductCurrentValue(price.value);
+    }
+
     public void AddUpgrade(ItemUpgrade upgrade) {
         ownedUpgrades.Add(upgrade);
     }
@@ -184,26 +187,3 @@ public class ResourceManager : MonoBehaviour {
         ownedUpgrades.Remove(upgrade);
     }
 }
-        //var priceaux = new List<Amount>();
-        //foreach (var x in price) {
-        //    if (x.type != Utility.ResourceTypes.Time) priceaux.Add(x);
-        //}
-        //price = priceaux.ToArray();
-        //foreach (var resource in price) {
-        //    if (resource.type != Utility.ResourceTypes.Supply) {
-        //        var ownedSupplies = SupplyResource.GetValue();
-        //        if (ownedSupplies < resource.value) return false;
-        //    } else {
-        //        if ((resources.Find(x => x.amount.type == y.type).amount.value - currentSupply) < y.value) return false;
-        //    }
-        //}
-        //foreach (var y in price) {
-        //    if (y.type != Utility.ResourceTypes.Supply) {
-        //        resources.Find(x => x.amount.type == y.type).AmountUpdateWithText(-y.value);
-        //    } else {
-        //        currentSupply += y.value;
-        //        resources.Find(x => x.amount.type == y.type).AmountUpdateWithText(0);
-        //    }
-        //}
-        //return true;
-

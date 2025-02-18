@@ -13,10 +13,10 @@ public class TimeResource : MonoBehaviour {
 
     public void SetValue(int value) {
         amount.value = value;
+        AmountUpdateWithText();
     }
 
-    public void AmountUpdateWithText(int value) {
-        SetValue(value);
+    public void AmountUpdateWithText() {
         display.UpdateText(amount.GetValueText());
     }
 }

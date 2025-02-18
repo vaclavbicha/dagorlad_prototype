@@ -4,7 +4,6 @@ using UnityEngine;
 public class Resource : MonoBehaviour {
     [SerializeField]
     Amount amount;
-    public Sprite icon;
     public int currentProduction;
 
     public UpdateIconText display;
@@ -63,10 +62,6 @@ public class Resource : MonoBehaviour {
 
     public void AmountUpdateWithText()
     {
-        if (amount.type == Utility.ResourceTypes.Supply) {
-            display.UpdateText(ResourceManager.Instance.currentSupply.ToString() + "/" + amount.value);
-        } else if (amount.type == Utility.ResourceTypes.Gold || amount.type == Utility.ResourceTypes.Wood) {
-            display.UpdateText(amount.value.ToString() + "<color=#C7D3EF>" + "+" + currentProduction.ToString() + "</color>");
-        }
+        display.UpdateText(amount.value.ToString() + "<color=#C7D3EF>" + "+" + currentProduction.ToString() + "</color>");
     }
 }

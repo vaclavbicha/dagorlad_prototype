@@ -317,6 +317,7 @@ public class BuildingSlot : MonoBehaviour
     {
         loadingBar.value = Mathf.Abs((Time.time - _timer.timeStarted) / (_timer.timeStarted - _timer.timeFinish));
     }
+
     public void IsDoneTraining(Timer _timer)
     {
         trainingUnit.SetActive(true);
@@ -327,6 +328,8 @@ public class BuildingSlot : MonoBehaviour
         building.GetComponent<Structure>().Rally_Point.GetComponent<RallyPoint>().NewUnitSpawned(trainingUnit.GetComponent<OurUnit>());
 
         productionList.RemoveAt(0);
+        // add seperate resources for units
+        ResourceManager.Instance.BuyUnit(trainingUnit.GetComponent<OurUnit>().cost[0]);
 
         if (productionList.Count != 0)
         {
@@ -354,7 +357,7 @@ public class BuildingSlot : MonoBehaviour
             
             switch (building.GetComponent<Structure>().production.type) {
                 case Utility.ResourceTypes.Supply:
-                    ResourceManager.Instance.SupplyResource.AddCurrentProduction(newProductionValue);
+                    ResourceManager.Instance.SupplyResource.AddMaxValue(newProductionValue);
                     break;
                 case Utility.ResourceTypes.Gold:
                     ResourceManager.Instance.GoldResource.AddCurrentProduction(newProductionValue);
@@ -373,13 +376,18 @@ public class BuildingSlot : MonoBehaviour
 
         if (upgrade.effect.type == Utility.UpgradeEffectTypes.Resource)
         {
-            if (upgrade.effect.resourceAmount.type == Utility.ResourceTypes.Supply)
-            {
-                //Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).AmountUpdateWithText(reff.effect.resourceAmount.value);
-            }
-            else
-            {
-                //Player.Instance.resources.Find(x => x.amount.type == reff.effect.resourceAmount.type).currentProduction += reff.effect.resourceAmount.value;
+            int additionalProductionValue = upgrade.effect.resourceAmount.value;
+
+            switch (upgrade.effect.resourceAmount.type) {
+                case Utility.ResourceTypes.Supply:
+                    ResourceManager.Instance.SupplyResource.AddMaxValue(additionalProductionValue);
+                    break;
+                case Utility.ResourceTypes.Gold: 
+                    ResourceManager.Instance.GoldResource.AddCurrentProduction(additionalProductionValue);
+                    break;
+                case Utility.ResourceTypes.Wood:
+                    ResourceManager.Instance.WoodResource.AddCurrentProduction(additionalProductionValue);
+                    break;
             }
         }
         if (upgrade.effect.type == Utility.UpgradeEffectTypes.Troops)
@@ -425,8 +433,8 @@ public class BuildingSlot : MonoBehaviour
                 if (Type == Utility.BuildingSlotType.Attack)
                 {
                     foreach (var unit in productionList)
-                    {
-                        ResourceManager.Instance.Refund(unit.GetComponent<OurUnit>().cost);
+                    { // add seperate resources for units
+                        ResourceManager.Instance.RefundUnit(unit.GetComponent<OurUnit>().cost[0]);
                     }
                     Destroy(trainingUnit);
                     productionList.RemoveAll(x => x);
@@ -508,7 +516,7 @@ public class BuildingSlot : MonoBehaviour
 
             switch (building.GetComponent<Structure>().production.type) {
                 case Utility.ResourceTypes.Supply:
-                    ResourceManager.Instance.SupplyResource.DeductCurrentProduction(lostProductionValue);
+                    ResourceManager.Instance.SupplyResource.DeductCurrentValue(lostProductionValue);
                     break;
                 case Utility.ResourceTypes.Gold:
                     ResourceManager.Instance.GoldResource.DeductCurrentProduction(lostProductionValue);
