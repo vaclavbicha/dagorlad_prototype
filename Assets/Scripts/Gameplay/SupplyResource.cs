@@ -28,7 +28,11 @@ public class SupplyResource : MonoBehaviour {
     }
 
     public void SetCurrentValue(int value) {
-        currentAmount = value;
+        if (value <= 0) {
+            currentAmount = 0;
+        } else {
+            currentAmount = value;
+        }
         On_AmountUpdate?.Invoke(value);
         AmountUpdateWithText();
     }

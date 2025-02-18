@@ -170,26 +170,22 @@ public class OurUnit : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((Vector2)transform.position != previousPosition)
-        {
-            lastMoveDirection = ((Vector2)transform.position - previousPosition).normalized;
-            previousPosition = transform.position;
-            animator.SetBool("isWalking", true);
-            if (currentTarget)
-            {
-                lastMoveDirection = ((Vector2)currentTarget.transform.position - (Vector2)transform.position).normalized;
-                animator.SetFloat("x", lastMoveDirection.x);
-                animator.SetFloat("y", lastMoveDirection.y);
-            }
-            else
-            {
-                animator.SetFloat("x", lastMoveDirection.x);
-                animator.SetFloat("y", lastMoveDirection.y);
-            }
-        }
-        else
-        {
+        if ((Vector2)transform.position == previousPosition) {
             animator.SetBool("isWalking", false);
+            return;
+        }
+
+        lastMoveDirection = ((Vector2)transform.position - previousPosition).normalized;
+        previousPosition = transform.position;
+        animator.SetBool("isWalking", true);
+
+        if (currentTarget) {
+            lastMoveDirection = ((Vector2)currentTarget.transform.position - (Vector2)transform.position).normalized;
+            animator.SetFloat("x", lastMoveDirection.x);
+            animator.SetFloat("y", lastMoveDirection.y);
+        } else {
+            animator.SetFloat("x", lastMoveDirection.x);
+            animator.SetFloat("y", lastMoveDirection.y);
         }
     }
 
@@ -293,6 +289,7 @@ public class OurUnit : MonoBehaviour
             }
         }
     }
+
     public void DealDamage(Timer timer)
     {
         Destroy(timer);
@@ -331,6 +328,7 @@ public class OurUnit : MonoBehaviour
         var blood = Instantiate(bloodParticle, transform.position, Quaternion.identity);
         Destroy(blood, blood.GetComponent<ParticleSystem>().main.duration);
     }
+
     IEnumerator AttackAgain(float t)
     {
         yield return new WaitForSeconds(t);

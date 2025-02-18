@@ -328,7 +328,7 @@ public class BuildingSlot : MonoBehaviour
         building.GetComponent<Structure>().Rally_Point.GetComponent<RallyPoint>().NewUnitSpawned(trainingUnit.GetComponent<OurUnit>());
 
         productionList.RemoveAt(0);
-        // add seperate resources for units
+
         ResourceManager.Instance.BuyUnit(trainingUnit.GetComponent<OurUnit>().cost[0]);
 
         if (productionList.Count != 0)
@@ -432,10 +432,6 @@ public class BuildingSlot : MonoBehaviour
             case Utility.LocationStatus.Training:
                 if (Type == Utility.BuildingSlotType.Attack)
                 {
-                    foreach (var unit in productionList)
-                    { // add seperate resources for units
-                        ResourceManager.Instance.RefundUnit(unit.GetComponent<OurUnit>().cost[0]);
-                    }
                     Destroy(trainingUnit);
                     productionList.RemoveAll(x => x);
                 }
