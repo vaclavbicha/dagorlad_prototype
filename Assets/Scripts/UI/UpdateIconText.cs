@@ -11,8 +11,13 @@ public class UpdateIconText : MonoBehaviour
         currentValue = value;
         text.text = value.ToString();
     }
+
     public void UpdateText(string _text)
     {
         text.text = _text;
+    }
+
+    public void SetActive(bool value) {
+        gameObject.SetActive(value);
     }
 }

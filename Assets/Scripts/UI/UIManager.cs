@@ -108,6 +108,7 @@ public class UIManager : MonoBehaviour {
         // load the building window
         if (buildingWindow) {
             buildingWindow.gameObject.SetActive(true);
+            buildingWindow.SetupWindow();
             buildingWindow.DeactivateWindow();
         }
 

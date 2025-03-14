@@ -2,9 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BuildingColumn : MonoBehaviour {
-    public UpdateIconText[] array;
     public string currentItemName = "default";
-    Image infoImage = null;
 
     [SerializeField]
     public BuildingColumnMode buildingColumnMode;
@@ -14,16 +12,85 @@ public class BuildingColumn : MonoBehaviour {
         utility
     }
 
+    [SerializeField]
+    Image infoImage;
+
+    [SerializeField]
     Transform infoToggle;
+
+    [SerializeField]
     Toggle infoButtonToggle;
 
+    [SerializeField]
+    CostRow SupplyCostRow;
 
-    public void Start()
-    {
-        infoImage = transform.parent.GetComponentInParent<BuildingWindow>().infoPanel.GetComponent<Image>();
-        infoToggle = transform.Find("Info_Wrap").Find("Toggle_Button").transform;
-        infoButtonToggle = infoToggle.GetComponent<Toggle>();
+    [SerializeField]
+    CostRow GoldCostRow;
+
+    [SerializeField]
+    CostRow WoodCostRow;
+
+    [SerializeField]
+    CostRow TimeCostRow;
+
+    UpdateIconText[] GetComponentsInChildren() {
+        return GetComponentsInChildren<UpdateIconText>();
     }
+
+
+    public void SetupColumn()
+    {
+        //infoImage = transform.parent.GetComponentInParent<BuildingWindow>().infoPanel.GetComponent<Image>();
+        //infoToggle = transform.Find("Info_Wrap").Find("Toggle_Button").transform;
+        //infoButtonToggle = infoToggle.GetComponent<Toggle>();
+
+        //if (buildingColumnMode == BuildingColumnMode.normal) {
+        //    SupplyCostRow = transform.Find("Cost_Supply").GetComponent<CostRow>();
+        //    GoldCostRow = transform.Find("Cost_Gold").GetComponent<CostRow>();
+        //    WoodCostRow = transform.Find("Cost_Wood").GetComponent<CostRow>();
+        //    TimeCostRow = transform.Find("Cost_Time").GetComponent<CostRow>();
+        //}
+    }
+
+    public void Deactivate() {
+        switch (buildingColumnMode) {
+            case BuildingColumnMode.normal:
+                SupplyCostRow.Deactivate();
+                GoldCostRow.Deactivate();
+                WoodCostRow.Deactivate();
+                TimeCostRow.Deactivate();
+                break;
+
+            case BuildingColumnMode.utility:
+
+                break;
+        }
+
+        gameObject.SetActive(false);
+    }
+
+    public void SetActive(Amount[] costs) {
+        foreach (Amount cost in costs) {
+            switch (cost.type) {
+                case Utility.ResourceTypes.Supply:
+                    SupplyCostRow.SetActive(cost.value);
+                    break;
+                case Utility.ResourceTypes.Gold:
+                    GoldCostRow.SetActive(cost.value);
+                    Debug.Log(cost.value);
+                    break;
+                case Utility.ResourceTypes.Wood:
+                    WoodCostRow.SetActive(cost.value);
+                    break;
+                case Utility.ResourceTypes.Time:
+                    TimeCostRow.SetActive(cost.value);
+                    break;
+            }
+        }
+
+        gameObject.SetActive(true);
+    }
+
     public void OnBuy()
     {
         UIManager.Instance.OnItemBuy(currentItemName);
