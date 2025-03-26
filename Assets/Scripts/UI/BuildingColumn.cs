@@ -36,25 +36,6 @@ public class BuildingColumn : MonoBehaviour {
     [SerializeField]
     CostRow TimeCostRow;
 
-    UpdateIconText[] GetComponentsInChildren() {
-        return GetComponentsInChildren<UpdateIconText>();
-    }
-
-
-    public void SetupColumn()
-    {
-        //infoImage = transform.parent.GetComponentInParent<BuildingWindow>().infoPanel.GetComponent<Image>();
-        //infoToggle = transform.Find("Info_Wrap").Find("Toggle_Button").transform;
-        //infoButtonToggle = infoToggle.GetComponent<Toggle>();
-
-        //if (buildingColumnMode == BuildingColumnMode.normal) {
-        //    SupplyCostRow = transform.Find("Cost_Supply").GetComponent<CostRow>();
-        //    GoldCostRow = transform.Find("Cost_Gold").GetComponent<CostRow>();
-        //    WoodCostRow = transform.Find("Cost_Wood").GetComponent<CostRow>();
-        //    TimeCostRow = transform.Find("Cost_Time").GetComponent<CostRow>();
-        //}
-    }
-
     public void Deactivate() {
         switch (buildingColumnMode) {
             case BuildingColumnMode.normal:
@@ -65,14 +46,16 @@ public class BuildingColumn : MonoBehaviour {
                 break;
 
             case BuildingColumnMode.utility:
-
+                GoldCostRow.Deactivate();
+                WoodCostRow.Deactivate();
+                TimeCostRow.Deactivate();
                 break;
         }
 
         gameObject.SetActive(false);
     }
 
-    public void SetActive(Structure building) {
+    public void SetBuildingColumn(Structure building) {
         Amount[] costs = building.cost;
         Sprite buildingIcon = building.Icon;
         string buildingName = building.buildingName;
@@ -84,15 +67,46 @@ public class BuildingColumn : MonoBehaviour {
         gameObject.SetActive(true);
     }
 
+    public void SetUnitColumn(OurUnit unit) {
+        Amount[] costs = unit.cost;
+        Sprite unitIcon = unit.Icon;
+        string unitName = unit.unitName;
+
+        SetCosts(costs);
+        SetIcon(unitIcon);
+        SetName(unitName);
+
+        gameObject.SetActive(true);
+    }
+
+    public void SetDemolishColumn() {
+        Amount[] costs = ResourceManager.Instance.GetBuildingDemolishCost();
+        SetCosts(costs);
+
+        gameObject.SetActive(true);
+    }
+
+    public void SetUpgradeColumn() {
+        //Amount[] costs = unit.cost;
+        //Sprite unitIcon = unit.Icon;
+        //string unitName = unit.unitName;
+
+        //SetCosts(costs);
+        //SetIcon(unitIcon);
+        //SetName(unitName);
+
+        gameObject.SetActive(true);
+    }
+
     private void SetCosts(Amount[] costs) {
         foreach (Amount cost in costs) {
+            Debug.Log(cost.value);
             switch (cost.type) {
                 case Utility.ResourceTypes.Supply:
                     SupplyCostRow.SetActive(cost.value);
                     break;
                 case Utility.ResourceTypes.Gold:
                     GoldCostRow.SetActive(cost.value);
-                    Debug.Log(cost.value);
                     break;
                 case Utility.ResourceTypes.Wood:
                     WoodCostRow.SetActive(cost.value);

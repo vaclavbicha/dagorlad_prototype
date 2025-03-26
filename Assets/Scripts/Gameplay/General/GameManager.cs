@@ -92,16 +92,15 @@ public class GameManager : MonoBehaviour
 
         if (buildings.Find(x => x.buildingName == itemName) != null)
         {
-            Debug.Log(buildings);
             var itemPrefab = buildings.Find(x => x.buildingName == itemName);
-            SpawnBuilding(itemName, location, itemPrefab);
+            BuyBuilding(location, itemPrefab);
         }
         else
         {
             if (units.Find(x => x.unitName == itemName) != null)
             {
                 var itemPrefab = units.Find(x => x.unitName == itemName);
-                SpawnUnit(itemName, location, itemPrefab);
+                BuyUnit(location, itemPrefab);
             }
             else
             {
@@ -133,8 +132,29 @@ public class GameManager : MonoBehaviour
         location.SpawnUpgrade(upgradePrefab);
         UIManager.Instance.OnCloseBuildingWindow();
     }
-    public void SpawnUnit(string unitName, BuildingSlot location, OurUnit unitPrefab)
+    public void SpawnUnit(BuildingSlot location, OurUnit unitPrefab)
     {
+        location.productionList.Add(unitPrefab.gameObject);
+        location.SpawnUnit();
+        location.UpdateSliderMultiplier();
+        UIManager.Instance.OnCloseBuildingWindow();
+    }
+
+    public void BuyItem(BuildingSlot location, Structure structurePrefab) {
+        if (!structurePrefab) {
+            UIManager.Instance.DialogWindow("Structure prefab not found");
+            return;
+        }
+
+        if (!ResourceManager.Instance.CanAfford(structurePrefab.cost)) {
+            UIManager.Instance.DialogWindow("Player cannot afford this building");
+            return;
+        }
+
+        ResourceManager.Instance.Buy(structurePrefab.cost);
+    }
+
+    public void BuyItem(BuildingSlot location, OurUnit unitPrefab) {
         if (!unitPrefab) {
             UIManager.Instance.DialogWindow("UNIT Prefab not found");
             return;
@@ -145,30 +165,24 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        location.productionList.Add(unitPrefab.gameObject);
-        location.SpawnUnit();
-        location.UpdateSliderMultiplier();
-        UIManager.Instance.OnCloseBuildingWindow();
+        ResourceManager.Instance.Buy(unitPrefab.cost);
     }
-    public void SpawnBuilding(string building, BuildingSlot location, Structure buildingPrefab)
+
+    public void BuyBuilding(BuildingSlot location, Structure buildingPrefab) {
+        BuyItem(location, buildingPrefab);
+        SpawnBuilding(location, buildingPrefab);
+    }
+
+    public void SpawnBuilding(BuildingSlot location, Structure buildingPrefab)
     {
-        //var buildingPrefab = buildings.Find(x => x.buildingName == building);
-        if (!buildingPrefab) {
-            UIManager.Instance.DialogWindow("Building Prefab not found");
-            return;
-        }
-
-        if (!ResourceManager.Instance.CanAfford(buildingPrefab.cost)) {
-            UIManager.Instance.DialogWindow("Player cannot afford this building");
-            return;
-        }
-
-        ResourceManager.Instance.Buy(buildingPrefab.cost);
-
-        Debug.Log(buildingPrefab.gameObject);
         location.SpawnBuilding(buildingPrefab.gameObject);
         NavMeshManager.Instance.UpdateNavMesh();
         UIManager.Instance.OnCloseBuildingWindow();
+    }
+
+    public void BuyUnit(BuildingSlot location, OurUnit unitPrefab) {
+        BuyItem(location, unitPrefab);
+        SpawnUnit(location, unitPrefab);
     }
     public void GoMenu()
     {

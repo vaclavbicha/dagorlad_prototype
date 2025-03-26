@@ -28,7 +28,6 @@ public class CostRow : MonoBehaviour
     }
 
     public void SetActive(int costValue) {
-
         Show();
         updateIconText.UpdateDisplay(costValue, gameObject);
     }

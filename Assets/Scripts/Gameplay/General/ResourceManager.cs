@@ -32,7 +32,8 @@ public class ResourceManager : MonoBehaviour {
 
     public List<Resource> resources;
 
-    public Amount[] BuildingDestructionCost;
+    [SerializeField]
+    Amount[] BuildingDestructionCost;
 
     public List<ItemUpgrade> ownedUpgrades = new();
 
@@ -72,8 +73,13 @@ public class ResourceManager : MonoBehaviour {
         return timeResource.GetValue();
     }
 
+
     private void SetStartingTime() {
         timeResource.SetValue(0);
+    }
+
+    public Amount[] GetBuildingDemolishCost() {
+        return BuildingDestructionCost;
     }
 
     private void SetStartingResourcesAmount() {
@@ -175,7 +181,24 @@ public class ResourceManager : MonoBehaviour {
         SupplyResource.AddCurrentValue(price.value);
     }
 
-    public void RefundUnit(Amount price) {
+    public void PayDemolishPrice() {
+        Buy(BuildingDestructionCost);
+    }
+
+    public void RefundUnitCost(Amount[] prices) {
+        foreach (Amount amount in prices) {
+            switch (amount.type) {
+                case Utility.ResourceTypes.Gold:
+                    GoldResource.AddValue(amount.value);
+                    break;
+                case Utility.ResourceTypes.Wood:
+                    WoodResource.AddValue(amount.value);
+                    break;
+            }
+        }
+    }
+
+    public void RefundUnitSupply(Amount price) {
         SupplyResource.DeductCurrentValue(price.value);
     }
 

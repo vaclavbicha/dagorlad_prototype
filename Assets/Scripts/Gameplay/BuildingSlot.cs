@@ -432,6 +432,7 @@ public class BuildingSlot : MonoBehaviour
             case Utility.LocationStatus.Training:
                 if (Type == Utility.BuildingSlotType.Attack)
                 {
+                    ResourceManager.Instance.RefundUnitCost(trainingUnit.GetComponent<OurUnit>().cost);
                     Destroy(trainingUnit);
                     productionList.RemoveAll(x => x);
                 }
@@ -507,6 +508,10 @@ public class BuildingSlot : MonoBehaviour
     {
         if (timer) ClearTimerAndLoadingBar();
 
+        // Deduct demolish price
+        ResourceManager.Instance.PayDemolishPrice();
+
+        // Stop production
         if (Type == Utility.BuildingSlotType.Resource) {
             int lostProductionValue = building.GetComponent<Structure>().production.value;
 

@@ -94,7 +94,7 @@ public class RallyPoint : MonoBehaviour
     private void ClearArmy() {
         foreach (var unit in currentArmy) {
             if (unit) {
-                ResourceManager.Instance.RefundUnit(unit.cost[0]);
+                ResourceManager.Instance.RefundUnitSupply(unit.cost[0]);
                 Destroy(unit.gameObject);
             }
         }

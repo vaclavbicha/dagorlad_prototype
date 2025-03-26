@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class BuildingWindowBottomPanel : MonoBehaviour
 {
     public BuildingColumn[] BuildingColumns;
-    public BuildingColumn[] NormalBuildingColumns;
-    public BuildingColumn[] UtilityColumns;
     public BuildingColumn DemolishColumn;
     public BuildingColumn UpgradeColumn;
 

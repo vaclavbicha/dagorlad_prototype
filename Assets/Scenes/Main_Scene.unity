@@ -17084,6 +17084,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649367523}
   m_CullTransparentMesh: 1
+--- !u!114 &652151189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2487995107135906765, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+  m_PrefabInstance: {fileID: 862910762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4addce9b787aa465f84c966cef920ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &654728431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18025,6 +18036,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714951298}
   m_CullTransparentMesh: 1
+--- !u!114 &721909585 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7491728910828775353, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+  m_PrefabInstance: {fileID: 862910762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4addce9b787aa465f84c966cef920ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &722171387
 GameObject:
   m_ObjectHideFlags: 0
@@ -26417,9 +26439,41 @@ PrefabInstance:
       value: -153.50003
       objectReference: {fileID: 0}
     - target: {fileID: 8722840830529797674, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+      propertyPath: UpgradeColumn
+      value: 
+      objectReference: {fileID: 1492724098}
+    - target: {fileID: 8722840830529797674, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+      propertyPath: DemolishColumn
+      value: 
+      objectReference: {fileID: 652151189}
+    - target: {fileID: 8722840830529797674, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
       propertyPath: bottomPanelMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8722840830529797674, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+      propertyPath: BuildingColumns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722840830529797674, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+      propertyPath: BuildingColumns.Array.data[0]
+      value: 
+      objectReference: {fileID: 1316548274}
+    - target: {fileID: 8722840830529797674, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+      propertyPath: BuildingColumns.Array.data[1]
+      value: 
+      objectReference: {fileID: 721909585}
+    - target: {fileID: 8722840830529797674, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+      propertyPath: NormalBuildingColumns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722840830529797674, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+      propertyPath: NormalBuildingColumns.Array.data[0]
+      value: 
+      objectReference: {fileID: 1316548274}
+    - target: {fileID: 8722840830529797674, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+      propertyPath: NormalBuildingColumns.Array.data[1]
+      value: 
+      objectReference: {fileID: 721909585}
     - target: {fileID: 8776073605316629023, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
       propertyPath: m_fontSize
       value: 145
@@ -50081,7 +50135,13 @@ MonoBehaviour:
   - type: 2
     value: 1000
   resources: []
-  BuildingDestructionCost: []
+  BuildingDestructionCost:
+  - type: 3
+    value: 100
+  - type: 2
+    value: 100
+  - type: 4
+    value: 100
   ownedUpgrades: []
 --- !u!114 &1216306446
 MonoBehaviour:
@@ -51796,6 +51856,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308834606}
   m_CullTransparentMesh: 1
+--- !u!114 &1316548274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8567873188560663766, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+  m_PrefabInstance: {fileID: 862910762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4addce9b787aa465f84c966cef920ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1319156193
 GameObject:
   m_ObjectHideFlags: 0
@@ -66583,6 +66654,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485522663}
   m_CullTransparentMesh: 1
+--- !u!114 &1492724098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 862709104165211677, guid: c28d88444dd241a43b650a2e3c9afbc2, type: 3}
+  m_PrefabInstance: {fileID: 862910762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4addce9b787aa465f84c966cef920ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1506958660
 GameObject:
   m_ObjectHideFlags: 0

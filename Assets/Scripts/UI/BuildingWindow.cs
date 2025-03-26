@@ -35,12 +35,6 @@ public class BuildingWindow : MonoBehaviour
 
     public void DeactivateWindow() {
         if (currentBottomPanel) {
-            foreach (BuildingColumn buildingColumn in currentBottomPanel.BuildingColumns) {
-                buildingColumn.TurnOffInfoIcon();
-            }
-        }
-
-        if (currentBottomPanel) {
             currentBottomPanel.DeactivateColumns();
             currentBottomPanel.gameObject.SetActive(false);
             currentBottomPanel = null;
@@ -51,32 +45,73 @@ public class BuildingWindow : MonoBehaviour
     }
 
     public void ActivateWindow(BuildingSlot buildingSlot) {
-        currentBottomPanel = OpenPanel(BottomPanelMode.normalPanel).GetComponent<BuildingWindowBottomPanel>();
-        BuildingColumn[] columns = currentBottomPanel.BuildingColumns;
-
-        List<Structure> buildings = GameManager.Instance.buildings.FindAll(x => x.locationType == buildingSlot.Type);
-
-        // TESTING
-        int building_i = 0;
-        foreach (var column in columns) {
-            column.SetActive(buildings[building_i]);
-            building_i++;
+        if (buildingSlot.Status == Utility.LocationStatus.Free) {
+            SetupBuildings(buildingSlot);
         }
 
-            //foreach (Amount costAmount in ) {
-            //    //Debug.Log(cost.type);
-            //    //Debug.Log(cost.value);
+        if (buildingSlot.Status == Utility.LocationStatus.Built || buildingSlot.Status == Utility.LocationStatus.Training) {
+            switch (buildingSlot.Type) {
+                case Utility.BuildingSlotType.Defense:
+                    break;
+                case Utility.BuildingSlotType.Attack:
+                    currentBottomPanel = OpenPanel(BottomPanelMode.utilityPanel).GetComponent<BuildingWindowBottomPanel>();
+                    List<OurUnit> units = buildingSlot.building.GetComponent<Structure>().producingUnits;
 
-            //    Debug.Log(columns);
+                    BuildingColumn[] buildingColumns = currentBottomPanel.BuildingColumns;
+                    BuildingColumn demolishColumn = currentBottomPanel.DemolishColumn;
+                    BuildingColumn upgradeColumn = currentBottomPanel.UpgradeColumn;
 
-            //    Debug.Log(currentBottomPanel.BuildingColumns[i]);
+                    for (int j = 0; j < buildingColumns.Length; j++) {
+                        OurUnit unit = units[j];
+                        BuildingColumn normalBuildingColumn = buildingColumns[j];
 
-            //    //var text = currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
+                        normalBuildingColumn.SetUnitColumn(unit);
+                    }
 
-            //    //text.gameObject.SetActive(true);
-            //    //text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText());
+                    demolishColumn.SetDemolishColumn();
+                    //upgradeColumn.SetUpgradeColumn();
 
-            //}
+                    break;
+                    //case Utility.BuildingSlotType.Resource:
+                    //    currentBottomPanel = OpenPanel(BottomPanelMode.normalPanel).GetComponent<BuildingWindowBottomPanel>();
+
+                    //    int i = 0;
+                    //    List<ItemUpgrade> upgrades = GameManager.Instance.upgrades.FindAll(x => x.type == buildingSlot.building.GetComponent<Structure>().upgradeType);
+                    //    foreach (ItemUpgrade upgrade in upgrades) {
+                    //        foreach (Amount cost in upgrade.cost) {
+                    //            var text = currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
+                    //            text.gameObject.SetActive(true);
+                    //            text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText());
+
+                    //        }
+                    //        //Debug.Log(buildingSlot.baseID + " MAP : " + buildingSlot.name + buildingSlot.building.GetComponent<Structure>().level);
+                    //        for (int j = 0; j < currentBottomPanel.transform.GetChild(i).childCount; j++) {
+                    //            if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Cost") ||
+                    //                currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap")) {
+                    //                foreach (var x in currentBottomPanel.transform.GetChild(i).GetChild(j).GetComponentsInChildren<Button>()) {
+                    //                    var cantAfford = false;
+                    //                    if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Cost")) {
+                    //                        var resourceName = currentBottomPanel.transform.GetChild(i).GetChild(j).name.Replace("Cost_", "");
+                    //                        if (resourceName == "Gold" || resourceName == "Wood") {
+                    //                            var v1 = (Utility.ResourceTypes)Enum.Parse(typeof(Utility.ResourceTypes), resourceName);
+                    //                            //var owned = Player.Instance.resources.Find(x => x.amount.type == v1).amount.value;
+                    //                            var costamount = Array.Find(upgrade.cost, x => x.type == v1);
+                    //                            //if (costamount != null) cantAfford = owned < costamount.value;
+                    //                        }
+                    //                    }
+
+                    //                    x.interactable = upgrade.minimumBuildingTier <= buildingSlot.building.GetComponent<Structure>().level && !cantAfford;
+                    //                }
+                    //            }
+                    //            if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap")) currentBottomPanel.transform.GetChild(i).GetChild(j).GetComponent<Button>().interactable = upgrade.minimumBuildingTier > buildingSlot.building.GetComponent<Structure>().level ? false : true;
+                    //        }
+                    //        currentBottomPanel.transform.GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = upgrade.Icon;
+                    //        currentBottomPanel.transform.GetChild(i).GetComponent<BuildingColumn>().currentItemName = upgrade.upgradeName;
+                    //        i++;
+                    //    }
+                    //    break;
+            }
+
             //}
             //if (buildingSlot.Status == Utility.LocationStatus.Built || buildingSlot.Status == Utility.LocationStatus.Training)
             //{
@@ -152,53 +187,20 @@ public class BuildingWindow : MonoBehaviour
             //            break;
             //    }
             //}
-            //if (buildingSlot.Status == Utility.LocationStatus.Free)
-            //{
-            //    currentBottomPanel = OpenPanel(BottomPanelMode.normalPanel).GetComponent<BuildingWindowBottomPanel>();
-
-            //    int i = 0;
-            //    foreach (var obj in GameManager.Instance.buildings.FindAll(x => x.locationType == buildingSlot.Type))
-            //    {
-            //        foreach (Amount cost in obj.cost)
-            //        {
-            //            Debug.Log(cost.value);
-            //            var text = currentBottomPanel.transform.GetChild(i).transform.Find("Cost_" + cost.type.ToString()).GetChild(0);
-
-            //            text.gameObject.SetActive(true);
-            //            text.GetComponent<UpdateIconText>().UpdateText(cost.GetValueText());
-
-            //        }
-            //        for (int j = 0; j < currentBottomPanel.transform.GetChild(i).childCount; j++)
-            //        {
-            //            if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Cost") ||
-            //                currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap"))
-            //            {
-            //                foreach (var x in currentBottomPanel.transform.GetChild(i).GetChild(j).GetComponentsInChildren<Button>())
-            //                {
-            //                    var cantAfford1 = false;
-            //                    if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Cost"))
-            //                    {
-            //                        var resourceName = currentBottomPanel.transform.GetChild(i).GetChild(j).name.Replace("Cost_", "");
-            //                        if (resourceName == "Gold" || resourceName == "Wood")
-            //                        {
-            //                            var v1 = (Utility.ResourceTypes)Enum.Parse(typeof(Utility.ResourceTypes), resourceName);
-            //                            //var owned = Player.Instance.resources.Find(x => x.amount.type == v1).amount.value;
-            //                            var costamount = Array.Find(obj.cost, x => x.type == v1);
-            //                            //if(costamount != null) cantAfford1 = owned < costamount.value;
-            //                        }
-            //                    }
-
-            //                    x.interactable = !cantAfford1;
-            //                }
-            //            }
-            //            if (currentBottomPanel.transform.GetChild(i).GetChild(j).name.Contains("Button_Wrap")) currentBottomPanel.transform.GetChild(i).GetChild(j).GetComponent<Button>().interactable = true;
-            //        }
-            //        currentBottomPanel.transform.GetChild(i).transform.Find("Button_Wrap").GetChild(0).GetComponent<Image>().sprite = obj.Icon;
-            //        currentBottomPanel.transform.GetChild(i).GetComponent<BuildingColumn>().currentItemName = obj.buildingName;
-            //        i++;
-            //}
-            //}
+            //
         }
+        }
+
+    private void SetupBuildings(BuildingSlot buildingSlot) {
+        currentBottomPanel = OpenPanel(BottomPanelMode.normalPanel).GetComponent<BuildingWindowBottomPanel>();
+        BuildingColumn[] columns = currentBottomPanel.BuildingColumns;
+
+        List<Structure> buildings = GameManager.Instance.buildings.FindAll(x => x.locationType == buildingSlot.Type);
+
+        for (int i = 0; i < columns.Length; i++) {
+            columns[i].SetBuildingColumn(buildings[i]);
+        }
+    }
 
     private GameObject OpenPanel(BottomPanelMode bottomPanelMode) {
 
