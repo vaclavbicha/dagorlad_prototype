@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateIconText: {fileID: 5248817017648438240}
   image: {fileID: 1131419165108469358}
+  imageColor: {r: 0.42745098, g: 0.46666667, b: 0.4745098, a: 0}
 --- !u!1001 &5729470118590475637
 PrefabInstance:
   m_ObjectHideFlags: 0

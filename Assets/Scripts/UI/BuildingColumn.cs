@@ -22,6 +22,9 @@ public class BuildingColumn : MonoBehaviour {
     Toggle infoButtonToggle;
 
     [SerializeField]
+    Transform SpriteWrap;
+
+    [SerializeField]
     CostRow SupplyCostRow;
 
     [SerializeField]
@@ -69,7 +72,19 @@ public class BuildingColumn : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    public void SetActive(Amount[] costs) {
+    public void SetActive(Structure building) {
+        Amount[] costs = building.cost;
+        Sprite buildingIcon = building.Icon;
+        string buildingName = building.buildingName;
+
+        SetCosts(costs);
+        SetIcon(buildingIcon);
+        SetName(buildingName);
+
+        gameObject.SetActive(true);
+    }
+
+    private void SetCosts(Amount[] costs) {
         foreach (Amount cost in costs) {
             switch (cost.type) {
                 case Utility.ResourceTypes.Supply:
@@ -87,8 +102,14 @@ public class BuildingColumn : MonoBehaviour {
                     break;
             }
         }
+    }
 
-        gameObject.SetActive(true);
+    private void SetIcon(Sprite sprite) {
+        SpriteWrap.GetComponent<Image>().sprite = sprite;
+    }
+
+    private void SetName(string name) {
+        currentItemName = name;
     }
 
     public void OnBuy()

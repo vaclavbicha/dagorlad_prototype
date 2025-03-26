@@ -479,6 +479,7 @@ MonoBehaviour:
   infoImage: {fileID: 5865737747476141585}
   infoToggle: {fileID: 0}
   infoButtonToggle: {fileID: 3428687005063499995}
+  SpriteWrap: {fileID: 6204081931866506812}
   SupplyCostRow: {fileID: 7424302940963246570}
   GoldCostRow: {fileID: 5969562406747151153}
   WoodCostRow: {fileID: 2014803477712625468}

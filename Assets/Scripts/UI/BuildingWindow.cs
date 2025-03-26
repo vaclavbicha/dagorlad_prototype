@@ -41,6 +41,7 @@ public class BuildingWindow : MonoBehaviour
         }
 
         if (currentBottomPanel) {
+            currentBottomPanel.DeactivateColumns();
             currentBottomPanel.gameObject.SetActive(false);
             currentBottomPanel = null;
         }
@@ -58,7 +59,7 @@ public class BuildingWindow : MonoBehaviour
         // TESTING
         int building_i = 0;
         foreach (var column in columns) {
-            column.SetActive(buildings[building_i].cost);
+            column.SetActive(buildings[building_i]);
             building_i++;
         }
 

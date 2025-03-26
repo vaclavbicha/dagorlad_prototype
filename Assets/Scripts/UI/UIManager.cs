@@ -208,7 +208,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void OnItemBuy(string itemName) {
-        //GameManager.Instance.SpawnBuilding(buildingName, currentSelected);
+        //GameManager.Instance.SpawnBuilding(itemName, currentSelected);
         GameManager.Instance.ItemBuy(itemName, currentSelected);
     }
 

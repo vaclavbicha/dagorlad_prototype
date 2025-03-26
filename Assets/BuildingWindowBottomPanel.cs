@@ -18,7 +18,11 @@ public class BuildingWindowBottomPanel : MonoBehaviour
     public BottomPanelMode bottomPanelMode;
 
     public void SetupColumns() {
-        foreach(BuildingColumn column in BuildingColumns) {
+        DeactivateColumns();
+    }
+
+    public void DeactivateColumns() {
+        foreach (BuildingColumn column in BuildingColumns) {
             column.Deactivate();
         }
     }
