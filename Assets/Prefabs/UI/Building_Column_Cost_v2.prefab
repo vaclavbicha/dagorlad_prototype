@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2901961}
+  m_Color: {r: 0.42745098, g: 0.46666667, b: 0.4745098, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -91,7 +91,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateIconText: {fileID: 5248817017648438240}
   image: {fileID: 1131419165108469358}
-  imageColor: {r: 0.42745098, g: 0.46666667, b: 0.4745098, a: 0}
+  activeColor: {r: 0.42745098, g: 0.46666667, b: 0.4745098, a: 1}
+  inactiveColor: {r: 0.29, g: 0.3, b: 0.31, a: 1}
 --- !u!1001 &5729470118590475637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104,6 +105,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 130
       objectReference: {fileID: 0}
+    - target: {fileID: 528225121932490389, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 3788564236632701478}
     - target: {fileID: 609548980590361952, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -220,6 +225,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1607653075244391129}
   m_SourcePrefab: {fileID: 100100000, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}
+--- !u!114 &3788564236632701478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8867734649685759827, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}
+  m_PrefabInstance: {fileID: 5729470118590475637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5248817017648438240 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 528225121932490389, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}

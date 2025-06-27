@@ -15,7 +15,7 @@ public class BuildingWindowBottomPanel : MonoBehaviour
 
     public BottomPanelMode bottomPanelMode;
 
-    public void SetupColumns() {
+    public void SetupColumns() { 
         DeactivateColumns();
     }
 

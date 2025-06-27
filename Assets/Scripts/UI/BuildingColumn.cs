@@ -36,9 +36,54 @@ public class BuildingColumn : MonoBehaviour {
     [SerializeField]
     CostRow TimeCostRow;
 
+    [SerializeField]
+    Button buttonWrap;
+
+    [SerializeField]
+    Button buttonIcon;
+
+    private int supplyCost;
+    private int goldCost;
+    private int woodCost;
+    private int timeCost;
+
+    public int SupplyCost {
+        get => supplyCost;
+        set {
+            supplyCost = value;
+            SupplyCostRow.SetActive(value);
+        }
+    }
+
+    public int GoldCost {
+        get => goldCost;
+        set {
+            goldCost = value;
+            GoldCostRow.SetActive(value);
+        }
+    }
+    
+    public int WoodCost {
+        get => woodCost;
+        set {
+            woodCost = value;
+            WoodCostRow.SetActive(value);
+        }
+    }
+
+    public int TimeCost {
+        get => timeCost;
+        set {
+            timeCost = value;
+            TimeCostRow.SetActive(value);
+        }
+    }
+
     public void Deactivate() {
         switch (buildingColumnMode) {
             case BuildingColumnMode.normal:
+                ResourceManager.Instance.onResourcesUpdated -= UpdateAffordability;
+
                 SupplyCostRow.Deactivate();
                 GoldCostRow.Deactivate();
                 WoodCostRow.Deactivate();
@@ -46,6 +91,8 @@ public class BuildingColumn : MonoBehaviour {
                 break;
 
             case BuildingColumnMode.utility:
+                ResourceManager.Instance.onResourcesUpdated -= UpdateAffordability;
+
                 GoldCostRow.Deactivate();
                 WoodCostRow.Deactivate();
                 TimeCostRow.Deactivate();
@@ -64,6 +111,8 @@ public class BuildingColumn : MonoBehaviour {
         SetIcon(buildingIcon);
         SetName(buildingName);
 
+        ResourceManager.Instance.onResourcesUpdated += UpdateAffordability;
+
         gameObject.SetActive(true);
     }
 
@@ -76,7 +125,7 @@ public class BuildingColumn : MonoBehaviour {
         SetIcon(unitIcon);
         SetName(unitName);
 
-        //ResourceManager.Instance.onResourcesUpdated += TurnOffInfoIcon;
+        ResourceManager.Instance.onResourcesUpdated += UpdateAffordability;
 
         gameObject.SetActive(true);
     }
@@ -105,18 +154,16 @@ public class BuildingColumn : MonoBehaviour {
             Debug.Log(cost.value);
             switch (cost.type) {
                 case Utility.ResourceTypes.Supply:
-                    SupplyCostRow.SetActive(cost.value);
-                    SupplyCostRow.SetUnableToBuy();
+                    SupplyCost = cost.value;
                     break;
                 case Utility.ResourceTypes.Gold:
-                    GoldCostRow.SetActive(cost.value);
-                    GoldCostRow.SetUnableToBuy();
+                    GoldCost = cost.value;
                     break;
                 case Utility.ResourceTypes.Wood:
-                    WoodCostRow.SetActive(cost.value);
+                    WoodCost = cost.value;
                     break;
                 case Utility.ResourceTypes.Time:
-                    TimeCostRow.SetActive(cost.value);
+                    TimeCost = cost.value;
                     break;
             }
         }
@@ -147,8 +194,48 @@ public class BuildingColumn : MonoBehaviour {
             UIManager.Instance.lastSelectedInfoToggle = null;
         }
     }
-
     public void TurnOffInfoIcon() {
         infoButtonToggle.isOn = false;
+    }
+
+    public void DisableColumn() {
+        buttonWrap.interactable = false;
+        buttonIcon.interactable = false;
+    }
+
+    public void EnableColumn() {
+        buttonWrap.interactable = true;
+        buttonIcon.interactable = true;
+    }
+
+    public void UpdateAffordability() {
+        bool canAfford = true;
+
+        if (ResourceManager.Instance.HasEnoughSupplies(supplyCost)) {
+            SupplyCostRow.SetAbleToBuy();
+        } else {
+            SupplyCostRow.SetUnableToBuy();
+            canAfford = false;
+        }
+
+        if (ResourceManager.Instance.HasEnoughGold(goldCost)) {
+            GoldCostRow.SetAbleToBuy(); 
+        } else {
+            GoldCostRow.SetUnableToBuy();
+            canAfford = false;
+        }
+
+        if (ResourceManager.Instance.HasEnoughWood(woodCost)) {
+            WoodCostRow.SetAbleToBuy();
+        } else {
+            WoodCostRow.SetUnableToBuy();
+            canAfford = false;
+        }
+
+        if (canAfford) {
+            EnableColumn();
+        } else {
+            DisableColumn();
+        }
     }
 }

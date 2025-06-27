@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 528225121932490389, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 5718080749692529967}
     - target: {fileID: 609548980590361952, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -157,3 +161,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}
+--- !u!114 &5718080749692529967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8867734649685759827, guid: 54fbc6560a5894e98ad9ebd5ea81b39c, type: 3}
+  m_PrefabInstance: {fileID: 3767878512772217468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

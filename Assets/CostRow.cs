@@ -10,11 +10,14 @@ public class CostRow : MonoBehaviour
     Image image;
 
     [SerializeField]
-    Color imageColor;
+    Color activeColor;
+
+    [SerializeField]
+    Color inactiveColor;
 
     public void Start() {
         image = gameObject.GetComponent<Image>();
-        imageColor = image.color;
+        activeColor = image.color;
     }
 
     public void Deactivate() {
@@ -33,13 +36,15 @@ public class CostRow : MonoBehaviour
     }
 
     public void SetAbleToBuy() {
-        SetBackgroundOpacity(1);
+        image.color = activeColor;
+        updateIconText.SetIconTransparency(1);
+        updateIconText.SetTextTransparency(1);
     }
 
     public void SetUnableToBuy() {
-        //gameObject.GetComponent<Button>().interactable = false;
-        SetBackgroundOpacity(0.8);
-        image.color = new Color(0.24f, 0.24f, 0.24f);
+        image.color = inactiveColor;
+        updateIconText.SetIconTransparency(0.5f);
+        updateIconText.SetTextTransparency(0.5f);
     }
 
     private void Show() {
@@ -47,7 +52,8 @@ public class CostRow : MonoBehaviour
         updateIconText.SetActive(true);
     }
 
-    private void SetBackgroundOpacity(double alpha) {
-        gameObject.GetComponent<Image>().color = new Color(imageColor.r, imageColor.g, imageColor.b, (float) alpha);
+    private void SetBackgroundOpacity(float alpha) {
+        Color currentColor = image.color;
+        gameObject.GetComponent<Image>().color = new Color(currentColor.r, currentColor.g, currentColor.b, alpha);
     }
 }
