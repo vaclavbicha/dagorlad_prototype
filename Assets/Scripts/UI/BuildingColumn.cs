@@ -76,6 +76,8 @@ public class BuildingColumn : MonoBehaviour {
         SetIcon(unitIcon);
         SetName(unitName);
 
+        //ResourceManager.Instance.onResourcesUpdated += TurnOffInfoIcon;
+
         gameObject.SetActive(true);
     }
 
@@ -104,9 +106,11 @@ public class BuildingColumn : MonoBehaviour {
             switch (cost.type) {
                 case Utility.ResourceTypes.Supply:
                     SupplyCostRow.SetActive(cost.value);
+                    SupplyCostRow.SetUnableToBuy();
                     break;
                 case Utility.ResourceTypes.Gold:
                     GoldCostRow.SetActive(cost.value);
+                    GoldCostRow.SetUnableToBuy();
                     break;
                 case Utility.ResourceTypes.Wood:
                     WoodCostRow.SetActive(cost.value);

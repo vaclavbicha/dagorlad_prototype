@@ -33,11 +33,13 @@ public class CostRow : MonoBehaviour
     }
 
     public void SetAbleToBuy() {
-        //gameObject.GetComponent<Button>().interactable = true;
+        SetBackgroundOpacity(1);
     }
 
     public void SetUnableToBuy() {
         //gameObject.GetComponent<Button>().interactable = false;
+        SetBackgroundOpacity(0.8);
+        image.color = new Color(0.24f, 0.24f, 0.24f);
     }
 
     private void Show() {
@@ -45,7 +47,7 @@ public class CostRow : MonoBehaviour
         updateIconText.SetActive(true);
     }
 
-    private void SetBackgroundOpacity(int alpha) {
-        gameObject.GetComponent<Image>().color = new Color(imageColor.r, imageColor.g, imageColor.b, alpha);
+    private void SetBackgroundOpacity(double alpha) {
+        gameObject.GetComponent<Image>().color = new Color(imageColor.r, imageColor.g, imageColor.b, (float) alpha);
     }
 }
