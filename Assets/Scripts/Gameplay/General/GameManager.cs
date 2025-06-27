@@ -140,36 +140,18 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.OnCloseBuildingWindow();
     }
 
-    public void BuyItem(BuildingSlot location, Structure structurePrefab) {
-        if (!structurePrefab) {
+    public void BuyBuilding(BuildingSlot location, Structure buildingPrefab) {
+        if (!buildingPrefab) {
             UIManager.Instance.DialogWindow("Structure prefab not found");
             return;
         }
 
-        if (!ResourceManager.Instance.CanAfford(structurePrefab.cost)) {
+        if (!ResourceManager.Instance.CanAfford(buildingPrefab.cost)) {
             UIManager.Instance.DialogWindow("Player cannot afford this building");
             return;
         }
 
-        ResourceManager.Instance.Buy(structurePrefab.cost);
-    }
-
-    public void BuyItem(BuildingSlot location, OurUnit unitPrefab) {
-        if (!unitPrefab) {
-            UIManager.Instance.DialogWindow("UNIT Prefab not found");
-            return;
-        }
-
-        if (!ResourceManager.Instance.CanAfford(unitPrefab.cost)) {
-            UIManager.Instance.DialogWindow("Not enough resources");
-            return;
-        }
-
-        ResourceManager.Instance.Buy(unitPrefab.cost);
-    }
-
-    public void BuyBuilding(BuildingSlot location, Structure buildingPrefab) {
-        BuyItem(location, buildingPrefab);
+        ResourceManager.Instance.Buy(buildingPrefab.cost);
         SpawnBuilding(location, buildingPrefab);
     }
 
@@ -181,7 +163,17 @@ public class GameManager : MonoBehaviour
     }
 
     public void BuyUnit(BuildingSlot location, OurUnit unitPrefab) {
-        BuyItem(location, unitPrefab);
+        if (!unitPrefab) {
+            UIManager.Instance.DialogWindow("UNIT Prefab not found");
+            return;
+        }
+
+        if (!ResourceManager.Instance.CanAfford(unitPrefab.cost)) {
+            UIManager.Instance.DialogWindow("Not enough resources");
+            return;
+        }
+
+        ResourceManager.Instance.Buy(unitPrefab.cost);
         SpawnUnit(location, unitPrefab);
     }
     public void GoMenu()

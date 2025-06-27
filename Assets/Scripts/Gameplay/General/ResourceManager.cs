@@ -62,10 +62,10 @@ public class ResourceManager : MonoBehaviour {
     }
 
     private void Update() {
-        UpdateInRealTime();
+        UpdateTime();
     }
 
-    public void UpdateInRealTime() {
+    public void UpdateTime() {
         timeResource.SetValue(Mathf.FloorToInt(Time.time - sceneStartTime));
     }
 
