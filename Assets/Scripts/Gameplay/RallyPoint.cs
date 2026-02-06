@@ -109,8 +109,7 @@ public class RallyPoint : MonoBehaviour
     public void ManageTargets()
     {
         Debug.Log("Enemies : " + EnemiesInRange.Count + "  Troops : " + currentArmy.Count);
-        var i = 0;
-        var j = 0;
+        
         foreach (OurUnit unit in currentArmy)
         {
             // Skip dead units
@@ -118,35 +117,50 @@ public class RallyPoint : MonoBehaviour
 
             if (EnemiesInRange.Count > 0)
             {
-                if (i >= EnemiesInRange.Count)
-                {
-                    i = 0;
-                }
+                // Find the closest enemy to this unit
+                GameObject closestEnemy = FindClosestEnemy(unit.transform.position);
+                
+                if (closestEnemy == null) continue;
 
-                GameObject enemy = EnemiesInRange[i];
-                if (enemy == null) continue;
-
-                OurUnit enemyUnit = enemy.GetComponent<OurUnit>();
+                OurUnit enemyUnit = closestEnemy.GetComponent<OurUnit>();
                 if (enemyUnit != null && enemyUnit.AvailableAttackerPosition(unit.transform) != null)
                 {
-                    unit.Attack(enemy);
+                    unit.Attack(closestEnemy);
                 }
-                else if (enemy.GetComponent<Structure>() != null)
+                else if (closestEnemy.GetComponent<Structure>() != null)
                 {
-                    unit.Attack(enemy);
+                    unit.Attack(closestEnemy);
                 }
 
-                unit.GetComponent<UnitMovement>().SetPathDestination(enemy.transform.position - new Vector3(1, 1, 0) * 0.1f);
-                i++;
+                // Move toward the closest enemy with reduced pathfinding updates
+                unit.GetComponent<UnitMovement>().SetPathDestination(closestEnemy.transform.position);
             }
             else
             {
                 unit.StopAttack();
-                //unit.GetComponent<UnitMovement>().offsetRallyPoint = targetPositionlist[j];//- transform.position;
                 NotifyArmyOnCurrentLocation();
             }
-            j++;
         }
+    }
+
+    private GameObject FindClosestEnemy(Vector3 unitPosition)
+    {
+        GameObject closestEnemy = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (GameObject enemy in EnemiesInRange)
+        {
+            if (enemy == null) continue;
+
+            float distance = Vector3.Distance(unitPosition, enemy.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestEnemy = enemy;
+            }
+        }
+
+        return closestEnemy;
     }
     public void ON()
     {

@@ -37,6 +37,16 @@ public class UnitMovement : MonoBehaviour
     NavMeshAgent navMeshAgent;
 
     bool isPathDestinationSet = true;
+    
+    // Smooth movement variables
+    private Vector2 lastFramePosition;
+    private Vector2 smoothVelocity;
+    private const float VELOCITY_SMOOTHING = 0.15f;
+    
+    // Pathfinding stability
+    private Vector2 lastSetDestination;
+    private float lastDestinationUpdateTime = 0f;
+    private const float DESTINATION_UPDATE_THRESHOLD = 0.1f; // Minimum distance to update path
 
     void Start()
     {
@@ -44,7 +54,13 @@ public class UnitMovement : MonoBehaviour
         if ((navMeshAgent = GetComponent<NavMeshAgent>()) != null) {
             navMeshAgent.updateRotation = false;
             navMeshAgent.updateUpAxis = false;
+            // Improve NavMeshAgent smoothness
+            navMeshAgent.acceleration = 8f;
+            navMeshAgent.angularSpeed = 0f;
+            navMeshAgent.stoppingDistance = 0.1f; // Reduce stopping distance for smoother movement
         }
+        lastFramePosition = (Vector2)transform.position;
+        lastSetDestination = (Vector2)transform.position;
     }
 
     private void FixedUpdate()
@@ -120,8 +136,17 @@ public class UnitMovement : MonoBehaviour
 
     public void SetPathDestination(Vector2 newDestination) {
         if (!navMeshAgent) return;
+        
+        // Only update path if destination has moved significantly
+        float distanceToNewDestination = Vector2.Distance(lastSetDestination, newDestination);
+        if (distanceToNewDestination < DESTINATION_UPDATE_THRESHOLD && Time.time - lastDestinationUpdateTime < 0.2f) {
+            return; // Skip pathfinding update for minor movements
+        }
+        
         navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(newDestination);
+        lastSetDestination = newDestination;
+        lastDestinationUpdateTime = Time.time;
         isPathDestinationSet = true;
     }
 
@@ -130,6 +155,15 @@ public class UnitMovement : MonoBehaviour
         navMeshAgent.isStopped = true;
         isPathDestinationSet = false;
         //CurrentMethod = Method.NoMovement;
+    }
+
+    // Get smooth velocity for animation
+    public Vector2 GetSmoothedVelocity() {
+        Vector2 currentPosition = (Vector2)transform.position;
+        Vector2 rawVelocity = (currentPosition - lastFramePosition) / Time.deltaTime;
+        smoothVelocity = Vector2.Lerp(smoothVelocity, rawVelocity, VELOCITY_SMOOTHING);
+        lastFramePosition = currentPosition;
+        return smoothVelocity;
     }
 
     // Updating method when changed in the inspector

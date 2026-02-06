@@ -37,6 +37,14 @@ public class OurUnit : MonoBehaviour
     Animator animator;
 
     public GameObject bloodParticle;
+    
+    // Combat improvement variables
+    private float targetLockTimer = 0f;
+    private const float TARGET_LOCK_DURATION = 0.5f; // Time to lock onto target
+    private float lastTargetSearchTime = 0f;
+    private const float TARGET_SEARCH_INTERVAL = 0.3f; // How often to search for better targets
+    private float movementStabilityTimer = 0f;
+    private const float MOVEMENT_STABILITY_THRESHOLD = 0.2f; // Minimum time before changing direction
 
     [System.Serializable]
     public class Attacker
@@ -170,23 +178,33 @@ public class OurUnit : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Update target lock timer
+        if (currentTarget != null) {
+            targetLockTimer += Time.fixedDeltaTime;
+        }
+
         if ((Vector2)transform.position == previousPosition) {
             animator.SetBool("isWalking", false);
             return;
         }
 
-        lastMoveDirection = ((Vector2)transform.position - previousPosition).normalized;
+        Vector2 rawDirection = ((Vector2)transform.position - previousPosition).normalized;
         previousPosition = transform.position;
         animator.SetBool("isWalking", true);
 
-        if (currentTarget) {
-            lastMoveDirection = ((Vector2)currentTarget.transform.position - (Vector2)transform.position).normalized;
-            animator.SetFloat("x", lastMoveDirection.x);
-            animator.SetFloat("y", lastMoveDirection.y);
+        // Smooth direction changes to reduce jitter
+        if (currentTarget && currentTarget.transform != null) {
+            Vector2 directionToTarget = ((Vector2)currentTarget.transform.position - (Vector2)transform.position).normalized;
+            // Lerp for smooth direction transitions
+            lastMoveDirection = Vector2.Lerp(lastMoveDirection, directionToTarget, 0.08f);
         } else {
-            animator.SetFloat("x", lastMoveDirection.x);
-            animator.SetFloat("y", lastMoveDirection.y);
+            // Smooth velocity-based direction changes
+            lastMoveDirection = Vector2.Lerp(lastMoveDirection, rawDirection, 0.12f);
         }
+
+        // Smoothly update animation parameters
+        animator.SetFloat("x", lastMoveDirection.x);
+        animator.SetFloat("y", lastMoveDirection.y);
     }
 
     private void OnEnemyEncounter(GameObject sender, Collider2D otherCollider)
@@ -252,6 +270,11 @@ public class OurUnit : MonoBehaviour
         StatsManager enemyStats = Enemy.GetComponent<StatsManager>();
         if (enemyStats == null) return;
 
+        // If already attacking this target, don't switch (target lock)
+        if (currentTarget == enemyStats && targetLockTimer < TARGET_LOCK_DURATION) {
+            return;
+        }
+
         // Set the attack position
         Transform attackPosition = null;
         OurUnit enemyUnit = Enemy.GetComponent<OurUnit>();
@@ -263,12 +286,17 @@ public class OurUnit : MonoBehaviour
         // If we can't get an attack position, don't attack
         if (attackPosition == null) return;
 
-        unitMovement.CurrentMethod = UnitMovement.Method.Attacking;
-        unitMovement.TransformDestination = attackPosition;
-
-        // Set current target first
-        currentTarget = enemyStats;
-        status = Utility.UnitStatus.Attacking;
+        // Only change target if we're not already attacking or lock time has expired
+        if (currentTarget != enemyStats) {
+            unitMovement.CurrentMethod = UnitMovement.Method.Attacking;
+            unitMovement.TransformDestination = attackPosition;
+            currentTarget = enemyStats;
+            targetLockTimer = 0f; // Reset lock timer for new target
+            status = Utility.UnitStatus.Attacking;
+        } else {
+            // Update destination to follow target
+            unitMovement.TransformDestination = attackPosition;
+        }
 
         // Clean up old timer if it exists
         if (attackTimer != null)
