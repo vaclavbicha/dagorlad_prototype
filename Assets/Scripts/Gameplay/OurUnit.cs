@@ -207,13 +207,30 @@ public class OurUnit : MonoBehaviour
     }
     public void StopAttack()
     {
-        if (currentTarget)
+        if (currentTarget != null)
         {
             Debug.Log("STOP ATTACK " + currentTarget.name);
             RemoveAttacker(currentTarget.transform);
         }
-        else Debug.Log("Stopped attacking nothing KEKW");
-        Destroy(attackTimer);
+        else
+        {
+            Debug.Log("Stopped attacking nothing KEKW");
+        }
+
+        if (attackTimer != null)
+        {
+            Destroy(attackTimer);
+            attackTimer = null;
+        }
+
+        currentTarget = null;
+        status = Utility.UnitStatus.GoingToFlag;
+
+        if (Rally_Point != null)
+        {
+            unitMovement.TransformDestination = Rally_Point.transform;
+        }
+
         //new
         if (GetComponent<StatsManager>().owner == "Enemy")
         {
@@ -225,103 +242,101 @@ public class OurUnit : MonoBehaviour
             unitMovement.CurrentMethod = UnitMovement.Method.SpeedWithFormation;
             unitMovement.range = 0.1f;
         }
-        //
-        currentTarget = null;
-        status = Utility.UnitStatus.GoingToFlag;
-        unitMovement.TransformDestination = Rally_Point.transform;
-        //unitMovement.range = 0.5f;
+
         unitMovement.IsLocked = false;
     }
     public void Attack(GameObject Enemy)
     {
-        //->older-> unitMovement.method = UnitMovement.Method.SpeedWithTarget;
-        //unitMovement.TransformDestination = Enemy.transform;
-        //unitMovement.range = 0.2f;
-        //unitMovement.rangeMin = 0.075f;
-        //if(GetComponent<StatsManager>().owner == "Player")
-        unitMovement.CurrentMethod = UnitMovement.Method.Attacking;
-        unitMovement.TransformDestination = Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform);
-        //unitMovement.SetDestination(Enemy.GetComponent<OurUnit>().AvailableAttackerPosition(transform));
-        if (attackTimer == null)
+        if (Enemy == null) return;
+        
+        StatsManager enemyStats = Enemy.GetComponent<StatsManager>();
+        if (enemyStats == null) return;
+
+        // Set the attack position
+        Transform attackPosition = null;
+        OurUnit enemyUnit = Enemy.GetComponent<OurUnit>();
+        if (enemyUnit != null)
         {
-            //Debug.Log("ATTACK " + Enemy.name);
-            if (Enemy.GetComponent<OurUnit>() != null)
-            {
-                status = Utility.UnitStatus.Attacking;
-                attackTimer = gameObject.AddComponent<Timer>();
-                foreach (var x in statsManager.stats)
-                {
-                    if (x.type == Utility.StatsTypes.AttackSpeed)
-                    {
-                        currentTarget = Enemy.GetComponent<StatsManager>();
-                        attackTimer.AddTimer("Attacking" + attackid, x.value, false);
-                        attackTimer.On_Duration_End += DealDamage;
-                    }
-                }
-            }else if (Enemy.GetComponent<Structure>() != null)
-            {
-                status = Utility.UnitStatus.Attacking;
-                attackTimer = gameObject.AddComponent<Timer>();
-                foreach (var x in statsManager.stats)
-                {
-                    if (x.type == Utility.StatsTypes.AttackSpeed)
-                    {
-                        currentTarget = Enemy.GetComponent<StatsManager>();
-                        attackTimer.AddTimer("Attacking" + attackid, x.value, false);
-                        attackTimer.On_Duration_End += DealDamage;
-                    }
-                }
-            }
+            attackPosition = enemyUnit.AvailableAttackerPosition(transform);
+        }
+
+        // If we can't get an attack position, don't attack
+        if (attackPosition == null) return;
+
+        unitMovement.CurrentMethod = UnitMovement.Method.Attacking;
+        unitMovement.TransformDestination = attackPosition;
+
+        // Set current target first
+        currentTarget = enemyStats;
+        status = Utility.UnitStatus.Attacking;
+
+        // Clean up old timer if it exists
+        if (attackTimer != null)
+        {
+            Destroy(attackTimer);
+        }
+
+        // Create new attack timer
+        attackTimer = gameObject.AddComponent<Timer>();
+        Stat attackSpeedStat = statsManager.GetStat(Utility.StatsTypes.AttackSpeed);
+        
+        if (attackSpeedStat != null)
+        {
+            attackTimer.AddTimer("Attacking" + attackid, attackSpeedStat.value, false);
+            attackTimer.On_Duration_End += DealDamage;
         }
         else
         {
-            Debug.Log("The attack timer of " + gameObject.name + " is not null " + attackTimer.name);
+            Debug.LogWarning(gameObject.name + " has no AttackSpeed stat!");
             Destroy(attackTimer);
-            attackTimer = gameObject.AddComponent<Timer>();
-            foreach (var x in statsManager.stats)
-            {
-                if (x.type == Utility.StatsTypes.AttackSpeed)
-                {
-                    currentTarget = Enemy.GetComponent<StatsManager>();
-                    attackTimer.AddTimer("Attacking" + attackid, x.value, false);
-                    attackTimer.On_Duration_End += DealDamage;
-                }
-            }
+            attackTimer = null;
         }
     }
 
     public void DealDamage(Timer timer)
     {
         Destroy(timer);
-        if (statsManager.GetStat(Utility.StatsTypes.Attack) != null)
+        
+        // Check if current target is still valid
+        if (currentTarget == null || currentTarget.dead)
         {
-            var dead = false;
-            if (Mathf.Abs(Vector2.Distance(currentTarget.transform.position, transform.position)) < attackRange)
-            {
-                lastMoveDirection = ((Vector2)currentTarget.transform.position - (Vector2)transform.position).normalized;
-                animator.SetFloat("x", lastMoveDirection.x);
-                animator.SetFloat("y", lastMoveDirection.y);
-
-                animator.SetTrigger("isAttacking");
-                GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
-                unitMovement.IsLocked = true;
-                dead = currentTarget.TakeRawDamage(statsManager.GetStat(Utility.StatsTypes.Attack).value);
-            }
-            else
-            {
-                unitMovement.IsLocked = false;
-            }
-            if (dead)
-            {
-                Debug.Log(gameObject.name + " - KILLED - " + currentTarget.name);
-                currentTarget = null;
-            }
-            else
-            {
-                StartCoroutine(AttackAgain(0));
-            }
+            currentTarget = null;
+            return;
         }
-        else { UIManager.Instance.DialogWindow("Tried to deal damage without owning attack"); }
+
+        Stat attackStat = statsManager.GetStat(Utility.StatsTypes.Attack);
+        if (attackStat == null)
+        {
+            UIManager.Instance.DialogWindow("Tried to deal damage without owning attack");
+            return;
+        }
+
+        var dead = false;
+        if (Mathf.Abs(Vector2.Distance(currentTarget.transform.position, transform.position)) < attackRange)
+        {
+            lastMoveDirection = ((Vector2)currentTarget.transform.position - (Vector2)transform.position).normalized;
+            animator.SetFloat("x", lastMoveDirection.x);
+            animator.SetFloat("y", lastMoveDirection.y);
+
+            animator.SetTrigger("isAttacking");
+            GameManager.Instance.GetComponent<AudioManager>().Play(unitName + "_attack");
+            unitMovement.IsLocked = true;
+            dead = currentTarget.TakeRawDamage(attackStat.value);
+        }
+        else
+        {
+            unitMovement.IsLocked = false;
+        }
+
+        if (dead)
+        {
+            Debug.Log(gameObject.name + " - KILLED - " + currentTarget.name);
+            currentTarget = null;
+        }
+        else if (status != Utility.UnitStatus.Dead)
+        {
+            StartCoroutine(AttackAgain(0));
+        }
     }
     public void Bleed()
     {

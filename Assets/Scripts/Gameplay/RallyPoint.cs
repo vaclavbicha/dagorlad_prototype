@@ -113,8 +113,8 @@ public class RallyPoint : MonoBehaviour
         var j = 0;
         foreach (OurUnit unit in currentArmy)
         {
-            // break early if unit becomes dead
-            if (unit.status == Utility.UnitStatus.Dead) break;
+            // Skip dead units
+            if (unit == null || unit.status == Utility.UnitStatus.Dead) continue;
 
             if (EnemiesInRange.Count > 0)
             {
@@ -124,13 +124,20 @@ public class RallyPoint : MonoBehaviour
                 }
 
                 GameObject enemy = EnemiesInRange[i];
-                UnitMovement unit_movement = unit.GetComponent<UnitMovement>();
+                if (enemy == null) continue;
 
-                if (enemy.GetComponent<OurUnit>().AvailableAttackerPosition(unit.transform) != null) {
+                OurUnit enemyUnit = enemy.GetComponent<OurUnit>();
+                if (enemyUnit != null && enemyUnit.AvailableAttackerPosition(unit.transform) != null)
+                {
+                    unit.Attack(enemy);
+                }
+                else if (enemy.GetComponent<Structure>() != null)
+                {
                     unit.Attack(enemy);
                 }
 
                 unit.GetComponent<UnitMovement>().SetPathDestination(enemy.transform.position - new Vector3(1, 1, 0) * 0.1f);
+                i++;
             }
             else
             {
