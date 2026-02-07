@@ -186,11 +186,20 @@ public class OurUnit : MonoBehaviour
             //attackersSlots.Add(new Attacker { position = x, attacker = null });
         }
         
+        // Set initial transform destination for all units
+        if (unitMovement.TransformDestination == null) {
+            if (Rally_Point != null) {
+                unitMovement.TransformDestination = Rally_Point.transform;
+            } else {
+                unitMovement.TransformDestination = transform;
+            }
+        }
+        
         // If this is an enemy unit, start searching for player units
         if (GetComponent<StatsManager>().owner == "Enemy") {
             isEnemyUnit = true;
             spawnPoint = transform.position;
-            // Set initial transform destination to spawn point to avoid null reference
+            // Ensure enemy units have spawn point destination
             unitMovement.TransformDestination = transform;
             
             // Get spawn radius from rally point's Point_Range collider
@@ -211,6 +220,15 @@ public class OurUnit : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Safety check - ensure TransformDestination is always set
+        if (unitMovement.TransformDestination == null) {
+            if (Rally_Point != null) {
+                unitMovement.TransformDestination = Rally_Point.transform;
+            } else {
+                unitMovement.TransformDestination = transform;
+            }
+        }
+        
         // Update target lock timer
         if (currentTarget != null) {
             targetLockTimer += Time.fixedDeltaTime;
@@ -283,7 +301,8 @@ public class OurUnit : MonoBehaviour
             // Return to spawn point
             unitMovement.TransformDestination = transform;
             unitMovement.CurrentMethod = UnitMovement.Method.SpeedWithTargetAndRange;
-            unitMovement.range = 0.5f;
+            unitMovement.range = 0.3f; // Reduced from 0.5f for less jitter
+            unitMovement.rangeMin = 0.1f;
         }
         else
         {
@@ -446,6 +465,8 @@ public class OurUnit : MonoBehaviour
                 // Set destination to spawn point to return
                 unitMovement.TransformDestination = transform;
                 unitMovement.CurrentMethod = UnitMovement.Method.SpeedWithTargetAndRange;
+                unitMovement.range = 0.3f;
+                unitMovement.rangeMin = 0.1f;
                 continue;
             }
             

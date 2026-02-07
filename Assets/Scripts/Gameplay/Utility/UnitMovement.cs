@@ -56,10 +56,10 @@ public class UnitMovement : MonoBehaviour
             navMeshAgent.updateRotation = false;
             navMeshAgent.updateUpAxis = false;
             // Improve NavMeshAgent smoothness and reduce jitter
-            navMeshAgent.acceleration = 12f; // Faster acceleration for smoother starts
+            navMeshAgent.acceleration = 6f; // Reduced for slower acceleration
             navMeshAgent.angularSpeed = 0f;
             navMeshAgent.stoppingDistance = 0.2f; // Slightly larger stopping distance
-            navMeshAgent.speed = 5f; // Consistent speed
+            navMeshAgent.speed = 1f;
             navMeshAgent.avoidancePriority = 50; // Standard priority
         }
         lastFramePosition = (Vector2)transform.position;
@@ -143,10 +143,12 @@ public class UnitMovement : MonoBehaviour
     public void SetPathDestination(Vector2 newDestination) {
         if (!navMeshAgent) return;
         
-        // Only update path if destination has moved significantly
+        // Only update path if destination has moved significantly AND enough time has passed
         float distanceToNewDestination = Vector2.Distance(lastSetDestination, newDestination);
-        if (distanceToNewDestination < DESTINATION_UPDATE_THRESHOLD && Time.time - lastDestinationUpdateTime < 0.2f) {
-            return; // Skip pathfinding update for minor movements
+        float timeSinceLastUpdate = Time.time - lastDestinationUpdateTime;
+        
+        if (distanceToNewDestination < DESTINATION_UPDATE_THRESHOLD && timeSinceLastUpdate < DESTINATION_UPDATE_TIME_THRESHOLD) {
+            return; // Skip pathfinding update for minor movements or too frequent updates
         }
         
         navMeshAgent.isStopped = false;
