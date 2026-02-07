@@ -46,7 +46,8 @@ public class UnitMovement : MonoBehaviour
     // Pathfinding stability
     private Vector2 lastSetDestination;
     private float lastDestinationUpdateTime = 0f;
-    private const float DESTINATION_UPDATE_THRESHOLD = 0.1f; // Minimum distance to update path
+    private const float DESTINATION_UPDATE_THRESHOLD = 0.3f; // Minimum distance to update path (increased to reduce jitter)
+    private const float DESTINATION_UPDATE_TIME_THRESHOLD = 0.15f; // Minimum time between updates
 
     void Start()
     {
@@ -54,10 +55,12 @@ public class UnitMovement : MonoBehaviour
         if ((navMeshAgent = GetComponent<NavMeshAgent>()) != null) {
             navMeshAgent.updateRotation = false;
             navMeshAgent.updateUpAxis = false;
-            // Improve NavMeshAgent smoothness
-            navMeshAgent.acceleration = 8f;
+            // Improve NavMeshAgent smoothness and reduce jitter
+            navMeshAgent.acceleration = 12f; // Faster acceleration for smoother starts
             navMeshAgent.angularSpeed = 0f;
-            navMeshAgent.stoppingDistance = 0.1f; // Reduce stopping distance for smoother movement
+            navMeshAgent.stoppingDistance = 0.2f; // Slightly larger stopping distance
+            navMeshAgent.speed = 5f; // Consistent speed
+            navMeshAgent.avoidancePriority = 50; // Standard priority
         }
         lastFramePosition = (Vector2)transform.position;
         lastSetDestination = (Vector2)transform.position;
@@ -65,7 +68,10 @@ public class UnitMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (TransformDestination == null) Debug.LogError("why you dont put transform destination??" + gameObject.name);
+        if (TransformDestination == null) {
+            Debug.LogError("why you dont put transform destination??" + gameObject.name);
+            return;
+        }
 
         if (CurrentMethod == Method.NoMovement) {
             ClearPathDestination();

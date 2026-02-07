@@ -45,6 +45,17 @@ public class OurUnit : MonoBehaviour
     private const float TARGET_SEARCH_INTERVAL = 0.3f; // How often to search for better targets
     private float movementStabilityTimer = 0f;
     private const float MOVEMENT_STABILITY_THRESHOLD = 0.2f; // Minimum time before changing direction
+    
+    // Enemy detection for enemy units
+    private float enemyDetectionRange = 5f;
+    private float lastEnemySearchTime = 0f;
+    private const float ENEMY_SEARCH_INTERVAL = 0.4f; // How often enemies search for targets
+    
+    // Enemy spawn point and radius-based behavior
+    private Vector3 spawnPoint;
+    private float spawnRadius = 3f; // Radius from spawn point where enemy can attack (will be overridden by rally point radius)
+    private bool isEnemyUnit = false;
+    private CircleCollider2D rallyPointCollider; // Reference to rally point's collider for radius
 
     [System.Serializable]
     public class Attacker
@@ -174,6 +185,28 @@ public class OurUnit : MonoBehaviour
             attackersSlots.Add(new Attacker { position = attk_pos.transform, attacker = null });
             //attackersSlots.Add(new Attacker { position = x, attacker = null });
         }
+        
+        // If this is an enemy unit, start searching for player units
+        if (GetComponent<StatsManager>().owner == "Enemy") {
+            isEnemyUnit = true;
+            spawnPoint = transform.position;
+            // Set initial transform destination to spawn point to avoid null reference
+            unitMovement.TransformDestination = transform;
+            
+            // Get spawn radius from rally point's Point_Range collider
+            if (Rally_Point != null) {
+                Transform pointRangeTransform = Rally_Point.Find("Point_Range");
+                if (pointRangeTransform != null) {
+                    rallyPointCollider = pointRangeTransform.GetComponent<CircleCollider2D>();
+                    if (rallyPointCollider != null) {
+                        // Calculate actual radius considering the scale
+                        spawnRadius = rallyPointCollider.radius * pointRangeTransform.localScale.x;
+                    }
+                }
+            }
+            
+            StartCoroutine(EnemySearchForTargets());
+        }
     }
 
     private void FixedUpdate()
@@ -244,19 +277,25 @@ public class OurUnit : MonoBehaviour
         currentTarget = null;
         status = Utility.UnitStatus.GoingToFlag;
 
-        if (Rally_Point != null)
-        {
-            unitMovement.TransformDestination = Rally_Point.transform;
-        }
-
-        //new
+        // Always set destination - for enemies, return to spawn point
         if (GetComponent<StatsManager>().owner == "Enemy")
         {
+            // Return to spawn point
+            unitMovement.TransformDestination = transform;
             unitMovement.CurrentMethod = UnitMovement.Method.SpeedWithTargetAndRange;
             unitMovement.range = 0.5f;
         }
         else
         {
+            // Player units go to rally point
+            if (Rally_Point != null)
+            {
+                unitMovement.TransformDestination = Rally_Point.transform;
+            }
+            else
+            {
+                unitMovement.TransformDestination = transform;
+            }
             unitMovement.CurrentMethod = UnitMovement.Method.SpeedWithFormation;
             unitMovement.range = 0.1f;
         }
@@ -294,8 +333,17 @@ public class OurUnit : MonoBehaviour
             targetLockTimer = 0f; // Reset lock timer for new target
             status = Utility.UnitStatus.Attacking;
         } else {
-            // Update destination to follow target
-            unitMovement.TransformDestination = attackPosition;
+            // Update destination to follow target, but stop if close enough
+            float distanceToTarget = Vector2.Distance(transform.position, Enemy.transform.position);
+            
+            // If close enough to target, stop moving (lock in place)
+            if (distanceToTarget < attackRange + 0.3f) {
+                unitMovement.CurrentMethod = UnitMovement.Method.NoMovement;
+            } else {
+                // Still moving toward target
+                unitMovement.CurrentMethod = UnitMovement.Method.Attacking;
+                unitMovement.TransformDestination = attackPosition;
+            }
         }
 
         // Clean up old timer if it exists
@@ -377,5 +425,91 @@ public class OurUnit : MonoBehaviour
         yield return new WaitForSeconds(t);
         attackid++;
         if(currentTarget != null && status != Utility.UnitStatus.Dead) Attack(currentTarget.gameObject);
+    }
+
+    // Enemy unit target detection and combat
+    private IEnumerator EnemySearchForTargets()
+    {
+        while (status != Utility.UnitStatus.Dead)
+        {
+            yield return new WaitForSeconds(ENEMY_SEARCH_INTERVAL);
+            
+            // Check if unit has left spawn radius
+            float distanceFromSpawn = Vector2.Distance(transform.position, spawnPoint);
+            if (distanceFromSpawn > spawnRadius)
+            {
+                // Unit has left spawn radius, abandon pursuit and return to spawn
+                if (currentTarget != null)
+                {
+                    StopAttack();
+                }
+                // Set destination to spawn point to return
+                unitMovement.TransformDestination = transform;
+                unitMovement.CurrentMethod = UnitMovement.Method.SpeedWithTargetAndRange;
+                continue;
+            }
+            
+            // Only search if not already in combat or if we should look for better targets
+            if (currentTarget == null || Time.time - lastEnemySearchTime > ENEMY_SEARCH_INTERVAL)
+            {
+                OurUnit closestPlayerUnit = FindClosestPlayerUnit();
+                
+                if (closestPlayerUnit != null)
+                {
+                    // Check if target is within spawn radius
+                    float targetDistance = Vector2.Distance(transform.position, closestPlayerUnit.transform.position);
+                    float targetDistanceFromSpawn = Vector2.Distance(closestPlayerUnit.transform.position, spawnPoint);
+                    
+                    // Only attack if target is within spawn radius
+                    if (targetDistanceFromSpawn <= spawnRadius)
+                    {
+                        // If we don't have a target or found a closer one, attack it
+                        if (currentTarget == null || 
+                            targetDistance < 
+                            Vector2.Distance(transform.position, currentTarget.transform.position) - 0.5f)
+                        {
+                            Attack(closestPlayerUnit.gameObject);
+                        }
+                    }
+                    else if (currentTarget != null)
+                    {
+                        // Target left spawn radius, stop attacking
+                        StopAttack();
+                    }
+                }
+                
+                lastEnemySearchTime = Time.time;
+            }
+            
+            yield return null;
+        }
+    }
+
+    private OurUnit FindClosestPlayerUnit()
+    {
+        OurUnit closestUnit = null;
+        float closestDistance = enemyDetectionRange;
+        
+        // Search through all game objects with OurUnit component
+        OurUnit[] allUnits = FindObjectsOfType<OurUnit>();
+        
+        foreach (OurUnit unit in allUnits)
+        {
+            // Skip if unit is dead, is an enemy, or is this unit
+            if (unit == null || unit.status == Utility.UnitStatus.Dead || 
+                unit.GetComponent<StatsManager>().owner == "Enemy" || 
+                unit == this)
+                continue;
+            
+            float distance = Vector2.Distance(transform.position, unit.transform.position);
+            
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestUnit = unit;
+            }
+        }
+        
+        return closestUnit;
     }
 }
